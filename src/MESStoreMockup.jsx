@@ -2,17 +2,15 @@
 import { useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-
+import CatalogPage from "./pages/CatalogPage";
 import SearchResultsPage from "./pages/SearchResultsPage";
 import Footer from "./components/layout/Footer";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import PageTransition from "./components/layout/PageTransition";
-
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import CategoryPage from "./pages/CategoryPage";
 import HomePage from "./pages/HomePage";
-
 import MiniCartFloating from "./components/ui/MiniCartFloating";
 
 // =====================================
@@ -104,6 +102,18 @@ function MESStoreMockup() {
                 </PageTransition>
               }
             />
+{/* CATÁLOGO GENERAL (TODOS LOS PRODUCTOS) */}
+<Route
+  path="/catalogo"
+  element={
+    <PageTransition>
+      <CatalogPage
+        cartCount={cartCount}
+        onAddToCart={handleAddToCart}
+      />
+    </PageTransition>
+  }
+/>
 
             {/* CATEGORÍA */}
             <Route

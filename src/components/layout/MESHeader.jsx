@@ -12,6 +12,7 @@ import { PRODUCTS_BY_CATEGORY } from "../../data/products";
 
 
 export default function MESHeader({ cartCount = 0, openMiniCart }) {
+  const [openMobileSearch, setOpenMobileSearch] = useState(false);
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [currentHash, setCurrentHash] = useState(
@@ -174,171 +175,138 @@ const handleCartClick = () => {
             </Link>
 
             {/* NAV DESKTOP */}
-            <nav className="hidden md:flex items-center gap-6" role="menubar">
-              {nav.map((item) => {
-                const isOpen = openDropdown === item.label;
-                const hasChildren = !!item.children?.length;
+<nav className="hidden md:flex items-center gap-6" role="menubar">
+  {nav.map((item) => {
+    const isTopActive = currentHash === item.href;
 
-                const childActive =
-                  hasChildren &&
-                  item.children.some((sub) => sub.href === currentHash);
-
-                const isTopActive =
-                  currentHash === item.href || childActive;
-
-                return (
-                  <div
-                    key={item.label}
-                    className="relative pt-2"
-                    onMouseEnter={() => hasChildren && setOpenDropdown(item.label)}
-                    onMouseLeave={() => hasChildren && setOpenDropdown(null)}
-                  >
-                    <button
-                      role="menuitem"
-                      aria-haspopup={hasChildren ? "menu" : undefined}
-                      aria-expanded={isOpen}
-                      onClick={() =>
-                        hasChildren
-                          ? setOpenDropdown(isOpen ? null : item.label)
-                          : item.href === "#contacto"
-                          ? setOpenContact(true)
-                          : item.href === "#nosotros"
-                          ? setOpenAbout(true)
-                          : (window.location.hash = item.href)
-                      }
-                      onKeyDown={(e) => onMenubarKeyDown(e, item)}
-                      className={`text-sm font-medium cursor-pointer ${
-
-                        isTopActive
-                          ? "text-slate-900 font-semibold"
-                          : "text-slate-700 hover:text-slate-900"
-                      }`}
-                    >
-                      {item.label}
-                    </button>
-
-                    {/* SUBMENÚ */}
-                    {hasChildren && (
-                      <div
-                        role="menu"
-                        onKeyDown={onMenuKeyDown}
-                        className={`absolute left-0 top-full z-50 w-72 bg-white shadow-lg border border-slate-200 border-t-4 rounded-lg transition
-                          ${
-                            isOpen
-                              ? "opacity-100 translate-y-0 visible"
-                              : "opacity-0 -translate-y-1 invisible"
-                          }`}
-                        style={{ borderTopColor: "#208790" }}
-                      >
-                        <ul className="py-2 max-h-[70vh] overflow-auto">
-                          {item.children.map((sub, i) => {
-                            const isActive = currentHash === sub.href;
-                            const catSlug = hrefToSlug(sub.href);
-                            return (
-                              <li key={sub.href}>
-<a
-  ref={i === 0 ? firstItemRef : null}
-  role="menuitem"
-  tabIndex={-1}
-  className={`cursor-pointer block px-4 py-2 text-sm ${
-
-                                    isActive
-                                      ? "bg-slate-100 font-semibold"
-                                      : "text-slate-700 hover:bg-slate-100"
-                                  }`}
-                                  href={sub.href}
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    setOpenDropdown(null);
-                                    navigate(`/categoria/${catSlug}`);
-                                  }}
-                                >
-                                  {sub.label}
-                                </a>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-
-{/* 🔍 BUSCADOR DESKTOP + AUTOCOMPLETE */}
-<div className="relative hidden lg:block ml-6">
-  <form onSubmit={handleSearch}>
-    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-    <input
-      type="text"
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-      placeholder="Buscar productos…"
-      className="w-64 rounded-full border border-slate-300 pl-9 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#208790]"
-    />
-  </form>
-
-  {/* DROPDOWN RESULTADOS */}
-  {searchResults.length > 0 && (
-    <div className="absolute z-50 mt-2 w-full rounded-xl border border-slate-200 bg-white shadow-xl overflow-hidden">
-      {searchResults.map((p) => (
+    return (
+      <div key={item.label} className="relative pt-2">
         <button
-          key={p.id}
-          type="button"
+          role="menuitem"
+          className={`text-sm font-medium cursor-pointer ${
+            isTopActive
+              ? "text-slate-900 font-semibold"
+              : "text-slate-700 hover:text-slate-900"
+          }`}
           onClick={() => {
-            navigate(`/producto/${p.id}`);
-            setSearch("");
+            // 🔥 PRODUCTOS → CATÁLOGO (sin dropdown)
+            if (item.label === "Productos") {
+              navigate("/catalogo");
+              return;
+            }
+
+            // 👥 NOSOTROS
+            if (item.href === "#nosotros") {
+              setOpenAbout(true);
+              return;
+            }
+
+            // 📩 CONTACTO
+            if (item.href === "#contacto") {
+              setOpenContact(true);
+              return;
+            }
+
+            // 🔗 HASH NORMAL
+            if (item.href) {
+              window.location.hash = item.href;
+            }
           }}
-          className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 text-left w-full"
         >
-          <img
-            src={p.image || "/images/placeholder.jpg"}
-            alt={p.name}
-            className="h-10 w-10 rounded-md object-contain bg-slate-100 shrink-0"
-          />
-          <span className="text-sm text-slate-800 truncate">
-            {p.name}
-          </span>
+          {item.label}
         </button>
-      ))}
-    </div>
-  )}
+      </div>
+    );
+  })}
+
+  {/* 🔍 BUSCADOR DESKTOP + AUTOCOMPLETE */}
+  <div className="relative hidden lg:block ml-6">
+    <form onSubmit={handleSearch}>
+      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+      <input
+        type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Buscar productos…"
+        className="w-64 rounded-full border border-slate-300 pl-9 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#208790]"
+      />
+    </form>
+
+    {searchResults.length > 0 && (
+      <div className="absolute z-50 mt-2 w-full rounded-xl border border-slate-200 bg-white shadow-xl overflow-hidden">
+        {searchResults.map((p) => (
+          <button
+            key={p.id}
+            type="button"
+            onClick={() => {
+              navigate(`/producto/${p.id}`);
+              setSearch("");
+            }}
+            className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 text-left w-full"
+          >
+            <img
+              src={p.image || "/images/placeholder.jpg"}
+              alt={p.name}
+              className="h-10 w-10 rounded-md object-contain bg-slate-100 shrink-0"
+            />
+            <span className="text-sm text-slate-800 truncate">
+              {p.name}
+            </span>
+          </button>
+        ))}
+      </div>
+    )}
+  </div>
+
+  {/* WHATSAPP */}
+  <a
+    href={WSP_LINK}
+    target="_blank"
+    rel="noreferrer"
+    className="inline-flex items-center justify-center rounded-full p-2 shadow hover:bg-slate-100 cursor-pointer"
+  >
+    <img src="/images/whatsapp-icon.png" className="h-6 w-6" alt="" />
+  </a>
+
+  {/* CARRITO */}
+  <button
+    type="button"
+    onClick={handleCartClick}
+    className="cursor-pointer inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm hover:bg-slate-50"
+  >
+    🛒
+    {cartCount > 0 && (
+      <span className="ml-1 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-[#208790] px-1 text-xs font-semibold text-white">
+        {cartCount}
+      </span>
+    )}
+  </button>
+</nav>
+
+
+            {/* ACCIONES MOBILE */}
+<div className="md:hidden flex items-center gap-2">
+  {/* 🔍 LUPA */}
+  <button
+    type="button"
+    onClick={() => setOpenMobileSearch(true)}
+    className="p-2 rounded-xl hover:bg-slate-100"
+    aria-label="Buscar"
+  >
+    <Search className="h-5 w-5 text-slate-700" />
+  </button>
+
+  {/* ☰ MENÚ */}
+  <button
+    type="button"
+    className="p-2 rounded-xl hover:bg-slate-100"
+    onClick={() => setOpen((v) => !v)}
+    aria-label="Menú"
+  >
+    {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+  </button>
 </div>
 
-
-              {/* WHATSAPP */}
-              <a
-                href={WSP_LINK}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full p-2 shadow hover:bg-slate-100 cursor-pointer"
-              >
-                <img src="/images/whatsapp-icon.png" className="h-6 w-6" alt="" />
-              </a>
-
-              {/* CARRITO — ahora botón que abre MiniCart */}
-              <button
-              type="button"
-              onClick={handleCartClick}
-              className="cursor-pointer inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm hover:bg-slate-50"
->
-
-                🛒
-                {cartCount > 0 && (
-                  <span className="ml-1 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-[#208790] px-1 text-xs font-semibold text-white">
-                    {cartCount}
-                  </span>
-                )}
-              </button>
-            </nav>
-
-            {/* MENÚ MOBILE */}
-            <button
-            className="md:hidden p-2 rounded-xl hover:bg-slate-100 cursor-pointer"
-              onClick={() => setOpen((v) => !v)}
-            >
-              {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
           </div>
         </div>
 
@@ -346,54 +314,65 @@ const handleCartClick = () => {
         {open && (
           <div className="md:hidden border-t border-slate-200">
             <nav className="grid gap-2 px-4 py-3">
-              {nav.map((item) => {
-                const hasChildren = !!item.children?.length;
-                const isOpen = openDropdown === item.label;
+                {/* 🔍 BUSCADOR MOBILE */}
+  <form
+    onSubmit={(e) => {
+      e.preventDefault();
+      if (!search.trim()) return;
+      setOpen(false);
+      navigate(`/buscar?q=${encodeURIComponent(search.trim())}`);
+      setSearch("");
+    }}
+    className="mb-2"
+  >
+    <div className="relative">
+      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+      <input
+        type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Buscar productos…"
+        className="w-full rounded-full border border-slate-300 pl-9 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#208790]"
+      />
+    </div>
+  </form>
+             {nav.map((item) => (
+  <div key={item.label}>
+    <button
+      className="w-full text-left rounded-xl px-3 py-2 text-sm hover:bg-slate-100 cursor-pointer"
+      onClick={() => {
+        // 🔥 PRODUCTOS → CATALOGO (SIN DROPDOWN)
+        if (item.label === "Productos") {
+          setOpen(false);
+          navigate("/catalogo");
+          return;
+        }
 
-                return (
-                  <div key={item.label}>
-                    <button
-                      className="w-full text-left rounded-xl px-3 py-2 text-sm hover:bg-slate-100 cursor-pointer"
-                      onClick={() =>
-                        hasChildren
-                          ? setOpenDropdown(isOpen ? null : item.label)
-                          : item.href === "#contacto"
-                          ? (setOpen(false), setOpenContact(true))
-                          : item.href === "#nosotros"
-                          ? (setOpen(false), setOpenAbout(true))
-                          : (setOpen(false), (window.location.hash = item.href))
-                      }
-                    >
-                      {item.label}
-                    </button>
+        // 📩 CONTACTO
+        if (item.href === "#contacto") {
+          setOpen(false);
+          setOpenContact(true);
+          return;
+        }
 
-                    {/* SUBMENÚ MOBILE */}
-                    {hasChildren && isOpen && (
-                      <div
-                        className="ml-4 mt-1 grid gap-1 border-l-4"
-                        style={{ borderLeftColor: "#208790" }}
-                      >
-                        {item.children.map((sub) => {
-                          const catSlug = hrefToSlug(sub.href);
-                          return (
-                            <a
-                            key={sub.href}
-                            className="cursor-pointer px-3 py-1 text-sm text-slate-600 hover:text-slate-900"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                setOpen(false);
-                                navigate(`/categoria/${catSlug}`);
-                              }}
-                            >
-                              {sub.label}
-                            </a>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+        // 👥 NOSOTROS
+        if (item.href === "#nosotros") {
+          setOpen(false);
+          setOpenAbout(true);
+          return;
+        }
+
+        // 🔗 LINKS NORMALES
+        if (item.href) {
+          setOpen(false);
+          window.location.hash = item.href;
+        }
+      }}
+    >
+      {item.label}
+    </button>
+  </div>
+))}
 
               {/* CTA WhatsApp MOBILE */}
               <a
@@ -425,6 +404,83 @@ const handleCartClick = () => {
           </div>
         )}
       </header>
+
+      {/* 🔍 OVERLAY BUSCADOR MOBILE */}
+<AnimatePresence>
+  {openMobileSearch && (
+    <motion.div
+      className="fixed inset-0 z-[70] bg-black/40"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {/* CLICK FUERA */}
+      <div
+        className="absolute inset-0"
+        onClick={() => setOpenMobileSearch(false)}
+      />
+
+      {/* PANEL */}
+      <motion.div
+        className="absolute top-0 left-0 right-0 bg-white rounded-b-2xl shadow-xl p-4"
+        initial={{ y: -40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -40, opacity: 0 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+      >
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (!search.trim()) return;
+            setOpenMobileSearch(false);
+            navigate(`/buscar?q=${encodeURIComponent(search.trim())}`);
+            setSearch("");
+          }}
+        >
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <input
+              autoFocus
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Buscar productos…"
+              className="w-full rounded-full border border-slate-300 pl-9 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#208790]"
+            />
+          </div>
+        </form>
+
+        {/* AUTOCOMPLETE */}
+        {searchResults.length > 0 && (
+          <div className="mt-3 divide-y rounded-xl border border-slate-200 overflow-hidden">
+            {searchResults.map((p) => (
+              <button
+                key={p.id}
+                type="button"
+                onClick={() => {
+                  setOpenMobileSearch(false);
+                  navigate(`/producto/${p.id}`);
+                  setSearch("");
+                }}
+                className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-slate-50"
+              >
+                <img
+                  src={p.image || "/images/placeholder.jpg"}
+                  alt={p.name}
+                  className="h-10 w-10 rounded-md object-contain bg-slate-100"
+                />
+                <span className="text-sm text-slate-800 truncate">
+                  {p.name}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
 
 {/* PANEL NOSOTROS */}
 <AnimatePresence>
