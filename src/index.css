@@ -8,3 +8,13 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px; 
 }
+
+body {
+  background-color: #ffffff;
+  color: #0f172a; /* slate-900 */
+}
+
+#root {
+  min-height: 100vh;
+  background-color: #ffffff;
+}

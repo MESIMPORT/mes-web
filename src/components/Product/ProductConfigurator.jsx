@@ -162,6 +162,8 @@ export default function ProductConfigurator({ product, onAddToCart }) {
   const [selAttrs, setSelAttrs] = useState({});
   // Selección para variantes SIMPLES (dropdown)
   const [selectedVariantKey, setSelectedVariantKey] = useState("");
+    const [justAdded, setJustAdded] = useState(false);
+
 
   // Reset de selección cuando cambia de producto
   useEffect(() => {
@@ -254,6 +256,9 @@ export default function ProductConfigurator({ product, onAddToCart }) {
 
   const handleAdd = () => {
   if (!canAdd) return;
+    setJustAdded(true);
+  window.setTimeout(() => setJustAdded(false), 1800);
+
 
   // --- FRASCOS ---
   if (isFrascoMode && chosenFrasco) {
@@ -419,26 +424,24 @@ export default function ProductConfigurator({ product, onAddToCart }) {
           </div>
         )}
 
-        <div className="pt-2 flex items-center gap-3">
-          <button
-            onClick={handleAdd}
-            disabled={!canAdd}
-            className={
-              "px-4 py-2 rounded-xl text-white font-medium " +
-              (canAdd
-                ? "bg-emerald-600 hover:bg-emerald-700"
-                : "bg-gray-300 cursor-not-allowed")
-            }
-          >
-            {addButtonLabel}
-          </button>
+<div className="pt-2">
+<button
+  type="button"
+  onClick={handleAdd}
+  disabled={!canAdd || justAdded}
+  className={
+    "w-full px-4 py-2 rounded-xl text-white font-medium transition-all duration-300 " +
+    (justAdded
+      ? "bg-emerald-700 scale-[0.98]"
+      : canAdd
+      ? "bg-emerald-600 hover:bg-emerald-700"
+      : "bg-gray-300 cursor-not-allowed")
+  }
+>
+  {justAdded ? "Agregado ✓" : addButtonLabel}
+</button>
 
-          {activeVariant && (
-            <span className="text-sm opacity-70">
-              Stock: {activeVariant.stock ?? "-"}
-            </span>
-          )}
-        </div>
+</div>
       </div>
     </div>
   );

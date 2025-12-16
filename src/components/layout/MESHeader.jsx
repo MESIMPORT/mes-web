@@ -5,6 +5,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Search } from "lucide-react";
+import { PRODUCTS_BY_CATEGORY } from "../../data/products";
+
+
 
 export default function MESHeader({ cartCount = 0, openMiniCart }) {
   const [open, setOpen] = useState(false);
@@ -16,6 +21,36 @@ export default function MESHeader({ cartCount = 0, openMiniCart }) {
   const firstItemRef = useRef(null);
   const nameInputRef = useRef(null);
   const navigate = useNavigate();
+  const [search, setSearch] = useState("");
+
+  // ===============================
+// DATA DE BÚSQUEDA (AUTOCOMPLETE)
+// ===============================
+const allProducts = React.useMemo(() => {
+  return Object.values(PRODUCTS_BY_CATEGORY).flat();
+}, []);
+
+const searchResults = React.useMemo(() => {
+  if (!search.trim()) return [];
+
+  const q = search.toLowerCase();
+
+  return allProducts
+    .filter((p) =>
+      p.name?.toLowerCase().includes(q) ||
+      p.description?.toLowerCase().includes(q)
+    )
+    .slice(0, 6); // máx 6 resultados
+}, [search, allProducts]);
+
+
+  const handleSearch = (e) => {
+  e.preventDefault();
+  if (!search.trim()) return;
+
+  navigate(`/buscar?q=${encodeURIComponent(search.trim())}`);
+  setSearch("");
+};
 
   // Paneles (Contacto / Nosotros)
   const [openContact, setOpenContact] = useState(false);
@@ -230,6 +265,47 @@ const handleCartClick = () => {
                 );
               })}
 
+{/* 🔍 BUSCADOR DESKTOP + AUTOCOMPLETE */}
+<div className="relative hidden lg:block ml-6">
+  <form onSubmit={handleSearch}>
+    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+    <input
+      type="text"
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+      placeholder="Buscar productos…"
+      className="w-64 rounded-full border border-slate-300 pl-9 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#208790]"
+    />
+  </form>
+
+  {/* DROPDOWN RESULTADOS */}
+  {searchResults.length > 0 && (
+    <div className="absolute z-50 mt-2 w-full rounded-xl border border-slate-200 bg-white shadow-xl overflow-hidden">
+      {searchResults.map((p) => (
+        <button
+          key={p.id}
+          type="button"
+          onClick={() => {
+            navigate(`/producto/${p.id}`);
+            setSearch("");
+          }}
+          className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 text-left w-full"
+        >
+          <img
+            src={p.image || "/images/placeholder.jpg"}
+            alt={p.name}
+            className="h-10 w-10 rounded-md object-contain bg-slate-100 shrink-0"
+          />
+          <span className="text-sm text-slate-800 truncate">
+            {p.name}
+          </span>
+        </button>
+      ))}
+    </div>
+  )}
+</div>
+
+
               {/* WHATSAPP */}
               <a
                 href={WSP_LINK}
@@ -351,223 +427,310 @@ const handleCartClick = () => {
       </header>
 
 {/* PANEL NOSOTROS */}
-{openAbout && (
-  <div className="fixed inset-0 z-[60]" role="dialog" aria-modal="true" aria-labelledby="about-title">
-    <div className="absolute inset-0 bg-black/50" onClick={() => setOpenAbout(false)} />
+<AnimatePresence>
+  {openAbout && (
+    <motion.div
+      className="fixed inset-0 z-[60]"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="about-title"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {/* BACKDROP */}
+      <motion.div
+        className="absolute inset-0 bg-black/50"
+        onClick={() => setOpenAbout(false)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      />
 
-    <div className="absolute inset-y-0 right-0 w-full md:w-[960px] bg-white shadow-2xl overflow-hidden">
+      {/* PANEL */}
+      <motion.div
+        className="absolute inset-y-0 right-0 w-full md:w-[960px] bg-white shadow-2xl overflow-hidden"
+        initial={{ x: 80, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: 80, opacity: 0 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+      >
+        {/* HEADER DEL PANEL */}
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-slate-200">
+          <h2 id="about-title" className="text-base font-semibold text-slate-900">
+            Nosotros
+          </h2>
+          <button
+            onClick={() => setOpenAbout(false)}
+            className="rounded-lg p-2 text-slate-600 hover:bg-slate-100"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
 
-      {/* HEADER DEL PANEL */}
-      <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-slate-200">
-        <h2 id="about-title" className="text-base font-semibold text-slate-900">Nosotros</h2>
-        <button
-          onClick={() => setOpenAbout(false)}
-          className="rounded-lg p-2 text-slate-600 hover:bg-slate-100"
-        >
-          <X className="h-5 w-5" />
-        </button>
-      </div>
-
-      {/* CUERPO DEL PANEL */}
-      <div className="grid grid-cols-1 md:grid-cols-2 h-[calc(100%-56px)]">
-
-        {/* ASIDE IZQUIERDO */}
-        <aside className="hidden md:flex flex-col justify-start gap-4 px-8 py-6 bg-slate-50 border-r border-slate-200">
-          <div className="flex items-center gap-3">
-            <img src="/images/logo.png" alt="MES Logo" className="h-20 w-auto" />
-            <p className="text-xl text-slate-600 font-bold">
-              Medical Equipment & Supplies
-            </p>
-          </div>
-
-          <p className="text-slate-700">
-            Con más de 5 años de experiencia en el mercado, brindamos soluciones médicas
-            confiables a clínicas, hospitales y universidades en todo el país.
-            Contamos con licencia de funcionamiento vigente y autorización DIGEMID.
-          </p>
-
-          <ul className="text-sm text-slate-700 list-disc pl-5">
-            <li>Garantizamos tus atenciones</li>
-            <li>Traducimos tus necesidades</li>
-            <li>Optimizamos tus recursos</li>
-          </ul>
-        </aside>
-
-        {/* CONTENIDO DERECHO */}
-        <section className="overflow-auto px-6 sm:px-8 py-6 space-y-6">
-
-          <div>
-            <h3 className="text-sm font-semibold text-slate-900">Misión</h3>
-            <p className="text-sm text-slate-700">
-              Brindar equipamiento clínico con altos estándares de servicio.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-slate-900">Visión</h3>
-            <p className="text-sm text-slate-700">
-              Ser el socio estratégico más confiable del sector salud.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-slate-900">Valores</h3>
-            <p className="text-sm text-slate-700">
-              Transparencia · Compromiso · Innovación · Servicio al cliente.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-slate-900">Nuestros clientes</h3>
-            <div className="mt-3 grid grid-cols-3 gap-4 items-center">
-              <img src="/images/clientes/angloamericana.png" className="h-20 opacity-90" alt="" />
-              <img src="/images/clientes/san-pablo.png" className="h-20 opacity-90" alt="" />
-              <img src="/images/clientes/ucv.png" className="h-20 opacity-90" alt="" />
+        {/* CUERPO DEL PANEL */}
+        <div className="grid grid-cols-1 md:grid-cols-2 h-[calc(100%-56px)]">
+          {/* ASIDE IZQUIERDO */}
+          <aside className="hidden md:flex flex-col justify-start gap-4 px-8 py-6 bg-slate-50 border-r border-slate-200">
+            <div className="flex items-center gap-3">
+              <img
+                src="/images/logo.png"
+                alt="MES Logo"
+                className="h-20 w-auto"
+              />
+              <p className="text-xl text-slate-600 font-bold">
+                Medical Equipment & Supplies
+              </p>
             </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
-)}
+
+            <p className="text-slate-700">
+              Con más de 5 años de experiencia en el mercado, brindamos
+              soluciones médicas confiables a clínicas, hospitales y
+              universidades en todo el país. Contamos con licencia de
+              funcionamiento vigente y autorización DIGEMID.
+            </p>
+
+            <ul className="text-sm text-slate-700 list-disc pl-5">
+              <li>Garantizamos tus atenciones</li>
+              <li>Traducimos tus necesidades</li>
+              <li>Optimizamos tus recursos</li>
+            </ul>
+          </aside>
+
+          {/* CONTENIDO DERECHO */}
+          <section className="overflow-auto px-6 sm:px-8 py-6 space-y-6">
+            <div>
+              <h3 className="text-sm font-semibold text-slate-900">
+                Misión
+              </h3>
+              <p className="text-sm text-slate-700">
+                Brindar equipamiento clínico con altos estándares de
+                servicio.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold text-slate-900">
+                Visión
+              </h3>
+              <p className="text-sm text-slate-700">
+                Ser el socio estratégico más confiable del sector salud.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold text-slate-900">
+                Valores
+              </h3>
+              <p className="text-sm text-slate-700">
+                Transparencia · Compromiso · Innovación · Servicio al
+                cliente.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold text-slate-900">
+                Nuestros clientes
+              </h3>
+              <div className="mt-3 grid grid-cols-3 gap-4 items-center">
+                <img
+                  src="/images/clientes/angloamericana.png"
+                  className="h-20 opacity-90"
+                  alt=""
+                />
+                <img
+                  src="/images/clientes/san-pablo.png"
+                  className="h-20 opacity-90"
+                  alt=""
+                />
+                <img
+                  src="/images/clientes/ucv.png"
+                  className="h-20 opacity-90"
+                  alt=""
+                />
+              </div>
+            </div>
+          </section>
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
 
 {/* PANEL CONTACTO */}
-{openContact && (
-  <div
-    className="fixed inset-0 z-[60]"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="contacto-title"
-  >
-    <div
-      className="absolute inset-0 bg-black/50"
-      onClick={() => setOpenContact(false)}
-    />
+<AnimatePresence>
+  {openContact && (
+    <motion.div
+      className="fixed inset-0 z-[60]"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contacto-title"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {/* BACKDROP */}
+      <motion.div
+        className="absolute inset-0 bg-black/50"
+        onClick={() => setOpenContact(false)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      />
 
-    <div className="absolute inset-y-0 right-0 w-full md:w-[900px] bg-white shadow-2xl overflow-hidden">
-
-      {/* HEADER */}
-      <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-slate-200">
-        <h2 id="contacto-title" className="text-base font-semibold text-slate-900">
-          Contáctanos
-        </h2>
-
-        <button
-          onClick={() => setOpenContact(false)}
-          className="rounded-lg p-2 text-slate-600 hover:bg-slate-100"
-        >
-          <X className="h-5 w-5" />
-        </button>
-      </div>
-
-      {/* CUERPO */}
-      <div className="grid grid-cols-1 md:grid-cols-2 h-[calc(100%-56px)]">
-
-        {/* ASIDE IZQUIERDO */}
-        <aside className="hidden md:flex flex-col justify-start px-8 pt-6 bg-slate-50 border-r border-slate-200">
-          <h3 className="text-2xl font-bold text-slate-900 mb-6">
-            Fortalece tu gestión con una respuesta rápida y confiable
-          </h3>
-
-<p className="text-base text-slate-700 mb-8">
-  <span className="font-semibold">Horario de atención</span><br />
-  Lunes a Viernes: 9:00 a.m. – 6:00 p.m.<br />
-  Sábados: 9:00 a.m. – 1:00 p.m.<br />
-  <span className="text-slate-500">Domingos y feriados: Cerrado</span>
-</p>
-
-
-          <div className="w-full h-64 rounded-lg overflow-hidden border border-slate-300 shadow-sm">
-<iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.7101400419944!2d-77.06175482504682!3d-12.05495133810202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8f4538f41ad%3A0xa4b9dfb32e!2sAv.%20Oscar%20R.%20Benavides%20679%2C%20Lima!5e0!3m2!1ses!2spe!4v1700000000000"
-  width="100%"
-  height="100%"
-  style={{ border: 0 }}
-  loading="lazy"
-  allowFullScreen=""
-  referrerPolicy="no-referrer-when-downgrade"
-/>
-          </div>
-        </aside>
-
-        {/* FORMULARIO */}
-        <section className="overflow-auto p-6 sm:p-8">
-          <form
-            className="grid gap-4"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("¡Gracias! Tu mensaje fue enviado.");
-              setOpenContact(false);
-            }}
+      {/* PANEL */}
+      <motion.div
+        className="absolute inset-y-0 right-0 w-full md:w-[900px] bg-white shadow-2xl overflow-hidden"
+        initial={{ x: 80, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: 80, opacity: 0 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+      >
+        {/* HEADER */}
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-slate-200">
+          <h2
+            id="contacto-title"
+            className="text-base font-semibold text-slate-900"
           >
+            Contáctanos
+          </h2>
 
-            <div>
-              <label className="block text-sm font-medium text-slate-700">Nombre</label>
-              <input
-                ref={nameInputRef}
-                name="nombre"
-                required
-                className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
-                placeholder="Tu nombre completo"
+          <button
+            onClick={() => setOpenContact(false)}
+            className="rounded-lg p-2 text-slate-600 hover:bg-slate-100"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* CUERPO */}
+        <div className="grid grid-cols-1 md:grid-cols-2 h-[calc(100%-56px)]">
+          {/* ASIDE IZQUIERDO */}
+          <aside className="hidden md:flex flex-col justify-start px-8 pt-6 bg-slate-50 border-r border-slate-200">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6">
+              Fortalece tu gestión con una respuesta rápida y confiable
+            </h3>
+
+            <p className="text-base text-slate-700 mb-8">
+              <span className="font-semibold">Horario de atención</span>
+              <br />
+              Lunes a Viernes: 9:00 a.m. – 6:00 p.m.
+              <br />
+              Sábados: 9:00 a.m. – 1:00 p.m.
+              <br />
+              <span className="text-slate-500">
+                Domingos y feriados: Cerrado
+              </span>
+
+              <br />
+              <br />
+
+              <span className="font-semibold">Teléfonos</span>
+              <br />
+              <span className="text-slate-600">
+                944&nbsp;638&nbsp;288 &nbsp;|&nbsp; 953&nbsp;691&nbsp;257
+              </span>
+            </p>
+
+            <div className="w-full h-64 rounded-lg overflow-hidden border border-slate-300 shadow-sm">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.7101400419944!2d-77.06175482504682!3d-12.05495133810202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8f4538f41ad%3A0xa4b9dfb32e!2sAv.%20Oscar%20R.%20Benavides%20679%2C%20Lima!5e0!3m2!1ses!2spe!4v1700000000000"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
+          </aside>
 
-            <div>
-              <label className="block text-sm font-medium text-slate-700">Celular</label>
-              <input
-                name="celular"
-                required
-                className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
-                placeholder="Ej. 944 638 288"
-              />
-            </div>
+          {/* FORMULARIO */}
+          <section className="overflow-auto p-6 sm:p-8">
+            <form
+              className="grid gap-4"
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert("¡Gracias! Tu mensaje fue enviado.");
+                setOpenContact(false);
+              }}
+            >
+              <div>
+                <label className="block text-sm font-medium text-slate-700">
+                  Nombre
+                </label>
+                <input
+                  ref={nameInputRef}
+                  name="nombre"
+                  required
+                  className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                  placeholder="Tu nombre completo"
+                />
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-slate-700">Email</label>
-              <input
-                type="email"
-                name="email"
-                required
-                className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
-                placeholder="tu@correo.com"
-              />
-            </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-700">
+                  Celular
+                </label>
+                <input
+                  name="celular"
+                  required
+                  className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                  placeholder="Ej. 944 638 288"
+                />
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-slate-700">Mensaje</label>
-              <textarea
-                rows={5}
-                name="mensaje"
-                required
-                className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
-                placeholder="Cuéntanos qué necesitas…"
-              ></textarea>
-            </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-700">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                  placeholder="tu@correo.com"
+                />
+              </div>
 
-            <div className="mt-2 flex items-center gap-3">
-              <button
-                type="submit"
-                className="rounded-xl px-4 py-2 text-sm font-semibold text-white shadow"
-                style={{ backgroundColor: "#208790" }}
-              >
-                Enviar
-              </button>
+              <div>
+                <label className="block text-sm font-medium text-slate-700">
+                  Mensaje
+                </label>
+                <textarea
+                  rows={5}
+                  name="mensaje"
+                  required
+                  className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+                  placeholder="Cuéntanos qué necesitas…"
+                />
+              </div>
 
-              <button
-                type="button"
-                onClick={() => setOpenContact(false)}
-                className="rounded-xl px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
-              >
-                Cancelar
-              </button>
-            </div>
-          </form>
-        </section>
+              <div className="mt-2 flex items-center gap-3">
+                <button
+                  type="submit"
+                  className="rounded-xl px-4 py-2 text-sm font-semibold text-white shadow"
+                  style={{ backgroundColor: "#208790" }}
+                >
+                  Enviar
+                </button>
 
-      </div>
-    </div>
-  </div>
-)}
+                <button
+                  type="button"
+                  onClick={() => setOpenContact(false)}
+                  className="rounded-xl px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                >
+                  Cancelar
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
     </>
   );
 }

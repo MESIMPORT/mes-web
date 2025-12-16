@@ -10,6 +10,8 @@ export default function CategoryPage({ cartCount, onAddToCart, openMiniCart }) {
 
   const label = CATEGORY_LABELS[slug];
   const products = PRODUCTS_BY_CATEGORY[slug] || [];
+  const [justAddedId, setJustAddedId] = React.useState(null);
+
 
   /* ================================
       CATEGORÍA NO ENCONTRADA
@@ -160,25 +162,40 @@ export default function CategoryPage({ cartCount, onAddToCart, openMiniCart }) {
                     ) : (
                       /* SIN VARIANTES → AGREGAR DIRECTO */
                       <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onAddToCart({
-                            id: p.id,
-                            name: p.name,
-                            price: rawPrice,
-                            image: p.image,
-                            quantity: 1,
-                            variantLabel: null,
-                          });
-                          // opcional: abrir minicart
-                          openMiniCart?.();
-                        }}
-                        className="inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium text-white cursor-pointer"
-                        style={{ backgroundColor: "#245877" }}
-                      >
-                        Agregar al carrito
-                      </button>
+  type="button"
+  disabled={justAddedId === p.id}
+  onClick={(e) => {
+    e.stopPropagation();
+
+    setJustAddedId(p.id);
+    setTimeout(() => setJustAddedId(null), 1500);
+
+    onAddToCart({
+      id: p.id,
+      name: p.name,
+      price: rawPrice,
+      image: p.image,
+      quantity: 1,
+      variantLabel: null,
+    });
+
+    openMiniCart?.();
+  }}
+  className={
+    "inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium text-white transition-all duration-300 " +
+    (justAddedId === p.id
+      ? "bg-emerald-700 scale-[0.96]"
+      : "cursor-pointer")
+  }
+  style={
+    justAddedId === p.id
+      ? undefined
+      : { backgroundColor: "#245877" }
+  }
+>
+  {justAddedId === p.id ? "Agregado ✓" : "Agregar al carrito"}
+</button>
+
                     )}
 
                   </div>

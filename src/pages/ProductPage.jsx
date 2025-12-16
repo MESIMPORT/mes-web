@@ -6,7 +6,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import MESHeader from "../components/layout/MESHeader";
-import Footer from "../components/layout/Footer";
 import ProductConfigurator from "../components/Product/ProductConfigurator";
 import { PRODUCTS_BY_CATEGORY } from "../data/products/index.js";
 
@@ -24,6 +23,7 @@ export default function ProductPage({ cartCount, onAddToCart }) {
     return (
       <>
         <MESHeader showHero={false} cartCount={cartCount} />
+
         <main className="max-w-5xl mx-auto p-6">
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-5">
             <h1 className="text-xl font-semibold text-amber-900">
@@ -34,7 +34,6 @@ export default function ProductPage({ cartCount, onAddToCart }) {
             </p>
           </div>
         </main>
-        <Footer />
       </>
     );
   }
@@ -49,8 +48,6 @@ export default function ProductPage({ cartCount, onAddToCart }) {
           onAddToCart={onAddToCart}
         />
       </main>
-
-      <Footer />
     </>
   );
 }

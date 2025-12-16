@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
+import SearchResultsPage from "./pages/SearchResultsPage";
 import Footer from "./components/layout/Footer";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import PageTransition from "./components/layout/PageTransition";
@@ -20,7 +21,9 @@ import MiniCartFloating from "./components/ui/MiniCartFloating";
 function MESStoreMockup() {
   const location = useLocation();
 
-  // Estado del carrito
+  // ==========================
+  // ESTADO DEL CARRITO
+  // ==========================
   const [cartItems, setCartItems] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("MES_CART")) || [];
@@ -29,8 +32,14 @@ function MESStoreMockup() {
     }
   });
 
-  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const cartCount = cartItems.reduce(
+    (acc, item) => acc + (item.quantity || 1),
+    0
+  );
 
+  // ==========================
+  // HANDLERS CARRITO
+  // ==========================
   const handleAddToCart = (product) => {
     setCartItems((prev) => {
       const exists = prev.find(
@@ -75,14 +84,18 @@ function MESStoreMockup() {
     });
   };
 
+  // ==========================
+  // RENDER
+  // ==========================
   return (
     <div className="min-h-screen flex flex-col">
       <ScrollToTop />
 
-      {/* ===== CONTENIDO PRINCIPAL CON TRANSICIÓN ===== */}
+      {/* ===== CONTENIDO PRINCIPAL CON TRANSICIONES ===== */}
       <div className="flex-1">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
+            {/* HOME */}
             <Route
               path="/"
               element={
@@ -92,6 +105,7 @@ function MESStoreMockup() {
               }
             />
 
+            {/* CATEGORÍA */}
             <Route
               path="/categoria/:slug"
               element={
@@ -104,18 +118,33 @@ function MESStoreMockup() {
               }
             />
 
+            {/* PRODUCTO */}
             <Route
               path="/producto/:id"
               element={
                 <PageTransition>
                   <ProductPage
-                    onAddToCart={handleAddToCart}
                     cartCount={cartCount}
+                    onAddToCart={handleAddToCart}
                   />
                 </PageTransition>
               }
             />
 
+            {/* 🔍 BUSCAR */}
+            <Route
+              path="/buscar"
+              element={
+                <PageTransition>
+                  <SearchResultsPage
+                    cartCount={cartCount}
+                    onAddToCart={handleAddToCart}
+                  />
+                </PageTransition>
+              }
+            />
+
+            {/* CARRITO */}
             <Route
               path="/carrito"
               element={
@@ -130,6 +159,7 @@ function MESStoreMockup() {
               }
             />
 
+            {/* 404 */}
             <Route
               path="*"
               element={
@@ -144,7 +174,7 @@ function MESStoreMockup() {
         </AnimatePresence>
       </div>
 
-      {/* MiniCart flotante */}
+      {/* ===== MINICART ===== */}
       <MiniCartFloating
         cartItems={cartItems}
         cartCount={cartCount}
@@ -152,7 +182,7 @@ function MESStoreMockup() {
         onRemoveFromCart={handleRemoveFromCart}
       />
 
-      {/* Footer */}
+      {/* ===== FOOTER ===== */}
       <Footer />
     </div>
   );
