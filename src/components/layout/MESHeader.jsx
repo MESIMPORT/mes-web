@@ -18,7 +18,7 @@ export default function MESHeader({ cartCount = 0 }) {
   const [open, setOpen] = useState(false);
   const isMobileOverlayOpen = open || openMobileSearch;
   const location = useLocation();
-const isPDP = location.pathname.startsWith("/producto/");
+
 
 
 
@@ -112,15 +112,7 @@ const handleCartClick = () => {
           <div className="flex h-16 items-center justify-between">
 
  <div className="flex items-center gap-3">
-  {isPDP && (
-    <button
-      onClick={() => navigate(-1)}
-      aria-label="Cerrar PDP"
-      className="mr-2 rounded-full border border-slate-300 bg-white p-2 text-slate-700 shadow hover:bg-slate-100"
-    >
-      ✕
-    </button>
-  )}
+
 
   <Link to="/" className="flex items-center gap-3 cursor-pointer">
     <img src="/images/logo.png" alt="MES" className="h-12 w-auto" />

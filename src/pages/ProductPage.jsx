@@ -4,7 +4,7 @@
 // ===============================
 
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import MESHeader from "../components/layout/MESHeader";
 import ProductConfigurator from "../components/Product/ProductConfigurator";
 import { PRODUCTS_BY_CATEGORY } from "../data/products/index.js";
@@ -14,6 +14,16 @@ const ALL_PRODUCTS = Object.values(PRODUCTS_BY_CATEGORY).flat();
 
 export default function ProductPage({ cartCount, onAddToCart }) {
   const { id } = useParams();
+  const navigate = useNavigate();
+
+const handleClose = () => {
+  if (window.history.length > 1) {
+    navigate(-1);
+  } else {
+    navigate("/", { replace: true });
+  }
+};
+
 
   // Buscar producto por ID
   const product = ALL_PRODUCTS.find((p) => String(p.id) === String(id));
@@ -42,20 +52,42 @@ export default function ProductPage({ cartCount, onAddToCart }) {
     <>
       <MESHeader showHero={false} cartCount={cartCount} />
 
-      <main className="relative">
-{/* Bandas laterales institucionales */}
-<div className="absolute top-0 left-0 hidden h-[120%] w-20 bg-[#208790] lg:block pointer-events-none" />
-<div className="absolute top-0 right-0 hidden h-[120%] w-20 bg-[#208790] lg:block pointer-events-none" />
+<main className="relative">
+  {/* Bandas laterales institucionales */}
+  <div className="absolute top-0 left-0 hidden h-[120%] w-20 bg-[#208790] lg:block pointer-events-none" />
+  <div className="absolute top-0 right-0 hidden h-[120%] w-20 bg-[#208790] lg:block pointer-events-none" />
 
+  {/* Contenedor PDP */}
+  <div className="relative mx-auto max-w-5xl p-6">
 
-        {/* Contenedor PDP */}
-        <div className="relative mx-auto max-w-5xl p-6">
-          <ProductConfigurator
-            product={product}
-            onAddToCart={onAddToCart}
-          />
-        </div>
-      </main>
+    <button
+      type="button"
+      onClick={handleClose}
+      aria-label="Cerrar PDP"
+      className="
+        absolute top-4 right-4
+        z-50
+        rounded-full
+        border border-slate-300
+        bg-white
+        px-3 py-1.5
+        text-sm font-medium
+        text-slate-700
+        shadow
+        hover:bg-slate-100
+      "
+    >
+      ✕ Cerrar
+    </button>
+
+    <ProductConfigurator
+      product={product}
+      onAddToCart={onAddToCart}
+    />
+
+  </div>
+</main>
+
     </>
   );
 }

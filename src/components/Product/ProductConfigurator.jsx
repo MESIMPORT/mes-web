@@ -125,7 +125,6 @@ function getVariantKey(v, index) {
 export default function ProductConfigurator({ product, onAddToCart }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const isPDP = location.pathname.startsWith("/producto/");
   const fallback = "/categoria/equipamiento-de-laboratorios-y-reactivos";
   const backTarget = location.state?.from || null;
 
@@ -448,28 +447,7 @@ const handleAdd = () => {
 
   return (
     <div className="relative w-full max-w-6xl mx-auto p-4">
-      {/* Botón cerrar (solo PDP) */}
-      {isPDP && (
-        <button
-          onClick={handleClose}
-          aria-label="Cerrar"
-          className="
-            absolute top-4 right-4
-            z-[100]
-            px-3 py-1.5
-            rounded-full
-            border border-slate-300
-            bg-white
-            shadow-sm
-            text-slate-700
-            hover:bg-slate-100
-            text-sm
-            font-medium
-          "
-        >
-          ✕ Cerrar
-        </button>
-      )}
+
 
       {/* GRID principal: miniaturas | imagen | info */}
       <div className="grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] gap-6 items-start">
