@@ -18,6 +18,8 @@ import MiniCartFloating from "./components/ui/MiniCartFloating";
 // =====================================
 function MESStoreMockup() {
   const location = useLocation();
+  const isProductPage = location.pathname.startsWith("/producto/");
+
 
   // ==========================
   // ESTADO DEL CARRITO
@@ -85,11 +87,22 @@ function MESStoreMockup() {
   // ==========================
   // RENDER
   // ==========================
-  return (
-    <div className="min-h-screen flex flex-col">
-      <ScrollToTop />
+return (
+  <div className="relative min-h-screen flex flex-col overflow-hidden">
+    <ScrollToTop />
 
-      {/* ===== CONTENIDO PRINCIPAL CON TRANSICIONES ===== */}
+    {/* ===== BANDAS LATERALES INSTITUCIONALES (GLOBAL) ===== */}
+{isProductPage && (
+  <>
+    <div className="hidden lg:block fixed top-0 left-0 h-screen w-20 bg-[#208790] z-0" />
+    <div className="hidden lg:block fixed top-0 right-0 h-screen w-20 bg-[#208790] z-0" />
+  </>
+)}
+
+
+    {/* ===== CONTENIDO PRINCIPAL ===== */}
+    <div className="relative z-10 flex flex-col min-h-screen">
+
       <div className="flex-1">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
@@ -102,18 +115,19 @@ function MESStoreMockup() {
                 </PageTransition>
               }
             />
-{/* CATÁLOGO GENERAL (TODOS LOS PRODUCTOS) */}
-<Route
-  path="/catalogo"
-  element={
-    <PageTransition>
-      <CatalogPage
-        cartCount={cartCount}
-        onAddToCart={handleAddToCart}
-      />
-    </PageTransition>
-  }
-/>
+
+            {/* CATÁLOGO */}
+            <Route
+              path="/catalogo"
+              element={
+                <PageTransition>
+                  <CatalogPage
+                    cartCount={cartCount}
+                    onAddToCart={handleAddToCart}
+                  />
+                </PageTransition>
+              }
+            />
 
             {/* CATEGORÍA */}
             <Route
@@ -141,7 +155,7 @@ function MESStoreMockup() {
               }
             />
 
-            {/* 🔍 BUSCAR */}
+            {/* BUSCAR */}
             <Route
               path="/buscar"
               element={
@@ -195,7 +209,7 @@ function MESStoreMockup() {
       {/* ===== FOOTER ===== */}
       <Footer />
     </div>
-  );
+  </div>
+);
 }
-
 export default MESStoreMockup;

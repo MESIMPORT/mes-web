@@ -1,39 +1,31 @@
 // =============================
-// Hero.jsx — columnas laterales ONLY (sin franjas arriba/abajo)
+// Hero.jsx — limpio y optimizado
 // =============================
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const SLIDE_INTERVAL = 3000;
 
-export default function Hero() {
-  const images = [
-    "/images/HERO1.png",
-    "/images/HERO2.png",
-    "/images/HERO3.png",
-    "/images/HERO4.png",
-    "/images/HERO5.png",
-  ];
+const IMAGES = [
+  "/images/HERO1.png",
+  "/images/HERO2.png",
+  "/images/HERO3.png",
+  "/images/HERO4.png",
+  "/images/HERO5.png",
+];
 
+export default function Hero() {
   const [index, setIndex] = useState(0);
-  const intervalRef = useRef(null);
+
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
   // AUTOPLAY
-  const startAutoPlay = () => {
-    stopAutoPlay();
-    intervalRef.current = setInterval(() => {
-      setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, SLIDE_INTERVAL);
-  };
-
-  const stopAutoPlay = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-  };
-
   useEffect(() => {
-    startAutoPlay();
-    return stopAutoPlay;
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % IMAGES.length);
+    }, SLIDE_INTERVAL);
+
+    return () => clearInterval(id);
   }, []);
 
   // SWIPE
@@ -47,17 +39,13 @@ export default function Hero() {
 
   const handleTouchEnd = () => {
     const distance = touchStartX.current - touchEndX.current;
+
     if (Math.abs(distance) > 50) {
       setIndex((prev) =>
         distance > 0
-          ? prev === images.length - 1
-            ? 0
-            : prev + 1
-          : prev === 0
-          ? images.length - 1
-          : prev - 1
+          ? (prev + 1) % IMAGES.length
+          : (prev - 1 + IMAGES.length) % IMAGES.length
       );
-      startAutoPlay();
     }
   };
 
@@ -68,9 +56,9 @@ export default function Hero() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {images.map((src, i) => (
+      {IMAGES.map((src, i) => (
         <div
-          key={i}
+          key={src}
           className={`absolute inset-0 transition-opacity duration-1000 ${
             i === index ? "opacity-100" : "opacity-0"
           }`}
@@ -95,7 +83,7 @@ export default function Hero() {
 
       {/* Indicadores */}
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
-        {images.map((_, i) => (
+        {IMAGES.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}

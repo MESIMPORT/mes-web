@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
-    <footer className="mt-10 border-t border-slate-200 bg-slate-50">
+    <footer className="relative mt-4 border-t border-slate-200 bg-white/30 backdrop-blur">
 
       {/* ================= BLOQUE SUPERIOR ================= */}
-      <div className="max-w-7xl mx-auto px-6 py-10">
+      <div className="max-w-7xl mx-auto px-6 py-4">
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
 
@@ -54,12 +54,12 @@ export default function Footer() {
         </div>
 
         {/* Separador visual */}
-        <div className="border-t border-slate-200 my-6"></div>
+        <div className="border-t border-slate-200 my-4"></div>
 
       </div>
 
       {/* ================= MAPA ================= */}
-      <div className="max-w-7xl mx-auto px-6 pb-10">
+      <div className="max-w-7xl mx-auto px-6 pb-6">
         <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
           <iframe
             title="Ubicación MES"

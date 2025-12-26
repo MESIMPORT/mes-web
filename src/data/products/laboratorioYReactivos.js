@@ -12,14 +12,6 @@ export const laboratorioYReactivosProducts = [
 
   },
 
-{
-  id: "frascos-vidrio",
-  name: "Frascos de vidrio",
-  description: "Frascos de vidrio en múltiples colores, capacidades y tipos de tapa.",
-  image: "/images/frascos/family.png",
-  link: "/producto/frascos-vidrio",     // <-- clave
-
-},
 
 
 

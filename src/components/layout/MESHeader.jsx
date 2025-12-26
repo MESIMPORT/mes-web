@@ -11,18 +11,24 @@ import { PRODUCTS_BY_CATEGORY } from "../../data/products";
 
 
 
-export default function MESHeader({ cartCount = 0, openMiniCart }) {
+export default function MESHeader({ cartCount = 0 }) {
   const [openMobileSearch, setOpenMobileSearch] = useState(false);
   const [open, setOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [currentHash, setCurrentHash] = useState(
-    typeof window !== "undefined" ? window.location.hash : ""
-  );
+  const isMobileOverlayOpen = open || openMobileSearch;
 
-  const firstItemRef = useRef(null);
+
+
   const nameInputRef = useRef(null);
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
+  const firstMobileItemRef = useRef(null);
+  const submitSearch = () => {
+  if (!search.trim()) return;
+  navigate(`/buscar?q=${encodeURIComponent(search.trim())}`);
+  setSearch("");
+};
+
+
 
   // ===============================
 // DATA DE BÚSQUEDA (AUTOCOMPLETE)
@@ -45,14 +51,6 @@ const searchResults = React.useMemo(() => {
 }, [search, allProducts]);
 
 
-  const handleSearch = (e) => {
-  e.preventDefault();
-  if (!search.trim()) return;
-
-  navigate(`/buscar?q=${encodeURIComponent(search.trim())}`);
-  setSearch("");
-};
-
   // Paneles (Contacto / Nosotros)
   const [openContact, setOpenContact] = useState(false);
   const [openAbout, setOpenAbout] = useState(false);
@@ -64,54 +62,25 @@ const searchResults = React.useMemo(() => {
   }, [openContact]);
 
   useEffect(() => {
-    const onHashChange = () => setCurrentHash(window.location.hash);
-    window.addEventListener("hashchange", onHashChange, { passive: true });
-    onHashChange();
-    return () => window.removeEventListener("hashchange", onHashChange);
-  }, []);
+  if (open && firstMobileItemRef.current) {
+    firstMobileItemRef.current.focus();
+  }
+}, [open]);
+
+
 
   /* =========================================================
      NAVEGACIÓN
   ========================================================= */
-  const nav = [
-    {
-      label: "Productos",
-      href: "#productos",
-      children: [
-        { label: "Protección radiológica", href: "#proteccion-radiologica" },
-        { label: "Gestantes y neonatos", href: "#cuidado-de-gestante-y-neonatos" },
-        { label: "Emergencia y soporte vital", href: "#emergencia-y-soporte-vital" },
-        { label: "Esterilización y cadena de frío", href: "#esterilizacion-y-cadena-de-frio" },
-        { label: "Estética y dermatología", href: "#estetica-y-dermatologia" },
-        { label: "Instrumental quirúrgico", href: "#instrumental-y-equipos-quirurgicos" },
-        { label: "Laboratorio y reactivos", href: "#equipamiento-de-laboratorios-y-reactivos" },
-        { label: "Material descartable médico", href: "#material-descartable-medico" },
-        { label: "Mobiliario y confort", href: "#mobiliario-y-comfort" },
-        { label: "Odontología", href: "#dentales-y-odontologia" },
-        { label: "Modelos anatómicos", href: "#modelos-anatomicos-y-simuladores-de-entrenamiento" },
-        { label: "Rehabilitación y fisioterapia", href: "#rehabilitacion-y-fisioterapia" },
-        { label: "Soporte respiratorio", href: "#soporte-respiratorio" },
-        { label: "Oftalmología y optometría", href: "#oftalmologia-y-optometria" },
-        { label: "Diagnóstico y medición", href: "#diagnostico-y-medicion" },
-        { label: "Accesorios y misceláneos", href: "#accesorios-y-miscelaneos" },
-      ],
-    },
-    { label: "Nosotros", href: "#nosotros" },
-    { label: "Contacto", href: "#contacto" },
-  ];
+const nav = [
+  { label: "Productos" },
+  { label: "Nosotros", href: "#nosotros" },
+  { label: "Contacto", href: "#contacto" },
+];
+
 
   const WSP_LINK =
     "https://wa.me/51944638288?text=Hola%20MES,%20quisiera%20información";
-
-  const slug = (s) =>
-    s
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/[^a-z0-9\-]/g, "");
-
-  const hrefToSlug = (href) => (href?.startsWith("#") ? href.slice(1) : href);
 
   /* =========================================================
      HANDLER DEL CARRITO → abre minicart
@@ -121,43 +90,18 @@ const handleCartClick = () => {
 };
 
 
-  /* =========================================================
-     MENÚ
-  ========================================================= */
-  const onMenubarKeyDown = (e, item) => {
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      setOpenDropdown(item.label);
-    } else if (e.key === "Escape") {
-      e.preventDefault();
-      setOpenDropdown(null);
-    }
-  };
-
-  const onMenuKeyDown = (e) => {
-    const focusable = Array.from(
-      e.currentTarget.querySelectorAll("[role='menuitem']")
-    );
-    const idx = focusable.indexOf(document.activeElement);
-
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      focusable[(idx + 1) % focusable.length]?.focus();
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      focusable[(idx - 1 + focusable.length) % focusable.length]?.focus();
-    } else if (e.key === "Escape") {
-      e.preventDefault();
-      setOpenDropdown(null);
-    }
-  };
 
   /* =========================================================
      RENDER
   ========================================================= */
   return (
     <>
-      <header className="sticky top-0 z-50 w-full shadow-sm bg-white/80 backdrop-blur">
+      <header
+  className={`sticky top-0 z-50 w-full shadow-sm
+    ${isMobileOverlayOpen ? "bg-white" : "bg-white/30 backdrop-blur"}
+  `}
+>
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
 
@@ -174,54 +118,50 @@ const handleCartClick = () => {
               </div>
             </Link>
 
-            {/* NAV DESKTOP */}
+{/* NAV DESKTOP */}
 <nav className="hidden md:flex items-center gap-6" role="menubar">
-  {nav.map((item) => {
-    const isTopActive = currentHash === item.href;
+  {nav.map((item) => (
+    <div key={item.label} className="relative pt-2">
+      <button
+        type="button"
+        className="text-sm font-medium cursor-pointer text-slate-700 hover:text-slate-900"
+        onClick={() => {
+          if (item.label === "Productos") {
+            navigate("/catalogo");
+            return;
+          }
 
-    return (
-      <div key={item.label} className="relative pt-2">
-        <button
-          role="menuitem"
-          className={`text-sm font-medium cursor-pointer ${
-            isTopActive
-              ? "text-slate-900 font-semibold"
-              : "text-slate-700 hover:text-slate-900"
-          }`}
-          onClick={() => {
-            // 🔥 PRODUCTOS → CATÁLOGO (sin dropdown)
-            if (item.label === "Productos") {
-              navigate("/catalogo");
-              return;
-            }
+          if (item.href === "#nosotros") {
+            setOpenAbout(true);
+            return;
+          }
 
-            // 👥 NOSOTROS
-            if (item.href === "#nosotros") {
-              setOpenAbout(true);
-              return;
-            }
+          if (item.href === "#contacto") {
+            setOpenContact(true);
+            return;
+          }
 
-            // 📩 CONTACTO
-            if (item.href === "#contacto") {
-              setOpenContact(true);
-              return;
-            }
+          if (item.href) {
+            window.location.hash = item.href;
+          }
+        }}
+      >
+        {item.label}
+      </button>
+    </div>
+  ))}
 
-            // 🔗 HASH NORMAL
-            if (item.href) {
-              window.location.hash = item.href;
-            }
-          }}
-        >
-          {item.label}
-        </button>
-      </div>
-    );
-  })}
+
 
   {/* 🔍 BUSCADOR DESKTOP + AUTOCOMPLETE */}
   <div className="relative hidden lg:block ml-6">
-    <form onSubmit={handleSearch}>
+    <form
+  onSubmit={(e) => {
+    e.preventDefault();
+    submitSearch();
+  }}
+>
+
       <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
       <input
         type="text"
@@ -298,11 +238,14 @@ const handleCartClick = () => {
 
   {/* ☰ MENÚ */}
   <button
-    type="button"
-    className="p-2 rounded-xl hover:bg-slate-100"
-    onClick={() => setOpen((v) => !v)}
-    aria-label="Menú"
-  >
+  type="button"
+  className="p-2 rounded-xl hover:bg-slate-100"
+  onClick={() => setOpen((v) => !v)}
+  aria-label="Menú"
+  aria-expanded={open}
+  aria-controls="mobile-menu"
+>
+
     {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
   </button>
 </div>
@@ -313,16 +256,19 @@ const handleCartClick = () => {
         {/* PANEL MOBILE */}
         {open && (
           <div className="md:hidden border-t border-slate-200">
-            <nav className="grid gap-2 px-4 py-3">
+            <nav
+  id="mobile-menu"
+  className="grid gap-2 px-4 py-3"
+>
+
                 {/* 🔍 BUSCADOR MOBILE */}
   <form
-    onSubmit={(e) => {
-      e.preventDefault();
-      if (!search.trim()) return;
-      setOpen(false);
-      navigate(`/buscar?q=${encodeURIComponent(search.trim())}`);
-      setSearch("");
-    }}
+onSubmit={(e) => {
+  e.preventDefault();
+  setOpen(false);
+  submitSearch();
+}}
+
     className="mb-2"
   >
     <div className="relative">
@@ -336,11 +282,13 @@ const handleCartClick = () => {
       />
     </div>
   </form>
-             {nav.map((item) => (
+             {nav.map((item, idx) => (
   <div key={item.label}>
-    <button
-      className="w-full text-left rounded-xl px-3 py-2 text-sm hover:bg-slate-100 cursor-pointer"
-      onClick={() => {
+<button
+  ref={idx === 0 ? firstMobileItemRef : null}
+  className="w-full text-left rounded-xl px-3 py-2 text-sm hover:bg-slate-100 cursor-pointer"
+  onClick={() => {
+
         // 🔥 PRODUCTOS → CATALOGO (SIN DROPDOWN)
         if (item.label === "Productos") {
           setOpen(false);
@@ -429,13 +377,12 @@ const handleCartClick = () => {
         transition={{ duration: 0.25, ease: "easeOut" }}
       >
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (!search.trim()) return;
-            setOpenMobileSearch(false);
-            navigate(`/buscar?q=${encodeURIComponent(search.trim())}`);
-            setSearch("");
-          }}
+onSubmit={(e) => {
+  e.preventDefault();
+  setOpenMobileSearch(false);
+  submitSearch();
+}}
+
         >
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
