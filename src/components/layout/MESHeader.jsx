@@ -8,6 +8,8 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search } from "lucide-react";
 import { PRODUCTS_BY_CATEGORY } from "../../data/products";
+import { useLocation } from "react-router-dom";
+
 
 
 
@@ -15,6 +17,9 @@ export default function MESHeader({ cartCount = 0 }) {
   const [openMobileSearch, setOpenMobileSearch] = useState(false);
   const [open, setOpen] = useState(false);
   const isMobileOverlayOpen = open || openMobileSearch;
+  const location = useLocation();
+const isPDP = location.pathname.startsWith("/producto/");
+
 
 
 
@@ -96,27 +101,40 @@ const handleCartClick = () => {
   ========================================================= */
   return (
     <>
-      <header
-  className={`sticky top-0 z-50 w-full shadow-sm
+<header
+  className={`sticky top-0 z-40 w-full shadow-sm pointer-events-auto
     ${isMobileOverlayOpen ? "bg-white" : "bg-white/30 backdrop-blur"}
   `}
 >
 
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
 
-            {/* LOGO */}
-            <Link to="/" className="flex items-center gap-3 cursor-pointer">
-              <img src="/images/logo.png" alt="MES" className="h-12 w-auto" />
-              <div className="leading-tight">
-                <p className="text-base font-semibold text-slate-900">
-                  Medical Equipment & Supplies
-                </p>
-                <p className="text-xs text-slate-500">
-                  Soluciones médicas confiables
-                </p>
-              </div>
-            </Link>
+ <div className="flex items-center gap-3">
+  {isPDP && (
+    <button
+      onClick={() => navigate(-1)}
+      aria-label="Cerrar PDP"
+      className="mr-2 rounded-full border border-slate-300 bg-white p-2 text-slate-700 shadow hover:bg-slate-100"
+    >
+      ✕
+    </button>
+  )}
+
+  <Link to="/" className="flex items-center gap-3 cursor-pointer">
+    <img src="/images/logo.png" alt="MES" className="h-12 w-auto" />
+    <div className="leading-tight">
+      <p className="text-base font-semibold text-slate-900">
+        Medical Equipment & Supplies
+      </p>
+      <p className="text-xs text-slate-500">
+        Soluciones médicas confiables
+      </p>
+    </div>
+  </Link>
+</div>
+
 
 {/* NAV DESKTOP */}
 <nav className="hidden md:flex items-center gap-6" role="menubar">

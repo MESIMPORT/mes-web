@@ -125,8 +125,10 @@ function getVariantKey(v, index) {
 export default function ProductConfigurator({ product, onAddToCart }) {
   const navigate = useNavigate();
   const location = useLocation();
+  const isPDP = location.pathname.startsWith("/producto/");
   const fallback = "/categoria/equipamiento-de-laboratorios-y-reactivos";
   const backTarget = location.state?.from || null;
+
   
 
   const handleClose = () => {
@@ -192,6 +194,24 @@ const galleryImages = [
   ...(safeProduct.images || (safeProduct.image ? [safeProduct.image] : [])),
   ...accessoryImages,
 ].filter(Boolean);
+
+// ================================
+// AUTO-IMAGEN SOLO EN MOBILE (accesorios)
+// ================================
+useEffect(() => {
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  if (!isMobile) return;
+
+  if (accessoryImages.length > 0) {
+    setActiveImage(accessoryImages[0]);
+    setActiveImages(accessoryImages);
+    return;
+  }
+
+  setActiveImage(null);
+  setActiveImages([]);
+}, [accessoryImages]);
+
 
 
 
@@ -426,63 +446,66 @@ const handleAdd = () => {
     return "Selecciona una opción";
   })();
 
-
   return (
     <div className="relative w-full max-w-6xl mx-auto p-4">
-      {/* Header del PDP */}
-      <div className="flex items-start justify-between mb-6">
-    
-<button
-  onClick={handleClose}
-  aria-label="Cerrar"
-  className="absolute top-4 right-4 px-3 py-1.5 rounded-full border border-slate-300 
-             bg-white shadow-sm text-slate-700 hover:bg-slate-100 
-             text-sm font-medium z-10"
->
-  ✕ Cerrar
-</button>
-
-      </div>
+      {/* Botón cerrar (solo PDP) */}
+      {isPDP && (
+        <button
+          onClick={handleClose}
+          aria-label="Cerrar"
+          className="
+            absolute top-4 right-4
+            z-[100]
+            px-3 py-1.5
+            rounded-full
+            border border-slate-300
+            bg-white
+            shadow-sm
+            text-slate-700
+            hover:bg-slate-100
+            text-sm
+            font-medium
+          "
+        >
+          ✕ Cerrar
+        </button>
+      )}
 
       {/* GRID principal: miniaturas | imagen | info */}
       <div className="grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] gap-6 items-start">
-        {/* Columna miniaturas (siempre existe para no romper layout) */}
+        {/* Columna miniaturas (desktop) */}
         <div className="hidden md:flex md:flex-col gap-2">
-
-{(
-  isFrascoMode
-    ? chosenFrasco?.images?.length > 1
-    : galleryImages.length > 1 ||
-      safeProduct.attributes?.some(attr =>
-        attr.values?.some(v => (v.images?.length || 0) > 0)
-      )
-)
-
-? (isFrascoMode
-    ? chosenFrasco?.images
-    : activeImages.length > 0
-      ? activeImages
-      : galleryImages
-  ).map((imgSrc, idx) => (
-
-        <button
-          key={`${imgSrc}-${idx}`}
-          type="button"
-onClick={() => setActiveImage(imgSrc)}
-onFocus={() => setActiveImage(imgSrc)}
-
-          className="h-16 w-16 cursor-pointer rounded border border-slate-200 hover:ring-2 ring-[#208790] bg-white overflow-hidden"
-        >
-          <img
-            src={imgSrc}
-            alt={`thumb-${idx}`}
-            className="h-full w-full object-contain"
-          />
-        </button>
-      ))
-    : null}
-</div>
-
+          {(
+            isFrascoMode
+              ? (chosenFrasco?.images?.length || 0) > 1
+              : galleryImages.length > 1 ||
+                safeProduct.attributes?.some((attr) =>
+                  attr.values?.some((v) => (v.images?.length || 0) > 0)
+                )
+          )
+            ? (
+                isFrascoMode
+                  ? chosenFrasco?.images || []
+                  : activeImages.length > 0
+                  ? activeImages
+                  : galleryImages
+              ).map((imgSrc, idx) => (
+                <button
+                  key={`${imgSrc}-${idx}`}
+                  type="button"
+                  onClick={() => setActiveImage(imgSrc)}
+                  onFocus={() => setActiveImage(imgSrc)}
+                  className="h-16 w-16 cursor-pointer rounded border border-slate-200 hover:ring-2 ring-[#208790] bg-white overflow-hidden"
+                >
+                  <img
+                    src={imgSrc}
+                    alt={`thumb-${idx}`}
+                    className="h-full w-full object-contain"
+                  />
+                </button>
+              ))
+            : null}
+        </div>
 
         {/* Columna imagen */}
         <div className="border rounded-2xl p-4 flex items-center justify-center">
@@ -498,47 +521,42 @@ onFocus={() => setActiveImage(imgSrc)}
 
         {/* Columna info / decisión */}
         <div className="space-y-4">
-          {/* Nombre */}
           <h2 className="text-2xl font-semibold">{safeProduct.name}</h2>
 
-          {/* Descripción corta */}
           {safeProduct.description && (
             <p className="text-sm text-slate-600 leading-relaxed">
               {safeProduct.description}
             </p>
           )}
 
-          {/* Precio */}
           <div className="text-2xl font-bold text-slate-900">{displayPrice}</div>
 
-          {/* MODO ATRIBUTOS (frascos o multi accesorios) */}
-{(isFrascoMode || safeProduct.attributes?.length > 0) &&
-  (safeProduct.attributes || []).map((attr) => (
-
-
+          {/* MODO ATRIBUTOS (frascos / multi / single) */}
+          {(isFrascoMode || safeProduct.attributes?.length > 0) &&
+            (safeProduct.attributes || []).map((attr) => (
               <div key={attr.id} className="space-y-2">
-                <div className="text-sm font-medium">{attr.label || attr.name}</div>
+                <div className="text-sm font-medium">
+                  {attr.label || attr.name}
+                </div>
+
                 <div className="flex flex-wrap gap-2">
-{(
-  attr.type === "multi" || attr.type === "single"
-    ? attr.values
-    : availabilityFrasco[attr.id] || []
-).map((val) => {
-
-
+                  {(
+                    attr.type === "multi" || attr.type === "single"
+                      ? attr.values
+                      : availabilityFrasco[attr.id] || []
+                  ).map((val) => {
                     const selected = Array.isArray(selAttrs[attr.id])
-  ? selAttrs[attr.id].includes(val.id)
-  : selAttrs[attr.id] === val.id;
+                      ? selAttrs[attr.id].includes(val.id)
+                      : selAttrs[attr.id] === val.id;
 
-const disabledByRule =
-  safeProduct.rules?.incompatible?.some(
-    ([a, b]) =>
-      (val.id === a && selAttrs[attr.id]?.includes?.(b)) ||
-      (val.id === b && selAttrs[attr.id]?.includes?.(a))
-  );
+                    const disabledByRule = safeProduct.rules?.incompatible?.some(
+                      ([a, b]) =>
+                        (val.id === a && selAttrs[attr.id]?.includes?.(b)) ||
+                        (val.id === b && selAttrs[attr.id]?.includes?.(a))
+                    );
 
-const enabled = (!disabledByRule && (val.enabled ?? true)) || selected;
-
+                    const enabled =
+                      (!disabledByRule && (val.enabled ?? true)) || selected;
 
                     return (
                       <button
@@ -579,7 +597,7 @@ const enabled = (!disabledByRule && (val.enabled ?? true)) || selected;
                 onChange={(e) => {
                   const key = e.target.value;
                   setSelectedVariantKey(key);
-                  setActiveImage(null); // importante: reset cuando cambia variante
+                  setActiveImage(null);
                 }}
               >
                 <option value="">Selecciona una opción</option>
@@ -602,46 +620,41 @@ const enabled = (!disabledByRule && (val.enabled ?? true)) || selected;
             </div>
           )}
 
-          {/* CTA */}
-<div aria-live="polite">
-  <button
-    type="button"
-    data-primary-cta
-    onClick={handleAdd}
-    disabled={!canAdd || justAdded}
-    className="w-full rounded-xl bg-[#208790] py-3 text-sm font-semibold text-white disabled:opacity-50"
-  >
-    {justAdded ? "Agregado ✓" : addButtonLabel}
-  </button>
-</div>
-
-
+          {/* CTA (NO TOCAR desktop: esto queda igual) */}
+          <div aria-live="polite">
+            <button
+              type="button"
+              data-primary-cta
+              onClick={handleAdd}
+              disabled={!canAdd || justAdded}
+              className="w-full rounded-xl bg-[#208790] py-3 text-sm font-semibold text-white disabled:opacity-50"
+            >
+              {justAdded ? "Agregado ✓" : addButtonLabel}
+            </button>
+          </div>
         </div>
       </div>
+
       {/* ===============================
-   INFORMACIÓN TÉCNICA DEL PRODUCTO
-================================ */}
-{safeProduct.technicalSections && (
-<div className="mt-12 max-w-5xl mx-auto px-4 space-y-10">
+          INFORMACIÓN TÉCNICA DEL PRODUCTO
+      =============================== */}
+      {safeProduct.technicalSections && (
+        <div className="mt-12 max-w-5xl mx-auto px-4 space-y-10">
+          {safeProduct.technicalSections.features?.length > 0 && (
+            <section>
+              <h2 className="text-lg font-semibold mb-3 pl-3 border-l-4 border-[#245877]">
+                Características principales
+              </h2>
 
-
-    {/* Características principales */}
-    {safeProduct.technicalSections.features?.length > 0 && (
-      <section>
-        <h2 className="text-lg font-semibold mb-3 pl-3 border-l-4 border-[#245877]">
-          Características principales
-        </h2>
-        <ul className="list-disc pl-5 text-sm text-slate-700 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-2">
-          {safeProduct.technicalSections.features.map((item, idx) => (
-            <li key={idx}>{item}</li>
-          ))}
-        </ul>
-      </section>
-    )}
-
-     </div>  
-)}        
-
-</div>       
-);
-}
+              <ul className="list-disc pl-5 text-sm text-slate-700 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-2">
+                {safeProduct.technicalSections.features.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </div>
+      )}
+    </div>
+  );
+  }
