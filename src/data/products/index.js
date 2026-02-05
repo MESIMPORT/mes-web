@@ -1,88 +1,64 @@
 // ================================
 // IMPORTS POR CADA CATEGORÍA
 // ================================
-
-import { accesoriosYMiscelaneosProducts } from "./accesoriosYMiscelaneos";
+import { diagnosticoYMedicionProducts } from "./diagnosticoYMedicion";
+import { proteccionRadiologicaProducts } from "./proteccionRadiologica";
+import { modelosAnatomicosYSimuladoresProducts } from "./modelosAnatomicosYSimuladores";
 import { emergenciaYSoporteVitalProducts } from "./emergenciaYSoporteVital";
 import { esterilizacionYCadenaDeFrioProducts } from "./esterilizacionYCadenaDeFrio";
+import { accesoriosYMiscelaneosProducts } from "./accesoriosYMiscelaneos";
 import { gestanteYNeonatosProducts } from "./gestanteYNeonatos";
-import { laboratorioYReactivosProducts } from "./laboratorioYReactivos";
+import { soporteRespiratorioProducts } from "./soporteRespiratorio";
+import { rehabilitacionYFisioterapiaProducts } from "./rehabilitacionYFisioterapia";
+import { oftalmologiaYOptometriaProducts } from "./oftalmologiaYOptometria";
+import { instrumentalYEquiposQuirurgicosProducts } from "./instrumentalYEquiposQuirurgicos";
 import { materialDescartableMedicoProducts } from "./materialDescartableMedico";
 import { mobiliarioYComfortProducts } from "./mobiliarioYComfort";
-import { oftalmologiaYOptometriaProducts } from "./oftalmologiaYOptometria";
-import { proteccionRadiologicaProducts } from "./proteccionRadiologica";
-import { rehabilitacionYFisioterapiaProducts } from "./rehabilitacionYFisioterapia";
 import { equipamientoYLaboratorioYReactivosProducts } from "./equipamientoYLaboratorioYReactivos";
-import { modelosAnatomicosYSimuladoresProducts } from "./modelosAnatomicosYSimuladores";
-import { soporteRespiratorioProducts } from "./soporteRespiratorio";
-import { diagnosticoYMedicionProducts } from "./diagnosticoYMedicion";
-import { instrumentalYEquiposQuirurgicosProducts } from "./instrumentalYEquiposQuirurgicos";
-
-
-
-
-
-
-
-
 
 // ================================
 // LABELS BONITOS PARA UI
 // ================================
 
 export const CATEGORY_LABELS = {
+  "diagnostico-y-medicion": "Diagnóstico y medición",
   "proteccion-radiologica": "Protección radiológica",
-  "oftalmologia-y-optometria": "Oftalmología y optometría",
+  "modelos-anatomicos-y-simuladores": "Modelos anatómicos y simuladores",
   "emergencia-y-soporte-vital": "Emergencia y soporte vital",
   "esterilizacion-y-cadena-de-frio": "Esterilización y cadena de frío",
-  "cuidado-de-gestante-y-neonatos": "Cuidado de gestante y neonatos",
-  "laboratorio-y-reactivos": "Laboratorio y reactivos",
-  "material-descartable-medico": "Material descartable médico",
-  "mobiliario-y-comfort": "Mobiliario y comfort",
   "accesorios-y-miscelaneos": "Accesorios y misceláneos",
-  "rehabilitacion-y-fisioterapia": "Rehabilitación y fisioterapia",
-  "modelos-anatomicos-y-simuladores-de-entrenamiento":   "Modelos anatómicos y simuladores",
+  "gestante-y-neonatos": "Gestante y neonatos",
   "soporte-respiratorio": "Soporte respiratorio",
-  "diagnostico-y-medicion": "Diagnóstico y medición",
+  "rehabilitacion-y-fisioterapia": "Rehabilitación y fisioterapia",
+  "oftalmologia-y-optometria": "Oftalmología y optometría",
   "instrumental-y-equipos-quirurgicos": "Instrumental y equipos quirúrgicos",
-
-
-
-
+  "material-descartable-medico": "Material descartable médico",
+    "mobiliario-y-comfort": "Mobiliario y comfort",
+  "equipamiento-y-laboratorio-y-reactivos": "Equipamiento, laboratorio y reactivos",
 
 };
-
 
 // ================================
 // MAPEO SLUG → LISTA DE PRODUCTOS
 // ================================
 
 export const PRODUCTS_BY_CATEGORY = {
+  "diagnostico-y-medicion": diagnosticoYMedicionProducts,
   "proteccion-radiologica": proteccionRadiologicaProducts,
-  "oftalmologia-y-optometria": oftalmologiaYOptometriaProducts,
+  "modelos-anatomicos-y-simuladores": modelosAnatomicosYSimuladoresProducts,
   "emergencia-y-soporte-vital": emergenciaYSoporteVitalProducts,
   "esterilizacion-y-cadena-de-frio": esterilizacionYCadenaDeFrioProducts,
-  "cuidado-de-gestante-y-neonatos": gestanteYNeonatosProducts,
-  "laboratorio-y-reactivos": [
-  ...laboratorioYReactivosProducts,
-  ...equipamientoYLaboratorioYReactivosProducts,
-],
-  "material-descartable-medico": materialDescartableMedicoProducts,
-  "mobiliario-y-comfort": mobiliarioYComfortProducts,
   "accesorios-y-miscelaneos": accesoriosYMiscelaneosProducts,
-  "rehabilitacion-y-fisioterapia": rehabilitacionYFisioterapiaProducts,
-    "modelos-anatomicos-y-simuladores-de-entrenamiento": modelosAnatomicosYSimuladoresProducts,
+  "gestante-y-neonatos": gestanteYNeonatosProducts,
   "soporte-respiratorio": soporteRespiratorioProducts,
-  "diagnostico-y-medicion": diagnosticoYMedicionProducts,
+  "rehabilitacion-y-fisioterapia": rehabilitacionYFisioterapiaProducts,
+  "oftalmologia-y-optometria": oftalmologiaYOptometriaProducts,
   "instrumental-y-equipos-quirurgicos": instrumentalYEquiposQuirurgicosProducts,
-
-
-
-
-
+  "material-descartable-medico": materialDescartableMedicoProducts,
+    "mobiliario-y-comfort": mobiliarioYComfortProducts,
+  "equipamiento-y-laboratorio-y-reactivos": equipamientoYLaboratorioYReactivosProducts,
 
 };
-
 
 // ================================
 // EXPORT POR DEFECTO

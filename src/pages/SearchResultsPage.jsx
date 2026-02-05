@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import MESHeader from "../components/layout/MESHeader";
 import { PRODUCTS_BY_CATEGORY } from "../data/products";
 
 function normalize(str = "") {
@@ -30,7 +29,7 @@ export default function SearchResultsPage({ cartCount = 0, openMiniCart }) {
 
   return (
     <>
-      <MESHeader cartCount={cartCount} openMiniCart={openMiniCart} />
+      
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="mb-6">

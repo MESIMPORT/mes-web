@@ -1,17 +1,86 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import MESHeader from "../components/layout/MESHeader";
+import { useSearchParams, useNavigate, useParams } from "react-router-dom";
 import { CATEGORY_LABELS, PRODUCTS_BY_CATEGORY } from "../data/products/index.js";
 import LightboxImage from "../components/ui/LightboxImage";
 
 export default function CategoryPage({ cartCount, onAddToCart, openMiniCart }) {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const label = CATEGORY_LABELS[slug];
   const products = PRODUCTS_BY_CATEGORY[slug] || [];
-  const [justAddedId, setJustAddedId] = React.useState(null);
 
+  const categoryMaxPrice = React.useMemo(() => {
+  const prices = products
+    .map(p =>
+      Number(
+        String(p.price ?? p?.variants?.[0]?.price ?? 0).replace(/[^\d.]/g, "")
+      )
+    )
+    .filter(n => n > 0);
+
+  return prices.length ? Math.max(...prices) : 0;
+}, [products]);
+
+  const [justAddedId, setJustAddedId] = React.useState(null);
+// ===============================
+// FILTROS DESDE URL (CANÓNICO)
+// ===============================
+
+const brand = searchParams.get("brand") || "all";
+const sort = searchParams.get("sort") || "relevancia";
+const minPrice = Number(searchParams.get("min")) || 0;
+const maxPrice =
+  Number(searchParams.get("max")) || categoryMaxPrice;
+
+
+const updateFilter = (key, value) => {
+  const next = new URLSearchParams(searchParams);
+
+  // limpieza: "all" o vacío = remover param
+  if (value === undefined || value === null || value === "" || value === "all") {
+    next.delete(key);
+  } else {
+    next.set(key, String(value));
+  }
+
+  setSearchParams(next);
+};
+
+// ===============================
+// FILTRADO + ORDEN (DESDE URL)
+// ===============================
+
+const filteredProducts = products.filter((p) => {
+  // filtro por marca
+  const okBrand =
+    brand === "all"
+      ? true
+      : (p.brand || "").toLowerCase() === brand.toLowerCase();
+
+  // precio base (price o primera variante)
+  const raw = p?.price ?? p?.variants?.[0]?.price ?? null;
+  const priceNum = Number(String(raw).replace(/[^\d.]/g, ""));
+
+  const okMin = minPrice > 0 ? priceNum >= minPrice : true;
+  const okMax = maxPrice > 0 ? priceNum <= maxPrice : true;
+
+  return okBrand && okMin && okMax;
+});
+
+const sortedProducts = [...filteredProducts].sort((a, b) => {
+  const aRaw = a?.price ?? a?.variants?.[0]?.price ?? 0;
+  const bRaw = b?.price ?? b?.variants?.[0]?.price ?? 0;
+
+  const aNum = Number(String(aRaw).replace(/[^\d.]/g, "")) || 0;
+  const bNum = Number(String(bRaw).replace(/[^\d.]/g, "")) || 0;
+
+  if (sort === "price_asc") return aNum - bNum;
+  if (sort === "price_desc") return bNum - aNum;
+
+  return 0; // relevancia / default
+});
 
   /* ================================
       CATEGORÍA NO ENCONTRADA
@@ -19,7 +88,7 @@ export default function CategoryPage({ cartCount, onAddToCart, openMiniCart }) {
   if (!label) {
     return (
       <>
-        <MESHeader showHero={false} cartCount={cartCount} openMiniCart={openMiniCart} />
+        
         <main className="max-w-7xl mx-auto px-4 py-10">
           <p className="text-slate-600">Categoría no encontrada.</p>
         </main>
@@ -32,7 +101,7 @@ export default function CategoryPage({ cartCount, onAddToCart, openMiniCart }) {
   ================================= */
   return (
     <>
-      <MESHeader showHero={false} cartCount={cartCount} openMiniCart={openMiniCart} />
+     
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         
@@ -46,8 +115,8 @@ export default function CategoryPage({ cartCount, onAddToCart, openMiniCart }) {
 
         {/* LISTA DE PRODUCTOS */}
         <ul className="divide-y divide-slate-200 rounded-lg border border-slate-200 bg-white">
-          {products.map((p) => {
-            const to = `/producto/${p.id}`;
+          {sortedProducts.map((p) => {
+            const to = `/producto/${p.id}?${searchParams.toString()}`;
             const hasVariants = Array.isArray(p?.variants) && p.variants.length > 0;
 
             /* -----------------------------
@@ -132,16 +201,18 @@ export default function CategoryPage({ cartCount, onAddToCart, openMiniCart }) {
                     </span>
 
                     {/* WHATSAPP */}
-                    <a
-                      href={wa}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium text-white cursor-pointer"
-                      style={{ backgroundColor: "#208790" }}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      WhatsApp
-                    </a>
+<button
+  type="button"
+  onClick={(e) => {
+    e.stopPropagation();
+    window.open(wa, "_blank", "noopener,noreferrer");
+  }}
+  className="inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium text-white cursor-pointer"
+  style={{ backgroundColor: "#208790" }}
+>
+  WhatsApp
+</button>
+
 
                     {/* ==========================
                         BOTÓN DINÁMICO

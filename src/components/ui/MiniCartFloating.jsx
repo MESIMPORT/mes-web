@@ -1,5 +1,5 @@
 // src/components/ui/MiniCartFloating.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ShoppingCart, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,8 +10,11 @@ export default function MiniCartFloating({
   cartCount = 0,
   onUpdateQuantity,
   onRemoveFromCart,
+  onSelectProduct,
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [justAdded, setJustAdded] = useState(false);
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -24,19 +27,44 @@ export default function MiniCartFloating({
     setIsOpen((prev) => !prev);
   };
 
-  const handleGoToCart = () => {
-    navigate("/carrito", { state: { from: location.pathname } });
-    setIsOpen(false);
-  };
+
+
+const handleGoToCart = () => {
+  setIsOpen(false);
+  navigate("/carrito");
+};
+
+
+  const shouldScrollItems = cartItems.length > 2;
+
+  useEffect(() => {
+  if (cartCount === 0) return;
+
+  setJustAdded(true);
+  const t = setTimeout(() => setJustAdded(false), 1500);
+
+  return () => clearTimeout(t);
+}, [cartCount]);
+
 
   return (
     <>
       {/* Botón flotante fijo abajo a la derecha */}
-      <button
-        type="button"
-        onClick={handleToggle}
-        className="fixed bottom-4 right-4 z-40 inline-flex items-center gap-2 rounded-full bg-[#208790] px-4 py-2 text-sm font-semibold text-white shadow-lg hover:bg-[#1b6b6d]"
-      >
+<button
+  type="button"
+  onClick={handleToggle}
+  className={`
+    fixed bottom-4 right-4 z-40
+    inline-flex items-center gap-2
+    rounded-full px-4 py-2 text-sm font-semibold
+    shadow-lg transition-all duration-300
+    ${justAdded
+      ? "bg-gray-300 text-gray-700 scale-105"
+      : "bg-[#208790] text-white hover:bg-[#1b6b6d]"}
+    cursor-pointer
+  `}
+>
+
         <ShoppingCart className="h-5 w-5" />
         <span>Carrito</span>
         {cartCount > 0 && (
@@ -48,7 +76,19 @@ export default function MiniCartFloating({
 
       {/* Panel flotante */}
       {isOpen && (
-        <div className="fixed bottom-16 right-4 z-40 w-80 max-h-[70vh] rounded-2xl border border-slate-200 bg-white shadow-2xl flex flex-col overflow-hidden">
+        <div
+  className="
+    fixed bottom-16 right-4 z-40
+    w-80 max-h-[70vh]
+    rounded-2xl border border-slate-200
+    bg-white shadow-2xl
+    flex flex-col
+    overflow-hidden
+    pointer-events-auto
+    touch-manipulation
+  "
+>
+
           {/* Header del panel */}
           <div className="flex items-center justify-between px-3 py-2 border-b border-slate-200 bg-slate-50">
             <div className="flex items-center gap-2">
@@ -57,13 +97,16 @@ export default function MiniCartFloating({
                 Tu carrito ({cartCount})
               </p>
             </div>
-            <button
-              type="button"
-              onClick={handleToggle}
-              className="rounded-full p-1 hover:bg-slate-200"
-            >
-              <X className="h-4 w-4 text-slate-600" />
-            </button>
+<button
+  type="button"
+  onClick={handleToggle}
+  className="rounded-full p-1 hover:bg-slate-200 cursor-pointer"
+>
+  <span className="block -mt-1 text-lg font-bold leading-none text-slate-600">
+    _
+  </span>
+</button>
+
           </div>
 
           {/* Contenido */}
@@ -75,7 +118,18 @@ export default function MiniCartFloating({
             <>
 
 {/* Lista de productos */}
-<div className="flex-1 overflow-auto px-3 py-2 space-y-3">
+<div
+  className={`
+    px-3 py-2 space-y-3
+${shouldScrollItems
+  ? "flex-1 max-h-[26vh] overflow-y-auto overscroll-contain touch-pan-y"
+  : ""}
+
+  `}
+>
+
+
+
   <AnimatePresence mode="popLayout">
     {cartItems.map((item) => (
 <motion.div
@@ -91,13 +145,16 @@ export default function MiniCartFloating({
         {/* =====================
             ZONA PDP (NAVEGAR)
         ===================== */}
-        <div
-          onClick={() =>
-            navigate(`/producto/${item.productId || item.id}`)
-          }
-          className="flex items-center gap-3 rounded-md p-2 cursor-pointer hover:bg-slate-50 transition overflow-hidden"
-          title="Ver detalle del producto"
-        >
+<div
+  onClick={() => {
+    onSelectProduct(item.productId || item.id);
+  }}
+
+  className="flex items-center gap-3 rounded-md p-2 cursor-pointer hover:bg-slate-50 transition overflow-hidden"
+  title="Ver detalle del producto"
+>
+
+
           <img
             src={item.image || "/images/placeholder.jpg"}
             alt={item.name}

@@ -1,7 +1,10 @@
 // src/pages/CartPage.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import MESHeader from "../components/layout/MESHeader";
+
+const openExternal = (url) => {
+  window.open(url, "_blank", "noopener,noreferrer");
+};
 
 export default function CartPage({
   cartItems,
@@ -47,27 +50,31 @@ ${notes || "-"}
     `.trim();
   };
 
-  const handleWhatsApp = () => {
-    if (cartItems.length === 0) return;
-    const base = "https://wa.me/51999999999"; // <-- coloca tu número real
-    const text = buildMessage();
-    window.open(`${base}?text=${encodeURIComponent(text)}`, "_blank");
-  };
+const handleWhatsApp = () => {
+  if (cartItems.length === 0) return;
+  const base = "https://wa.me/51999999999";
+  const text = buildMessage();
+  openExternal(`${base}?text=${encodeURIComponent(text)}`);
+};
 
-  const handleEmail = () => {
-    if (cartItems.length === 0) return;
-    const subject = "Cotización desde carrito web";
-    const body = buildMessage();
-    const mailto = `mailto:ventas@tuempresa.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-  };
+
+const handleEmail = () => {
+  if (cartItems.length === 0) return;
+  const subject = "Cotización desde carrito web";
+  const body = buildMessage();
+
+  const mailtoUrl =
+    "mailto:ventas@tuempresa.com" +
+    `?subject=${encodeURIComponent(subject)}` +
+    `&body=${encodeURIComponent(body)}`;
+
+  openExternal(mailtoUrl);
+};
+
 
   return (
     <>
-      <MESHeader showHero={false} cartCount={cartCount} />
-
+      
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <h1 className="text-2xl md:text-3xl font-bold text-slate-900">
           Carrito de compras

@@ -1,10 +1,17 @@
-// src/components/ProductConfigurator.jsx
 import { useState, useEffect, useMemo } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import EmergencyTrainingSections from "./EmergencyTrainingSections";
 
-/* ===================== Helpers ===================== */
+
+/* ======================================================
+   HELPERS
+====================================================== */
+
 function formatPrice(v) {
-  if (v == null || Number.isNaN(Number(v))) return "Precio no disponible";
+  if (v == null || Number.isNaN(Number(v))) {
+    return "Precio no disponible";
+  }
+
   try {
     return new Intl.NumberFormat("es-PE", {
       style: "currency",
@@ -15,624 +22,654 @@ function formatPrice(v) {
   }
 }
 
-function getPriceRange(product) {
-  const prices = (product?.variants || [])
-    .map((v) => Number(v.price))
-    .filter((v) => Number.isFinite(v));
-  if (!prices.length) return { min: null, max: null };
-  return { min: Math.min(...prices), max: Math.max(...prices) };
+function parseBold(text) {
+  if (!text) return "";
+  return text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
 }
 
-// ---- Sólo para FRASCOS: busca variante según attrs ----
-function findVariantFrasco(product, sel) {
-  if (!sel.bottleColor || !sel.capacity || !sel.capType || !sel.capColor) return null;
-  return (
-    (product.variants || []).find(
-      (v) =>
-        v?.attrs?.bottleColor === sel.bottleColor &&
-        v?.attrs?.capacity === sel.capacity &&
-        v?.attrs?.capType === sel.capType &&
-        v?.attrs?.capColor === sel.capColor
-    ) || null
-  );
-}
+/* ======================================================
+   NORMALIZACIÓN
+====================================================== */
 
-/* ---- Normalización: si el JSON viene sin values, los construimos desde variants (FRASCOS) ---- */
 function normalizeProduct(product) {
   const p = { ...product };
   const variants = p.variants || [];
   const attrs = (p.attributes || []).map((a) => ({ ...a }));
 
-  const labelMaps = {
-    bottleColor: (v) => ({ amber: "Ámbar", clear: "Transparente" }[v] ?? v),
-    capacity: (v) => (String(v).match(/^(\d+)ml$/) ? `${RegExp.$1} ml` : v),
-    capType: (v) =>
-      ({
-        rosca: "Rosca",
-        "tapon-interno": "Tapón interno",
-        gotero: "Gotero",
-        esmerilada: "Esmerilada",
-      }[v] ?? v),
-    capColor: (v) => ({ black: "Negro", white: "Blanco" }[v] ?? v),
-  };
-
-  const ensureValues = (attrId, mapper = (x) => x) => {
+  const ensureValues = (attrId) => {
     const inSchema = attrs.find((a) => a.id === attrId)?.values;
     if (inSchema && inSchema.length) return inSchema;
 
-    const set = new Set(variants.map((v) => v?.attrs?.[attrId]).filter(Boolean));
+    const set = new Set(
+      variants.map((v) => v?.attrs?.[attrId]).filter(Boolean)
+    );
+
     return Array.from(set)
       .sort()
-      .map((id) => ({ id, label: mapper(id) }));
+      .map((id) => ({ id, label: id }));
   };
 
   p.attributes = (p.attributes || []).map((a) => ({
     ...a,
-    values: ensureValues(a.id, labelMaps[a.id]),
+    values: ensureValues(a.id),
   }));
 
-  // baseImage toma la imagen principal del producto si no está definida
   if (!p.baseImage) p.baseImage = p.image;
+
   return p;
 }
 
-/* ---- Disponibilidades: habilita solo los valores compatibles con la selección (FRASCOS) ---- */
-function computeAvailabilityFrasco(product, sel) {
-  const byAttr = {};
-  for (const a of product.attributes || []) {
-    byAttr[a.id] = (a.values || []).map((v) => ({ ...v, enabled: false }));
+/* ======================================================
+   ATTRIBUTE ORDER (CASCADA)
+====================================================== */
+
+const ATTRIBUTE_ORDER = [
+  "bottleColor",
+  "capacity",
+  "capType",
+  "capColor",
+];
+
+/* ======================================================
+   DISABLED RULES
+====================================================== */
+
+function isOptionDisabledCascade(
+  attrId,
+  valueId,
+  selectedAttrs,
+  variants,
+  attributeOrder
+) {
+  // 🚫 SIN VARIANTES → NO BLOQUEAR NADA (Tipo 1)
+  if (!Array.isArray(variants) || variants.length === 0) {
+    return false;
   }
-  for (const v of product.variants || []) {
-    const compatible = Object.entries(sel).every(
-      ([k, val]) => !val || v?.attrs?.[k] === val
-    );
-    if (!compatible) continue;
-    for (const [k, val] of Object.entries(v.attrs || {})) {
-      const list = byAttr[k];
-      const i = list?.findIndex((x) => x.id === val);
-      if (i >= 0) list[i].enabled = true;
-    }
-  }
-  return byAttr;
+
+  const order = Array.isArray(attributeOrder) && attributeOrder.length > 0
+    ? attributeOrder
+    : ATTRIBUTE_ORDER;
+
+  const attrIndex = order.indexOf(attrId);
+
+  // Si el atributo no está en el orden, no bloquear
+  if (attrIndex === -1) return false;
+
+  return !variants.some((v) => {
+    return order.every((key, idx) => {
+      const vVal = v.attrs?.[key];
+
+      // atributo actual
+      if (key === attrId) return vVal === valueId;
+
+      // solo validar atributos anteriores
+      if (idx < attrIndex) {
+        const sel = selectedAttrs[key];
+        if (!sel) return true;
+
+        // Soporte dual: array (Frascos) o string (Tipo 3)
+        if (Array.isArray(sel)) {
+          return sel.includes(vVal);
+        }
+
+        return sel === vVal;
+      }
+
+      return true;
+    });
+  });
 }
 
-/* ---- Label inteligente para variantes SIMPLES ----
- * Regla que elegiste (Opción 4):
- * - Si tiene modeloMedida:
- *      - y code: "CODE – modeloMedida"
- *      - sin code: "modeloMedida"
- * - Si no tiene modeloMedida:
- *      - si label existe: label
- *      - sino code
- *      - sino nombre genérico
- */
-function buildVariantLabel(v) {
-  if (v.modeloMedida) {
-    if (v.code) return `${v.code} – ${v.modeloMedida}`;
-    return v.modeloMedida;
-  }
-  if (v.label) return v.label;
-  if (v.code) return v.code;
-  if (v.sku) return v.sku;
-  return v.name || "Variante";
+function isOptionDisabledByRules(attrId, valueId, selectedAttrs, rules) {
+  if (!rules?.incompatible?.length) return false;
+
+  // valores seleccionados (flatten)
+  const selectedValues = new Set(
+    Object.values(selectedAttrs).flat()
+  );
+
+  // si el valor ya está seleccionado, no bloquear
+  if (selectedValues.has(valueId)) return false;
+
+  // revisar reglas incompatibles
+  return rules.incompatible.some((pair) => {
+    // si esta opción no está en la regla, no aplica
+    if (!pair.includes(valueId)) return false;
+
+    // el otro elemento del par
+    const other = pair.find((id) => id !== valueId);
+
+    // si el otro ya está seleccionado → bloquear
+    return selectedValues.has(other);
+  });
 }
 
-function getVariantKey(v, index) {
-  return v.code || v.sku || v.id || String(index);
-}
 
-/* ===================== Componente ===================== */
+
+
+/* ======================================================
+   COMPONENTE
+====================================================== */
+
 export default function ProductConfigurator({ product, onAddToCart }) {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const fallback = "/categoria/equipamiento-de-laboratorios-y-reactivos";
-  const backTarget = location.state?.from || null;
 
-  
+    useEffect(() => {
+    console.log("🟢 PDP MOUNT", product?.id);
 
-  const handleClose = () => {
-    if (backTarget) {
-      navigate(backTarget, { replace: true });
-    } else {
-      if (window.history.length > 1) navigate(-1);
-      else navigate(fallback, { replace: true });
-    }
-  };
-
-  // cerrar con tecla Escape
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") handleClose();
+    return () => {
+      console.log("🔴 PDP UNMOUNT", product?.id);
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [backTarget]);
+  }, []);
 
+
+  const navigate = useNavigate();
   const safeProduct = useMemo(() => normalizeProduct(product), [product]);
 
   const hasVariants =
     Array.isArray(safeProduct.variants) && safeProduct.variants.length > 0;
+
   const hasAttributes =
     Array.isArray(safeProduct.attributes) && safeProduct.attributes.length > 0;
 
-  // Heurística: si tiene attributes + variants con .attrs => es frasco / configurador multiparámetro
-  const isFrascoMode =
-    hasAttributes && safeProduct.variants && safeProduct.variants[0]?.attrs;
-// NUEVO: atributos multi (ej. accesorios SECA)
-const hasMultiAttributes =
-  hasAttributes && safeProduct.attributes.some((a) => a.type === "multi");
+  const isType2 =
+    hasAttributes &&
+    safeProduct.attributes.some(
+      (a) => a.type === "multi" && a.values?.some((v) => v.id === "base")
+    );
 
-  // Selección para FRASCOS (por atributos)
+
+  /* ======================================================
+     ESTADOS
+  ====================================================== */
+
   const [selAttrs, setSelAttrs] = useState({});
-  // Selección para variantes SIMPLES (dropdown)
-  const [selectedVariantKey, setSelectedVariantKey] = useState("");
-    const [justAdded, setJustAdded] = useState(false);
-    const [activeImage, setActiveImage] = useState(null);
-    const [activeImages, setActiveImages] = useState([]);
+  const [baseSelected, setBaseSelected] = useState(false);
+  const [activeImage, setActiveImage] = useState(null);
+  const [activeImages, setActiveImages] = useState([]);
+  const [buttonLocked, setButtonLocked] = useState(false);
 
 
-// ================================
-// IMÁGENES DINÁMICAS (atributos multi)
-// ================================
-const multiAttributes = (safeProduct.attributes || []).filter(
-  (a) => a.type === "multi"
-);
 
-const selectedMultiValues = multiAttributes.flatMap((attr) =>
-  Array.isArray(selAttrs[attr.id])
-    ? attr.values.filter((v) => selAttrs[attr.id].includes(v.id))
-    : []
-);
+/* ======================================================
+   AUTO-SELECCIÓN BASE (TIPO 2)
+====================================================== */
 
-const accessoryImages = selectedMultiValues.flatMap(
-  (v) => v.images || []
-);
-
-const galleryImages = [
-  ...(safeProduct.images || (safeProduct.image ? [safeProduct.image] : [])),
-  ...accessoryImages,
-].filter(Boolean);
-
-// ================================
-// AUTO-IMAGEN SOLO EN MOBILE (accesorios)
-// ================================
 useEffect(() => {
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
-  if (!isMobile) return;
+  if (!isType2) return;
 
-  if (accessoryImages.length > 0) {
-    setActiveImage(accessoryImages[0]);
-    setActiveImages(accessoryImages);
-    return;
+  setBaseSelected(true);
+  // ❌ NO TOCAR selAttrs aquí
+}, [safeProduct.id]);
+
+
+
+  /* ======================================================
+     VARIANTE SKU (TIPO 3)
+  ====================================================== */
+
+  const selectedSkuVariant = useMemo(() => {
+    if (!safeProduct?.variants?.length) return null;
+
+    return (
+      safeProduct.variants.find((v) =>
+        Object.entries(v.attrs || {}).every(
+          ([key, val]) => selAttrs[key]?.[0] === val
+        )
+      ) || null
+    );
+  }, [safeProduct.variants, selAttrs]);
+
+  const matchingVariants = useMemo(() => {
+  if (!safeProduct?.variants?.length) return [];
+
+  return safeProduct.variants.filter((variant) =>
+    Object.entries(selAttrs).every(([attrId, values]) => {
+      const selectedValue = values?.[0];
+      if (!selectedValue) return true;
+      return variant.attrs?.[attrId] === selectedValue;
+    })
+  );
+}, [safeProduct.variants, selAttrs]);
+
+
+  const cheapestSkuVariant = useMemo(() => {
+    if (!safeProduct?.variants?.length) return null;
+
+    return [...safeProduct.variants]
+      .filter((v) => typeof v.price === "number")
+      .sort((a, b) => a.price - b.price)[0];
+  }, [safeProduct.variants]);
+
+useEffect(() => {
+  setActiveImage(null);
+}, [selectedSkuVariant]);
+
+  const multiAttributes = (safeProduct.attributes || []).filter(
+    (a) => a.type === "multi"
+  );
+
+  const selectedMultiValues = multiAttributes.flatMap((attr) =>
+    Array.isArray(selAttrs[attr.id])
+      ? attr.values.filter((v) => selAttrs[attr.id].includes(v.id))
+      : []
+  );
+
+  const accessoryImages = selectedMultiValues.flatMap((v) => v.images || []);
+
+const derivedImages = useMemo(() => {
+  // 🟢 0️⃣ SIN SELECCIONES → SOLO IMAGEN BASE (FAMILIA.png)
+  const hasAnySelection = Object.values(selAttrs).some(
+    (vals) => vals && vals.length > 0
+  );
+
+if (!hasAnySelection) {
+  return Array.isArray(safeProduct.images) && safeProduct.images.length > 0
+    ? safeProduct.images
+    : [safeProduct.image];
+}
+
+
+  // 🟢 1️⃣ SKU FINAL → imágenes finales
+  if (selectedSkuVariant?.images?.length) {
+    return selectedSkuVariant.images;
+  }
+  if (selectedSkuVariant?.image) {
+    return [selectedSkuVariant.image];
   }
 
-  setActiveImage(null);
-  setActiveImages([]);
-}, [accessoryImages]);
+  // 🟢 2️⃣ SELECCIÓN PARCIAL → imágenes coincidentes
+  const images = matchingVariants.flatMap((v) => {
+    if (Array.isArray(v.images)) return v.images;
+    if (v.image) return [v.image];
+    return [];
+  });
+
+  const uniqueImages = Array.from(new Set(images));
+
+// 🟡 3️⃣ RESULTADO FINAL
+// - variantes / cascadas (si existen)
+// - + accesorios multi (si existen)
+const finalImages = uniqueImages.length
+  ? uniqueImages
+  : [safeProduct.image];
+
+return accessoryImages.length
+  ? Array.from(new Set([...finalImages, ...accessoryImages]))
+  : finalImages;
+
+}, [selAttrs, matchingVariants, selectedSkuVariant, safeProduct.image]);
 
 
 
+  /* ======================================================
+     IMÁGENES
+  ====================================================== */
 
-  // Reset de selección cuando cambia de producto
+
+
+const galleryImages = derivedImages;
+ 
+
+
   useEffect(() => {
-    setSelAttrs({});
-    setSelectedVariantKey("");
-  }, [safeProduct?.id]);
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    if (!isMobile) return;
 
-  // ----- FRASCOS -----
-  const rangeFrascos = useMemo(
-    () => (isFrascoMode ? getPriceRange(safeProduct) : { min: null, max: null }),
-    [safeProduct, isFrascoMode]
-  );
-  const chosenFrasco = useMemo(
-    () => (isFrascoMode ? findVariantFrasco(safeProduct, selAttrs) : null),
-    [safeProduct, selAttrs, isFrascoMode]
-  );
-  const availabilityFrasco = useMemo(
-    () =>
-      isFrascoMode ? computeAvailabilityFrasco(safeProduct, selAttrs) : {},
-    [safeProduct, selAttrs, isFrascoMode]
-  );
+    if (accessoryImages.length > 0) {
+      setActiveImage(accessoryImages[0]);
+      setActiveImages(accessoryImages);
+      return;
+    }
 
-  // ----- VARIANTES SIMPLES -----
-  const simpleVariants = !isFrascoMode && hasVariants ? safeProduct.variants : [];
-  const selectedVariant = useMemo(() => {
-    if (!simpleVariants.length || !selectedVariantKey) return null;
-    return (
-      simpleVariants.find((v, i) => {
-        const key = getVariantKey(v, i);
-        return key === selectedVariantKey;
-      }) || null
-    );
-  }, [simpleVariants, selectedVariantKey]);
-// PASO 3: resetear imagen cuando cambia la variante
-useEffect(() => {
-  setActiveImage(null);
-}, [selectedVariantKey, chosenFrasco?.id]);
-
-  // Variante visual por defecto (para imagen cuando aún no se elige variante)
-const defaultVariant =
-  simpleVariants && simpleVariants.length > 0
-    ? simpleVariants[0]
-    : null;
-const activeVariant = selectedVariant || defaultVariant;
-  const rangeSimple = useMemo(
-    () => (!isFrascoMode && hasVariants ? getPriceRange(safeProduct) : { min: null, max: null }),
-    [safeProduct, isFrascoMode, hasVariants]
-  );
+    setActiveImage(null);
+    setActiveImages([]);
+  }, [accessoryImages]);
 
 const mainImage =
   activeImage ||
-  (isFrascoMode
-    ? chosenFrasco?.images?.[0] || chosenFrasco?.image
-    : galleryImages?.[0] ||
-      activeVariant?.images?.[0] ||
-      activeVariant?.image) ||
-  safeProduct.images?.[0] ||
+  galleryImages?.[0] ||
   safeProduct.image ||
   "/placeholder.png";
 
 
+  /* ======================================================
+     PRECIO
+  ====================================================== */
+
+  let displayPrice = formatPrice(safeProduct.price);
+
+if (hasVariants && !selectedSkuVariant) {
+  displayPrice = "Selecciona una opción";
+}
+
+if (selectedSkuVariant?.price != null) {
+  displayPrice = formatPrice(selectedSkuVariant.price);
+} else if (isType2 && safeProduct.priceRange?.min != null) {
+  const extra = selectedMultiValues.reduce(
+    (s, v) => s + (v.priceDelta || 0),
+    0
+  );
+  displayPrice = formatPrice(safeProduct.priceRange.min + extra);
+}
 
 
-
-  // ----- Precio a mostrar -----
-  let displayPrice = "Precio no disponible";
-
-  if (isFrascoMode) {
-    if (chosenFrasco) {
-      displayPrice = formatPrice(chosenFrasco.price);
-    } else if (rangeFrascos.min == null) {
-      displayPrice = "Precio no disponible";
-    } else if (rangeFrascos.min === rangeFrascos.max) {
-      displayPrice = formatPrice(rangeFrascos.min);
-    } else {
-      displayPrice = `Desde ${formatPrice(rangeFrascos.min)}`;
-    }
-  } else if (hasVariants) {
-    if (selectedVariant) {
-      displayPrice = formatPrice(selectedVariant.price);
-    } else if (rangeSimple.min == null) {
-      displayPrice = "Precio no disponible";
-    } else if (rangeSimple.min === rangeSimple.max) {
-      displayPrice = formatPrice(rangeSimple.min);
-    } else {
-      displayPrice = `Desde ${formatPrice(rangeSimple.min)}`;
-    }
-  } else if (safeProduct.price != null) {
-    displayPrice = formatPrice(safeProduct.price);
+  if (selectedSkuVariant?.price != null) {
+    displayPrice = formatPrice(selectedSkuVariant.price);
+  } else if (isType2 && safeProduct.priceRange?.min != null) {
+    const extra = selectedMultiValues.reduce(
+      (s, v) => s + (v.priceDelta || 0),
+      0
+    );
+    displayPrice = formatPrice(safeProduct.priceRange.min + extra);
   }
 
-   // ----- Toggles / selección -----
+  /* ======================================================
+     TOGGLE ATTR
+  ====================================================== */
+
 const toggleAttr = (attrId, valId) => {
   const attr = safeProduct.attributes.find((a) => a.id === attrId);
 
-// SINGLE (configuraciones excluyentes, ej. Color)
-if (attr?.type === "single") {
-  const value = attr.values.find((v) => v.id === valId);
-
-  setSelAttrs((prev) => ({
-    ...prev,
-    [attrId]: [valId],
-  }));
-
-  if (value?.images?.length > 0) {
-    setActiveImage(value.images[0]);
-    setActiveImages(value.images); // 🔥 CLAVE
-  } else {
+  if (isType2 && attr?.type === "multi" && valId === "base") {
+    setBaseSelected(true);
+    setSelAttrs({});
+    setActiveImage(null);
     setActiveImages([]);
-  }
-
-  return;
-}
-
-
-// MULTI (ej. accessories)
-if (attr?.type === "multi") {
-  setSelAttrs((prev) => {
-    const current = Array.isArray(prev[attrId]) ? prev[attrId] : [];
-    const next = current.includes(valId)
-      ? current.filter((v) => v !== valId)
-      : [...current, valId];
-    return { ...prev, [attrId]: next };
-  });
-  return;
-}
-
-
-  // SINGLE (frascos)
-  setSelAttrs((prev) =>
-    prev[attrId] === valId
-      ? { ...prev, [attrId]: undefined }
-      : { ...prev, [attrId]: valId }
-  );
-};
-
-
-
-  const canAddFrasco = isFrascoMode && !!chosenFrasco;
-  const canAddSimpleVariant = !isFrascoMode && hasVariants && !!selectedVariant;
-  const canAddSimpleProduct = !hasVariants;
-  const canAdd = canAddFrasco || canAddSimpleVariant || canAddSimpleProduct;
-
-const guideToSelection = () => {
-  const firstSelector = document.querySelector("[data-selector]");
-  if (firstSelector) {
-    firstSelector.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
-    firstSelector.focus?.();
-  }
-};
-
-const handleAdd = () => {
-  if (!canAdd) {
-    guideToSelection();
     return;
   }
 
-    setJustAdded(true);
-    window.setTimeout(() => setJustAdded(false), 1800);
 
-    // --- FRASCOS ---
-    if (isFrascoMode && chosenFrasco) {
-      onAddToCart?.({
-        ...chosenFrasco,
-        id: `${safeProduct.id}-${chosenFrasco.sku || chosenFrasco.code}`,
-        productId: safeProduct.id,
-        name: `${safeProduct.name} – ${chosenFrasco.sku || chosenFrasco.code}`,
-        image:
-  activeImage ||
-  chosenFrasco.images?.[0] ||
-  chosenFrasco.image ||
-  safeProduct.images?.[0] ||
-  safeProduct.image,
 
-        variantLabel: chosenFrasco.sku || chosenFrasco.code,
-        price: chosenFrasco.price,
-      });
-      return;
-    }
+  if (attr?.type === "single") {
+    setSelAttrs((prev) => {
+      const curr = prev[attrId];
+      if (Array.isArray(curr) && curr[0] === valId) {
+        const next = { ...prev };
+        delete next[attrId];
+        return next;
+      }
+      return { ...prev, [attrId]: [valId] };
+    });
+    return;
+  }
 
-    // --- VARIANTES SIMPLES ---
-    if (!isFrascoMode && hasVariants && selectedVariant) {
-      onAddToCart?.({
-        ...selectedVariant,
-        id: `${safeProduct.id}-${selectedVariant.sku || selectedVariant.code}`,
-        productId: safeProduct.id,
-        name: `${safeProduct.name} – ${selectedVariant.modeloMedida || selectedVariant.code}`,
-        image:
-  activeImage ||
-  selectedVariant.images?.[0] ||
-  selectedVariant.image ||
-  safeProduct.images?.[0] ||
-  safeProduct.image,
+if (attr?.type === "multi") {
+  setSelAttrs((prev) => ({
+    ...prev,
+    [attrId]: prev[attrId]?.includes(valId)
+      ? prev[attrId].filter((v) => v !== valId)
+      : [...(prev[attrId] || []), valId],
+  }));
+}
 
-        variantLabel: selectedVariant.modeloMedida || selectedVariant.code,
-        price: selectedVariant.price,
-      });
-      return;
-    }
+};
 
-    // --- PRODUCTO SIMPLE ---
-    if (!hasVariants) {
-      onAddToCart?.({
-        ...safeProduct,
-        id: safeProduct.id,
-        productId: safeProduct.id,
-        name: safeProduct.name,
-        image:
-  activeImage ||
-  safeProduct.images?.[0] ||
-  safeProduct.image ||
-  "/placeholder.png",
 
-        price: safeProduct.price,
-      });
-    }
-  };
+  /* ======================================================
+     VALIDACIÓN
+  ====================================================== */
 
-  const addButtonLabel = (() => {
-    if (isFrascoMode && chosenFrasco?.sku)
-      return `Agregar ${chosenFrasco.sku}`;
-    if (!isFrascoMode && selectedVariant) {
-      const idCode = selectedVariant.code || selectedVariant.sku || "";
-      return idCode ? `Agregar ${idCode}` : "Agregar al carrito";
-    }
-    if (!hasVariants) return "Agregar al carrito";
-    return "Selecciona una opción";
-  })();
+  const canAdd = isType2 ? baseSelected : hasVariants ? !!selectedSkuVariant : true;
+
+  /* ======================================================
+     ADD TO CART
+  ====================================================== */
+
+const handleAdd = () => {
+    console.log("🟡 ADD CLICK", safeProduct.id);
+
+  if (!canAdd) return;
+
+  // ===== TIPO 3 =====
+  if (hasVariants && selectedSkuVariant) {
+    onAddToCart?.({
+      ...safeProduct,
+      lineItemId: `${safeProduct.id}-${selectedSkuVariant.sku || selectedSkuVariant.code}`,
+      variant: selectedSkuVariant,
+      variantLabel:
+        selectedSkuVariant.code || selectedSkuVariant.sku || "Configuración",
+      image:
+        activeImage ||
+        selectedSkuVariant.images?.[0] ||
+        selectedSkuVariant.image ||
+        safeProduct.image,
+      price: selectedSkuVariant.price,
+    });
+console.log("🟢 ADD DONE TIPO 2", safeProduct.id);
+    // 🔔 PASO 2 — AQUÍ
+    setButtonLocked(true);
+    setTimeout(() => setButtonLocked(false), 1500);
+
+    return;
+  }
+
+  // ===== TIPO 2 =====
+  if (isType2) {
+    const ids = selectedMultiValues.map((v) => v.id).sort().join("+") || "base";
+
+    onAddToCart?.({
+      ...safeProduct,
+      lineItemId: `${safeProduct.id}-${ids}`,
+      variantLabel: ids === "base" ? "Base" : `Base + ${ids}`,
+      image: activeImage || safeProduct.image,
+      price: Number(displayPrice.replace(/[^\d.]/g, "")),
+    });
+console.log("🟢 ADD DONE TIPO 2", safeProduct.id);
+    // 🔔 PASO 2 — AQUÍ
+    setButtonLocked(true);
+    setTimeout(() => setButtonLocked(false), 1500);
+
+    return;
+  }
+
+  // ===== TIPO 1 =====
+  onAddToCart?.({
+    ...safeProduct,
+    lineItemId: `${safeProduct.id}-base`,
+    variantLabel: "Configuración estándar",
+    image: activeImage || safeProduct.image,
+    price: safeProduct.price,
+  });
+console.log("🟢 ADD DONE TIPO 2", safeProduct.id);
+  // 🔔 PASO 2 — AQUÍ
+  setButtonLocked(true);
+  setTimeout(() => setButtonLocked(false), 1500);
+};
+
+  /* ======================================================
+     RENDER
+  ====================================================== */
 
   return (
     <div className="relative w-full max-w-6xl mx-auto p-4">
 
 
-      {/* GRID principal: miniaturas | imagen | info */}
-      <div className="grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] gap-6 items-start">
-        {/* Columna miniaturas (desktop) */}
-        <div className="hidden md:flex md:flex-col gap-2">
-          {(
-            isFrascoMode
-              ? (chosenFrasco?.images?.length || 0) > 1
-              : galleryImages.length > 1 ||
-                safeProduct.attributes?.some((attr) =>
-                  attr.values?.some((v) => (v.images?.length || 0) > 0)
-                )
-          )
-            ? (
-                isFrascoMode
-                  ? chosenFrasco?.images || []
-                  : activeImages.length > 0
-                  ? activeImages
-                  : galleryImages
-              ).map((imgSrc, idx) => (
-                <button
-                  key={`${imgSrc}-${idx}`}
-                  type="button"
-                  onClick={() => setActiveImage(imgSrc)}
-                  onFocus={() => setActiveImage(imgSrc)}
-                  className="h-16 w-16 cursor-pointer rounded border border-slate-200 hover:ring-2 ring-[#208790] bg-white overflow-hidden"
-                >
-                  <img
-                    src={imgSrc}
-                    alt={`thumb-${idx}`}
-                    className="h-full w-full object-contain"
-                  />
-                </button>
-              ))
-            : null}
+{/* CONTENIDO PRINCIPAL PDP */}
+{safeProduct.educationalPdp ? (
+<EmergencyTrainingSections
+  data={safeProduct}
+  selAttrs={selAttrs}
+  toggleAttr={toggleAttr}
+  selectedSkuVariant={selectedSkuVariant}
+  activeImage={activeImage}
+  setActiveImage={setActiveImage}
+  canAdd={canAdd}
+  onAddToCart={handleAdd}
+/>
+
+) : (
+
+      <div className="grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] gap-6">
+        {/* Miniaturas */}
+        <div className="hidden md:flex flex-col gap-2">
+          {(activeImages.length > 0 ? activeImages : galleryImages).length > 1 &&
+            (activeImages.length > 0 ? activeImages : galleryImages).map(
+              (img, i) => (
+<button
+  key={`${img}-${i}`}
+  onClick={() => setActiveImage(img)}
+  onMouseEnter={() => {
+    if (window.innerWidth >= 1024) {
+      setActiveImage(img);
+    }
+  }}
+  className={`h-16 w-16 rounded border border-transparent
+  hover:ring-2 hover:ring-[#208790]
+  ${img === activeImage ? "ring-2 ring-[#208790]" : ""}
+`}
+
+>
+  <img src={img} className="object-contain h-full w-full" />
+</button>
+
+              )
+            )}
         </div>
 
-        {/* Columna imagen */}
-        <div className="border rounded-2xl p-4 flex items-center justify-center">
-          <img
-            src={mainImage}
-            alt={safeProduct.name}
-            className="max-h-[420px] object-contain"
-            onError={(e) => {
-              e.currentTarget.src = "/placeholder.png";
-            }}
-          />
-        </div>
+    {/* Imagen */}
+    {/* Imagen con zoom tipo lupa */}
+<div
+  className="border rounded-2xl p-4 flex justify-center overflow-hidden group"
+  onMouseMove={(e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
 
-        {/* Columna info / decisión */}
-        <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">{safeProduct.name}</h2>
+    e.currentTarget.style.setProperty("--x", `${x}%`);
+    e.currentTarget.style.setProperty("--y", `${y}%`);
+  }}
+>
+  <img
+    src={mainImage}
+    alt={safeProduct.name}
+    className="
+      max-h-[420px]
+      object-contain
+      transition-transform duration-200
+      lg:group-hover:scale-150
+    "
+    style={{
+      transformOrigin: "var(--x, 50%) var(--y, 50%)",
+    }}
+  />
+</div>
 
-          {safeProduct.description && (
-            <p className="text-sm text-slate-600 leading-relaxed">
-              {safeProduct.description}
-            </p>
-          )}
 
-          <div className="text-2xl font-bold text-slate-900">{displayPrice}</div>
+    {/* Info */}
+    <div className="space-y-4">
+      <h2 className="text-2xl font-semibold">
+        {safeProduct.name}
+      </h2>
 
-          {/* MODO ATRIBUTOS (frascos / multi / single) */}
-          {(isFrascoMode || safeProduct.attributes?.length > 0) &&
-            (safeProduct.attributes || []).map((attr) => (
-              <div key={attr.id} className="space-y-2">
-                <div className="text-sm font-medium">
-                  {attr.label || attr.name}
-                </div>
+{(selectedSkuVariant?.description || safeProduct.description) && (
+  <p
+    className="text-sm text-slate-600 text-justify"
+    dangerouslySetInnerHTML={{
+      __html: parseBold(
+        selectedSkuVariant?.description || safeProduct.description
+      ),
+    }}
+  />
+)}
 
-                <div className="flex flex-wrap gap-2">
-                  {(
-                    attr.type === "multi" || attr.type === "single"
-                      ? attr.values
-                      : availabilityFrasco[attr.id] || []
-                  ).map((val) => {
-                    const selected = Array.isArray(selAttrs[attr.id])
-                      ? selAttrs[attr.id].includes(val.id)
-                      : selAttrs[attr.id] === val.id;
 
-                    const disabledByRule = safeProduct.rules?.incompatible?.some(
-                      ([a, b]) =>
-                        (val.id === a && selAttrs[attr.id]?.includes?.(b)) ||
-                        (val.id === b && selAttrs[attr.id]?.includes?.(a))
-                    );
 
-                    const enabled =
-                      (!disabledByRule && (val.enabled ?? true)) || selected;
-
-                    return (
-                      <button
-                        key={val.id}
-                        type="button"
-                        onClick={() => toggleAttr(attr.id, val.id)}
-                        disabled={!enabled}
-                        className={
-                          "px-3 py-2 rounded-xl border text-sm " +
-                          (selected
-                            ? "bg-emerald-600 text-white border-emerald-600"
-                            : enabled
-                            ? "bg-white hover:bg-emerald-50 border-gray-300"
-                            : "bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed")
-                        }
-                        title={
-                          !enabled && !selected
-                            ? "No disponible para la selección actual"
-                            : ""
-                        }
-                      >
-                        {val.label}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
-
-          {/* MODO VARIANTES SIMPLES (dropdown) */}
-          {!isFrascoMode && hasVariants && (
-            <div className="space-y-2" data-selector tabIndex={-1}>
-              <div className="text-sm font-medium">Selecciona variante</div>
-
-              <select
-                className="w-full rounded-xl border px-3 py-2 text-sm bg-white"
-                value={selectedVariantKey}
-                onChange={(e) => {
-                  const key = e.target.value;
-                  setSelectedVariantKey(key);
-                  setActiveImage(null);
-                }}
-              >
-                <option value="">Selecciona una opción</option>
-                {simpleVariants.map((v, i) => {
-                  const key = getVariantKey(v, i);
-                  const label = buildVariantLabel(v);
-                  return (
-                    <option key={key} value={key}>
-                      {label}
-                    </option>
-                  );
-                })}
-              </select>
-
-              {selectedVariant?.shortDescription && (
-                <p className="text-xs opacity-80 mt-1">
-                  {selectedVariant.shortDescription}
-                </p>
-              )}
-            </div>
-          )}
-
-          {/* CTA (NO TOCAR desktop: esto queda igual) */}
-          <div aria-live="polite">
-            <button
-              type="button"
-              data-primary-cta
-              onClick={handleAdd}
-              disabled={!canAdd || justAdded}
-              className="w-full rounded-xl bg-[#208790] py-3 text-sm font-semibold text-white disabled:opacity-50"
-            >
-              {justAdded ? "Agregado ✓" : addButtonLabel}
-            </button>
-          </div>
-        </div>
+      <div className="text-2xl font-bold">
+        {displayPrice}
       </div>
 
-      {/* ===============================
-          INFORMACIÓN TÉCNICA DEL PRODUCTO
-      =============================== */}
-      {safeProduct.technicalSections && (
-        <div className="mt-12 max-w-5xl mx-auto px-4 space-y-10">
-          {safeProduct.technicalSections.features?.length > 0 && (
-            <section>
-              <h2 className="text-lg font-semibold mb-3 pl-3 border-l-4 border-[#245877]">
-                Características principales
-              </h2>
+      {hasAttributes &&
+        safeProduct.attributes.map((attr) => (
+          <div key={attr.id}>
+            <div className="text-sm font-medium">{attr.label}</div>
 
-              <ul className="list-disc pl-5 text-sm text-slate-700 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-2">
-                {safeProduct.technicalSections.features.map((item, idx) => (
-                  <li key={idx}>{item}</li>
-                ))}
-              </ul>
-            </section>
-          )}
-        </div>
-      )}
-    </div>
+            <div className="flex flex-wrap gap-2 mt-1">
+              {attr.values
+  // 👉 SOLO en cascada 2 ocultamos los inhabilitados
+  .filter((v) => {
+    if (attr.id !== safeProduct.attributeOrder?.[1]) return true;
+
+    return !isOptionDisabledCascade(
+      attr.id,
+      v.id,
+      selAttrs,
+      safeProduct.variants,
+      safeProduct.attributeOrder
+    );
+  })
+  .map((v) => {
+
+    const order =
+  safeProduct.attributeOrder?.length
+    ? safeProduct.attributeOrder
+    : ATTRIBUTE_ORDER;
+
+const attrIndex = order.indexOf(attr.id);
+
+const isSecondCascade =
+  attrIndex === 1;
+
+const isFirstCascadeUnselected =
+  isSecondCascade &&
+  !selAttrs[order[0]]?.length;
+const disabled =
+  isFirstCascadeUnselected ||
+  isOptionDisabledByRules(
+    attr.id,
+    v.id,
+    selAttrs,
+    attr.rules
   );
-  }
+
+    const selected =
+      attr.type === "multi"
+        ? v.id === "base"
+          ? baseSelected
+          : selAttrs[attr.id]?.includes(v.id)
+        : selAttrs[attr.id]?.includes(v.id);
+
+    return (
+<button
+  key={v.id}
+  disabled={disabled}
+  onClick={() => {
+    if (!disabled) toggleAttr(attr.id, v.id);
+  }}
+  className={`px-3 py-2 rounded-lg border text-sm transition
+    ${
+      disabled
+        ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+        : selected
+          ? "bg-emerald-600 text-white"
+          : "bg-white hover:bg-emerald-50"
+    }`}
+>
+
+        {v.label}
+      </button>
+    );
+  })}
+            </div>
+          </div>
+        ))}
+
+<button
+  type="button"
+  onClick={handleAdd}
+  disabled={buttonLocked}
+  className={`w-full py-3 rounded-xl font-semibold !text-white
+    ${
+      buttonLocked
+        ? "bg-gray-300 cursor-not-allowed"
+        : "bg-[#208790] hover:brightness-110 cursor-pointer"
+    }`}
+>
+  Agregar al carrito
+</button>
+
+    </div>
+  </div>
+)}
+</div>
+);
+}

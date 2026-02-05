@@ -10,11 +10,21 @@ import { Search } from "lucide-react";
 import { PRODUCTS_BY_CATEGORY } from "../../data/products";
 import { useLocation } from "react-router-dom";
 
+const openExternal = (url) => {
+  window.open(url, "_blank", "noopener,noreferrer");
+};
 
+const handleAnchorScroll = (id) => {
+  document.getElementById(id)?.scrollIntoView({
+    behavior: "smooth",
+  });
+};
 
 
 export default function MESHeader({ cartCount = 0 }) {
   const [openMobileSearch, setOpenMobileSearch] = useState(false);
+  const [cartPing, setCartPing] = useState(false);
+
   const [open, setOpen] = useState(false);
   const isMobileOverlayOpen = open || openMobileSearch;
   const location = useLocation();
@@ -72,6 +82,14 @@ const searchResults = React.useMemo(() => {
   }
 }, [open]);
 
+useEffect(() => {
+  if (cartCount === 0) return;
+
+  setCartPing(true);
+  const t = setTimeout(() => setCartPing(false), 1500);
+
+  return () => clearTimeout(t);
+}, [cartCount]);
 
 
   /* =========================================================
@@ -91,8 +109,9 @@ const nav = [
      HANDLER DEL CARRITO → abre minicart
   ========================================================= */
 const handleCartClick = () => {
-  navigate("/carrito");   // SIEMPRE abre el carrito grande
+  navigate("/carrito");
 };
+
 
 
 
@@ -114,17 +133,21 @@ const handleCartClick = () => {
  <div className="flex items-center gap-3">
 
 
-  <Link to="/" className="flex items-center gap-3 cursor-pointer">
-    <img src="/images/logo.png" alt="MES" className="h-12 w-auto" />
-    <div className="leading-tight">
-      <p className="text-base font-semibold text-slate-900">
-        Medical Equipment & Supplies
-      </p>
-      <p className="text-xs text-slate-500">
-        Soluciones médicas confiables
-      </p>
-    </div>
-  </Link>
+<button
+  type="button"
+  className="flex items-center gap-3 cursor-pointer"
+  onClick={() => navigate("/")}
+>
+  <img src="/images/logo.png" alt="MES" className="h-12 w-auto" />
+  <div className="leading-tight">
+    <p className="text-base font-semibold text-slate-900">
+      Medical Equipment & Supplies
+    </p>
+    <p className="text-xs text-slate-500">
+      Soluciones médicas confiables
+    </p>
+  </div>
+</button>
 </div>
 
 
@@ -152,7 +175,7 @@ const handleCartClick = () => {
           }
 
           if (item.href) {
-            window.location.hash = item.href;
+            handleAnchorScroll(item.href.replace("#", ""));
           }
         }}
       >
@@ -209,20 +232,28 @@ const handleCartClick = () => {
   </div>
 
   {/* WHATSAPP */}
-  <a
-    href={WSP_LINK}
-    target="_blank"
-    rel="noreferrer"
-    className="inline-flex items-center justify-center rounded-full p-2 shadow hover:bg-slate-100 cursor-pointer"
-  >
-    <img src="/images/whatsapp-icon.png" className="h-6 w-6" alt="" />
-  </a>
+<button
+  type="button"
+  onClick={() => openExternal(WSP_LINK)}
+  className="inline-flex items-center justify-center rounded-full p-2 shadow hover:bg-slate-100 cursor-pointer"
+>
+  <img src="/images/whatsapp-icon.png" className="h-6 w-6" alt="" />
+</button>
+
+
 
   {/* CARRITO */}
   <button
     type="button"
     onClick={handleCartClick}
-    className="cursor-pointer inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm hover:bg-slate-50"
+    className={`
+  cursor-pointer inline-flex items-center gap-2 rounded-full border border-slate-200
+  px-3 py-1.5 text-sm transition-all duration-300
+  ${cartPing
+    ? "bg-gray-200 scale-110"
+    : "bg-white hover:bg-slate-50"}
+`}
+
   >
     🛒
     {cartCount > 0 && (
@@ -320,11 +351,12 @@ onSubmit={(e) => {
           return;
         }
 
-        // 🔗 LINKS NORMALES
-        if (item.href) {
-          setOpen(false);
-          window.location.hash = item.href;
-        }
+// 🔗 LINKS NORMALES
+if (item.href) {
+  setOpen(false);
+  handleAnchorScroll(item.href.replace("#", ""));
+}
+
       }}
     >
       {item.label}
@@ -333,14 +365,13 @@ onSubmit={(e) => {
 ))}
 
               {/* CTA WhatsApp MOBILE */}
-              <a
-                href={WSP_LINK}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full p-2 shadow hover:bg-slate-100 cursor-pointer"
-              >
-                <img src="/images/whatsapp-icon.png" className="h-6 w-6" alt="" />
-              </a>
+<button
+  type="button"
+  onClick={() => openExternal(WSP_LINK)}
+  className="inline-flex items-center justify-center rounded-full p-2 shadow hover:bg-slate-100 cursor-pointer"
+>
+  <img src="/images/whatsapp-icon.png" className="h-6 w-6" alt="" />
+</button>
 
               {/* CARRITO MOBILE — también abre minicart */}
               <button
@@ -349,7 +380,14 @@ onSubmit={(e) => {
                   setOpen(false);
                   handleCartClick();
                 }}
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm hover:bg-slate-50"
+                className={`
+  inline-flex items-center gap-2 rounded-full border border-slate-200
+  px-3 py-1.5 text-sm transition-all duration-300
+  ${cartPing
+    ? "bg-gray-200 scale-110"
+    : "bg-white hover:bg-slate-50"}
+`}
+
               >
                 🛒
                 {cartCount > 0 && (

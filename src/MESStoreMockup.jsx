@@ -12,13 +12,17 @@ import CartPage from "./pages/CartPage";
 import CategoryPage from "./pages/CategoryPage";
 import HomePage from "./pages/HomePage";
 import MiniCartFloating from "./components/ui/MiniCartFloating";
+import MESHeader from "./components/layout/MESHeader";
+import { useNavigate } from "react-router-dom";
+
+
 
 // =====================================
 // ===   COMPONENTE PRINCIPAL   ===
 // =====================================
 function MESStoreMockup() {
   const location = useLocation();
-  const isProductPage = location.pathname.startsWith("/producto/");
+    const isProductPage = location.pathname.startsWith("/producto/");
 
 
   // ==========================
@@ -40,24 +44,32 @@ function MESStoreMockup() {
   // ==========================
   // HANDLERS CARRITO
   // ==========================
-  const handleAddToCart = (product) => {
-    setCartItems((prev) => {
-      const exists = prev.find(
-        (x) => x.id === product.id && x.variantLabel === product.variantLabel
-      );
+const handleAddToCart = (product) => {
+  setCartItems((prev) => {
+    const exists = prev.find((x) =>
+      x.lineItemId && product.lineItemId
+        ? x.lineItemId === product.lineItemId
+        : x.id === product.id &&
+          x.variantLabel === product.variantLabel
+    );
 
-      const updated = exists
-        ? prev.map((x) =>
-            x.id === product.id && x.variantLabel === product.variantLabel
-              ? { ...x, quantity: x.quantity + 1 }
-              : x
-          )
-        : [...prev, { ...product, quantity: 1 }];
+    const updated = exists
+      ? prev.map((x) =>
+          (x.lineItemId && product.lineItemId
+            ? x.lineItemId === product.lineItemId
+            : x.id === product.id &&
+              x.variantLabel === product.variantLabel)
+            ? { ...x, quantity: x.quantity + 1 }
+            : x
+        )
+      : [...prev, { ...product, quantity: 1 }];
 
-      localStorage.setItem("MES_CART", JSON.stringify(updated));
-      return updated;
-    });
-  };
+    localStorage.setItem("MES_CART", JSON.stringify(updated));
+    return updated;
+  });
+};
+
+
 
   const handleUpdateQuantity = (id, variantLabel, quantity) => {
     setCartItems((prev) => {
@@ -84,18 +96,43 @@ function MESStoreMockup() {
     });
   };
 
+const navigate = useNavigate();
+
+const handleSelectProductFromMiniCart = (productId) => {
+  navigate(`/producto/${productId}`);
+};
+
+
+
+function ProductPageWrapper({ cartCount, onAddToCart }) {
+  return (
+    <PageTransition>
+      <ProductPage
+        cartCount={cartCount}
+        onAddToCart={onAddToCart}
+      />
+    </PageTransition>
+  );
+}
+
   // ==========================
   // RENDER
   // ==========================
 return (
-  <div className="relative min-h-screen flex flex-col overflow-hidden">
+  <div className="relative min-h-screen flex flex-col overflow-x-hidden">
+
+
     <ScrollToTop />
 
+    {/* HEADER GLOBAL */}
+    <MESHeader cartCount={cartCount} />
+    
     {/* ===== BANDAS LATERALES INSTITUCIONALES (GLOBAL) ===== */}
 {isProductPage && (
   <>
-    <div className="hidden lg:block fixed top-0 left-0 h-screen w-20 bg-[#208790] z-0" />
-    <div className="hidden lg:block fixed top-0 right-0 h-screen w-20 bg-[#208790] z-0" />
+<div className="hidden lg:block absolute top-0 left-0 h-full w-20 bg-[#208790] z-0" />
+<div className="hidden lg:block absolute top-0 right-0 h-full w-20 bg-[#208790] z-0" />
+
   </>
 )}
 
@@ -103,9 +140,11 @@ return (
     {/* ===== CONTENIDO PRINCIPAL ===== */}
     <div className="relative z-10 flex flex-col min-h-screen">
 
+
       <div className="flex-1">
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
+        <AnimatePresence initial={false}>
+
+          <Routes location={location}>
             {/* HOME */}
             <Route
               path="/"
@@ -143,17 +182,14 @@ return (
             />
 
             {/* PRODUCTO */}
-            <Route
-              path="/producto/:id"
-              element={
-                <PageTransition>
-                  <ProductPage
-                    cartCount={cartCount}
-                    onAddToCart={handleAddToCart}
-                  />
-                </PageTransition>
-              }
-            />
+<Route
+  path="/producto/:id"
+  element={
+<ProductPageWrapper cartCount={cartCount} onAddToCart={handleAddToCart} />
+
+  }
+/>
+
 
             {/* BUSCAR */}
             <Route
@@ -199,12 +235,14 @@ return (
       </div>
 
       {/* ===== MINICART ===== */}
-      <MiniCartFloating
-        cartItems={cartItems}
-        cartCount={cartCount}
-        onUpdateQuantity={handleUpdateQuantity}
-        onRemoveFromCart={handleRemoveFromCart}
-      />
+<MiniCartFloating
+  cartItems={cartItems}
+  cartCount={cartCount}
+  onUpdateQuantity={handleUpdateQuantity}
+  onRemoveFromCart={handleRemoveFromCart}
+  onSelectProduct={handleSelectProductFromMiniCart}
+/>
+
 
       {/* ===== FOOTER ===== */}
       <Footer />
