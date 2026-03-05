@@ -18,7 +18,8 @@ export default function ProductPage({ cartCount, onAddToCart }) {
 
 
   const handleClose = () => {
-    window.location.href = `/catalogo${location.search}`;
+    // Navegar client-side (SPA) en lugar de hard reload
+    navigate(`/catalogo${location.search}`);
   };
 
 

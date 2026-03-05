@@ -629,7 +629,7 @@ export default function ProductConfigurator({ product, onAddToCart }) {
       ) : (
 
         <div className="grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] gap-6">
-          {/* Miniaturas */}
+          {/* Miniaturas DESKTOP — vertical */}
           <div className="hidden md:flex flex-col gap-2">
             {(activeImages.length > 0 ? activeImages : galleryImages).length > 1 &&
               (activeImages.length > 0 ? activeImages : galleryImages).map(
@@ -646,41 +646,52 @@ export default function ProductConfigurator({ product, onAddToCart }) {
   hover:ring-2 hover:ring-[#208790]
   ${img === activeImage ? "ring-2 ring-[#208790]" : ""}
 `}
-
                   >
                     <img src={img} className="object-contain h-full w-full" />
                   </button>
-
                 )
               )}
           </div>
 
-          {/* Imagen */}
-          {/* Imagen con zoom tipo lupa */}
-          <div
-            className="border rounded-2xl p-4 flex justify-center overflow-hidden group"
-            onMouseMove={(e) => {
-              const rect = e.currentTarget.getBoundingClientRect();
-              const x = ((e.clientX - rect.left) / rect.width) * 100;
-              const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-              e.currentTarget.style.setProperty("--x", `${x}%`);
-              e.currentTarget.style.setProperty("--y", `${y}%`);
-            }}
-          >
-            <img
-              src={mainImage}
-              alt={safeProduct.name}
-              className="
-      max-h-[420px]
-      object-contain
-      transition-transform duration-200
-      lg:group-hover:scale-150
-    "
-              style={{
-                transformOrigin: "var(--x, 50%) var(--y, 50%)",
+          {/* Imagen principal + miniaturas MOBILE */}
+          <div className="flex flex-col gap-3">
+            {/* Imagen con zoom tipo lupa */}
+            <div
+              className="border rounded-2xl p-4 flex justify-center overflow-hidden group"
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                e.currentTarget.style.setProperty("--x", `${x}%`);
+                e.currentTarget.style.setProperty("--y", `${y}%`);
               }}
-            />
+            >
+              <img
+                src={mainImage}
+                alt={safeProduct.name}
+                className="max-h-[420px] object-contain transition-transform duration-200 lg:group-hover:scale-150"
+                style={{ transformOrigin: "var(--x, 50%) var(--y, 50%)" }}
+              />
+            </div>
+
+            {/* Miniaturas MOBILE — horizontal scroll, solo si hay más de 1 imagen */}
+            {(activeImages.length > 0 ? activeImages : galleryImages).length > 1 && (
+              <div className="flex md:hidden gap-2 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden">
+                {(activeImages.length > 0 ? activeImages : galleryImages).map((img, i) => (
+                  <button
+                    key={`mob-${img}-${i}`}
+                    onClick={() => setActiveImage(img)}
+                    className={`shrink-0 h-14 w-14 rounded-lg border-2 transition-all
+                      ${img === (activeImage || galleryImages?.[0])
+                        ? "border-[#208790] ring-1 ring-[#208790]"
+                        : "border-slate-200"
+                      }`}
+                  >
+                    <img src={img} className="object-contain h-full w-full rounded-md" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
 
