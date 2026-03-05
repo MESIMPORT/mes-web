@@ -1,6 +1,19 @@
 // src/pages/CartPage.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { modelosAnatomicosYSimuladoresProducts } from "../data/products/modelosAnatomicosYSimuladores";
+
+// IDs de productos con entrega extendida (modelos anatómicos)
+const EXTENDED_DELIVERY_IDS = new Set(
+  modelosAnatomicosYSimuladoresProducts.map((p) => String(p.id))
+);
+
+const getDeliveryInfo = (itemId) => {
+  if (EXTENDED_DELIVERY_IDS.has(String(itemId))) {
+    return { label: "15 – 25 días hábiles", color: "text-amber-600", bg: "bg-amber-50 border-amber-200" };
+  }
+  return { label: "2 – 5 días hábiles", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200" };
+};
 
 const openExternal = (url) => {
   window.open(url, "_blank", "noopener,noreferrer");
@@ -50,31 +63,31 @@ ${notes || "-"}
     `.trim();
   };
 
-const handleWhatsApp = () => {
-  if (cartItems.length === 0) return;
-  const base = "https://wa.me/51999999999";
-  const text = buildMessage();
-  openExternal(`${base}?text=${encodeURIComponent(text)}`);
-};
+  const handleWhatsApp = () => {
+    if (cartItems.length === 0) return;
+    const base = "https://wa.me/51999999999";
+    const text = buildMessage();
+    openExternal(`${base}?text=${encodeURIComponent(text)}`);
+  };
 
 
-const handleEmail = () => {
-  if (cartItems.length === 0) return;
-  const subject = "Cotización desde carrito web";
-  const body = buildMessage();
+  const handleEmail = () => {
+    if (cartItems.length === 0) return;
+    const subject = "Cotización desde carrito web";
+    const body = buildMessage();
 
-  const mailtoUrl =
-    "mailto:ventas@tuempresa.com" +
-    `?subject=${encodeURIComponent(subject)}` +
-    `&body=${encodeURIComponent(body)}`;
+    const mailtoUrl =
+      "mailto:ventas@tuempresa.com" +
+      `?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(body)}`;
 
-  openExternal(mailtoUrl);
-};
+    openExternal(mailtoUrl);
+  };
 
 
   return (
     <>
-      
+
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <h1 className="text-2xl md:text-3xl font-bold text-slate-900">
           Carrito de compras
@@ -121,6 +134,19 @@ const handleEmail = () => {
                             {item.variantLabel || item.variant?.label}
                           </p>
                         )}
+
+                        {/* Tiempo de entrega */}
+                        {(() => {
+                          const delivery = getDeliveryInfo(item.id);
+                          return (
+                            <span className={`inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded-full border text-xs font-medium ${delivery.bg} ${delivery.color}`}>
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-3.5 h-3.5 shrink-0">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                              </svg>
+                              Entrega estimada: {delivery.label}
+                            </span>
+                          );
+                        })()}
 
                         {/* Controles */}
                         <div className="mt-2 flex flex-col sm:flex-row sm:items-center sm:gap-4">
