@@ -1,133 +1,320 @@
+﻿// src/data/products/soporteRespiratorio.js
+
 export const soporteRespiratorioProducts = [
- {
-    id: "flujometro-baja",
-    name: "Flujometro de oxigeno de 0-15 lpm",
-    description:
-    "Permite regular el caudal de oxígeno desde 0 hasta 15 litros por minuto (L/min) con precisión. Su construcción cumple con exigencias de durabilidad, visibilidad y compatibilidad para entornos hospitalarios o de atención médica.",
-    price: 252,
-    image: "/images/respiratorio/flujometro.png",
-
+  {
+    id: "casco-cefalico-facem-mod-016-newborn-mayores-3600gr",
+    name: "CASCO CEFALICO FACEM MOD 016 NEWBORN MAYORES 3600GR",
+    description: "CASCO CEFALICO FACEM MOD 016 NEWBORN MAYORES 3600GR",
+    price: 588,
+    image: "/images/respiratorio/placeholder.png"
   },
-
-{
-  id: "balon-co2-m60",
-  name: "Balon de CO2 M60",
-  description:
-  "Fabricado en aluminio grado 6061-T6, tiene capacidad de 10.5 L (≈60 pie³) y presión de servicio de 153 bar (2216 psi). Está diseñado bajo especificación 	DOT-3AL/TC-3ALM, acabado espejo y limpieza para oxígeno. Su rosca de válvula es de 1.125″-12 UNF (conexión tipo CGA 540 en aplicaciones médicas) lo que lo hace 	compatible con reguladores estándar.",
-  price: 750,
-  image: "/images/respiratorio/co2m60.png",
-
-},
-
-{
-  id: "manguera-co2",
-  name: "Manguera para balon CO2 1.5MT",
-  description:
-  "",
-  price: 350,
-  image: "/images/respiratorio/flujometro.png",
-
-},
-
-{
-  id: "yocke-870",
-  name: "Regulador de oxigeno YOCKE CGA870",
-  description:
-  "Diseñado para controlar con precisión la presión de salida y el flujo de oxígeno en aplicaciones clínicas, domiciliarias y de emergencia. Su sistema de conexión tipo 	yugo (yoke) es ideal para cilindros de oxígeno portátiles tipo E, D o M6. Material: Aluminio anodizado - Entrada: CGA870 - Salida: Diss 12",
-  price: 252,
-  image: "/images/respiratorio/YOCKE870.png",
-
-},
-
-{
-  id: "empaque-valvula-yugo",
-  name: "Empaque para valvula yugo",
-  description:
-  "Componente para regulador de oxigeno, garantiza un sellado hermético entre la válvula del cilindro de oxígeno y el regulador tipo yugo, evitando fugas de gas y 	asegurando un flujo estable y seguro.",
-  price: 15,
-  image: "/images/respiratorio/washer.png",
-
-},
-
-{
-  id: "regulador-vacio",
-  name: "Regulador de vacio GENTEC 882VR 0-300",
-  description:
-  "Dispositivo diseñado para controlar la succión (vacío) en entornos médicos, quirúrgicos o de terapia respiratoria.",
-  price: 1100,
-  image: "/images/respiratorio/vacio.jpg",
-
-},
-
-{
-  id: "cilindro-oxigeno-M6",
-  name: "Cilindro de oxigeno tipo M6 capacidad 164LT",
-  description:
-  "Balon ultra liviano, ideal para traslados cortos y uso domiciliario. Es compatible con reguladores médicos estándar CGA 870, perfecto para pacientes con oxigenoterapia 	ambulatoria y 	emergencias prehospitalarias",
-  price: 100,
-  image: "/images/respiratorio/M6.png",
-
-},
-
-{
-  id: "cilindro-oxigeno-M9",
-  name: "Cilindro de oxigeno tipo M9 capacidad 255LT",
-  description:
-  "Balon liviano y versátil, adecuado para traslados de pacientes, uso domiciliario y emergencias médicas. Compatible con reguladores CGA 870, ideal para servicios de 	ambulancia, atención a domicilio y clínicas móviles.",
-  price: 100,
-  image: "/images/respiratorio/M9.png",
-
-},
-
-{
-  id: "cilindro-oxigeno-D",
-  name: "Cilindro de oxigeno tipo D capacidad 425LT",
-  description:
-  "Balance perfecto entre autonomía y portabilidad. Recomendado para traslados intermedios, oxigenoterapia domiciliaria y atención ambulatoria prolongada. Su estructura 	ligera y duradera permite un transporte seguro y práctico. Compatible con válvulas médicas CGA 870.",
-  price: 100,
-  image: "/images/respiratorio/D.png",
-
-},
-
-{
-  id: "cilindro-oxigeno-E",
-  name: "Cilindro de oxigeno tipo E capacidad 680LT",
-  description:
-  "Con una alta capacidad portátil, es ideal para traslados prolongados, uso en emergencias prehospitalarias, clínicas móviles y atención continua en casa. Su peso ligero 	y compatibilidad con reguladores estándar CGA 870 lo convierten en uno de los formatos más utilizados en el sector salud.",
-  price: 100,
-  image: "/images/respiratorio/E.png",
-
-},
-
-{
-  id: "cilindro-oxigeno-M60",
-  name: "Cilindro de oxigeno tipo M60 capacidad 1700LT",
-  description:
-  "Con una alta capacidad, ideal para salas de emergencia, quirófanos móviles y oxigenoterapia prolongada. Su estructura robusta y base estable garantizan seguridad y 	eficiencia. Compatible con reguladores CGA 540 y accesorios hospitalarios.",
-  price: 100,
-  image: "/images/respiratorio/M60.png",
-
-},
-
-{
-  id: "cilindro-oxigeno-M122",
-  name: "Cilindro de oxigeno tipo M122 capacidad 3450LT",
-  description:
-  "Cilindro de gran capacidad fabricado en aluminio de alta resistencia. Ideal para uso estacionario en hospitales, clínicas y centros de atención continua. Compatible 	con reguladores CGA 540, diseñado para instalaciones médicas que requieren suministro constante y confiable.",
-  price: 100,
-  image: "/images/respiratorio/M122.png",
-
-},
-
-{
-  id: "coche-transportador",
-  name: "Coche transportador de balon de oxigeno M60 & M122",
-  description:
-  "Fabricado en estructura metálica reforzada con acabado anticorrosivo, ofrece alta resistencia y estabilidad durante el traslado. Su diseño ergonómico incluye base 	curva de soporte que asegura el cilindro, cadena o correa de sujeción para máxima seguridad y ruedas robustas de gran diámetro que permiten maniobrar con facilidad 	incluso en superficies irregulares.",
-  price: 100,
-  image: "/images/respiratorio/coche.png",
-
-},
-
-
+  {
+    id: "casco-cefalico-facem-mod-016-newborn-menores-1000gr",
+    name: "CASCO CEFALICO FACEM MOD 016 NEWBORN MENORES 1000GR",
+    description: "CASCO CEFALICO FACEM MOD 016 NEWBORN MENORES 1000GR",
+    price: 588,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "casco-cefalico-facem-mod-016-newborn-menores-mayores-de-1000gr-y-hasta-3600gr",
+    name: "CASCO CEFALICO FACEM MOD 016 NEWBORN MENORES MAYORES DE 1000GR Y HASTA 3600GR",
+    description: "CASCO CEFALICO FACEM MOD 016 NEWBORN MENORES MAYORES DE 1000GR Y HASTA 3600GR",
+    price: 588,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "coche-porta-cilindro-de-3-m3",
+    name: "COCHE PORTA CILINDRO DE 3 M3",
+    description: "COCHE PORTA CILINDRO DE 3 M3",
+    price: 132,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "empaque-p-valvula-tipo-yugo",
+    name: "EMPAQUE P/VALVULA TIPO YUGO",
+    description: "EMPAQUE P/VALVULA TIPO YUGO",
+    price: 6.6,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "empaque-p-valvula-tipo-yugo-marca-etilza",
+    name: "EMPAQUE P/VALVULA TIPO YUGO, MARCA ETILZA",
+    description: "EMPAQUE P/VALVULA TIPO YUGO, MARCA ETILZA",
+    price: 6,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "manguera-p-trasegado-de-aire-medicinal-1-4-npt-88304-4000-psi-vcv-longitud-1-metro",
+    name: "MANGUERA P/TRASEGADO DE AIRE MEDICINAL (1/4 NPT 88304, 4000 PSI, VCV) , LONGITUD : 1 METRO",
+    description: "MANGUERA P/TRASEGADO DE AIRE MEDICINAL (1/4 NPT 88304, 4000 PSI, VCV) , LONGITUD : 1 METRO",
+    price: 384,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "mezclador-de-gases-medicos-marca-ohio",
+    name: "MEZCLADOR DE GASES MEDICOS, MARCA OHIO",
+    description: "MEZCLADOR DE GASES MEDICOS, MARCA OHIO",
+    price: 10200,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "niple-de-metal-p-nebulizar",
+    name: "NIPLE DE METAL P/NEBULIZAR",
+    description: "NIPLE DE METAL P/NEBULIZAR",
+    price: 14.4,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "niple-de-plastico-p-nebulizar",
+    name: "NIPLE DE PLASTICO P/NEBULIZAR",
+    description: "NIPLE DE PLASTICO P/NEBULIZAR",
+    price: 6,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "niple-de-plastico-p-nebulizar-verde",
+    name: "NIPLE DE PLASTICO P/NEBULIZAR VERDE",
+    description: "NIPLE DE PLASTICO P/NEBULIZAR VERDE",
+    price: 4.8,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "niple-y-tuerca-de-metal-p-nebulizar",
+    name: "NIPLE Y TUERCA DE METAL P/NEBULIZAR",
+    description: "NIPLE Y TUERCA DE METAL P/NEBULIZAR",
+    price: 14.4,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "valvula-p-cilindros-sherwood-u18",
+    name: "VALVULA P/CILINDROS SHERWOOD U18",
+    description: "VALVULA P/CILINDROS SHERWOOD U18",
+    price: 180,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "aspirador-para-pipeta-de-goma",
+    name: "ASPIRADOR PARA PIPETA DE GOMA",
+    description: "ASPIRADOR PARA PIPETA DE GOMA",
+    price: 6,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "bal-n-de-ox-geno-680-l-tipo-e-con-v-lvula-cga-870",
+    name: "BALÓN DE OXÍGENO 680 l TIPO E CON VÁLVULA CGA-870",
+    description: "BALÓN DE OXÍGENO 680 l TIPO E CON VÁLVULA CGA-870",
+    price: 300,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "bal-n-de-ox-geno-680-l-tipo-e-con-v-lvula-cga-870-regulador-canula",
+    name: "BALÓN DE OXÍGENO 680 l TIPO E CON VÁLVULA CGA-870 + REGULADOR + CANULA",
+    description: "BALÓN DE OXÍGENO 680 l TIPO E CON VÁLVULA CGA-870 + REGULADOR + CANULA",
+    price: 444,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "conexion-en-y-p-puntos-de-oxigeno",
+    name: "CONEXION EN Y P/ PUNTOS DE OXIGENO",
+    description: "CONEXION EN Y P/ PUNTOS DE OXIGENO",
+    price: 84,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "equipo-aspirador-laparoscopio-tipo-trompeta-hermann-h80-133-10",
+    name: "EQUIPO: ASPIRADOR LAPAROSCOPIO TIPO TROMPETA, HERMANN H80-133-10",
+    description: "EQUIPO: ASPIRADOR LAPAROSCOPIO TIPO TROMPETA, HERMANN H80-133-10",
+    price: 2400,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "flujometro-de-oxigeno-de-0-15-lpm",
+    name: "FLUJOMETRO DE OXIGENO DE 0-15 LPM",
+    description: "FLUJOMETRO DE OXIGENO DE 0-15 LPM",
+    price: 204,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "flujometro-gentec",
+    name: "FLUJOMETRO GENTEC",
+    description: "FLUJOMETRO GENTEC",
+    price: 204,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "flujometro-oxigeno-gentec-0-15lpm",
+    name: "FLUJOMETRO OXIGENO GENTEC 0-15LPM",
+    description: "FLUJOMETRO OXIGENO GENTEC 0-15LPM",
+    price: 192,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "frazier-aspirador-8-mm",
+    name: "FRAZIER (ASPIRADOR) 8 mm",
+    description: "FRAZIER (ASPIRADOR) 8 mm",
+    price: 198,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "manguera-p-trasegado-d-oxigeno-medicinal-c-v-lvula-check-longitud-1-metro",
+    name: "MANGUERA P/TRASEGADO D/OXIGENO MEDICINAL C/ VÁLVULA CHECK, LONGITUD: 1 METRO",
+    description: "MANGUERA P/TRASEGADO D/OXIGENO MEDICINAL C/ VÁLVULA CHECK, LONGITUD: 1 METRO",
+    price: 384,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "manometro-p-regulador-de-oxigeno-baja",
+    name: "MANOMETRO P/REGULADOR DE OXIGENO (BAJA)",
+    description: "MANOMETRO P/REGULADOR DE OXIGENO (BAJA)",
+    price: 120,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "manometro-p-regulador-de-oxigeno-0-4000-alta",
+    name: "MANOMETRO P/REGULADOR DE OXIGENO 0-4000 ALTA",
+    description: "MANOMETRO P/REGULADOR DE OXIGENO 0-4000 ALTA",
+    price: 216,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "manometro-p-regulador-de-oxigeno-alta-50-psi-cga-870",
+    name: "MANOMETRO P/REGULADOR DE OXIGENO(ALTA ) 50 PSI CGA-870",
+    description: "MANOMETRO P/REGULADOR DE OXIGENO(ALTA ) 50 PSI CGA-870",
+    price: 384,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "manometro-presi-n-diferencial-marca-dwyer-modelo-mark-ii-25",
+    name: "MANOMETRO PRESIÓN DIFERENCIAL, MARCA DWYER, MODELO MARK II 25",
+    description: "MANOMETRO PRESIÓN DIFERENCIAL, MARCA DWYER, MODELO MARK II 25",
+    price: 359.51,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "niple-de-plastico-verde-para-nebulizador",
+    name: "NIPLE DE PLASTICO VERDE PARA NEBULIZADOR,",
+    description: "NIPLE DE PLASTICO VERDE PARA NEBULIZADOR,",
+    price: 6,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "niple-metal-p-oxigeno",
+    name: "NIPLE METAL P/OXIGENO",
+    description: "NIPLE METAL P/OXIGENO",
+    price: 14.4,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "placa-mural-de-oxigeno",
+    name: "PLACA MURAL DE OXIGENO",
+    description: "PLACA MURAL DE OXIGENO",
+    price: 120,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "regulador-de-nitrogeno-de-2-relojes-alt-marca-morris-marca-victor",
+    name: "REGULADOR DE NITROGENO DE 2 RELOJES ALT , MARCA MORRIS***MARCA VICTOR***",
+    description: "REGULADOR DE NITROGENO DE 2 RELOJES ALT , MARCA MORRIS***MARCA VICTOR***",
+    price: 720,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "regulador-de-nitrogeno-de-2-relojes-alt-marca-enzo",
+    name: "REGULADOR DE NITROGENO DE 2 RELOJES ALT MARCA ENZO",
+    description: "REGULADOR DE NITROGENO DE 2 RELOJES ALT MARCA ENZO",
+    price: 420,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "regulador-de-oxigeno",
+    name: "REGULADOR DE OXIGENO",
+    description: "REGULADOR DE OXIGENO",
+    price: 120,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "regulador-de-oxigeno-con-2-manometros-western-medica-modelo-m1-870-15fg",
+    name: "REGULADOR DE OXIGENO CON 2 MANOMETROS, WESTERN MEDICA, MODELO: M1-870-15FG",
+    description: "REGULADOR DE OXIGENO CON 2 MANOMETROS, WESTERN MEDICA, MODELO: M1-870-15FG",
+    price: 1152,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "regulador-de-oxigeno-de-alto-flujo",
+    name: "REGULADOR DE OXIGENO DE ALTO FLUJO",
+    description: "REGULADOR DE OXIGENO DE ALTO FLUJO",
+    price: 414,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "regulador-de-oxigeno-de-baja-m1-870-15-fg-western-medical",
+    name: "REGULADOR DE OXIGENO DE BAJA M1 870 15 FG WESTERN MEDICAL",
+    description: "REGULADOR DE OXIGENO DE BAJA M1 870 15 FG WESTERN MEDICAL",
+    price: 1080,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "regulador-de-oxigeno-portatil-me-870-15s",
+    name: "REGULADOR DE OXIGENO PORTATIL ME-870-15S",
+    description: "REGULADOR DE OXIGENO PORTATIL ME-870-15S",
+    price: 120,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "regulador-de-oxigeno-tipo-jockey",
+    name: "REGULADOR DE OXIGENO TIPO JOCKEY",
+    description: "REGULADOR DE OXIGENO TIPO JOCKEY",
+    price: 96,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "regulador-de-oxigeno-tipo-jockey-opl-821",
+    name: "REGULADOR DE OXIGENO TIPO JOCKEY OPL 821",
+    description: "REGULADOR DE OXIGENO TIPO JOCKEY OPL 821",
+    price: 300,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "regulador-de-oxigeno-tipo-jockey-western-cga870-opa-840-barb-0-8lpm",
+    name: "REGULADOR DE OXIGENO TIPO JOCKEY WESTERN CGA870 OPA-840 /BARB 0-8LPM",
+    description: "REGULADOR DE OXIGENO TIPO JOCKEY WESTERN CGA870 OPA-840 /BARB 0-8LPM",
+    price: 528,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "regulador-de-oxigeno-yocke",
+    name: "REGULADOR DE OXIGENO YOCKE",
+    description: "REGULADOR DE OXIGENO YOCKE",
+    price: 132,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "regulador-de-succion-continua-western-medica-0-200-mmhg",
+    name: "REGULADOR DE SUCCION CONTINUA WESTERN MEDICA (0-200 MMHG)",
+    description: "REGULADOR DE SUCCION CONTINUA WESTERN MEDICA (0-200 MMHG)",
+    price: 1.2,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "regulador-western-opl-821",
+    name: "REGULADOR WESTERN OPL 821",
+    description: "REGULADOR WESTERN OPL 821",
+    price: 300,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "reguladores-de-vacio-de-0-300-analogico-cont-882vr-300-00-a",
+    name: "REGULADORES DE VACIO DE 0-300 ANALOGICO CONT – 882VR-300-00-A",
+    description: "REGULADORES DE VACIO DE 0-300 ANALOGICO CONT – 882VR-300-00-A",
+    price: 1.2,
+    image: "/images/respiratorio/placeholder.png"
+  },
+  {
+    id: "vaso-para-regulador-de-vacio-gentec",
+    name: "VASO PARA REGULADOR DE VACIO GENTEC",
+    description: "VASO PARA REGULADOR DE VACIO GENTEC",
+    price: 156,
+    image: "/images/respiratorio/placeholder.png"
+  },
 ];
+

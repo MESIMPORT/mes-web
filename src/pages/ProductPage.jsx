@@ -17,11 +17,9 @@ export default function ProductPage({ cartCount, onAddToCart }) {
   const location = useLocation();
 
 
-const handleClose = () => {
-  navigate(`/catalogo${location.search}`, {
-    replace: true,
-  });
-};
+  const handleClose = () => {
+    window.location.href = `/catalogo${location.search}`;
+  };
 
 
 
@@ -35,7 +33,7 @@ const handleClose = () => {
   if (!product) {
     return (
       <>
-       
+
         <main className="max-w-5xl mx-auto p-6">
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-5">
             <h1 className="text-xl font-semibold text-amber-900">
@@ -52,14 +50,14 @@ const handleClose = () => {
 
   return (
     <>
-      
+
       <main className="relative pointer-events-none">
         {/* Bandas laterales institucionales */}
         <div className="absolute top-0 left-0 hidden h-[120%] w-20 bg-[#208790] lg:block pointer-events-none" />
         <div className="absolute top-0 right-0 hidden h-[120%] w-20 bg-[#208790] lg:block pointer-events-none" />
 
         {/* Contenedor PDP */}
-        <div className="relative mx-auto max-w-5xl p-6 pointer-events-auto">
+        <div className="relative mx-auto max-w-5xl p-6 pb-24 pointer-events-auto">
           <button
             type="button"
             onClick={handleClose}
@@ -80,11 +78,11 @@ const handleClose = () => {
             ✕ Cerrar
           </button>
 
-<ProductConfigurator
-  product={product}
-  backTarget="/catalogo"
-  onAddToCart={onAddToCart}
-/>
+          <ProductConfigurator
+            product={product}
+            backTarget="/catalogo"
+            onAddToCart={onAddToCart}
+          />
         </div>
       </main>
     </>

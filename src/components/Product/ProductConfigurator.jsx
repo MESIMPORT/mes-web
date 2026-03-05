@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import EmergencyTrainingSections from "./EmergencyTrainingSections";
 
@@ -9,7 +9,7 @@ import EmergencyTrainingSections from "./EmergencyTrainingSections";
 
 function formatPrice(v) {
   if (v == null || Number.isNaN(Number(v))) {
-    return "Precio no disponible";
+    return "Elige una opción";
   }
 
   try {
@@ -153,7 +153,7 @@ function isOptionDisabledByRules(attrId, valueId, selectedAttrs, rules) {
 
 export default function ProductConfigurator({ product, onAddToCart }) {
 
-    useEffect(() => {
+  useEffect(() => {
     console.log("🟢 PDP MOUNT", product?.id);
 
     return () => {
@@ -190,16 +190,16 @@ export default function ProductConfigurator({ product, onAddToCart }) {
 
 
 
-/* ======================================================
-   AUTO-SELECCIÓN BASE (TIPO 2)
-====================================================== */
+  /* ======================================================
+     AUTO-SELECCIÓN BASE (TIPO 2)
+  ====================================================== */
 
-useEffect(() => {
-  if (!isType2) return;
+  useEffect(() => {
+    if (!isType2) return;
 
-  setBaseSelected(true);
-  // ❌ NO TOCAR selAttrs aquí
-}, [safeProduct.id]);
+    setBaseSelected(true);
+    // ❌ NO TOCAR selAttrs aquí
+  }, [safeProduct.id]);
 
 
 
@@ -220,16 +220,16 @@ useEffect(() => {
   }, [safeProduct.variants, selAttrs]);
 
   const matchingVariants = useMemo(() => {
-  if (!safeProduct?.variants?.length) return [];
+    if (!safeProduct?.variants?.length) return [];
 
-  return safeProduct.variants.filter((variant) =>
-    Object.entries(selAttrs).every(([attrId, values]) => {
-      const selectedValue = values?.[0];
-      if (!selectedValue) return true;
-      return variant.attrs?.[attrId] === selectedValue;
-    })
-  );
-}, [safeProduct.variants, selAttrs]);
+    return safeProduct.variants.filter((variant) =>
+      Object.entries(selAttrs).every(([attrId, values]) => {
+        const selectedValue = values?.[0];
+        if (!selectedValue) return true;
+        return variant.attrs?.[attrId] === selectedValue;
+      })
+    );
+  }, [safeProduct.variants, selAttrs]);
 
 
   const cheapestSkuVariant = useMemo(() => {
@@ -240,64 +240,74 @@ useEffect(() => {
       .sort((a, b) => a.price - b.price)[0];
   }, [safeProduct.variants]);
 
-useEffect(() => {
-  setActiveImage(null);
-}, [selectedSkuVariant]);
+  useEffect(() => {
+    setActiveImage(null);
+  }, [selectedSkuVariant]);
 
-  const multiAttributes = (safeProduct.attributes || []).filter(
-    (a) => a.type === "multi"
+  const multiAttributes = useMemo(
+    () => (safeProduct.attributes || []).filter((a) => a.type === "multi"),
+    [safeProduct.attributes]
   );
 
-  const selectedMultiValues = multiAttributes.flatMap((attr) =>
-    Array.isArray(selAttrs[attr.id])
-      ? attr.values.filter((v) => selAttrs[attr.id].includes(v.id))
-      : []
+  const selectedMultiValues = useMemo(
+    () =>
+      multiAttributes.flatMap((attr) =>
+        Array.isArray(selAttrs[attr.id])
+          ? attr.values.filter((v) => selAttrs[attr.id].includes(v.id))
+          : []
+      ),
+    [multiAttributes, selAttrs]
   );
 
-  const accessoryImages = selectedMultiValues.flatMap((v) => v.images || []);
-
-const derivedImages = useMemo(() => {
-  // 🟢 0️⃣ SIN SELECCIONES → SOLO IMAGEN BASE (FAMILIA.png)
-  const hasAnySelection = Object.values(selAttrs).some(
-    (vals) => vals && vals.length > 0
+  // ✅ useMemo evita que se cree un nuevo array en cada render
+  // Sin esto, el useEffect([accessoryImages]) se disparaba en cada render → bucle infinito
+  const accessoryImages = useMemo(
+    () => selectedMultiValues.flatMap((v) => v.images || []),
+    [selectedMultiValues]
   );
 
-if (!hasAnySelection) {
-  return Array.isArray(safeProduct.images) && safeProduct.images.length > 0
-    ? safeProduct.images
-    : [safeProduct.image];
-}
+  const derivedImages = useMemo(() => {
+    // 🟢 0️⃣ SIN SELECCIONES → SOLO IMAGEN BASE (FAMILIA.png)
+    const hasAnySelection = Object.values(selAttrs).some(
+      (vals) => vals && vals.length > 0
+    );
+
+    if (!hasAnySelection) {
+      return Array.isArray(safeProduct.images) && safeProduct.images.length > 0
+        ? safeProduct.images
+        : [safeProduct.image];
+    }
 
 
-  // 🟢 1️⃣ SKU FINAL → imágenes finales
-  if (selectedSkuVariant?.images?.length) {
-    return selectedSkuVariant.images;
-  }
-  if (selectedSkuVariant?.image) {
-    return [selectedSkuVariant.image];
-  }
+    // 🟢 1️⃣ SKU FINAL → imágenes finales
+    if (selectedSkuVariant?.images?.length) {
+      return selectedSkuVariant.images;
+    }
+    if (selectedSkuVariant?.image) {
+      return [selectedSkuVariant.image];
+    }
 
-  // 🟢 2️⃣ SELECCIÓN PARCIAL → imágenes coincidentes
-  const images = matchingVariants.flatMap((v) => {
-    if (Array.isArray(v.images)) return v.images;
-    if (v.image) return [v.image];
-    return [];
-  });
+    // 🟢 2️⃣ SELECCIÓN PARCIAL → imágenes coincidentes
+    const images = matchingVariants.flatMap((v) => {
+      if (Array.isArray(v.images)) return v.images;
+      if (v.image) return [v.image];
+      return [];
+    });
 
-  const uniqueImages = Array.from(new Set(images));
+    const uniqueImages = Array.from(new Set(images));
 
-// 🟡 3️⃣ RESULTADO FINAL
-// - variantes / cascadas (si existen)
-// - + accesorios multi (si existen)
-const finalImages = uniqueImages.length
-  ? uniqueImages
-  : [safeProduct.image];
+    // 🟡 3️⃣ RESULTADO FINAL
+    // - variantes / cascadas (si existen)
+    // - + accesorios multi (si existen)
+    const finalImages = uniqueImages.length
+      ? uniqueImages
+      : [safeProduct.image];
 
-return accessoryImages.length
-  ? Array.from(new Set([...finalImages, ...accessoryImages]))
-  : finalImages;
+    return accessoryImages.length
+      ? Array.from(new Set([...finalImages, ...accessoryImages]))
+      : finalImages;
 
-}, [selAttrs, matchingVariants, selectedSkuVariant, safeProduct.image]);
+  }, [selAttrs, matchingVariants, selectedSkuVariant, safeProduct.image]);
 
 
 
@@ -307,102 +317,221 @@ return accessoryImages.length
 
 
 
-const galleryImages = derivedImages;
- 
+  const galleryImages = derivedImages;
 
+  // Ref para evitar dependencias circulares
+  const galleryImagesRef = useRef(galleryImages);
+  galleryImagesRef.current = galleryImages;
 
+  // Actualizar activeImages cuando se seleccionan accesorios
   useEffect(() => {
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    if (!isMobile) return;
-
     if (accessoryImages.length > 0) {
-      setActiveImage(accessoryImages[0]);
-      setActiveImages(accessoryImages);
+      // Combinar imágenes del producto con imágenes de accesorios
+      // Producto primero, accesorios después
+      const combinedImages = Array.from(new Set([...galleryImagesRef.current, ...accessoryImages]));
+      setActiveImages(combinedImages);
       return;
     }
 
-    setActiveImage(null);
+    // Si no hay accesorios, limpiar activeImages
     setActiveImages([]);
   }, [accessoryImages]);
 
-const mainImage =
-  activeImage ||
-  galleryImages?.[0] ||
-  safeProduct.image ||
-  "/placeholder.png";
+
+  const mainImage =
+    activeImage ||
+    galleryImages?.[0] ||
+    safeProduct.image ||
+    "/placeholder.png";
 
 
   /* ======================================================
-     PRECIO
+     PRECIO (CANÓNICO)
   ====================================================== */
 
-  let displayPrice = formatPrice(safeProduct.price);
-
-if (hasVariants && !selectedSkuVariant) {
-  displayPrice = "Selecciona una opción";
-}
-
-if (selectedSkuVariant?.price != null) {
-  displayPrice = formatPrice(selectedSkuVariant.price);
-} else if (isType2 && safeProduct.priceRange?.min != null) {
-  const extra = selectedMultiValues.reduce(
-    (s, v) => s + (v.priceDelta || 0),
+  // 🔢 suma de todos los priceDelta seleccionados (accesorios, extras, etc.)
+  const extraPrice = selectedMultiValues.reduce(
+    (sum, v) => sum + (v.priceDelta || 0),
     0
   );
-  displayPrice = formatPrice(safeProduct.priceRange.min + extra);
-}
 
+  // 💰 precio base (prioridad: variante SKU > price > priceRange.min)
+  const basePrice =
+    selectedSkuVariant?.price ??
+    safeProduct.price ??
+    safeProduct.priceRange?.min;
 
-  if (selectedSkuVariant?.price != null) {
-    displayPrice = formatPrice(selectedSkuVariant.price);
-  } else if (isType2 && safeProduct.priceRange?.min != null) {
-    const extra = selectedMultiValues.reduce(
-      (s, v) => s + (v.priceDelta || 0),
-      0
+  // 🏷️ Verificar si hay un modelo seleccionado (cascada 1)
+  const firstAttrId = safeProduct.attributeOrder?.[0];
+  const hasModelSelected = firstAttrId ? selAttrs[firstAttrId]?.length > 0 : false;
+
+  // 🏷️ Verificar si hay cascada 2 seleccionada
+  const secondAttrId = safeProduct.attributeOrder?.[1];
+  const hasSecondSelected = secondAttrId ? selAttrs[secondAttrId]?.length > 0 : false;
+
+  // 🏷️ Verificar si hay cascada 3 seleccionada
+  const thirdAttrId = safeProduct.attributeOrder?.[2];
+  const hasThirdSelected = thirdAttrId ? selAttrs[thirdAttrId]?.length > 0 : false;
+
+  // 🏷️ precio final
+  let displayPrice;
+
+  // Si hay variante SKU seleccionada (todas las cascadas completas), mostrar precio exacto
+  if (selectedSkuVariant?.price) {
+    displayPrice = formatPrice(
+      typeof basePrice === "number"
+        ? basePrice + extraPrice
+        : null
     );
-    displayPrice = formatPrice(safeProduct.priceRange.min + extra);
   }
+  // Si hay cascada 1, 2 y 3 seleccionadas pero NO cascada 4, mostrar "Desde" con precio mínimo filtrado
+  else if (hasModelSelected && hasSecondSelected && hasThirdSelected && safeProduct.variants?.length > 0) {
+    const selectedFirstValue = selAttrs[firstAttrId]?.[0];
+    const selectedSecondValue = selAttrs[secondAttrId]?.[0];
+    const selectedThirdValue = selAttrs[thirdAttrId]?.[0];
+
+    // Filtrar variantes que coincidan con cascada 1, 2 y 3 seleccionadas
+    const filteredVariants = safeProduct.variants.filter(v =>
+      v.attrs &&
+      v.attrs[firstAttrId] === selectedFirstValue &&
+      v.attrs[secondAttrId] === selectedSecondValue &&
+      v.attrs[thirdAttrId] === selectedThirdValue
+    );
+
+    const variantPrices = filteredVariants
+      .map(v => v.price)
+      .filter(p => typeof p === "number");
+
+    if (variantPrices.length > 0) {
+      const minPrice = Math.min(...variantPrices);
+      displayPrice = `Desde ${formatPrice(minPrice)}`;
+    } else {
+      displayPrice = formatPrice(basePrice);
+    }
+  }
+  // Si hay cascada 1 y 2 seleccionadas pero NO cascada 3, mostrar "Desde" con precio mínimo filtrado
+  else if (hasModelSelected && hasSecondSelected && !hasThirdSelected && safeProduct.variants?.length > 0) {
+    const selectedFirstValue = selAttrs[firstAttrId]?.[0];
+    const selectedSecondValue = selAttrs[secondAttrId]?.[0];
+
+    // Filtrar variantes que coincidan con cascada 1 y 2 seleccionadas
+    const filteredVariants = safeProduct.variants.filter(v =>
+      v.attrs &&
+      v.attrs[firstAttrId] === selectedFirstValue &&
+      v.attrs[secondAttrId] === selectedSecondValue
+    );
+
+    const variantPrices = filteredVariants
+      .map(v => v.price)
+      .filter(p => typeof p === "number");
+
+    if (variantPrices.length > 0) {
+      const minPrice = Math.min(...variantPrices);
+      displayPrice = `Desde ${formatPrice(minPrice)}`;
+    } else {
+      displayPrice = formatPrice(basePrice);
+    }
+  }
+  // Si hay cascada 1 seleccionada pero NO cascada 2, mostrar "Desde" con precio mínimo filtrado
+  else if (hasModelSelected && !hasSecondSelected && safeProduct.variants?.length > 0) {
+    const selectedFirstValue = selAttrs[firstAttrId]?.[0];
+
+    // Filtrar variantes que coincidan con la cascada 1 seleccionada
+    const filteredVariants = safeProduct.variants.filter(v =>
+      v.attrs && v.attrs[firstAttrId] === selectedFirstValue
+    );
+
+    const variantPrices = filteredVariants
+      .map(v => v.price)
+      .filter(p => typeof p === "number");
+
+    if (variantPrices.length > 0) {
+      const minPrice = Math.min(...variantPrices);
+      displayPrice = `Desde ${formatPrice(minPrice)}`;
+    } else {
+      displayPrice = formatPrice(basePrice);
+    }
+  }
+  // Si NO hay modelo seleccionado, mostrar "Desde" con el precio mínimo global
+  else if (!hasModelSelected && safeProduct.variants?.length > 0) {
+    const variantPrices = safeProduct.variants
+      .map(v => v.price)
+      .filter(p => typeof p === "number");
+
+    if (variantPrices.length > 0) {
+      const minPrice = Math.min(...variantPrices);
+      displayPrice = `Desde ${formatPrice(minPrice)}`;
+    } else {
+      displayPrice = formatPrice(basePrice);
+    }
+  }
+  // Caso por defecto: precio normal
+  else {
+    displayPrice = formatPrice(
+      typeof basePrice === "number"
+        ? basePrice + extraPrice
+        : null
+    );
+  }
+
 
   /* ======================================================
      TOGGLE ATTR
   ====================================================== */
 
-const toggleAttr = (attrId, valId) => {
-  const attr = safeProduct.attributes.find((a) => a.id === attrId);
+  const toggleAttr = (attrId, valId) => {
+    const attr = safeProduct.attributes.find((a) => a.id === attrId);
 
-  if (isType2 && attr?.type === "multi" && valId === "base") {
-    setBaseSelected(true);
-    setSelAttrs({});
-    setActiveImage(null);
-    setActiveImages([]);
-    return;
-  }
+    if (isType2 && attr?.type === "multi" && valId === "base") {
+      setBaseSelected(true);
+      setSelAttrs({});
+      setActiveImage(null);
+      setActiveImages([]);
+      return;
+    }
 
 
 
-  if (attr?.type === "single") {
-    setSelAttrs((prev) => {
-      const curr = prev[attrId];
-      if (Array.isArray(curr) && curr[0] === valId) {
-        const next = { ...prev };
-        delete next[attrId];
-        return next;
-      }
-      return { ...prev, [attrId]: [valId] };
-    });
-    return;
-  }
+    if (attr?.type === "single") {
+      setSelAttrs((prev) => {
+        const curr = prev[attrId];
+        if (Array.isArray(curr) && curr[0] === valId) {
+          const next = { ...prev };
+          delete next[attrId];
+          return next;
+        }
 
-if (attr?.type === "multi") {
-  setSelAttrs((prev) => ({
-    ...prev,
-    [attrId]: prev[attrId]?.includes(valId)
-      ? prev[attrId].filter((v) => v !== valId)
-      : [...(prev[attrId] || []), valId],
-  }));
-}
+        // 🔄 Si este atributo es parte de una cascada, limpiar cascadas posteriores
+        const attrOrder = safeProduct.attributeOrder || [];
+        const currentIndex = attrOrder.indexOf(attrId);
 
-};
+        if (currentIndex !== -1) {
+          // Crear nuevo objeto sin los atributos de cascadas posteriores
+          const next = { ...prev, [attrId]: [valId] };
+
+          // Eliminar todos los atributos que vienen después en el orden
+          for (let i = currentIndex + 1; i < attrOrder.length; i++) {
+            delete next[attrOrder[i]];
+          }
+
+          return next;
+        }
+
+        return { ...prev, [attrId]: [valId] };
+      });
+      return;
+    }
+
+    if (attr?.type === "multi") {
+      setSelAttrs((prev) => ({
+        ...prev,
+        [attrId]: prev[attrId]?.includes(valId)
+          ? prev[attrId].filter((v) => v !== valId)
+          : [...(prev[attrId] || []), valId],
+      }));
+    }
+
+  };
 
 
   /* ======================================================
@@ -415,66 +544,66 @@ if (attr?.type === "multi") {
      ADD TO CART
   ====================================================== */
 
-const handleAdd = () => {
+  const handleAdd = () => {
     console.log("🟡 ADD CLICK", safeProduct.id);
 
-  if (!canAdd) return;
+    if (!canAdd) return;
 
-  // ===== TIPO 3 =====
-  if (hasVariants && selectedSkuVariant) {
+    // ===== TIPO 3 =====
+    if (hasVariants && selectedSkuVariant) {
+      onAddToCart?.({
+        ...safeProduct,
+        lineItemId: `${safeProduct.id}-${selectedSkuVariant.sku || selectedSkuVariant.code}`,
+        variant: selectedSkuVariant,
+        variantLabel:
+          selectedSkuVariant.code || selectedSkuVariant.sku || "Configuración",
+        image:
+          activeImage ||
+          selectedSkuVariant.images?.[0] ||
+          selectedSkuVariant.image ||
+          safeProduct.image,
+        price: selectedSkuVariant.price,
+      });
+      console.log("🟢 ADD DONE TIPO 2", safeProduct.id);
+      // 🔔 PASO 2 — AQUÍ
+      setButtonLocked(true);
+      setTimeout(() => setButtonLocked(false), 1500);
+
+      return;
+    }
+
+    // ===== TIPO 2 =====
+    if (isType2) {
+      const ids = selectedMultiValues.map((v) => v.id).sort().join("+") || "base";
+
+      onAddToCart?.({
+        ...safeProduct,
+        lineItemId: `${safeProduct.id}-${ids}`,
+        variantLabel: ids === "base" ? "Base" : `Base + ${ids}`,
+        image: activeImage || safeProduct.image,
+        price: Number(displayPrice.replace(/[^\d.]/g, "")),
+      });
+      console.log("🟢 ADD DONE TIPO 2", safeProduct.id);
+      // 🔔 PASO 2 — AQUÍ
+      setButtonLocked(true);
+      setTimeout(() => setButtonLocked(false), 1500);
+
+      return;
+    }
+
+    // ===== TIPO 1 =====
     onAddToCart?.({
       ...safeProduct,
-      lineItemId: `${safeProduct.id}-${selectedSkuVariant.sku || selectedSkuVariant.code}`,
-      variant: selectedSkuVariant,
-      variantLabel:
-        selectedSkuVariant.code || selectedSkuVariant.sku || "Configuración",
-      image:
-        activeImage ||
-        selectedSkuVariant.images?.[0] ||
-        selectedSkuVariant.image ||
-        safeProduct.image,
-      price: selectedSkuVariant.price,
-    });
-console.log("🟢 ADD DONE TIPO 2", safeProduct.id);
-    // 🔔 PASO 2 — AQUÍ
-    setButtonLocked(true);
-    setTimeout(() => setButtonLocked(false), 1500);
-
-    return;
-  }
-
-  // ===== TIPO 2 =====
-  if (isType2) {
-    const ids = selectedMultiValues.map((v) => v.id).sort().join("+") || "base";
-
-    onAddToCart?.({
-      ...safeProduct,
-      lineItemId: `${safeProduct.id}-${ids}`,
-      variantLabel: ids === "base" ? "Base" : `Base + ${ids}`,
+      lineItemId: `${safeProduct.id}-base`,
+      variantLabel: "Configuración estándar",
       image: activeImage || safeProduct.image,
-      price: Number(displayPrice.replace(/[^\d.]/g, "")),
+      price: safeProduct.price,
     });
-console.log("🟢 ADD DONE TIPO 2", safeProduct.id);
+    console.log("🟢 ADD DONE TIPO 2", safeProduct.id);
     // 🔔 PASO 2 — AQUÍ
     setButtonLocked(true);
     setTimeout(() => setButtonLocked(false), 1500);
-
-    return;
-  }
-
-  // ===== TIPO 1 =====
-  onAddToCart?.({
-    ...safeProduct,
-    lineItemId: `${safeProduct.id}-base`,
-    variantLabel: "Configuración estándar",
-    image: activeImage || safeProduct.image,
-    price: safeProduct.price,
-  });
-console.log("🟢 ADD DONE TIPO 2", safeProduct.id);
-  // 🔔 PASO 2 — AQUÍ
-  setButtonLocked(true);
-  setTimeout(() => setButtonLocked(false), 1500);
-};
+  };
 
   /* ======================================================
      RENDER
@@ -484,192 +613,235 @@ console.log("🟢 ADD DONE TIPO 2", safeProduct.id);
     <div className="relative w-full max-w-6xl mx-auto p-4">
 
 
-{/* CONTENIDO PRINCIPAL PDP */}
-{safeProduct.educationalPdp ? (
-<EmergencyTrainingSections
-  data={safeProduct}
-  selAttrs={selAttrs}
-  toggleAttr={toggleAttr}
-  selectedSkuVariant={selectedSkuVariant}
-  activeImage={activeImage}
-  setActiveImage={setActiveImage}
-  canAdd={canAdd}
-  onAddToCart={handleAdd}
-/>
+      {/* CONTENIDO PRINCIPAL PDP */}
+      {safeProduct.educationalPdp ? (
+        <EmergencyTrainingSections
+          data={safeProduct}
+          selAttrs={selAttrs}
+          toggleAttr={toggleAttr}
+          selectedSkuVariant={selectedSkuVariant}
+          activeImage={activeImage}
+          setActiveImage={setActiveImage}
+          canAdd={canAdd}
+          onAddToCart={handleAdd}
+        />
 
-) : (
+      ) : (
 
-      <div className="grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] gap-6">
-        {/* Miniaturas */}
-        <div className="hidden md:flex flex-col gap-2">
-          {(activeImages.length > 0 ? activeImages : galleryImages).length > 1 &&
-            (activeImages.length > 0 ? activeImages : galleryImages).map(
-              (img, i) => (
-<button
-  key={`${img}-${i}`}
-  onClick={() => setActiveImage(img)}
-  onMouseEnter={() => {
-    if (window.innerWidth >= 1024) {
-      setActiveImage(img);
-    }
-  }}
-  className={`h-16 w-16 rounded border border-transparent
+        <div className="grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] gap-6">
+          {/* Miniaturas */}
+          <div className="hidden md:flex flex-col gap-2">
+            {(activeImages.length > 0 ? activeImages : galleryImages).length > 1 &&
+              (activeImages.length > 0 ? activeImages : galleryImages).map(
+                (img, i) => (
+                  <button
+                    key={`${img}-${i}`}
+                    onClick={() => setActiveImage(img)}
+                    onMouseEnter={() => {
+                      if (window.innerWidth >= 1024) {
+                        setActiveImage(img);
+                      }
+                    }}
+                    className={`h-16 w-16 rounded border border-transparent
   hover:ring-2 hover:ring-[#208790]
   ${img === activeImage ? "ring-2 ring-[#208790]" : ""}
 `}
 
->
-  <img src={img} className="object-contain h-full w-full" />
-</button>
+                  >
+                    <img src={img} className="object-contain h-full w-full" />
+                  </button>
 
-              )
-            )}
-        </div>
+                )
+              )}
+          </div>
 
-    {/* Imagen */}
-    {/* Imagen con zoom tipo lupa */}
-<div
-  className="border rounded-2xl p-4 flex justify-center overflow-hidden group"
-  onMouseMove={(e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
+          {/* Imagen */}
+          {/* Imagen con zoom tipo lupa */}
+          <div
+            className="border rounded-2xl p-4 flex justify-center overflow-hidden group"
+            onMouseMove={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              const x = ((e.clientX - rect.left) / rect.width) * 100;
+              const y = ((e.clientY - rect.top) / rect.height) * 100;
 
-    e.currentTarget.style.setProperty("--x", `${x}%`);
-    e.currentTarget.style.setProperty("--y", `${y}%`);
-  }}
->
-  <img
-    src={mainImage}
-    alt={safeProduct.name}
-    className="
+              e.currentTarget.style.setProperty("--x", `${x}%`);
+              e.currentTarget.style.setProperty("--y", `${y}%`);
+            }}
+          >
+            <img
+              src={mainImage}
+              alt={safeProduct.name}
+              className="
       max-h-[420px]
       object-contain
       transition-transform duration-200
       lg:group-hover:scale-150
     "
-    style={{
-      transformOrigin: "var(--x, 50%) var(--y, 50%)",
-    }}
-  />
-</div>
-
-
-    {/* Info */}
-    <div className="space-y-4">
-      <h2 className="text-2xl font-semibold">
-        {safeProduct.name}
-      </h2>
-
-{(selectedSkuVariant?.description || safeProduct.description) && (
-  <p
-    className="text-sm text-slate-600 text-justify"
-    dangerouslySetInnerHTML={{
-      __html: parseBold(
-        selectedSkuVariant?.description || safeProduct.description
-      ),
-    }}
-  />
-)}
-
-
-
-      <div className="text-2xl font-bold">
-        {displayPrice}
-      </div>
-
-      {hasAttributes &&
-        safeProduct.attributes.map((attr) => (
-          <div key={attr.id}>
-            <div className="text-sm font-medium">{attr.label}</div>
-
-            <div className="flex flex-wrap gap-2 mt-1">
-              {attr.values
-  // 👉 SOLO en cascada 2 ocultamos los inhabilitados
-  .filter((v) => {
-    if (attr.id !== safeProduct.attributeOrder?.[1]) return true;
-
-    return !isOptionDisabledCascade(
-      attr.id,
-      v.id,
-      selAttrs,
-      safeProduct.variants,
-      safeProduct.attributeOrder
-    );
-  })
-  .map((v) => {
-
-    const order =
-  safeProduct.attributeOrder?.length
-    ? safeProduct.attributeOrder
-    : ATTRIBUTE_ORDER;
-
-const attrIndex = order.indexOf(attr.id);
-
-const isSecondCascade =
-  attrIndex === 1;
-
-const isFirstCascadeUnselected =
-  isSecondCascade &&
-  !selAttrs[order[0]]?.length;
-const disabled =
-  isFirstCascadeUnselected ||
-  isOptionDisabledByRules(
-    attr.id,
-    v.id,
-    selAttrs,
-    attr.rules
-  );
-
-    const selected =
-      attr.type === "multi"
-        ? v.id === "base"
-          ? baseSelected
-          : selAttrs[attr.id]?.includes(v.id)
-        : selAttrs[attr.id]?.includes(v.id);
-
-    return (
-<button
-  key={v.id}
-  disabled={disabled}
-  onClick={() => {
-    if (!disabled) toggleAttr(attr.id, v.id);
-  }}
-  className={`px-3 py-2 rounded-lg border text-sm transition
-    ${
-      disabled
-        ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-        : selected
-          ? "bg-emerald-600 text-white"
-          : "bg-white hover:bg-emerald-50"
-    }`}
->
-
-        {v.label}
-      </button>
-    );
-  })}
-            </div>
+              style={{
+                transformOrigin: "var(--x, 50%) var(--y, 50%)",
+              }}
+            />
           </div>
-        ))}
 
-<button
-  type="button"
-  onClick={handleAdd}
-  disabled={buttonLocked}
-  className={`w-full py-3 rounded-xl font-semibold !text-white
-    ${
-      buttonLocked
-        ? "bg-gray-300 cursor-not-allowed"
-        : "bg-[#208790] hover:brightness-110 cursor-pointer"
-    }`}
->
-  Agregar al carrito
-</button>
 
+          {/* Info */}
+          <div className="space-y-4">
+            <div>
+              <h2 className="text-2xl font-semibold">
+                {safeProduct.name}
+              </h2>
+              {selectedSkuVariant?.name && (
+                <p className="text-lg text-[#208790] font-medium mt-1">
+                  {selectedSkuVariant.name}
+                </p>
+              )}
+            </div>
+
+            {(selectedSkuVariant?.description || safeProduct.description) && (
+              <p
+                className="text-sm text-slate-600 text-justify select-text"
+                style={{ userSelect: "text" }}
+                dangerouslySetInnerHTML={{
+                  __html: parseBold(
+                    selectedSkuVariant?.description || safeProduct.description
+                  ),
+                }}
+              />
+            )}
+
+
+
+            <div className="text-2xl font-bold">
+              {displayPrice}
+            </div>
+
+
+            {hasAttributes &&
+              safeProduct.attributes.map((attr) => (
+                <div key={attr.id}>
+                  <div className="text-sm font-medium">{attr.label}</div>
+
+                  <div className="flex flex-wrap gap-2 mt-1">
+                    {attr.values
+                      // 👉 SOLO en cascada 2 ocultamos los inhabilitados
+                      // PERO NO para atributos tipo "multi" (accesorios acumulativos)
+                      .filter((v) => {
+                        // Si es tipo multi, filtrar por compatibilidad
+                        if (attr.type === "multi") {
+                          // Si no tiene compatibleWith, mostrar siempre
+                          if (!v.compatibleWith) return true;
+
+                          // Obtener el valor seleccionado de la cascada 1 (modelo)
+                          const firstAttrId = safeProduct.attributeOrder?.[0];
+                          const selectedModel = firstAttrId ? selAttrs[firstAttrId]?.[0] : null;
+
+                          // Si no hay modelo seleccionado, no mostrar
+                          if (!selectedModel) return false;
+
+                          // Verificar si el modelo está en compatibleWith
+                          return v.compatibleWith.includes(selectedModel);
+                        }
+
+                        // Para cascadas tipo single, verificar el orden
+                        const attrOrder = safeProduct.attributeOrder || [];
+                        const currentIndex = attrOrder.indexOf(attr.id);
+
+                        // Si es cascada 1 (índice 0), mostrar todos
+                        if (currentIndex === 0) return true;
+
+                        // Si es cascada 2+ (índice 1+), verificar que la cascada anterior esté seleccionada
+                        if (currentIndex > 0) {
+                          const previousAttrId = attrOrder[currentIndex - 1];
+                          const hasPreviousSelected = previousAttrId ? selAttrs[previousAttrId]?.length > 0 : false;
+
+                          // Si la cascada anterior no está seleccionada, ocultar esta cascada
+                          if (!hasPreviousSelected) return false;
+
+                          // Si la cascada anterior está seleccionada, filtrar por inhabilitados
+                          return !isOptionDisabledCascade(
+                            attr.id,
+                            v.id,
+                            selAttrs,
+                            safeProduct.variants,
+                            safeProduct.attributeOrder
+                          );
+                        }
+
+                        // Por defecto, mostrar
+                        return true;
+                      })
+                      .map((v) => {
+
+                        const order =
+                          safeProduct.attributeOrder?.length
+                            ? safeProduct.attributeOrder
+                            : ATTRIBUTE_ORDER;
+
+                        const attrIndex = order.indexOf(attr.id);
+
+                        const isCascadeBlocked =
+                          attrIndex > 0 &&
+                          !order
+                            .slice(0, attrIndex)
+                            .every((prevAttr) => selAttrs[prevAttr]?.length);
+
+                        const disabled =
+                          isCascadeBlocked ||
+                          isOptionDisabledByRules(
+                            attr.id,
+                            v.id,
+                            selAttrs,
+                            safeProduct.rules
+                          );
+
+
+                        const selected =
+                          attr.type === "multi"
+                            ? v.id === "base"
+                              ? baseSelected
+                              : selAttrs[attr.id]?.includes(v.id)
+                            : selAttrs[attr.id]?.includes(v.id);
+
+                        return (
+                          <button
+                            key={v.id}
+                            disabled={disabled}
+                            onClick={() => {
+                              if (!disabled) toggleAttr(attr.id, v.id);
+                            }}
+                            className={`px-3 py-2 rounded-lg border text-sm transition
+    ${disabled
+                                ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                                : selected
+                                  ? "bg-emerald-600 text-white cursor-pointer"
+                                  : "bg-white hover:bg-emerald-50 cursor-pointer"
+                              }`}
+                          >
+
+                            {v.label}
+                          </button>
+                        );
+                      })}
+                  </div>
+                </div>
+              ))}
+
+            <button
+              type="button"
+              onClick={handleAdd}
+              disabled={buttonLocked}
+              className={`w-full py-3 rounded-xl font-semibold !text-white
+    ${buttonLocked
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-[#208790] hover:brightness-110 cursor-pointer"
+                }`}
+            >
+              Agregar al carrito
+            </button>
+
+          </div>
+        </div>
+      )}
     </div>
-  </div>
-)}
-</div>
-);
+  );
 }

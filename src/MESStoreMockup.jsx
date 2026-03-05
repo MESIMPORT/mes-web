@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
 // =====================================
 function MESStoreMockup() {
   const location = useLocation();
-    const isProductPage = location.pathname.startsWith("/producto/");
+  const isProductPage = location.pathname.startsWith("/producto/");
 
 
   // ==========================
@@ -44,30 +44,30 @@ function MESStoreMockup() {
   // ==========================
   // HANDLERS CARRITO
   // ==========================
-const handleAddToCart = (product) => {
-  setCartItems((prev) => {
-    const exists = prev.find((x) =>
-      x.lineItemId && product.lineItemId
-        ? x.lineItemId === product.lineItemId
-        : x.id === product.id &&
+  const handleAddToCart = (product) => {
+    setCartItems((prev) => {
+      const exists = prev.find((x) =>
+        x.lineItemId && product.lineItemId
+          ? x.lineItemId === product.lineItemId
+          : x.id === product.id &&
           x.variantLabel === product.variantLabel
-    );
+      );
 
-    const updated = exists
-      ? prev.map((x) =>
+      const updated = exists
+        ? prev.map((x) =>
           (x.lineItemId && product.lineItemId
             ? x.lineItemId === product.lineItemId
             : x.id === product.id &&
-              x.variantLabel === product.variantLabel)
+            x.variantLabel === product.variantLabel)
             ? { ...x, quantity: x.quantity + 1 }
             : x
         )
-      : [...prev, { ...product, quantity: 1 }];
+        : [...prev, { ...product, quantity: 1 }];
 
-    localStorage.setItem("MES_CART", JSON.stringify(updated));
-    return updated;
-  });
-};
+      localStorage.setItem("MES_CART", JSON.stringify(updated));
+      return updated;
+    });
+  };
 
 
 
@@ -96,62 +96,63 @@ const handleAddToCart = (product) => {
     });
   };
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-const handleSelectProductFromMiniCart = (productId) => {
-  navigate(`/producto/${productId}`);
-};
+  const handleSelectProductFromMiniCart = (productId) => {
+    navigate(`/producto/${productId}`);
+  };
 
 
 
-function ProductPageWrapper({ cartCount, onAddToCart }) {
-  return (
-    <PageTransition>
-      <ProductPage
-        cartCount={cartCount}
-        onAddToCart={onAddToCart}
-      />
-    </PageTransition>
-  );
-}
+  function ProductPageWrapper({ cartCount, onAddToCart }) {
+    return (
+      <PageTransition>
+        <ProductPage
+          cartCount={cartCount}
+          onAddToCart={onAddToCart}
+        />
+      </PageTransition>
+    );
+  }
 
   // ==========================
   // RENDER
   // ==========================
-return (
-  <div className="relative min-h-screen flex flex-col overflow-x-hidden">
+  return (
+    <div className="relative min-h-screen flex flex-col overflow-x-hidden">
 
 
-    <ScrollToTop />
+      <ScrollToTop />
 
-    {/* HEADER GLOBAL */}
-    <MESHeader cartCount={cartCount} />
-    
-    {/* ===== BANDAS LATERALES INSTITUCIONALES (GLOBAL) ===== */}
-{isProductPage && (
-  <>
-<div className="hidden lg:block absolute top-0 left-0 h-full w-20 bg-[#208790] z-0" />
-<div className="hidden lg:block absolute top-0 right-0 h-full w-20 bg-[#208790] z-0" />
+      {/* HEADER GLOBAL */}
+      <MESHeader cartCount={cartCount} />
 
-  </>
-)}
+      {/* ===== BANDAS LATERALES INSTITUCIONALES (GLOBAL) ===== */}
+      {isProductPage && (
+        <>
+          <div className="hidden lg:block absolute top-0 left-0 h-full w-20 bg-[#208790] z-0" />
+          <div className="hidden lg:block absolute top-0 right-0 h-full w-20 bg-[#208790] z-0" />
 
-
-    {/* ===== CONTENIDO PRINCIPAL ===== */}
-    <div className="relative z-10 flex flex-col min-h-screen">
+        </>
+      )}
 
 
-      <div className="flex-1">
-        <AnimatePresence initial={false}>
+      {/* ===== CONTENIDO PRINCIPAL ===== */}
+      <div className="relative z-10 flex flex-col min-h-screen">
 
-          <Routes location={location}>
+
+        <div className="flex-1">
+          {/* Routes sin key ni location prop — AnimatePresence maneja cada elemento individualmente */}
+          <Routes>
             {/* HOME */}
             <Route
               path="/"
               element={
-                <PageTransition>
-                  <HomePage cartCount={cartCount} />
-                </PageTransition>
+                <AnimatePresence mode="wait" initial={false}>
+                  <PageTransition key="home">
+                    <HomePage cartCount={cartCount} />
+                  </PageTransition>
+                </AnimatePresence>
               }
             />
 
@@ -159,12 +160,14 @@ return (
             <Route
               path="/catalogo"
               element={
-                <PageTransition>
-                  <CatalogPage
-                    cartCount={cartCount}
-                    onAddToCart={handleAddToCart}
-                  />
-                </PageTransition>
+                <AnimatePresence mode="wait" initial={false}>
+                  <PageTransition key="catalogo">
+                    <CatalogPage
+                      cartCount={cartCount}
+                      onAddToCart={handleAddToCart}
+                    />
+                  </PageTransition>
+                </AnimatePresence>
               }
             />
 
@@ -172,35 +175,38 @@ return (
             <Route
               path="/categoria/:slug"
               element={
-                <PageTransition>
-                  <CategoryPage
-                    cartCount={cartCount}
-                    onAddToCart={handleAddToCart}
-                  />
-                </PageTransition>
+                <AnimatePresence mode="wait" initial={false}>
+                  <PageTransition key="categoria">
+                    <CategoryPage
+                      cartCount={cartCount}
+                      onAddToCart={handleAddToCart}
+                    />
+                  </PageTransition>
+                </AnimatePresence>
               }
             />
 
             {/* PRODUCTO */}
-<Route
-  path="/producto/:id"
-  element={
-<ProductPageWrapper cartCount={cartCount} onAddToCart={handleAddToCart} />
-
-  }
-/>
+            <Route
+              path="/producto/:id"
+              element={
+                <ProductPageWrapper cartCount={cartCount} onAddToCart={handleAddToCart} />
+              }
+            />
 
 
             {/* BUSCAR */}
             <Route
               path="/buscar"
               element={
-                <PageTransition>
-                  <SearchResultsPage
-                    cartCount={cartCount}
-                    onAddToCart={handleAddToCart}
-                  />
-                </PageTransition>
+                <AnimatePresence mode="wait" initial={false}>
+                  <PageTransition key="buscar">
+                    <SearchResultsPage
+                      cartCount={cartCount}
+                      onAddToCart={handleAddToCart}
+                    />
+                  </PageTransition>
+                </AnimatePresence>
               }
             />
 
@@ -208,14 +214,16 @@ return (
             <Route
               path="/carrito"
               element={
-                <PageTransition>
-                  <CartPage
-                    cartItems={cartItems}
-                    cartCount={cartCount}
-                    onUpdateQuantity={handleUpdateQuantity}
-                    onRemoveFromCart={handleRemoveFromCart}
-                  />
-                </PageTransition>
+                <AnimatePresence mode="wait" initial={false}>
+                  <PageTransition key="carrito">
+                    <CartPage
+                      cartItems={cartItems}
+                      cartCount={cartCount}
+                      onUpdateQuantity={handleUpdateQuantity}
+                      onRemoveFromCart={handleRemoveFromCart}
+                    />
+                  </PageTransition>
+                </AnimatePresence>
               }
             />
 
@@ -223,31 +231,32 @@ return (
             <Route
               path="*"
               element={
-                <PageTransition>
-                  <main className="max-w-5xl mx-auto p-6">
-                    <p className="text-slate-600">Página no encontrada.</p>
-                  </main>
-                </PageTransition>
+                <AnimatePresence mode="wait" initial={false}>
+                  <PageTransition key="404">
+                    <main className="max-w-5xl mx-auto p-6">
+                      <p className="text-slate-600">Página no encontrada.</p>
+                    </main>
+                  </PageTransition>
+                </AnimatePresence>
               }
             />
           </Routes>
-        </AnimatePresence>
+        </div>
+
+        {/* ===== MINICART ===== */}
+        <MiniCartFloating
+          cartItems={cartItems}
+          cartCount={cartCount}
+          onUpdateQuantity={handleUpdateQuantity}
+          onRemoveFromCart={handleRemoveFromCart}
+          onSelectProduct={handleSelectProductFromMiniCart}
+        />
+
+
+        {/* ===== FOOTER ===== */}
+        <Footer />
       </div>
-
-      {/* ===== MINICART ===== */}
-<MiniCartFloating
-  cartItems={cartItems}
-  cartCount={cartCount}
-  onUpdateQuantity={handleUpdateQuantity}
-  onRemoveFromCart={handleRemoveFromCart}
-  onSelectProduct={handleSelectProductFromMiniCart}
-/>
-
-
-      {/* ===== FOOTER ===== */}
-      <Footer />
     </div>
-  </div>
-);
+  );
 }
 export default MESStoreMockup;

@@ -15,6 +15,8 @@ import { instrumentalYEquiposQuirurgicosProducts } from "./instrumentalYEquiposQ
 import { materialDescartableMedicoProducts } from "./materialDescartableMedico";
 import { mobiliarioYComfortProducts } from "./mobiliarioYComfort";
 import { equipamientoYLaboratorioYReactivosProducts } from "./equipamientoYLaboratorioYReactivos";
+import { dermoesteticaYCuidadoPersonalProducts } from "./dermoesteticaYCuidadoPersonal";
+import { odontologiaProducts } from "./odontologia";
 
 // ================================
 // LABELS BONITOS PARA UI
@@ -22,20 +24,21 @@ import { equipamientoYLaboratorioYReactivosProducts } from "./equipamientoYLabor
 
 export const CATEGORY_LABELS = {
   "diagnostico-y-medicion": "Diagnóstico y medición",
-  "proteccion-radiologica": "Protección radiológica",
+  "accesorios-y-miscelaneos": "Accesorios y misceláneos",
+  "dermoestetica-y-cuidado-personal": "Dermoestética y cuidado personal",
+  "esterilizacion-y-cadena-de-frio": "Esterilización y cadena de frío",
   "modelos-anatomicos-y-simuladores": "Modelos anatómicos y simuladores",
   "emergencia-y-soporte-vital": "Emergencia y soporte vital",
-  "esterilizacion-y-cadena-de-frio": "Esterilización y cadena de frío",
-  "accesorios-y-miscelaneos": "Accesorios y misceláneos",
-  "gestante-y-neonatos": "Gestante y neonatos",
   "soporte-respiratorio": "Soporte respiratorio",
   "rehabilitacion-y-fisioterapia": "Rehabilitación y fisioterapia",
-  "oftalmologia-y-optometria": "Oftalmología y optometría",
+  "gestante-y-neonatos": "Gestante y neonatos",
   "instrumental-y-equipos-quirurgicos": "Instrumental y equipos quirúrgicos",
   "material-descartable-medico": "Material descartable médico",
-    "mobiliario-y-comfort": "Mobiliario y comfort",
   "equipamiento-y-laboratorio-y-reactivos": "Equipamiento, laboratorio y reactivos",
-
+  "mobiliario-y-comfort": "Mobiliario y comfort",
+  "oftalmologia-y-optometria": "Oftalmología y optometría",
+  "proteccion-radiologica": "Protección radiológica",
+  "odontologia": "Odontología",
 };
 
 // ================================
@@ -47,6 +50,7 @@ export const PRODUCTS_BY_CATEGORY = {
   "proteccion-radiologica": proteccionRadiologicaProducts,
   "modelos-anatomicos-y-simuladores": modelosAnatomicosYSimuladoresProducts,
   "emergencia-y-soporte-vital": emergenciaYSoporteVitalProducts,
+  "material-descartable-medico": materialDescartableMedicoProducts,
   "esterilizacion-y-cadena-de-frio": esterilizacionYCadenaDeFrioProducts,
   "accesorios-y-miscelaneos": accesoriosYMiscelaneosProducts,
   "gestante-y-neonatos": gestanteYNeonatosProducts,
@@ -54,9 +58,10 @@ export const PRODUCTS_BY_CATEGORY = {
   "rehabilitacion-y-fisioterapia": rehabilitacionYFisioterapiaProducts,
   "oftalmologia-y-optometria": oftalmologiaYOptometriaProducts,
   "instrumental-y-equipos-quirurgicos": instrumentalYEquiposQuirurgicosProducts,
-  "material-descartable-medico": materialDescartableMedicoProducts,
-    "mobiliario-y-comfort": mobiliarioYComfortProducts,
+  "mobiliario-y-comfort": mobiliarioYComfortProducts,
   "equipamiento-y-laboratorio-y-reactivos": equipamientoYLaboratorioYReactivosProducts,
+  "dermoestetica-y-cuidado-personal": dermoesteticaYCuidadoPersonalProducts,
+  "odontologia": odontologiaProducts,
 
 };
 
