@@ -5,6 +5,7 @@ export const emergenciaYSoporteVitalProducts = [
   {
     id: "inmovilizador-de-cabeza-cms-16a",
     name: "INMOVILIZADOR DE CABEZA CMS-16A",
+    type: "Inmovilizacion",
     description: "Diseñado para brindar estabilización segura en pacientes con sospecha de lesión cervical durante traslados y atención prehospitalaria. Fabricado en materiales de alta densidad, ofrece firmeza y resistencia, mientras que sus amplios orificios laterales permiten el monitoreo del canal auditivo sin necesidad de retirar el dispositivo. Es compatible con camilla cuchara y camilla rígida, garantizando versatilidad en distintos escenarios de emergencia.",
     price: 240,
     image: "/images/emergencia/INMOVILIZADOR/CMS.png"
@@ -13,6 +14,7 @@ export const emergenciaYSoporteVitalProducts = [
   {
     id: "maletin-de-emergencia",
     name: "MALETÍN DE EMERGENCIA",
+    type: "Maletines-y-mochilas",
     description: "Fabricado en Oxford cloth reforzado, resistente a desgarros, con forro acolchado de espuma PE, costuras reforzadas, cremalleras robustas, pies antideslizantes y bandas reflectantes para mayor seguridad y durabilidad. Incluye 3 divisores acolchados extraíbles, creando 4 secciones organizadas, además de 2 minibolsas desmontables para insumos pequeños. Incorpora múltiples bolsillos: compartimento frontal con bandas elásticas para instrumental, 4 bolsillos transparentes para visualización rápida y amplios bolsillos laterales y traseros. || **Dimensiones: 29 x 45 x 33 cm**",
     image: "/images/emergencia/MALETIN/M1.png",
 
@@ -54,6 +56,7 @@ export const emergenciaYSoporteVitalProducts = [
   {
     id: "maletin-de-emergencia-plastico-c-divisiones-flambeau",
     name: "MALETIN DE EMERGENCIA PLASTICO C/DIVISIONES FLAMBEAU",
+    type: "Maletines-y-mochilas",
     description: "Sistema de almacenamiento con diseño de 7 bandejas plegables, configurable hasta en 61 compartimentos divisibles, ideal para la organización eficiente de insumos médicos, instrumental, material de curación y pequeños dispositivos. Su capacidad XL permite almacenar suministros adicionales en el espacio interior, e incorpora áreas específicas para herramientas y 2 portavasos moldeados en la tapa que pueden destinarse a soluciones o frascos de uso frecuente. || Dimensiones: 50.8 x 30.5 x 27.3 cm",
     price: 350,
     images: ["/images/emergencia/FLAMBEAU/F1.png",
@@ -63,6 +66,7 @@ export const emergenciaYSoporteVitalProducts = [
   {
     id: "mochila-de-emergencia-primacare-kp-4183",
     name: "MOCHILA DE EMERGENCIA",
+    type: "Maletines-y-mochilas",
     description: "fabricada en tela Oxford resistente, con base impermeable y cremalleras duraderas que garantizan protección y larga vida útil en entornos exigentes. Incorpora 4 bolsillos externos, ventana para tarjeta de identificación y correas con hebilla a nivel del pecho para mayor estabilidad y comodidad durante el traslado. Su interior está organizado en compartimentos separados con 9 bolsas internas de diferentes colores y vista transparente, facilitando la rápida identificación y clasificación de insumos médicos y equipos. Incluye bandas reflectivas amarillas para mayor visibilidad en situaciones de baja iluminación y es compatible con cilindros de oxígeno M4, M6 y M9, siendo ideal para brigadas médicas, primeros respondedores y unidades de rescate. || Dimensiones: 43 x 15 x 23 cm",
     price: 350,
     images: ["/images/emergencia/PRIMACARE/PK1.png",
@@ -72,6 +76,7 @@ export const emergenciaYSoporteVitalProducts = [
   {
     id: "sujetador-inmovilizador-de-brazos-para-cama",
     name: "SUJETADOR DE MANOS Y PIES",
+    type: "Inmovilizacion",
     description: "Dispositivo de inmovilización para extremidades x4 diseñado para ofrecer sujeción segura en muñecas y tobillos durante procedimientos clínicos o situaciones que requieran control del movimiento. Fabricado con esponja gruesa de alta densidad, suave, transpirable y amigable con la piel, brinda comodidad prolongada sin deformarse fácilmente, garantizando durabilidad y larga vida útil. Incorpora anillo metálico de fijación resistente, sistema antideslizante y correa ajustable con velcro, permitiendo un ajuste firme, estable y adaptable a diferentes tamaños, contribuyendo a reducir la tensión y mejorar la seguridad del paciente.",
     price: 50,
     images: ["/images/emergencia/SUJETADOR/S1.png",
@@ -83,6 +88,7 @@ export const emergenciaYSoporteVitalProducts = [
   {
     id: "resucitador-besmed",
     name: "RESUCITADORES BESMED",
+    type: "Resucitadores",
     description: "Resucitadores manuales Besmed para adulto, pediátrico y neonatal. Diseñados para ventilación asistida en emergencias con válvula unidireccional y conexión para oxígeno suplementario.",
     image: "/images/emergencia/BESMED/ADULTO.png",
 
@@ -131,6 +137,7 @@ export const emergenciaYSoporteVitalProducts = [
   {
     id: "mascarilla-silicona-resucitador-besmed",
     name: "MASCARILLA DE SILICONA PARA RESUCITADOR BESMED",
+    type: "Resucitadores",
     description: "Mascarillas de silicona reutilizables para resucitador Besmed, disponibles en tallas 00 a 05 para neonatos, pediátricos y adultos.",
     image: "/images/emergencia/CARD/ADULTOS.jpg",
 
@@ -204,6 +211,7 @@ export const emergenciaYSoporteVitalProducts = [
   {
     id: "juego-de-ferulas-6-pza",
     name: "JUEGO DE FÉRULAS 6 PZA",
+    type: "Inmovilizacion",
     description: "Kit de 6 férulas para inmovilización de extremidades en situaciones de emergencia. Disponibles en material EVA rígido e inflables.",
     image: "/images/emergencia/FERULAS/F1.png",
 
@@ -247,6 +255,7 @@ export const emergenciaYSoporteVitalProducts = [
   {
     id: "estuche-para-camilla-rigida",
     name: "ESTUCHE PARA CAMILLA RIGIDA",
+    type: "Camillas-y-traslado",
     description: "Diseñado para resguardar y transportar de forma segura el equipo en entornos de emergencia. Fabricado en material resistente y de alta durabilidad, protege contra polvo, humedad y desgaste durante el almacenamiento o traslado. Cuenta con ventana superior transparente que permite identificar fácilmente el contenido sin necesidad de abrirlo, además de bandas reflectivas que mejoran la visibilidad en condiciones de poca luz. Incorpora sistema de cierre seguro y correas de sujeción para un ajuste firme a la camilla.",
     price: 156,
     image: "/images/emergencia/CAMILLAS/ESTUCHE.png"
@@ -254,6 +263,7 @@ export const emergenciaYSoporteVitalProducts = [
   {
     id: "correas-tipo-spider-para-camilla-rigida",
     name: "CORREAS TIPO SPIDER PARA CAMILLA RIGIDA",
+    type: "Camillas-y-traslado",
     description: "Sistema de inmovilización tipo correa de araña diseñado para proporcionar sujeción corporal completa durante el traslado de pacientes en tabla espinal. Cuenta con diez puntos de fijación, permitiendo una adaptación firme en las áreas de hombros y pies para una estabilización segura y eficiente.",
     price: 60,
     image: "/images/emergencia/CAMILLAS/CORREA.png"
@@ -261,6 +271,7 @@ export const emergenciaYSoporteVitalProducts = [
   {
     id: "collarin-cervical-pediatrico-mini-perfit",
     name: "COLLARIN CERVICAL PEDIATRICO MINI PERFIT",
+    type: "Collarines",
     description: "COLLARIN CERVICAL PEDIATRICO MINI PERFIT",
     price: 127.44,
     image: "/images/emergencia/MINI PERFIT/MINIPERFIT.png"
@@ -268,41 +279,17 @@ export const emergenciaYSoporteVitalProducts = [
   {
     id: "collarin-cervical-adulto-ambu-perfit-ace",
     name: "COLLARIN CERVICAL ADULTO AMBU PERFIT ACE",
+    type: "Collarines",
     description: "COLLARIN CERVICAL ADULTO AMBU PERFIT ACE",
     price: 168,
     image: "/images/emergencia/PERFIT/PERFIT.png"
   },
-  {
-    id: "collarin-cervical-adulto-ambu-perfit-ace",
-    name: "COLLARIN CERVICAL ADULTO AMBU PERFIT ACE",
-    description: "COLLARIN CERVICAL ADULTO AMBU PERFIT ACE",
-    price: 168,
-    image: "/images/emergencia/placeholder.png"
-  },
-  {
-    id: "collarin-cervical-adulto-ambu-perfit-ace",
-    name: "COLLARIN CERVICAL ADULTO AMBU PERFIT ACE",
-    description: "COLLARIN CERVICAL ADULTO AMBU PERFIT ACE",
-    price: 168,
-    image: "/images/emergencia/placeholder.png"
-  },
-  {
-    id: "collarin-cervical-adulto-ambu-perfit-ace",
-    name: "COLLARIN CERVICAL ADULTO AMBU PERFIT ACE",
-    description: "COLLARIN CERVICAL ADULTO AMBU PERFIT ACE",
-    price: 168,
-    image: "/images/emergencia/placeholder.png"
-  },
-  {
-    id: "collarin-cervical-adulto-ambu-perfit-ace",
-    name: "COLLARIN CERVICAL ADULTO AMBU PERFIT ACE",
-    description: "COLLARIN CERVICAL ADULTO AMBU PERFIT ACE",
-    price: 168,
-    image: "/images/emergencia/placeholder.png"
-  },
+
+
   {
     id: "reservorio-silicona-besmed",
     name: "RESERVORIO DE SILICONA BESMED",
+    type: "Resucitadores",
     description: "Reservorios de silicona biocompatible para recolección de fluidos en aplicaciones clínicas, hospitalarias y de emergencia. Disponibles en capacidades de 2.0L y 1.0L.",
     image: "/images/emergencia/BESMED/bolsas.jpg",
 
@@ -337,16 +324,11 @@ export const emergenciaYSoporteVitalProducts = [
       }
     ]
   },
-  {
-    id: "cesta-de-evacuaci-n-de-trineo-mediano-mochila-o2-24",
-    name: "CESTA DE EVACUACIÓN DE TRINEO MEDIANO + MOCHILA O2 24\"",
-    description: "CESTA DE EVACUACIÓN DE TRINEO MEDIANO + MOCHILA O2 24\"",
-    price: 1080,
-    image: "/images/emergencia/placeholder.png"
-  },
+
   {
     id: "tablero-rigido-columna",
     name: "TABLERO RÍGIDO PARA COLUMNA",
+    type: "Camillas-y-traslado",
     description: "Tablas espinales rígidas de plástico de alta resistencia para inmovilización y traslado seguro de pacientes con posible lesión de columna. Disponibles en color amarillo y anaranjado.",
     image: "/images/emergencia/CAMILLAS/AMARILLA.png",
 

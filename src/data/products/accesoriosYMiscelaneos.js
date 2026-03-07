@@ -592,6 +592,54 @@ export const accesoriosYMiscelaneosProducts = [
     images: ["/images/accesorios/KSQ6/LAMP_GANSO.png",
       "/images/accesorios/KSQ6/LAMP_GANSO2.png"]
   },
+  {
+    id: "test-desarrollo-psicomotor",
+    name: "TEST DE DESARROLLO PSICOMOTOR",
+    type: "Diagnóstico",
+    description: "Kits de evaluación del desarrollo psicomotor infantil. Disponible en versiones EEDP (0–21 meses), TEPSI (2–5 años) y TAP (Test Abreviado Peruano).",
+    image: "/images/accesorios/TESTS/TEST_EEDP.png",
 
+    attributeOrder: ["modelo"],
+
+    attributes: [
+      {
+        id: "modelo",
+        label: "Test",
+        type: "single",
+        values: [
+          { id: "eedp", label: "EEDP (0–21 meses)" },
+          { id: "tepsi", label: "TEPSI (2–5 años)" },
+          { id: "tap", label: "TAP" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "test-eedp",
+        attrs: { modelo: "eedp" },
+        name: "EEDP – Escala de Evaluación del Desarrollo Psicomotor (0–21 meses)",
+        description: "Kit completo que incluye: campanilla de metal, argolla roja de 12 cm con cordel, cuchara de plástico, 10 cubos rojos de madera, pastilla de plástico, pañal, botella, hoja de papel, lápiz de cera, palo desglosable de 41 cm, muñeca en papel plastificado y caja de madera con tapa o mochila de lona.",
+        price: 186,
+        image: "/images/accesorios/TESTS/TEST_EEDP.png"
+      },
+      {
+        sku: "test-tepsi",
+        attrs: { modelo: "tepsi" },
+        name: "TEPSI – Test de Desarrollo Psicomotor (2–5 años)",
+        description: "Kit completo que incluye: 2 vasos de plástico, pelota de tenis, 12 cubos de madera, estuche de tela con botones, aguja de lana, hilo de nylon, tableros de madera, cordón, lápiz, bolsas de tela con relleno, 3 cuadrados de colores, cuadernillo de 17 láminas, 3 globos y maletín con 3 divisiones.",
+        price: 210,
+        image: "/images/accesorios/TESTS/TEST_TEPSI.png"
+      },
+      {
+        sku: "test-tap",
+        attrs: { modelo: "tap" },
+        name: "TAP – Test Abreviado Peruano",
+        description: "Kit completo que incluye: pelota de plástico, 7 cubos de madera rojos, pañal de algodón, frijoles, caja de cartón, frasco acrílico transparente, linterna tipo lapicero, espejo de 40×40 cm, hoja A4, 2 plumones, campanilla de bronce, juguete con ruedas, carrito de plástico, sonaja, juego de vástago con 6 aros multicolor y libro de figuras plásticas A4.",
+        price: 234,
+        image: "/images/accesorios/TESTS/TEST_TAP.png"
+      }
+    ]
+  },
 ];
 

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from "react";
+﻿import { useState, useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import EmergencyTrainingSections from "./EmergencyTrainingSections";
 
@@ -728,114 +728,140 @@ export default function ProductConfigurator({ product, onAddToCart }) {
 
 
             {hasAttributes &&
-              safeProduct.attributes.map((attr) => (
-                <div key={attr.id}>
-                  <div className="text-sm font-medium">{attr.label}</div>
+              safeProduct.attributes.map((attr) => {
+                // Pre-calcular valores visibles para este atributo
+                const visibleValues = attr.values.filter((v) => {
+                  if (attr.type === "multi") {
+                    if (!v.compatibleWith) return true;
+                    const firstAttrId = safeProduct.attributeOrder?.[0];
+                    const selectedModel = firstAttrId ? selAttrs[firstAttrId]?.[0] : null;
+                    if (!selectedModel) return false;
+                    return v.compatibleWith.includes(selectedModel);
+                  }
+                  const attrOrder = safeProduct.attributeOrder || [];
+                  const currentIndex = attrOrder.indexOf(attr.id);
+                  if (currentIndex === 0) return true;
+                  if (currentIndex > 0) {
+                    const previousAttrId = attrOrder[currentIndex - 1];
+                    const hasPreviousSelected = previousAttrId ? selAttrs[previousAttrId]?.length > 0 : false;
+                    if (!hasPreviousSelected) return false;
+                    return !isOptionDisabledCascade(attr.id, v.id, selAttrs, safeProduct.variants, safeProduct.attributeOrder);
+                  }
+                  return true;
+                });
 
-                  <div className="flex flex-wrap gap-2 mt-1">
-                    {attr.values
-                      // 👉 SOLO en cascada 2 ocultamos los inhabilitados
-                      // PERO NO para atributos tipo "multi" (accesorios acumulativos)
-                      .filter((v) => {
-                        // Si es tipo multi, filtrar por compatibilidad
-                        if (attr.type === "multi") {
-                          // Si no tiene compatibleWith, mostrar siempre
-                          if (!v.compatibleWith) return true;
+                // Si no hay valores visibles, no renderizar el bloque completo
+                if (visibleValues.length === 0) return null;
 
-                          // Obtener el valor seleccionado de la cascada 1 (modelo)
-                          const firstAttrId = safeProduct.attributeOrder?.[0];
-                          const selectedModel = firstAttrId ? selAttrs[firstAttrId]?.[0] : null;
+                return (
+                  <div key={attr.id}>
+                    <div className="text-sm font-medium">{attr.label}</div>
 
-                          // Si no hay modelo seleccionado, no mostrar
-                          if (!selectedModel) return false;
+                    <div className="flex flex-wrap gap-2 mt-1">
+                      {attr.values
+                        // 👉 SOLO en cascada 2 ocultamos los inhabilitados
+                        // PERO NO para atributos tipo "multi" (accesorios acumulativos)
+                        .filter((v) => {
+                          // Si es tipo multi, filtrar por compatibilidad
+                          if (attr.type === "multi") {
+                            // Si no tiene compatibleWith, mostrar siempre
+                            if (!v.compatibleWith) return true;
 
-                          // Verificar si el modelo está en compatibleWith
-                          return v.compatibleWith.includes(selectedModel);
-                        }
+                            // Obtener el valor seleccionado de la cascada 1 (modelo)
+                            const firstAttrId = safeProduct.attributeOrder?.[0];
+                            const selectedModel = firstAttrId ? selAttrs[firstAttrId]?.[0] : null;
 
-                        // Para cascadas tipo single, verificar el orden
-                        const attrOrder = safeProduct.attributeOrder || [];
-                        const currentIndex = attrOrder.indexOf(attr.id);
+                            // Si no hay modelo seleccionado, no mostrar
+                            if (!selectedModel) return false;
 
-                        // Si es cascada 1 (índice 0), mostrar todos
-                        if (currentIndex === 0) return true;
+                            // Verificar si el modelo está en compatibleWith
+                            return v.compatibleWith.includes(selectedModel);
+                          }
 
-                        // Si es cascada 2+ (índice 1+), verificar que la cascada anterior esté seleccionada
-                        if (currentIndex > 0) {
-                          const previousAttrId = attrOrder[currentIndex - 1];
-                          const hasPreviousSelected = previousAttrId ? selAttrs[previousAttrId]?.length > 0 : false;
+                          // Para cascadas tipo single, verificar el orden
+                          const attrOrder = safeProduct.attributeOrder || [];
+                          const currentIndex = attrOrder.indexOf(attr.id);
 
-                          // Si la cascada anterior no está seleccionada, ocultar esta cascada
-                          if (!hasPreviousSelected) return false;
+                          // Si es cascada 1 (índice 0), mostrar todos
+                          if (currentIndex === 0) return true;
 
-                          // Si la cascada anterior está seleccionada, filtrar por inhabilitados
-                          return !isOptionDisabledCascade(
-                            attr.id,
-                            v.id,
-                            selAttrs,
-                            safeProduct.variants,
-                            safeProduct.attributeOrder
-                          );
-                        }
+                          // Si es cascada 2+ (índice 1+), verificar que la cascada anterior esté seleccionada
+                          if (currentIndex > 0) {
+                            const previousAttrId = attrOrder[currentIndex - 1];
+                            const hasPreviousSelected = previousAttrId ? selAttrs[previousAttrId]?.length > 0 : false;
 
-                        // Por defecto, mostrar
-                        return true;
-                      })
-                      .map((v) => {
+                            // Si la cascada anterior no está seleccionada, ocultar esta cascada
+                            if (!hasPreviousSelected) return false;
 
-                        const order =
-                          safeProduct.attributeOrder?.length
-                            ? safeProduct.attributeOrder
-                            : ATTRIBUTE_ORDER;
+                            // Si la cascada anterior está seleccionada, filtrar por inhabilitados
+                            return !isOptionDisabledCascade(
+                              attr.id,
+                              v.id,
+                              selAttrs,
+                              safeProduct.variants,
+                              safeProduct.attributeOrder
+                            );
+                          }
 
-                        const attrIndex = order.indexOf(attr.id);
+                          // Por defecto, mostrar
+                          return true;
+                        })
+                        .map((v) => {
 
-                        const isCascadeBlocked =
-                          attrIndex > 0 &&
-                          !order
-                            .slice(0, attrIndex)
-                            .every((prevAttr) => selAttrs[prevAttr]?.length);
+                          const order =
+                            safeProduct.attributeOrder?.length
+                              ? safeProduct.attributeOrder
+                              : ATTRIBUTE_ORDER;
 
-                        const disabled =
-                          isCascadeBlocked ||
-                          isOptionDisabledByRules(
-                            attr.id,
-                            v.id,
-                            selAttrs,
-                            safeProduct.rules
-                          );
+                          const attrIndex = order.indexOf(attr.id);
+
+                          const isCascadeBlocked =
+                            attrIndex > 0 &&
+                            !order
+                              .slice(0, attrIndex)
+                              .every((prevAttr) => selAttrs[prevAttr]?.length);
+
+                          const disabled =
+                            isCascadeBlocked ||
+                            isOptionDisabledByRules(
+                              attr.id,
+                              v.id,
+                              selAttrs,
+                              safeProduct.rules
+                            );
 
 
-                        const selected =
-                          attr.type === "multi"
-                            ? v.id === "base"
-                              ? baseSelected
-                              : selAttrs[attr.id]?.includes(v.id)
-                            : selAttrs[attr.id]?.includes(v.id);
+                          const selected =
+                            attr.type === "multi"
+                              ? v.id === "base"
+                                ? baseSelected
+                                : selAttrs[attr.id]?.includes(v.id)
+                              : selAttrs[attr.id]?.includes(v.id);
 
-                        return (
-                          <button
-                            key={v.id}
-                            disabled={disabled}
-                            onClick={() => {
-                              if (!disabled) toggleAttr(attr.id, v.id);
-                            }}
-                            className={`px-3 py-2 rounded-lg border text-sm transition
+                          return (
+                            <button
+                              key={v.id}
+                              disabled={disabled}
+                              onClick={() => {
+                                if (!disabled) toggleAttr(attr.id, v.id);
+                              }}
+                              className={`px-3 py-2 rounded-lg border text-sm transition
     ${disabled
-                                ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                                : selected
-                                  ? "bg-emerald-600 text-white cursor-pointer"
-                                  : "bg-white hover:bg-emerald-50 cursor-pointer"
-                              }`}
-                          >
+                                  ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                                  : selected
+                                    ? "bg-emerald-600 text-white cursor-pointer"
+                                    : "bg-white hover:bg-emerald-50 cursor-pointer"
+                                }`}
+                            >
 
-                            {v.label}
-                          </button>
-                        );
-                      })}
+                              {v.label}
+                            </button>
+                          );
+                        })}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
 
             <button
               type="button"

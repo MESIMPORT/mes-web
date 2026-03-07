@@ -561,6 +561,29 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     price: 30,
     image: "/images/laboratorio/placeholder.png"
   },
+
+  {
+    id: "nuez-de-buretas-pinza-para-bureta-tipo-mariposa-de-pl-stico-vidrio-de-borosilicato-chino",
+    name: "NUEZ DE BURETAS (PINZA PARA BURETA) – TIPO MARIPOSA DE PLÁSTICO VIDRIO DE BOROSILICATO CHINO",
+    description: "NUEZ DE BURETAS (PINZA PARA BURETA) – TIPO MARIPOSA DE PLÁSTICO VIDRIO DE BOROSILICATO CHINO",
+    price: 24,
+    image: "/images/instrumental/placeholder.png"
+  },
+  {
+    id: "nuez-para-soporte-universal-con-pinzas-para-soportar-buretas-balones-2-dedos-metalica",
+    name: "NUEZ PARA SOPORTE UNIVERSAL, CON PINZAS PARA SOPORTAR BURETAS, BALONES 2 DEDOS METALICA",
+    description: "NUEZ PARA SOPORTE UNIVERSAL, CON PINZAS PARA SOPORTAR BURETAS, BALONES 2 DEDOS METALICA",
+    price: 45.6,
+    image: "/images/instrumental/placeholder.png"
+  },
+
+  {
+    id: "cables-con-pinza-tipo-caiman",
+    name: "CABLES CON PINZA TIPO CAIMAN",
+    description: "CABLES CON PINZA TIPO CAIMAN",
+    price: 1.2,
+    image: "/images/instrumental/placeholder.png"
+  },
   {
     id: "frasco-p-soluciones-500-ml-vidrio-ambar-c-tapa-dispensador",
     name: "FRASCO P/SOLUCIONES 500 ml VIDRIO AMBAR C/ TAPA DISPENSADOR",

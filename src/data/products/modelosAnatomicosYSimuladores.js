@@ -6,7 +6,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos del sistema muscular humano diseñados para el estudio detallado de la musculatura corporal, su relación con órganos internos y la disposición topográfica de los principales grupos musculares en cuerpo completo.",
     brand: "MesImport",
-    type: "Musculatura del cuerpo humano",
+    type: "Cuerpo completo y torso",
 
     image: "/images/maquetas/musculos-cuerpo-humano.png",
 
@@ -117,7 +117,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos diseñados para el estudio detallado de la musculatura de las extremidades superiores e inferiores, incluyendo la relación con vasos sanguíneos, nervios y estructuras ligamentarias.",
     brand: "MesImport",
-    type: "Musculatura de extremidades",
+    type: "Cuerpo completo y torso",
 
     image: "/images/maquetas/musculos-extremidades.png",
 
@@ -198,7 +198,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos de torso humano diseñados para la enseñanza y demostración de los principales órganos, sistemas y relaciones anatómicas del cuerpo humano. Incluye versiones duales y transparentes según el nivel de detalle requerido.",
     brand: "MesImport",
-    type: "Torsos humanos",
+    type: "Cuerpo completo y torso",
 
     // 👉 Imagen conceptual IA de la familia (NO es variante)
     image: "/images/maquetas/torso-humano.png",
@@ -267,7 +267,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos del sistema respiratorio humano diseñados para el estudio de las vías aéreas superiores e inferiores, pulmones y estructuras torácicas asociadas. Permiten comprender la anatomía y el funcionamiento del proceso respiratorio en distintos niveles de detalle.",
     brand: "MesImport",
-    type: "Sistema respiratorio humano",
+    type: "Sistema respiratorio",
 
     // 👉 Imagen conceptual genérica (NO es variante)
     image: "/images/maquetas/sistema-respiratorio-humano.png",
@@ -485,7 +485,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos del sistema cardiovascular diseñados para el estudio del corazón, la circulación sanguínea, los vasos y el sistema linfático, permitiendo comprender la organización y funcionamiento del sistema circulatorio humano.",
     brand: "MesImport",
-    type: "Sistema cardiovascular humano",
+    type: "Sistema cardiovascular",
 
     image: "/images/maquetas/sistema-cardiovascular-humano.png",
 
@@ -661,7 +661,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos del sistema nervioso desde el nivel celular hasta el sistema completo. Incluye neuronas, vías nerviosas autónomas, sistema nervioso central y periférico, y cerebro con diferentes niveles de detalle estructural, funcional y neurovascular.",
     brand: "MesImport",
-    type: "Cerebro y sistema nervioso",
+    type: "Sistema nervioso",
 
     image: "/images/maquetas/modelos-de-cerebro.png",
 
@@ -907,7 +907,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos del sistema digestivo humano diseñados para el estudio detallado de los órganos digestivos, su estructura interna y las relaciones funcionales entre estómago, intestinos, hígado, páncreas y órganos asociados. Incluye modelos completos y órganos individuales para distintos niveles de análisis anatómico.",
     brand: "MesImport",
-    type: "Sistema digestivo humano",
+    type: "Sistema digestivo y visceral",
 
     image: "/images/maquetas/sistema-digestivo-humano.png",
 
@@ -1064,7 +1064,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos de cabeza y cuello diseñados para el estudio de las estructuras óseas, musculares, nerviosas, vasculares y de las vías aero-digestivas superiores. Permiten una comprensión integral de la anatomía de la región craneofacial y cervical en distintos niveles de detalle.",
     brand: "MesImport",
-    type: "Modelos de cabeza y cuello",
+    type: "Cabeza y cuello",
 
 
     image: "/images/maquetas/cabeza-y-cuello.png",
@@ -1154,7 +1154,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos del esqueleto humano diseñados para el estudio integral del sistema óseo. Incluye esqueletos completos en distintos tamaños, versiones con musculatura pintada y conjuntos de huesos desarticulados para análisis detallado de cada componente óseo.",
     brand: "MesImport",
-    type: "Esqueleto humano",
+    type: "Esqueleto y articulaciones",
 
     // 👉 Imagen conceptual del card (NO es variante)
     image: "/images/maquetas/sistema-oseo-humano.png",
@@ -1224,7 +1224,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos de la columna vertebral, vértebras y pelvis diseñados para el estudio estructural y funcional del eje axial humano. Incluye representaciones completas, seccionadas y segmentadas que facilitan la comprensión de la biomecánica, postura y relaciones anatómicas.",
     brand: "MesImport",
-    type: "Columna, vértebras y pelvis",
+    type: "Esqueleto y articulaciones",
 
     image: "/images/maquetas/columna-y-pelvis.png",
 
@@ -1413,7 +1413,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos del cráneo humano para el estudio de su estructura ósea, desarrollo, disección y huesos individuales. Incluye cráneos completos, cráneos diseccionados y huesos craneales específicos para análisis detallado.",
     brand: "MesImport",
-    type: "Cráneos",
+    type: "Cabeza y cuello",
 
     // Imagen genérica del card
     image: "/images/maquetas/generico-craneo.png",
@@ -1585,7 +1585,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
       "Modelos anatómicos correspondientes a extremidades humanas, que incluyen representaciones óseas de miembros superiores e inferiores para el estudio anatómico estructural.",
 
     brand: "MesImport",
-    type: "Extremidades",
+    type: "Esqueleto y articulaciones",
 
     image: "/images/maquetas/extremidades.png",
 
@@ -1661,7 +1661,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos de articulaciones humanas diseñados para el estudio de la movilidad, estabilidad y relación entre estructuras óseas y musculares de las principales articulaciones del cuerpo.",
     brand: "MesImport",
-    type: "Articulaciones",
+    type: "Esqueleto y articulaciones",
 
     image: "/images/maquetas/articulaciones.png",
 
@@ -1757,7 +1757,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos de manos y pies humanos para el estudio detallado de su estructura ósea, muscular y ligamentosa en entornos educativos y clínicos.",
     brand: "MesImport",
-    type: "Manos y pies",
+    type: "Esqueleto y articulaciones",
 
     image: "/images/maquetas/manos-y-pies.png",
 
@@ -1872,7 +1872,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos seccionados diseñados para la observación detallada de estructuras internas, articulaciones y relaciones funcionales del sistema musculoesquelético en contextos educativos y clínicos.",
     brand: "MesImport",
-    type: "Modelos seccionados",
+    type: "Esqueleto y articulaciones",
 
     image: "/images/maquetas/modelos-seccionados.png",
 
@@ -1971,7 +1971,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos del ojo humano diseñados para el estudio estructural del sistema visual. Incluye versiones con diferentes niveles de complejidad, desde globos oculares básicos hasta modelos avanzados con órbita, músculos, vasos y nervios.",
     brand: "MesImport",
-    type: "Modelos de ojo",
+    type: "Cabeza y cuello",
 
     image: "/images/maquetas/OJOS.png",
 
@@ -2073,7 +2073,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos del oído humano diseñados para el estudio del sistema auditivo y vestibular. Incluye versiones con diferentes niveles de detalle, desde modelos completos del oído hasta componentes específicos como huesecillos y laberinto.",
     brand: "MesImport",
-    type: "Modelos de oído",
+    type: "Cabeza y cuello",
 
     image: "/images/maquetas/OIDO.png",
 
@@ -2154,7 +2154,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos del proceso reproductivo humano, desde la fecundación hasta el parto. Incluye representaciones del ovario, placenta, desarrollo embrionario y fetal, circulación fetal y el proceso del nacimiento para el estudio completo del ciclo reproductivo.",
     brand: "MesImport",
-    type: "Reproducción y desarrollo embrionario",
+    type: "Reproducción y embriología",
 
     image: "/images/maquetas/reproduccion-desarrollo.png",
 
@@ -2467,7 +2467,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos del sistema urinario desde el nivel macroscópico hasta el microscópico. Incluye sistemas completos, órganos específicos como riñones y vejiga, y estructuras microscópicas como nefrones y glomérulos para el estudio integral del aparato excretor.",
     brand: "MesImport",
-    type: "Sistema urinario",
+    type: "Sistema digestivo y visceral",
 
     image: "/images/maquetas/URINARIO.png",
 
@@ -2607,7 +2607,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos del sistema endocrino humano que permiten el estudio de las glándulas y órganos productores de hormonas. Incluye representaciones integradas del sistema hormonal completo y modelos especializados del eje hipotálamo-hipofisario con demostración eléctrica de las vías de regulación hormonal.",
     brand: "MesImport",
-    type: "Sistema endocrino",
+    type: "Sistema digestivo y visceral",
 
     image: "/images/maquetas/CARDENDOCRINO.png",
 
@@ -2658,7 +2658,7 @@ export const modelosAnatomicosYSimuladoresProducts = [
     description:
       "Modelos anatómicos del sistema tegumentario humano diseñados para el estudio de la estructura de la piel y sus anexos. Incluye secciones ampliadas que muestran las capas cutáneas, folículos pilosos, glándulas sudoríparas, órganos sensoriales y la disposición del cabello en el cuero cabelludo.",
     brand: "MesImport",
-    type: "Sistema tegumentario",
+    type: "Sistema digestivo y visceral",
 
     image: "/images/maquetas/CARDPIEL.png",
 

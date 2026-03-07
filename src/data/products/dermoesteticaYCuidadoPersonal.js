@@ -199,18 +199,105 @@ export const dermoesteticaYCuidadoPersonalProducts = [
 
     {
         id: "aguja-dermapen-36-pines-cartucho-est-ril",
-        name: "AGUJA DERMAPEN 36 PINES – CARTUCHO ESTÉRIL",
+        name: "AGUJA DERMAPEN 36 PINES",
         type: "Consumibles",
-        description: "AGUJA DERMAPEN 36 PINES – CARTUCHO ESTÉRIL",
-        price: 3.6,
-        image: "/images/descartables/placeholder.png"
+        description: "Cartucho de aguja desechable de 36 pines, diseñado para su uso con dispositivos de microneedling Dr. Pen y compatible con los modelos Dr Pen A1-C, A1-W y A6. Cada cartucho cuenta con 36 microagujas que permiten una aplicación uniforme para tratamientos de estimulación cutánea. El producto se encuentra esterilizado mediante radiación gamma y sellado en una bolsa hermética, garantizando condiciones óptimas de esterilidad y un uso seguro en cada sesión.",
+        image: "/images/CUIDADO PERSONAL/DERMAPEN/AGUJA.png",
+
+        attributes: [
+            {
+                id: "cantidad",
+                label: "Cantidad",
+                type: "single",
+                values: [
+                    { id: "1u", label: "1 unidad" },
+                    { id: "50u", label: "Paquete × 50 und" },
+                    { id: "100u", label: "Paquete × 100 und" }
+                ]
+            }
+        ],
+
+        variants: [
+            {
+                sku: "aguja-dermapen-36p-1u",
+                attrs: { cantidad: "1u" },
+                name: "1 UNIDAD",
+                description: "Cartucho de aguja desechable de 36 pines, esterilizado por radiación gamma. Compatible con Dr. Pen A1-C, A1-W y A6. Precio por unidad.",
+                price: 5,
+                image: "/images/CUIDADO PERSONAL/DERMAPEN/AGUJA.png"
+            },
+            {
+                sku: "aguja-dermapen-36p-50u",
+                attrs: { cantidad: "50u" },
+                name: "PAQUETE × 50 UND",
+                description: "Paquete de 50 cartuchos de aguja desechable de 36 pines, esterilizados por radiación gamma. Compatible con Dr. Pen A1-C, A1-W y A6.",
+                price: 225,
+                image: "/images/CUIDADO PERSONAL/DERMAPEN/AGUJA.png"
+            },
+            {
+                sku: "aguja-dermapen-36p-100u",
+                attrs: { cantidad: "100u" },
+                name: "PAQUETE × 100 UND",
+                description: "Paquete de 100 cartuchos de aguja desechable de 36 pines, esterilizados por radiación gamma. Compatible con Dr. Pen A1-C, A1-W y A6.",
+                price: 400,
+                image: "/images/CUIDADO PERSONAL/DERMAPEN/AGUJA.png"
+            }
+        ]
     },
     {
         id: "aguja-para-plasma-pen-caja",
-        name: "AGUJA PARA PLASMA PEN × CAJA",
+        name: "AGUJA DE PLASMA PEN FINAS × 100 UND",
         type: "Consumibles",
-        description: "AGUJA PARA PLASMA PEN × CAJA",
-        price: 27.6,
-        image: "/images/descartables/placeholder.png"
+        description: "Agujas finas desechables para plasma pen, presentación en caja de 100 unidades. Disponibles en 4 medidas: 0.25 × 13 mm, 0.25 × 25 mm, 0.25 × 35 mm y 0.25 × 40 mm. Esterilizadas y de un solo uso.",
+        image: "/images/CUIDADO PERSONAL/PLASMA PEN/AGUJA.png",
+
+        attributes: [
+            {
+                id: "medida",
+                label: "Medida",
+                type: "single",
+                values: [
+                    { id: "13mm", label: "0.25 × 13 mm" },
+                    { id: "25mm", label: "0.25 × 25 mm" },
+                    { id: "35mm", label: "0.25 × 35 mm" },
+                    { id: "40mm", label: "0.25 × 40 mm" }
+                ]
+            }
+        ],
+
+        variants: [
+            {
+                sku: "aguja-plasma-pen-025x13mm",
+                attrs: { medida: "13mm" },
+                name: "0.25 × 13 MM",
+                description: "Aguja fina para plasma pen – 0.25 × 13 mm. Caja × 100 unidades, desechables y esterilizadas.",
+                price: 50,
+                image: "/images/CUIDADO PERSONAL/PLASMA PEN/AGUJA.png"
+            },
+            {
+                sku: "aguja-plasma-pen-025x25mm",
+                attrs: { medida: "25mm" },
+                name: "0.25 × 25 MM",
+                description: "Aguja fina para plasma pen – 0.25 × 25 mm. Caja × 100 unidades, desechables y esterilizadas.",
+                price: 50,
+                image: "/images/CUIDADO PERSONAL/PLASMA PEN/AGUJA.png"
+            },
+            {
+                sku: "aguja-plasma-pen-025x35mm",
+                attrs: { medida: "35mm" },
+                name: "0.25 × 35 MM",
+                description: "Aguja fina para plasma pen – 0.25 × 35 mm. Caja × 100 unidades, desechables y esterilizadas.",
+                price: 50,
+                image: "/images/CUIDADO PERSONAL/PLASMA PEN/AGUJA.png"
+            },
+            {
+                sku: "aguja-plasma-pen-025x40mm",
+                attrs: { medida: "40mm" },
+                name: "0.25 × 40 MM",
+                description: "Aguja fina para plasma pen – 0.25 × 40 mm. Caja × 100 unidades, desechables y esterilizadas.",
+                price: 50,
+                image: "/images/CUIDADO PERSONAL/PLASMA PEN/AGUJA.png"
+            }
+        ]
     },
 ];

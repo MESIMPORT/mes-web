@@ -95,7 +95,7 @@
       {
         sku: "SECA-334",
         attrs: { modelo: "seca-334" },
-        name: "Balanza Pediátrica SECA 334",
+        name: "SECA 334",
         description: "Balanza pediátrica digital con **bandeja curva plegable** que permite pesar al bebé en posición acostada o sentada. **Capacidad de 20 kg con precisión de 10 g**. Función Tara/Hold para pesaje incluso con bebés en movimiento. Compatible con accesorios SECA como tallímetro integrado, mochila de transporte y adaptador de corriente. Diseñada para trabajo en campo y visitas domiciliarias.",
         brand: "SECA",
         type: "balanza",
@@ -108,7 +108,7 @@
       {
         sku: "SECA-354",
         attrs: { modelo: "seca-354" },
-        name: "Balanza Pediátrica SECA 354",
+        name: "SECA 354",
         description: "Balanza pediátrica digital de **bandeja transparente extra-ancha** que facilita la supervisión visual del bebé durante el pesaje. **Capacidad de 20 kg con precisión de 10 g**. Diseño ergonómico con bordes protectores elevados y apoyabrazos integrados. Compatible con mochila de transporte SECA 413 para trabajo de campo. Ideal para controles de crecimiento en consultorios pediátricos.",
         brand: "SECA",
         type: "balanza",
@@ -121,8 +121,8 @@
       {
         sku: "SECA-374",
         attrs: { modelo: "seca-374" },
-        name: "Balanza Pediátrica SECA 374",
-        description: "xxx",
+        name: "SECA 374",
+        description: "Balanza pediátrica de alta precisión, diseñada para el control de peso en recién nacidos y lactantes. Incorpora bandeja ergonómica amplia que brinda seguridad durante el pesaje y funciones TARA y HOLD para obtener mediciones exactas incluso cuando el bebé se mueve. Su pantalla LCD de fácil lectura y diseño compacto la hacen ideal para consultorios, clínicas y hospitales. || **Capacidad: 20 kg** | **Graduación: 5 g** | Dimensiones: 552 x 156 x 332 mm ||",
         brand: "SECA",
         type: "balanza",
         price: 1020,
@@ -134,8 +134,8 @@
       {
         sku: "SECA-725",
         attrs: { modelo: "seca-725" },
-        name: "Balanza Pediátrica SECA 725",
-        description: "xxx",
+        name: "SECA 725",
+        description: "Báscula pediátrica **mecánica** con pesas deslizantes que combina un diseño clásico con una mecánica de precisión suave y confiable, ideal para el control del peso de neonatos y bebés pequeños. La bandeja de pesaje de curvatura ligera ofrece un soporte seguro y cómodo, mientras que la **función de ajuste a cero** facilita la determinación precisa del peso neto incluso descontando mantas o pañales. Su acabado resistente a golpes y rayaduras la hace fácil de limpiar y mantener, y su construcción **sin necesidad de energía eléctrica** aporta durabilidad y simplicidad de uso en consultorios y clínicas pediátricas. || **Capacidad: 16 kg** | **Graduación: 5 g** | Dimensiones: 550 × 180 × 290 mm | **Peso neto: 6,4 kg** ||",
         brand: "SECA",
         type: "balanza",
         price: 4700,
@@ -147,8 +147,8 @@
       {
         sku: "RL-DBS",
         attrs: { modelo: "rice-lake-rl-dbs" },
-        name: "Balanza Pediátrica RICE LAKE RL-DBS",
-        description: "xxx",
+        name: "RICE LAKE RL-DBS",
+        description: "Báscula digital pediátrica diseñada para pesajes precisos y fiables de recién nacidos y lactantes **hasta 20 kg**. Su amplia pantalla LCD de fácil lectura muestra el peso en unidades métricas o imperiales, y la **función Recall** permite ver la última medición incluso después de retirar al bebé. La plataforma incorpora una **cinta métrica** para medir longitud **hasta 57cm**, y el cambio entre kg y lb se hace con una tecla de alternancia conveniente. La unidad puede funcionar con **pilas AA o adaptador de corriente (ambos incluidos)** y cuenta con apagado automático para conservar la batería, lo que la hace práctica en consultorios, clínicas y entornos hospitalarios. ",
         brand: "RICE LAKE",
         type: "balanza",
         price: 1440,
@@ -160,8 +160,8 @@
       {
         sku: "RL-MIS",
         attrs: { modelo: "rice-lake-rl-mis" },
-        name: "Balanza Pediátrica RICE LAKE RL-MIS",
-        description: "xxx",
+        name: "RICE LAKE RL-MIS",
+        description: "Báscula **mecánica** robusta y confiable para **pesaje manual** de bebés e infantes, ideal para entornos clínicos donde se requiere una **solución simple y duradera**. Su cuerpo de acero esmaltado y la bandeja de plástico ABS de fácil limpieza ofrecen **resistencia al uso frecuente** y una superficie cómoda para el pesaje. La regla de medición integrada de **58cm** facilita la referencia de longitud junto al peso sin necesidad de equipos adicionales. La lectura se realiza mediante un sistema de balancín mecánico con pesas deslizantes, **sin necesidad de energía eléctrica**, lo que elimina dependencias de baterías o adaptadores. || **Capacidad: 62 kg × 20 g** | **Materiales: acero esmaltado y charola ABS** ||",
         brand: "RICE LAKE",
         type: "balanza",
         price: 1200,
@@ -242,8 +242,8 @@
       {
         sku: "SECA-700",
         attrs: { modelo: "seca-700" },
-        name: "Balanza Adulto SECA 700",
-        description: "xxx",
+        name: "SECA 700",
+        description: "Báscula **mecánica** de columna con barras de pesas deslizantes. Su plataforma amplia y de bajo acceso facilita subir y bajar de la báscula, mientras que la construcción robusta de hierro fundido y las **ruedas integradas** permiten **uso intensivo** y **transporte sencillo** en entornos clínicos. Gracias a su graduación fina y **gran capacidad de peso**, es adecuada para pacientes de diferentes tallas, incluso con sobrepeso. El **tallímetro opcional** permite combinar pesaje y medición de estatura en una sola operación, **agilizando procesos en consultorios y centros de salud**. || **Capacidad: hasta 220 kg** | División: 50 g | Dimensiones: ~520 × 1556 × 520 mm | Peso neto: ~16,2 kg ||",
         brand: "SECA",
         type: "balanza",
         price: 890,
@@ -256,8 +256,8 @@
       {
         sku: "SECA-703",
         attrs: { modelo: "seca-703" },
-        name: "Balanza Adulto SECA 703",
-        description: "xxx",
+        name: "SECA 703",
+        description: "Báscula **** de columna de alta capacidad, ideal para hospitales y consultorios que requieren mediciones precisas de **peso** y cálculo de **BMI en un solo equipo**. Su plataforma amplia y base robusta brindan estabilidad incluso en pacientes con sobrepeso. Incorpora funciones **TARE, HOLD, Auto-HOLD, madre/bebé y Pre-TARE**, además de conmutación kg/lb y apagado automático. Puede complementarse con tallímetro para integrar pesaje y medición de estatura en una sola estación. || **Capacidad: 300 kg** | **Graduación: 50 g (<150 kg) / 100 g (>150 kg)** | Dimensiones: 360 × 930 × 520 mm ||",
         brand: "SECA",
         type: "balanza",
         price: 2160,
@@ -270,8 +270,8 @@
       {
         sku: "SECA-777",
         attrs: { modelo: "seca-777" },
-        name: "Balanza Adulto SECA 777 con Tallimetro",
-        description: "xxx",
+        name: "SECA 777 con tallimetro",
+        description: "Báscula **digital** de columna con **tallímetro integrado**, diseñada para medir peso y estatura en una sola estación de trabajo. Incorpora **funciones TARE, HOLD y cálculo de BMI**, además de **conexión USB** para integración con sistemas clínicos. Las **ruedas posteriores** permiten desplazarla fácilmente dentro del consultorio o centro médico. || **Capacidad: 250 kg** | **Graduación: 100 g** | **Rango de talla: 10 – 230 cm** | **Dimensiones: 410 × 1356 × 576 mm** ||",
         brand: "SECA",
         type: "balanza",
         price: 2400,
@@ -284,8 +284,8 @@
       {
         sku: "REYBAL-RBD300K",
         attrs: { modelo: "reybal-rbd300k" },
-        name: "Balanza Adulto REYBAL RBD300K",
-        description: "xxx",
+        name: "REYBAL RBD300K",
+        description: "Báscula **digital** de columna con **tallímetro integrado**, pensada para medir peso y estatura de personas en centros de salud, escuelas, empresas e instalaciones deportivas con un solo equipo. Su plataforma de acero inoxidable con **protector antideslizante** y niveladores en la base asegura una posición estable y segura durante la medición. El **tallímetro** cubre un rango amplio de alturas desde los 60 cm **hasta los 2 m**, facilitando evaluaciones rápidas. La pintura electrostática brinda **resistencia al desgaste** en uso frecuente. || **Capacidad: 300 kg** | **Graduación: 100 g** | **Rango de altura: 60 cm – 200 cm** | **Material: acero inoxidable** | Uso: consultorios, clínicas, empresas y escuelas ||",
         brand: "REYBAL",
         type: "balanza",
         price: 1440,
@@ -297,8 +297,8 @@
       {
         sku: "CMS-TCS200LP",
         attrs: { modelo: "cms-tcs200lp" },
-        name: "Balanza Adulto CMS TCS200LP",
-        description: "xxx",
+        name: "CMS TCS200LP",
+        description: "Báscula **digital con tallímetro** integrado diseñada para medir peso, estatura e índice de masa corporal **(BMI)** en una sola estación de evaluación. Cuenta con pantalla LCD amplia y retroiluminada que facilita la lectura de resultados con claridad, y su plataforma resistente con superficie antideslizante ofrece seguridad y confort durante la medicición. El **tallímetro ajustable** abarca un rango amplio de alturas, ideal para uso en consultorios, clínicas, gimnasios y centros de salud. Gracias a su microprocesador interno proporciona respuestas rápidas y precisas para valoraciones corporales completas. || **Capacidad: hasta 200 kg** | **Graduación: 50 g** | **Rango altura: 60 – 210 cm** | **Plataforma: 29.5 × 39.5 cm** | **Funciones: Peso, altura, BMI** ||",
         brand: "CMS",
         type: "balanza",
         price: 1800,
@@ -310,8 +310,8 @@
       {
         sku: "RL-150-10-5",
         attrs: { modelo: "rice-lake-150-10-5" },
-        name: "Balanza Adulto RICE LAKE 150-10-5",
-        description: "xxx",
+        name: "RICE LAKE 150-10-5",
+        description: "Báscula **digital con tallímetro integrado** dentro de la columna, diseñada para evaluaciones completas de peso y estatura en una sola estación. Incorpora **ruedas posteriores** para traslado sencillo, facilitando su movilidad en consultorios y hospitales. Cuenta con tecnología de **compensación de movimiento** para lecturas fiables aunque el **paciente se mueva**, además de función de **BMI** y retención del valor medido. Puede operarse con **pilas AA o adaptador de corriente** y permite **integración de datos vía USB o comunicación serial**, siendo compatible con registros electrónicos de salud. || **Capacidad: 250 kg (550 lb)** | **Graduación: 0.1 kg (0.2 lb)** | **Rango altura: 70 – 208 cm (27.5 – 82 in)** | **Funciones: BMI, retención, unidades kg/lb, Motiontrap™ compensación movimiento** ||",
         brand: "RICE LAKE",
         type: "balanza",
         price: 2400,
@@ -324,7 +324,7 @@
       {
         sku: "TSCALE-M301",
         attrs: { modelo: "tscale-m301" },
-        name: "Balanza Adulto TSCALE M301",
+        name: "TSCALE M301",
         description: "Balanza digital de columna **compacta y ergonómica, diseñada para consultorios de espacio reducido**. **Capacidad de 200 kg con precisión de 50 g**. Pantalla LCD extragrande con iluminación posterior, función kilo/libra y memoria de último pesaje. Cuatro patas de nivelación ajustables y superficie de acero inoxidable de fácil limpieza. Ideal para clínicas de atención primaria y centros de diagnóstico.",
         brand: "TSCALE",
         type: "balanza",
@@ -379,8 +379,8 @@
       {
         sku: "SECA-803-W",
         attrs: { modelo: "seca-803", color: "blanco" },
-        name: "Balanza de Plataforma SECA 803 Blanco",
-        description: "xxx",
+        name: "SECA 803",
+        description: "Báscula personal electrónica en acabado **blanco con plataforma de vidrio templado de alta resistencia**. **Capacidad de 200 kg con precisión de 100 g**. Función de encendido automático por pisada, pantalla LCD de dígitos gran formato y apagado automático de ahorro de energía. Superficie tratada antideslizante para mayor seguridad. Diseño plano minimalista de alta estética para consultorios modernos.",
         brand: "SECA",
         type: "balanza",
         price: 450,
@@ -391,8 +391,8 @@
       {
         sku: "SECA-803-B",
         attrs: { modelo: "seca-803", color: "negro" },
-        name: "Balanza de Plataforma SECA 803 Negro",
-        description: "Báscula personal electrónica SECA 803 en acabado **negro con plataforma de vidrio templado de alta resistencia**. **Capacidad de 200 kg con precisión de 100 g**. Función de encendido automático por pisada, pantalla LCD de dígitos gran formato y apagado automático de ahorro de energía. Superficie tratada antideslizante para mayor seguridad. Diseño plano minimalista de alta estética para consultorios modernos.",
+        name: "SECA 803",
+        description: "Báscula personal electrónica en acabado **negro con plataforma de vidrio templado de alta resistencia**. **Capacidad de 200 kg con precisión de 100 g**. Función de encendido automático por pisada, pantalla LCD de dígitos gran formato y apagado automático de ahorro de energía. Superficie tratada antideslizante para mayor seguridad. Diseño plano minimalista de alta estética para consultorios modernos.",
         brand: "SECA",
         type: "balanza",
         price: 450,
@@ -403,7 +403,7 @@
       {
         sku: "SECA-813",
         attrs: { modelo: "seca-813" },
-        name: "Balanza de Plataforma SECA 813",
+        name: "SECA 813",
         description: "Báscula personal de **alta capacidad con plataforma rectangular extragrande** para mayor estabilidad y comodidad. **Capacidad de 220 kg con precisión de 100 g**. Pantalla LCD de gran tamaño con retroiluminación, función Hold para lectura congelada y memoria de último pesaje. Construcción robusta en ABS de alto impacto, con cuatro sensores de carga de precisión distribuidos para una medición uniforme.",
         brand: "SECA",
         type: "balanza",
@@ -415,7 +415,7 @@
       {
         sku: "OMRON-HBF-514C",
         attrs: { modelo: "omron-hbf-514c" },
-        name: "Balanza de Plataforma OMRON HBF-514C",
+        name: "OMRON HBF-514C",
         description: "Monitor de composición corporal con báscula integrada que mide **grasa corporal, grasa visceral, masa muscular, agua corporal e IMC** en una sola lectura. **Capacidad de 150 kg con precisión de 100 g**. Tecnología BIA de 4 electrodos con frecuencia de 50 kHz. Memoria para 4 usuarios, pantalla LCD multisegmento y software de seguimiento incluido. Diferenciador clave respecto a básculas convencionales: clasifica el estado físico en Normal vs Atlético.",
         brand: "OMRON",
         type: "balanza",
@@ -427,7 +427,7 @@
       {
         sku: "BEURER-PS160",
         attrs: { modelo: "beurer-ps160" },
-        name: "Balanza de Plataforma BEURER PS160",
+        name: "BEURER PS160",
         description: "Báscula personal de vidrio con **diseño ultradelgado premium y pantalla LCD retroiluminada de fácil lectura**. **Capacidad de 180 kg con precisión de 100 g**. Tecnología Step-on de encendido instantáneo por pisada, sin demoras ni presionar botones. Superficie de vidrio templado de seguridad con garantía anti-rotura. Funciones de cambio kg/lb/st y apagado automático. Ideal para uso domiciliario de alta gama y consultorios de estética.",
         brand: "BEURER",
         type: "balanza",
@@ -439,7 +439,7 @@
       {
         sku: "GRAMERA-10KG",
         attrs: { modelo: "gramera-generica-10kg" },
-        name: "Balanza Gramera Genérica 10 kg",
+        name: "Gramera Genérica 10 kg",
         description: "Balanza de precisión para pesaje de **muestras alimentarias, nutricionales e ingredientes farmacéuticos**. **Capacidad de 10 kg con precisión de 1 g**. Plataforma removible de acero inoxidable, pantalla LCD de lectura simultánea en múltiples unidades (g, kg, oz, lb). Función de tara dinámica, modo de conteo unitario y memorias de calibración guardadas. Ideal para laboratorios de nutrición, dietistas y dispensación de fórmulas.",
         brand: "GENÉRICA",
         type: "balanza",
@@ -510,7 +510,7 @@
         attrs: { categoria: "tallimetros", accesorio: "seca-220" },
         name: "TALLMETRO SECA 220",
         description:
-          "Tallmetro clnico compatible con balanzas de columna SECA para medicin de estatura precisa en entornos mdicos.",
+          "Tallmetro clnico compatible con balanzas de columna SECA para medicion de estatura precisa en entornos mdicos.",
         price: 400,
         image: "/images/diagnostico/SECA 220/seca700-tallimetro-2.png"
       },
@@ -519,7 +519,7 @@
         attrs: { categoria: "tallimetros", accesorio: "seca-232" },
         name: "TALLMETRO SECA 232",
         description:
-          "Accesorio para medicin de longitud corporal en pesabebs SECA 334.",
+          "Accesorio para medicion de longitud corporal en pesabebs SECA 334.",
         price: 400,
         images:
           [
@@ -532,7 +532,7 @@
         attrs: { categoria: "tallimetros", accesorio: "seca-233" },
         name: "TALLMETRO SECA 233",
         description:
-          "Tallmetro peditrico para medicin de longitud corporal en balanzas pesabebs SECA.",
+          "Tallmetro peditrico para medicion de longitud corporal en balanzas pesabebs SECA.",
         price: 400,
         images:
           [

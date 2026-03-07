@@ -49,7 +49,7 @@ export default function CatalogPage({ cartCount = 0 }) {
   ================================ */
 
   // priceRange sí es estado local porque el slider lo controla sin pasar por URL en cada movimiento
-  const [priceRange, setPriceRange] = useState(() => [minPrice, minPrice]);
+  const [priceRange, setPriceRange] = useState(() => [minPrice, 0]); // 0 = no inicializado aún
 
   const [openMobileFilter, setOpenMobileFilter] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -90,19 +90,28 @@ export default function CatalogPage({ cartCount = 0 }) {
      INICIALIZAR priceRange cuando se conoce dynamicMaxPrice (solo una vez al montar)
   ================================ */
 
-  const priceInitialized = React.useRef(false);
+  // Resetear priceRange cada vez que cambia la categoría o se recalcula el máximo
   useEffect(() => {
-    if (priceInitialized.current) return;
-    if (dynamicMaxPrice === 0) return; // aún no calculado
+    if (dynamicMaxPrice === 0) return;
 
+    // Solo aplicar params de URL si NO hubo cambio de categoría desde URL
     const minParam = urlParams.get("min");
     const maxParam = urlParams.get("max");
-    const min = minParam !== null && !isNaN(Number(minParam)) ? Number(minParam) : minPrice;
-    const max = maxParam !== null && !isNaN(Number(maxParam)) ? Number(maxParam) : dynamicMaxPrice;
 
-    setPriceRange([min, max]);
-    priceInitialized.current = true;
-  }, [dynamicMaxPrice]); // eslint-disable-line react-hooks/exhaustive-deps
+    // Si hay params de precio en URL y el max coincide con el rango dinámico, respetarlos
+    if (minParam !== null && maxParam !== null) {
+      const urlMin = Number(minParam);
+      const urlMax = Number(maxParam);
+      // Solo restaurar si el max de URL es ≤ al max dinámico actual
+      if (!isNaN(urlMin) && !isNaN(urlMax) && urlMax <= dynamicMaxPrice) {
+        setPriceRange([urlMin, urlMax]);
+        return;
+      }
+    }
+
+    // Por defecto: rango completo de la categoría actual
+    setPriceRange([minPrice, dynamicMaxPrice]);
+  }, [activeCategory, dynamicMaxPrice]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /* ================================
      RESTORE SCROLL X (DESDE PDP)
@@ -150,9 +159,11 @@ export default function CatalogPage({ cartCount = 0 }) {
       const numericPrice =
         parsePrice(price);
 
+      // Si el rango aún no fue inicializado (priceRange[1] === 0), no filtrar por precio
       const matchPrice =
-        numericPrice >= priceRange[0] &&
-        numericPrice <= priceRange[1];
+        priceRange[1] === 0
+          ? true
+          : numericPrice >= priceRange[0] && numericPrice <= priceRange[1];
 
       const matchCategory =
         activeCategory === "all" ||
@@ -252,10 +263,11 @@ export default function CatalogPage({ cartCount = 0 }) {
   }, [filteredProducts, sortBy]);
 
   const isAllCategory = activeCategory === "all";
+  // isPriceReady: verdadero cuando el rango ya fue inicializado (priceRange[1] > 0)
   const isPriceReady =
     maxPrice > 0 &&
-    priceRange[0] <= priceRange[1] &&
-    priceRange[1] <= maxPrice;
+    priceRange[1] > 0 &&
+    priceRange[0] <= priceRange[1];
 
   return (
     <>
@@ -265,7 +277,7 @@ export default function CatalogPage({ cartCount = 0 }) {
         ================================ */}
         <div
           id="catalog-category-bar"
-          className="mb-6 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          className="mb-6 overflow-x-auto pb-2 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-slate-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#208790]"
         >
           <div className="flex gap-3 min-w-max">
             <button
