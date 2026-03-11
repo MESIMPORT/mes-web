@@ -10,6 +10,16 @@ export const accesoriosYMiscelaneosProducts = [
     images: ["/images/accesorios/MALETIN/MALETIN.png",
       "/images/accesorios/MALETIN/MALETIN2.png"]
   },
+
+  {
+    id: "botiquin-polipropileno",
+    name: "BOTIQUÍN DE POLIPROPILENO ",
+    type: "Accesorios",
+    description: "Caja organizadora de gran tamaño para accesorios médicos, súper resistente para el fácil transporte. Con doble broche, compartimentos en la tapa, bandeja y asa plegable. Dimensiones: 24 × 51 × 24.2 cm.",
+    price: 60,
+    image: "/images/accesorios/BOTIQUIN_20.png"
+  },
+
   {
     id: "extintor-acetato-buckeye-2-5-gln",
     name: "EXTINTOR BUCKEYE ACETATO 2.5 GLN",
@@ -638,6 +648,56 @@ export const accesoriosYMiscelaneosProducts = [
         description: "Kit completo que incluye: pelota de plástico, 7 cubos de madera rojos, pañal de algodón, frijoles, caja de cartón, frasco acrílico transparente, linterna tipo lapicero, espejo de 40×40 cm, hoja A4, 2 plumones, campanilla de bronce, juguete con ruedas, carrito de plástico, sonaja, juego de vástago con 6 aros multicolor y libro de figuras plásticas A4.",
         price: 234,
         image: "/images/accesorios/TESTS/TEST_TAP.png"
+      }
+    ]
+  },
+
+  {
+    id: "esterilizador-cuchillos-uv",
+    name: "ESTERILIZADOR DE CUCHILLOS UV",
+    type: "Accesorios",
+    description: "Gabinete esterilizador de cuchillos por tecnología UV-C para uso comercial y hospitalario. Elimina el 99.9% de bacterias, virus y microorganismos. Disponible en 3 modelos.",
+    image: "/images/accesorios/CORTADOR/ESTERILIZADOR_CUCHILLOS.png",
+
+    attributeOrder: ["modelo"],
+
+    attributes: [
+      {
+        id: "modelo",
+        label: "Modelo",
+        type: "single",
+        values: [
+          { id: "mod1", label: "Modelo 1 – Vertical Multifunción" },
+          { id: "mod2", label: "Modelo 2 – Acero Inoxidable Mural" },
+          { id: "mod3", label: "Modelo 3 – Heavybao" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "esteril-uv-mod1",
+        attrs: { modelo: "mod1" },
+        name: "Modelo 1 ",
+        description: "Gabinete esterilizador vertical portátil de uso comercial. Tecnología UV-C con ciclo de esterilización de 30 minutos. Puerta con panel acrílico anti-radiación que bloquea la salida de luz UV. Apagado automático al abrir la puerta. Temporizador ajustable. Estructura metálica con acabado inoxidable. Ideal para cocinas comerciales, hospitales y laboratorios.",
+        price: 1800,
+        image: "/images/accesorios/CORTADOR/ESTERILIZADOR_CUCHILLOS.png"
+      },
+      {
+        sku: "esteril-uv-mod2",
+        attrs: { modelo: "mod2" },
+        name: "Modelo 2 ",
+        description: "Gabinete esterilizador de acero inoxidable para montaje en pared. Lámpara UV germicidal de 15W. Temporizador de 0 a 60 minutos (tiempo recomendado: 30 min). Puerta de acrílico filtrante anti-UV. Sistema de corte automático al abrir la puerta. 3 orificios para fijación mural. Rack o barra magnética para soporte de cuchillos.",
+        price: 1200,
+        image: "/images/accesorios/CORTADOR/ESTERILIZADOR_CUCHILLOS_3.png"
+      },
+      {
+        sku: "esteril-uv-mod3",
+        attrs: { modelo: "mod3" },
+        name: "Modelo 3",
+        description: "Gabinete esterilizador de sobremesa. Tecnología UV-C + ozono que elimina el 99.9% de microorganismos. Control semiintegrado de fácil uso. Estructura en acero inoxidable SS 201 con puerta de acrílico anti-radiación. Ciclo de desinfección de 10 a 30 minutos. Certificación CE y RoHS. Dimensiones: 350 × 125 × 590 mm.",
+        price: 1200,
+        image: "/images/accesorios/CORTADOR/ESTERILIZADOR_CUCHILLOS_2.png"
       }
     ]
   },

@@ -3,6 +3,21 @@
 export const instrumentalYEquiposQuirurgicosProducts = [
 
   {
+    id: "kit-extraccion-tornillos-ortopedicos",
+    name: "KIT PARA EXTRACCIÓN DE TORNILLOS ORTOPÉDICOS",
+    type: "Instrumental",
+    description: "Set quirúrgico para extracción de tornillos ortopédicos, diseñado para remover tornillos dañados, bloqueados o fracturados durante procedimientos de traumatología, cirugía de columna y revisiones ortopédicas. Incluye 50 instrumentos especializados como escariadores canulados, extractores, destornilladores quirúrgicos y brocas de alta velocidad que permiten retirar implantes fijados en hueso o placas de osteosíntesis con mayor precisión y control. Fabricado en acero inoxidable quirúrgico y acero de alta velocidad (HSS), resistente a esterilización en autoclave y suministrado en estuche de aluminio organizado, compatible con sistemas de osteosíntesis estándar. Tipo: set de extracción de tornillos | Piezas: 50 | Material: acero inoxidable quirúrgico / HSS | Esterilización: autoclave | Aplicación: traumatología, ortopedia y cirugía de columna.",
+    price: 25000,
+    image: "/images/instrumental/KIT50_1.png",
+    images: [
+      "/images/instrumental/KIT50_2.png",
+      "/images/instrumental/KIT50_3.png",
+      "/images/instrumental/KIT50_4.png",
+      "/images/instrumental/KIT50_5.png"
+
+    ]
+  },
+  {
     id: "lavatorio-de-acero-quirgico-36-cm",
     name: "LAVATORIO DE ACERO QUIRGICO 36 cm",
     description: "xx",
@@ -1256,5 +1271,14 @@ export const instrumentalYEquiposQuirurgicosProducts = [
         image: "/images/instrumental/INOX/CLIP.png"
       }
     ]
+  },
+
+  {
+    id: "cortador-anillo-emergencia",
+    name: "CORTADOR DE ANILLO DE EMERGENCIA",
+    type: "Instrumental",
+    description: "Herramienta de acero inoxidable para corte seguro y rápido de anillos en situaciones de emergencia. Base delgada que se desliza entre el dedo y el anillo con palanca de seguridad que protege el dedo durante el corte. Mecanismo de tornillo giratorio que permite cortar con mínimo esfuerzo. Corta oro, plata, latón y la mayoría de metales. Incluye 2 cuchillas de repuesto de fácil reemplazo. Ideal para salas de emergencia, paramédicos, EMT y EMS.",
+    price: 200,
+    image: "/images/instrumental/INSTRUMENTAL/CORTADOR_ANILLO.png"
   },
 ];

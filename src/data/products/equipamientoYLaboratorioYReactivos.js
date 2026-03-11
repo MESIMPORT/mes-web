@@ -1,6 +1,132 @@
 ﻿// src/data/products/equipamientoYLaboratorioYReactivos.js
 
 export const equipamientoYLaboratorioYReactivosProducts = [
+
+  {
+    id: "mortero-pilon-porcelana",
+    name: "MORTERO Y PILÓN DE PORCELANA",
+    type: "Laboratorio",
+    description: "Mortero y pilón de porcelana para uso múltiple, especialmente en laboratorio. Resistente y de fácil limpieza. Disponible en distintos tamaños.",
+    image: "/images/laboratorio/MORTERO.png",
+
+    attributeOrder: ["tamano"],
+
+    attributes: [
+      {
+        id: "tamano",
+        label: "Tamaño",
+        type: "single",
+        values: [
+          { id: "60mm", label: "60 mm" },
+          { id: "80mm", label: "80 mm" },
+          { id: "100mm", label: "100 mm" },
+          { id: "130mm", label: "130 mm" },
+          { id: "160mm", label: "160 mm" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "mortero-60mm",
+        attrs: { tamano: "60mm" },
+        name: "60 mm",
+        description: "Mortero y pilón de porcelana – 60 mm de diámetro.",
+        price: 30,
+        image: "/images/laboratorio/MORTERO.png"
+      },
+      {
+        sku: "mortero-80mm",
+        attrs: { tamano: "80mm" },
+        name: "80 mm",
+        description: "Mortero y pilón de porcelana – 80 mm de diámetro.",
+        price: 35,
+        image: "/images/laboratorio/MORTERO.png"
+      },
+      {
+        sku: "mortero-100mm",
+        attrs: { tamano: "100mm" },
+        name: "100 mm",
+        description: "Mortero y pilón de porcelana – 100 mm de diámetro.",
+        price: 40,
+        image: "/images/laboratorio/MORTERO.png"
+      },
+      {
+        sku: "mortero-130mm",
+        attrs: { tamano: "130mm" },
+        name: "130 mm",
+        description: "Mortero y pilón de porcelana – 130 mm de diámetro.",
+        price: 45,
+        image: "/images/laboratorio/MORTERO.png"
+      },
+      {
+        sku: "mortero-160mm",
+        attrs: { tamano: "160mm" },
+        name: "160 mm",
+        description: "Mortero y pilón de porcelana – 160 mm de diámetro.",
+        price: 50,
+        image: "/images/laboratorio/MORTERO.png"
+      }
+    ]
+  },
+
+  {
+    id: "tiras-reactivas-glucometro",
+    name: "TIRAS REACTIVAS PARA GLUCÓMETRO x 50 UND",
+    type: "Laboratorio",
+    description: "Tiras reactivas para medición de glucosa en sangre. Compatibles con glucómetros de sus respectivas marcas. Caja por 50 unidades. Para uso en diagnóstico domiciliario y clínico.",
+    image: "/images/laboratorio/TIRAS_CARD.png",
+
+    attributeOrder: ["marca"],
+
+    attributes: [
+      {
+        id: "marca",
+        label: "Marca / Modelo",
+        type: "single",
+        values: [
+          { id: "active", label: "Accu-Chek Active" },
+          { id: "instant", label: "Accu-Chek Instant" },
+          { id: "nipro", label: "Nipro" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "tiras-accuchek-active",
+        attrs: { marca: "active" },
+        name: "Accu-Chek Active",
+        description: "Tiras reactivas originales Accu-Chek Active. Compatibles exclusivamente con glucómetro Accu-Chek Active. Tecnología de fotometría de reflexión. Requieren una pequeña muestra de sangre. Resultados en segundos. Caja x 50 unidades.",
+        price: 90,
+        image: "/images/laboratorio/TIRAS_ACTIVE.png"
+      },
+      {
+        sku: "tiras-accuchek-instant",
+        attrs: { marca: "instant" },
+        name: "Accu-Chek Instant",
+        description: "Tiras reactivas originales Accu-Chek Instant. Compatibles exclusivamente con glucómetro Accu-Chek Instant. Tecnología electroquímica para resultados precisos y rápidos. Sin codificación manual. Caja x 50 unidades.",
+        price: 73,
+        image: "/images/laboratorio/TIRAS_INSTANT.png"
+      },
+      {
+        sku: "tiras-nipro",
+        attrs: { marca: "nipro" },
+        name: "Nipro",
+        description: "Tiras reactivas Nipro para glucómetro de la misma marca. Tecnología electroquímica con enzima GDH-FAD de alta precisión. Mínimo volumen de muestra requerido. Resultados confiables para monitoreo diario de glucosa. Caja x 50 unidades.",
+        price: 67,
+        image: "/images/laboratorio/TIRAS_NIPRO.png"
+      }
+    ]
+  },
+
+  {
+    id: "aspirador-para-pipeta-de-goma",
+    name: "ASPIRADOR PARA PIPETA DE GOMA",
+    description: "ASPIRADOR PARA PIPETA DE GOMA",
+    price: 6,
+    image: "/images/laboratorio/placeholder.png"
+  },
   {
     id: "aceite-de-inmersi-n-para-microscop-a-oxford-100-ml",
     name: "ACEITE DE INMERSIÓN PARA MICROSCOPÍA OXFORD – 100 ml",

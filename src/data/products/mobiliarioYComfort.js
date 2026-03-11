@@ -1339,6 +1339,65 @@ export const mobiliarioYComfortProducts = [
     price: 240,
     image: "/images/mobiliario/COLCHON_ANTIESCARAS.png"
   },
+
+  {
+    id: "porta-historia-clinica-aluminio",
+    name: "PORTA HISTORIA CLÍNICA DE ALUMINIO",
+    type: "Mobiliario",
+    description: "Fabricada en lámina de aluminio. Porta etiqueta para nombre. Diseñada para acoplar en carro porta historia clínica. Sistema de sujeción a base de presión por resortes de compresión. Capacidad para 50 hojas. Sistema de presión que asegura el correcto agarre de los documentos sin dañarlos.",
+    image: "/images/mobiliario/PORTA_HISTORIA.png",
+
+    attributeOrder: ["espesor"],
+
+    attributes: [
+      {
+        id: "espesor",
+        label: "Espesor",
+        type: "single",
+        values: [
+          { id: "1.0mm", label: "1.0 mm" },
+          { id: "1.2mm", label: "1.2 mm" },
+          { id: "1.5mm", label: "1.5 mm" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "porta-historia-1.0mm",
+        attrs: { espesor: "1.0mm" },
+        name: "Espesor 1.0 mm",
+        description: "Lámina de aluminio de 1.0 mm de espesor.",
+        price: 68.4,
+        image: "/images/mobiliario/PORTA_HISTORIA.png"
+      },
+      {
+        sku: "porta-historia-1.2mm",
+        attrs: { espesor: "1.2mm" },
+        name: "Espesor 1.2 mm",
+        description: "Lámina de aluminio de 1.2 mm de espesor.",
+        price: 82.8,
+        image: "/images/mobiliario/PORTA_HISTORIA.png"
+      },
+      {
+        sku: "porta-historia-1.5mm",
+        attrs: { espesor: "1.5mm" },
+        name: "Espesor 1.5 mm",
+        description: "Lámina de aluminio de 1.5 mm de espesor.",
+        price: 97.2,
+        image: "/images/mobiliario/PORTA_HISTORIA.png"
+      }
+    ]
+  },
+
+  {
+    id: "inmovilizador-torax-wing-board",
+    name: "INMOVILIZADOR DE TÓRAX – WING BOARD",
+    type: "Mobiliario",
+    description: "Tablero base de fibra de carbono tipo Create Wing Board para posicionamiento en radioterapia. Compatible con máscara torácica tipo Create. Se fija a la mesa de CT o acelerador lineal (Linac) mediante barra de bloqueo. Compatible con cama de transferencia SBRT, braquiterapia y tablero de mama de fibra de carbono. Garantía de 2 años.",
+    price: 2000,
+    image: "/images/mobiliario/WING_BOARD.png"
+  },
   {
     id: "asiento-de-gel-rodete-de-gel-45-cm-di-metro-02-azules-01-rojo-medicaltex",
     name: "ASIENTO DE GEL – RODETE DE GEL 45 cm DIÁMETRO 02 AZULES (01) ROJO MEDICALTEX",
