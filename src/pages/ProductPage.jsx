@@ -18,8 +18,9 @@ export default function ProductPage({ cartCount, onAddToCart }) {
 
 
   const handleClose = () => {
-    // Navegar client-side (SPA) en lugar de hard reload
-    navigate(`/catalogo${location.search}`);
+    const savedSearch = sessionStorage.getItem("catalogSearch") ?? "";
+    sessionStorage.removeItem("catalogSearch");
+    navigate(`/catalogo${savedSearch}`);
   };
 
 
@@ -36,11 +37,11 @@ export default function ProductPage({ cartCount, onAddToCart }) {
       <>
 
         <main className="max-w-5xl mx-auto p-6">
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-5">
-            <h1 className="text-xl font-semibold text-amber-900">
+          <div className="bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
+            <h1 className="text-xl font-semibold text-amber-900 dark:text-amber-200">
               Producto no encontrado
             </h1>
-            <p className="mt-2 text-slate-700">
+            <p className="mt-2 text-slate-700 dark:text-slate-300">
               Verifica el enlace o vuelve al catálogo.
             </p>
           </div>
@@ -67,13 +68,13 @@ export default function ProductPage({ cartCount, onAddToCart }) {
               absolute top-4 right-4
               z-50
               rounded-full
-              border border-slate-300
-              bg-white
+              border border-slate-300 dark:border-slate-600
+              bg-white dark:bg-slate-800
               px-3 py-1.5
               text-sm font-medium
-              text-slate-700
+              text-slate-700 dark:text-slate-200
               shadow
-              hover:bg-slate-100 cursor-pointer
+              hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer
             "
           >
             ✕ Cerrar

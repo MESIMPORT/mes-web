@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import EmergencyTrainingSections from "./EmergencyTrainingSections";
 
@@ -706,11 +706,16 @@ export default function ProductConfigurator({ product, onAddToCart }) {
                   {selectedSkuVariant.name}
                 </p>
               )}
+              {!selectedSkuVariant && safeProduct.subtitle && (
+                <p className="text-lg text-[#208790] font-medium mt-1">
+                  {safeProduct.subtitle}
+                </p>
+              )}
             </div>
 
             {(selectedSkuVariant?.description || safeProduct.description) && (
               <p
-                className="text-sm text-slate-600 text-justify select-text"
+                className="text-sm text-slate-600 dark:text-slate-300 text-justify select-text"
                 style={{ userSelect: "text" }}
                 dangerouslySetInnerHTML={{
                   __html: parseBold(
@@ -847,10 +852,10 @@ export default function ProductConfigurator({ product, onAddToCart }) {
                               }}
                               className={`px-3 py-2 rounded-lg border text-sm transition
     ${disabled
-                                  ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                                  ? "bg-gray-100 dark:bg-slate-700 text-gray-400 dark:text-slate-500 cursor-not-allowed"
                                   : selected
                                     ? "bg-emerald-600 text-white cursor-pointer"
-                                    : "bg-white hover:bg-emerald-50 cursor-pointer"
+                                    : "bg-white dark:bg-slate-800 dark:text-slate-200 dark:border-slate-600 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 cursor-pointer"
                                 }`}
                             >
 

@@ -109,7 +109,7 @@ export default function HomePage({ cartCount }) {
           GRILLA DE CATEGORÍAS
       ================================ */}
       <section className="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <h2 className="text-xl sm:text-2xl font-bold text-slate-800 mb-6 text-center">
+        <h2 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100 mb-6 text-center">
           Nuestras categorías
         </h2>
 
@@ -118,13 +118,13 @@ export default function HomePage({ cartCount }) {
             <Link
               key={slug}
               to={`/catalogo?categoria=${slug}`}
-              className="group flex flex-col items-center gap-2 rounded-2xl border border-slate-200 bg-white p-4 text-center
+              className="group flex flex-col items-center gap-2 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 text-center
                          shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-[#208790]/40 active:scale-95"
             >
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#208790]/10 text-[#208790] group-hover:bg-[#208790]/20 transition-colors">
                 {CATEGORY_ICONS[slug] ?? DEFAULT_ICON}
               </span>
-              <span className="text-xs sm:text-sm font-medium text-slate-700 leading-tight line-clamp-2">
+              <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200 leading-tight line-clamp-2">
                 {CATEGORY_LABELS[slug]}
               </span>
             </Link>

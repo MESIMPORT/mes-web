@@ -40,7 +40,7 @@ export default function CatalogPage({ cartCount = 0 }) {
   const activeCategory = urlParams.get("categoria") ?? "all";
   const sortBy = urlParams.get("sort") || "default";
   const selectedTypes = useMemo(
-    () => urlParams.get("type")?.split(",").filter(Boolean) ?? [],
+    () => urlParams.get("type")?.split("|").filter(Boolean) ?? [],
     [urlParams]
   );
 
@@ -277,7 +277,8 @@ export default function CatalogPage({ cartCount = 0 }) {
         ================================ */}
         <div
           id="catalog-category-bar"
-          className="mb-6 overflow-x-auto pb-2 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-slate-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#208790]"
+          className="mb-6 overflow-x-auto scroll-smooth pb-2 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-slate-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#208790]"
+          style={{ WebkitOverflowScrolling: "touch" }}
         >
           <div className="flex gap-3 min-w-max">
             <button
@@ -330,7 +331,7 @@ export default function CatalogPage({ cartCount = 0 }) {
                 }}
                 className={`px-4 py-2 rounded-full text-sm border whitespace-nowrap cursor-pointer ${activeCategory === slug
                   ? "bg-[#208790] text-white border-[#208790]"
-                  : "bg-white text-slate-700 border-slate-300 hover:bg-slate-50"
+                  : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700"
                   }`}
               >
                 {label}
@@ -347,12 +348,12 @@ export default function CatalogPage({ cartCount = 0 }) {
               SIDEBAR – FILTRO DE PRECIO
           ================================ */}
           <aside className="hidden lg:block mt-12">
-            <div className="sticky top-28 rounded-xl border border-slate-200 bg-white p-4 space-y-4">
-              <h3 className="text-sm font-semibold text-slate-900">
+            <div className="sticky top-28 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 space-y-4">
+              <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
                 Filtrar por precio
               </h3>
 
-              <div className="flex justify-between text-xs text-slate-600">
+              <div className="flex justify-between text-xs text-slate-600 dark:text-slate-400">
                 <span>
                   Desde: S/{" "}
                   {priceRange[0].toLocaleString(
@@ -456,19 +457,19 @@ export default function CatalogPage({ cartCount = 0 }) {
 
 
               {!isAllCategory && (
-                <div className="pt-4 border-t border-slate-200 space-y-4">
+                <div className="pt-4 border-t border-slate-200 dark:border-slate-700 space-y-4">
                   {/* =====================
         TIPO DE PRODUCTO
     ===================== */}
                   <div>
-                    <h4 className="text-sm font-semibold text-slate-900 mb-2">
+                    <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-2">
                       Tipo de producto
                     </h4>
 
                     {availableTypes.map((type) => (
                       <label
                         key={type}
-                        className="flex items-center gap-2 text-sm text-slate-700"
+                        className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"
                       >
                         <input
                           type="checkbox"
@@ -483,7 +484,7 @@ export default function CatalogPage({ cartCount = 0 }) {
                             if (next.length === 0) {
                               params.delete("type");
                             } else {
-                              params.set("type", next.join(","));
+                              params.set("type", next.join("|"));
                             }
 
                             navigate(`/catalogo?${params.toString()}`, {
@@ -539,7 +540,7 @@ export default function CatalogPage({ cartCount = 0 }) {
                     { replace: true }
                   );
                 }}
-                className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm
+                className="rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 dark:text-slate-200 px-3 py-2 text-sm
                   focus:outline-none focus:ring-2 focus:ring-[#208790]"
               >
                 <option value="default">
@@ -561,7 +562,7 @@ export default function CatalogPage({ cartCount = 0 }) {
             </div>
 
             {sortedProducts.length === 0 ? (
-              <p className="text-slate-600">
+              <p className="text-slate-600 dark:text-slate-400">
                 No se encontraron productos
                 con estos filtros.
               </p>
@@ -682,28 +683,29 @@ export default function CatalogPage({ cartCount = 0 }) {
                             })
                           );
                           sessionStorage.setItem("fromPDP", "1");
+                          sessionStorage.setItem("catalogSearch", location.search);
                           navigate(destination);
                         }}
-                        className="cursor-pointer rounded-xl border border-slate-200 bg-white p-4 transition-transform duration-150 hover:-translate-y-1 hover:shadow-lg"
+                        className="cursor-pointer rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 transition-transform duration-150 hover:-translate-y-1 hover:shadow-lg"
                       >
                         <img
                           src={catalogImage}
                           alt={item.name}
-                          className="h-40 w-full object-contain bg-slate-50 rounded-md mb-3"
+                          className="h-40 w-full object-contain bg-slate-50 dark:bg-slate-700 rounded-md mb-3"
                           onError={(e) => {
                             e.currentTarget.src = "/images/placeholder.jpg";
                           }}
                         />
 
-                        <h3 className="text-sm font-semibold text-slate-900 line-clamp-2">
+                        <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100 line-clamp-2">
                           {item.name}
                         </h3>
 
-                        <p className="mt-1 text-sm font-semibold text-slate-800">
+                        <p className="mt-1 text-sm font-semibold text-slate-800 dark:text-slate-200">
                           {formattedPrice}
                         </p>
 
-                        <p className="mt-1 text-xs text-slate-500">
+                        <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
                           {item.categoryLabel}
                         </p>
                       </div>
@@ -729,8 +731,8 @@ export default function CatalogPage({ cartCount = 0 }) {
             }
           />
 
-          <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl p-4">
-            <h3 className="text-sm font-semibold text-slate-900 mb-4">
+          <div className="absolute bottom-0 left-0 right-0 bg-white dark:bg-slate-800 rounded-t-2xl p-4">
+            <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-4">
               Filtrar por precio
             </h3>
 

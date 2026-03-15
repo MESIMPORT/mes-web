@@ -138,7 +138,7 @@ function MESStoreMockup() {
 
 
       {/* ===== CONTENIDO PRINCIPAL ===== */}
-      <div className="relative z-10 flex flex-col min-h-screen">
+      <div className="relative z-10 flex flex-col min-h-screen pt-16">
 
 
         <div className="flex-1">

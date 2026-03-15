@@ -14,6 +14,7 @@ import { oftalmologiaYOptometriaProducts } from "./oftalmologiaYOptometria";
 import { instrumentalYEquiposQuirurgicosProducts } from "./instrumentalYEquiposQuirurgicos";
 import { materialDescartableMedicoProducts } from "./materialDescartableMedico";
 import { mobiliarioYComfortProducts } from "./mobiliarioYComfort";
+import { posicionamientoQuirurgicoProducts } from "./posicionamientoQuirurgico";
 import { equipamientoYLaboratorioYReactivosProducts } from "./equipamientoYLaboratorioYReactivos";
 import { dermoesteticaYCuidadoPersonalProducts } from "./dermoesteticaYCuidadoPersonal";
 import { odontologiaProducts } from "./odontologia";
@@ -36,6 +37,7 @@ export const CATEGORY_LABELS = {
   "material-descartable-medico": "Material descartable médico",
   "equipamiento-y-laboratorio-y-reactivos": "Equipamiento, laboratorio y reactivos",
   "mobiliario-y-comfort": "Mobiliario y comfort",
+  "posicionamiento-quirurgico": "Posicionamiento quirúrgico",
   "oftalmologia-y-optometria": "Oftalmología y optometría",
   "proteccion-radiologica": "Protección radiológica",
   "odontologia": "Odontología",
@@ -59,6 +61,7 @@ export const PRODUCTS_BY_CATEGORY = {
   "oftalmologia-y-optometria": oftalmologiaYOptometriaProducts,
   "instrumental-y-equipos-quirurgicos": instrumentalYEquiposQuirurgicosProducts,
   "mobiliario-y-comfort": mobiliarioYComfortProducts,
+  "posicionamiento-quirurgico": posicionamientoQuirurgicoProducts,
   "equipamiento-y-laboratorio-y-reactivos": equipamientoYLaboratorioYReactivosProducts,
   "dermoestetica-y-cuidado-personal": dermoesteticaYCuidadoPersonalProducts,
   "odontologia": odontologiaProducts,

@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search } from "lucide-react";
 import { PRODUCTS_BY_CATEGORY } from "../../data/products";
 import { useLocation } from "react-router-dom";
+import { useTheme } from "../../context/ThemeContext";
 
 const openExternal = (url) => {
   window.open(url, "_blank", "noopener,noreferrer");
@@ -24,6 +25,7 @@ const handleAnchorScroll = (id) => {
 export default function MESHeader({ cartCount = 0 }) {
   const [openMobileSearch, setOpenMobileSearch] = useState(false);
   const [cartPing, setCartPing] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   const [open, setOpen] = useState(false);
   const isMobileOverlayOpen = open || openMobileSearch;
@@ -204,9 +206,7 @@ export default function MESHeader({ cartCount = 0 }) {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 w-full shadow-sm pointer-events-auto
-    ${isMobileOverlayOpen ? "bg-white" : "bg-white/30 backdrop-blur"}
-  `}
+        className={`fixed top-0 left-0 right-0 z-40 w-full shadow-sm pointer-events-auto bg-white dark:bg-slate-900 dark:border-b dark:border-slate-700 transition-colors`}
       >
 
 
@@ -223,10 +223,10 @@ export default function MESHeader({ cartCount = 0 }) {
               >
                 <img src="/images/logo.png" alt="MES" className="h-12 w-auto" />
                 <div className="leading-tight">
-                  <p className="text-base font-semibold text-slate-900">
+                  <p className="text-base font-semibold text-slate-900 dark:text-slate-100">
                     Medical Equipment & Supplies
                   </p>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
                     Soluciones médicas confiables
                   </p>
                 </div>
@@ -240,7 +240,7 @@ export default function MESHeader({ cartCount = 0 }) {
                 <div key={item.label} className="relative pt-2">
                   <button
                     type="button"
-                    className="text-sm font-medium cursor-pointer text-slate-700 hover:text-slate-900"
+                    className="text-sm font-medium cursor-pointer text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white"
                     onClick={() => {
                       if (item.label === "Productos") {
                         navigate("/catalogo");
@@ -325,12 +325,21 @@ export default function MESHeader({ cartCount = 0 }) {
               <button
                 type="button"
                 onClick={() => openExternal(WSP_LINK)}
-                className="inline-flex items-center justify-center rounded-full p-2 shadow hover:bg-slate-100 cursor-pointer"
+                className="inline-flex items-center justify-center rounded-full p-2 shadow hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer"
               >
                 <img src="/images/whatsapp-icon.png" className="h-6 w-6" alt="" />
               </button>
 
-
+              {/* 🌙 DARK MODE TOGGLE DESKTOP */}
+              <button
+                type="button"
+                onClick={toggleTheme}
+                title={isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+                className="inline-flex items-center justify-center rounded-full w-9 h-9 border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 shadow-sm cursor-pointer transition-colors"
+                aria-label="Cambiar tema"
+              >
+                <span className="text-base leading-none">{isDark ? "☀️" : "🌙"}</span>
+              </button>
 
               {/* CARRITO */}
               <button
@@ -453,6 +462,16 @@ export default function MESHeader({ cartCount = 0 }) {
                   </button>
                 </div>
               ))}
+
+              {/* 🌙 DARK MODE TOGGLE MOBILE */}
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="inline-flex items-center gap-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-800 px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer transition-colors"
+              >
+                <span>{isDark ? "☀️" : "🌙"}</span>
+                {isDark ? "Modo claro" : "Modo oscuro"}
+              </button>
 
               {/* CTA WhatsApp MOBILE */}
               <button

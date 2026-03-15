@@ -93,7 +93,7 @@ export const rehabilitacionYFisioterapiaProducts = [
   },
   {
     id: "banda-theraband-23mt",
-    name: "BANDAS THERABAND 23 MT – SIN LÁTEX",
+    name: "BANDAS THERABAND 23 MT",
     type: "Rehabilitación",
     description: "Rollo de banda elástica de resistencia THERABAND sin látex de 25 yardas × 4 pulgadas. Fabricada con material libre de látex, sin olor ni polvo, ideal para usuarios con sensibilidad al látex o instituciones con políticas \"latex free\". Apta para cortar longitudes personalizadas. Disponible en 7 niveles de resistencia codificados por color.",
     image: "/images/rehab/23 MT/CARD.png",
@@ -186,7 +186,7 @@ export const rehabilitacionYFisioterapiaProducts = [
 
   {
     id: "banda-theraband-5-5mt-latex",
-    name: "BANDA THERABAND 5.5 MT – CON LÁTEX",
+    name: "BANDAS THERABAND 5.5 MT",
     type: "Rehabilitación",
     description: "Rollo de banda elástica de resistencia THERABAND con látex natural de alta calidad. Medidas: 6 yardas × 5 pulgadas. Permite mejorar la fuerza, rango de movimiento y flexibilidad mediante ejercicios de bajo a alto impacto. Disponible en 8 niveles de resistencia codificados por color.",
     image: "/images/rehab/5.5 MT/CARD.png",
@@ -288,7 +288,7 @@ export const rehabilitacionYFisioterapiaProducts = [
   },
   {
     id: "bandas-elasticas-latex-x7",
-    name: "BANDAS THERABAND CON LÁTEX x7 UNIDADES",
+    name: "BANDAS THERABAND x 7U",
     type: "Rehabilitación",
     description: "Kit de 7 bandas elásticas de resistencia THERABAND con látex, diseñado para entrenamiento de fuerza progresivo, rehabilitación y ejercicios de movilidad. Incluye 7 bandas planas codificadas por color, que abarcan los niveles de resistencia desde 3 lb (amarillo) hasta 14.2 lb (oro), permitiendo una progresión gradual en programas de fisioterapia, pilates o entrenamiento funcional. Cada banda mide 6 pies de largo × 5 pulgadas de ancho, fabricadas en látex natural de alta calidad, ofreciendo durabilidad, elasticidad constante y uso portátil en clínica, gimnasio o en casa.",
     price: 250,
@@ -347,6 +347,100 @@ export const rehabilitacionYFisioterapiaProducts = [
       }
     ]
   },
+
+  {
+    id: "pesa-tobillera",
+    name: "PESA TOBILLERA CON VELCRO",
+    type: "Rehabilitación",
+    description: "Pesa tobillera con velcro para ejercicios de rehabilitación, fortalecimiento muscular y entrenamiento de tren inferior. Disponible en relleno de arena, metal y neoprene en distintos pesos.",
+    image: "/images/rehab/placeholder.png",
+
+    attributeOrder: ["material", "peso"],
+
+    attributes: [
+      {
+        id: "material",
+        label: "Material",
+        type: "single",
+        values: [
+          { id: "arena", label: "Arena" },
+          { id: "metal", label: "Metal" },
+          { id: "neoprene", label: "Neoprene" }
+        ]
+      },
+      {
+        id: "peso",
+        label: "Peso",
+        type: "single",
+        dependsOn: {
+          material: {
+            arena: ["0.5kg", "1kg"],
+            metal: ["0.5kg", "1kg"],
+            neoprene: ["1kg", "2kg"]
+          }
+        },
+        values: [
+          { id: "0.5kg", label: "0.5 kg" },
+          { id: "1kg", label: "1 kg" },
+          { id: "2kg", label: "2 kg" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "tobillera-arena-0.5kg",
+        attrs: { material: "arena", peso: "0.5kg" },
+        name: "Arena – 0.5 kg",
+        description: "Pesa tobillera de 0.5 kg rellena de arena con ajuste de velcro.",
+        price: 14.4,
+        image: "/images/rehab/placeholder.png"
+      },
+      {
+        sku: "tobillera-arena-1kg",
+        attrs: { material: "arena", peso: "1kg" },
+        name: "Arena – 1 kg",
+        description: "Pesa tobillera de 1 kg rellena de arena con ajuste de velcro.",
+        price: 18,
+        image: "/images/rehab/placeholder.png"
+      },
+      {
+        sku: "tobillera-metal-0.5kg",
+        attrs: { material: "metal", peso: "0.5kg" },
+        name: "Metal – 0.5 kg",
+        description: "Pesa tobillera de 0.5 kg de metal con ajuste de velcro.",
+        price: 66,
+        image: "/images/rehab/placeholder.png"
+      },
+      {
+        sku: "tobillera-metal-1kg",
+        attrs: { material: "metal", peso: "1kg" },
+        name: "Metal – 1 kg",
+        description: "Pesa tobillera de 1 kg de metal con ajuste de velcro.",
+        price: 78,
+        image: "/images/rehab/placeholder.png"
+      },
+      {
+        sku: "tobillera-neoprene-1kg",
+        attrs: { material: "neoprene", peso: "1kg" },
+        name: "Neoprene – 1 kg",
+        description: "Pesa tobillera de 1 kg de neoprene con ajuste de velcro.",
+        price: 21,
+        image: "/images/rehab/placeholder.png"
+      },
+      {
+        sku: "tobillera-neoprene-2kg",
+        attrs: { material: "neoprene", peso: "2kg" },
+        name: "Neoprene – 2 kg",
+        description: "Pesa tobillera de 2 kg de neoprene con ajuste de velcro.",
+        price: 27.48,
+        image: "/images/rehab/placeholder.png"
+      }
+    ]
+  },
+
+
+
   {
     id: "ondas-rusas-vacuum-marca-slem-better",
     name: "ONDAS RUSAS + VACUUM MARCA: SLEM BETTER",
@@ -375,55 +469,10 @@ export const rehabilitacionYFisioterapiaProducts = [
     price: 958.8,
     image: "/images/rehabilitacion/placeholder.png"
   },
-  {
-    id: "pesa-de-metal-con-velcro-para-tobillo-1-kg",
-    name: "PESA DE METAL CON VELCRO PARA TOBILLO × 1 kg",
-    description: "PESA DE METAL CON VELCRO PARA TOBILLO × 1 kg",
-    price: 78,
-    image: "/images/rehabilitacion/placeholder.png"
-  },
-  {
-    id: "pesa-neoprene-con-velcro-p-tobillo-peso-1-kg",
-    name: "PESA NEOPRENE CON VELCRO P/ TOBILLO PESO 1 kg",
-    description: "PESA NEOPRENE CON VELCRO P/ TOBILLO PESO 1 kg",
-    price: 21,
-    image: "/images/rehabilitacion/placeholder.png"
-  },
-  {
-    id: "pesa-neoprene-con-velcro-p-tobillo-peso-2-kg",
-    name: "PESA NEOPRENE CON VELCRO P/ TOBILLO PESO 2 kg",
-    description: "PESA NEOPRENE CON VELCRO P/ TOBILLO PESO 2 kg",
-    price: 27.48,
-    image: "/images/rehabilitacion/placeholder.png"
-  },
-  {
-    id: "pesa-tobillera-0-5-kg-arena-azul",
-    name: "PESA TOBILLERA × 0.5 kg ARENA AZUL",
-    description: "PESA TOBILLERA × 0.5 kg ARENA AZUL",
-    price: 14.4,
-    image: "/images/rehabilitacion/placeholder.png"
-  },
-  {
-    id: "pesa-tobillera-0-5-kg-metal-azul",
-    name: "PESA TOBILLERA × 0.5 kg METAL AZUL",
-    description: "PESA TOBILLERA × 0.5 kg METAL AZUL",
-    price: 66,
-    image: "/images/rehabilitacion/placeholder.png"
-  },
-  {
-    id: "pesa-tobillera-1-kg-arena-azul",
-    name: "PESA TOBILLERA × 1 kg ARENA AZUL",
-    description: "PESA TOBILLERA × 1 kg ARENA AZUL",
-    price: 18,
-    image: "/images/rehabilitacion/placeholder.png"
-  },
-  {
-    id: "pesa-tobillera-1-kg-metal-negro",
-    name: "PESA TOBILLERA × 1 kg METAL NEGRO",
-    description: "PESA TOBILLERA × 1 kg METAL NEGRO",
-    price: 78,
-    image: "/images/rehabilitacion/placeholder.png"
-  },
+
+
+
+
 
 
 ];
