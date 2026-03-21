@@ -52,6 +52,38 @@ export default function ProductPage({ cartCount, onAddToCart }) {
 
   return (
     <>
+      {/* ── BOTÓN VOLVER DESKTOP (sticky, top-left, fuera del header) ── */}
+      <div className="hidden lg:block sticky top-20 z-50 pointer-events-none">
+        <div className="mx-auto max-w-5xl px-6">
+          <button
+            type="button"
+            onClick={handleClose}
+            aria-label="Volver al catálogo"
+            className="
+              pointer-events-auto
+              inline-flex items-center gap-1.5
+              rounded-full
+              border border-slate-200 dark:border-slate-700
+              bg-white/80 dark:bg-slate-800/80
+              backdrop-blur-sm
+              px-3 py-1.5
+              text-xs font-medium
+              text-slate-600 dark:text-slate-300
+              shadow-sm
+              hover:bg-white dark:hover:bg-slate-800
+              hover:text-slate-900 dark:hover:text-white
+              hover:shadow-md
+              transition-all duration-150
+              cursor-pointer
+            "
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
+              <path fillRule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z" clipRule="evenodd" />
+            </svg>
+            Volver
+          </button>
+        </div>
+      </div>
 
       <main className="relative pointer-events-none">
         {/* Bandas laterales institucionales */}
@@ -59,27 +91,7 @@ export default function ProductPage({ cartCount, onAddToCart }) {
         <div className="absolute top-0 right-0 hidden h-[120%] w-20 bg-[#208790] lg:block pointer-events-none" />
 
         {/* Contenedor PDP */}
-        <div className="relative mx-auto max-w-5xl p-6 pb-24 pointer-events-auto">
-          <button
-            type="button"
-            onClick={handleClose}
-            aria-label="Cerrar PDP"
-            className="
-              absolute top-4 right-4
-              z-50
-              rounded-full
-              border border-slate-300 dark:border-slate-600
-              bg-white dark:bg-slate-800
-              px-3 py-1.5
-              text-sm font-medium
-              text-slate-700 dark:text-slate-200
-              shadow
-              hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer
-            "
-          >
-            ✕ Cerrar
-          </button>
-
+        <div className="relative mx-auto max-w-5xl p-6 pb-28 pointer-events-auto">
           <ProductConfigurator
             product={product}
             backTarget="/catalogo"
@@ -87,6 +99,33 @@ export default function ProductPage({ cartCount, onAddToCart }) {
           />
         </div>
       </main>
+
+      {/* ── CHIP FLOTANTE MOBILE (fixed bottom-center, zona del pulgar) ── */}
+      <div className="lg:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50">
+        <button
+          type="button"
+          onClick={handleClose}
+          aria-label="Volver al catálogo"
+          className="
+            inline-flex items-center gap-2
+            rounded-full
+            border border-slate-200/60 dark:border-slate-700/60
+            bg-slate-900/85 dark:bg-slate-950/90
+            backdrop-blur-md
+            px-5 py-3
+            text-sm font-medium text-white
+            shadow-xl shadow-black/20
+            active:scale-95
+            transition-transform duration-100
+            cursor-pointer
+          "
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+            <path fillRule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z" clipRule="evenodd" />
+          </svg>
+          Volver al catálogo
+        </button>
+      </div>
     </>
   );
 }

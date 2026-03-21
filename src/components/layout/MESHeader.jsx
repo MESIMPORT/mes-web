@@ -529,11 +529,12 @@ export default function MESHeader({ cartCount = 0 }) {
 
             {/* PANEL */}
             <motion.div
-              className="absolute top-0 left-0 right-0 bg-white rounded-b-2xl shadow-xl p-4"
+              className="absolute top-0 left-0 right-0 bg-white dark:bg-slate-900 rounded-b-2xl shadow-xl p-4"
               initial={{ y: -40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -40, opacity: 0 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
+              onClick={(e) => e.stopPropagation()}
             >
               <form
                 onSubmit={(e) => {
@@ -563,12 +564,14 @@ export default function MESHeader({ cartCount = 0 }) {
                     <button
                       key={`${item.id}-${item.variantSku || idx}`}
                       type="button"
-                      onClick={() => {
+                      onPointerDown={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setSearch("");
                         setOpenMobileSearch(false);
                         navigate(`/producto/${item.id}`);
-                        setSearch("");
                       }}
-                      className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-slate-50"
+                      className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-slate-50 active:bg-slate-100"
                     >
                       <img
                         src={item.image || "/images/placeholder.jpg"}
