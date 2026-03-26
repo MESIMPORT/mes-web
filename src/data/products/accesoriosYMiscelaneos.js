@@ -19,7 +19,53 @@ export const accesoriosYMiscelaneosProducts = [
     price: 60,
     image: "/images/accesorios/BOTIQUIN_20.png"
   },
+  {
+    id: "frasco-de-aspiraci-n-vidrio-c-tapa-700-ml-p-marca-thomas-modelo-1366gl",
+    name: "FRASCO DE ASPIRACIÓN VIDRIO C/TAPA 700 ml P/MARCA THOMAS MODELO 1366GL",
+    description: "FRASCO DE ASPIRACIÓN VIDRIO C/TAPA 700 ml P/MARCA THOMAS MODELO 1366GL",
+    price: 1.2,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "frasco-de-aspiracion-vidrio",
+    name: "FRASCO DE ASPIRACIÓN DE VIDRIO CON TAPA",
+    type: "Utensilios de laboratorio",
+    description: "Frasco de aspiración fabricado en vidrio de alta resistencia con tapa, diseñado para la recolección y almacenamiento de líquidos aspirados en procedimientos clínicos y de laboratorio. Su construcción en vidrio garantiza resistencia química y facilidad de esterilización, mientras que la tapa hermética evita derrames y contaminación. Compatible con sistemas de aspiración estándar mediante conexión en T. Ideal para laboratorios clínicos, hospitalarios y de investigación.",
+    image: "/images/laboratorio/UTENSILIOS/FRASCO_ASPIRACION_CARD.png",
 
+    attributeOrder: ["capacidad"],
+
+    attributes: [
+      {
+        id: "capacidad",
+        label: "Capacidad",
+        type: "single",
+        values: [
+          { id: "700-ml", label: "700 ml" },
+          { id: "1-lt", label: "1 lt" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "frasco-aspiracion-700ml",
+        attrs: { capacidad: "700-ml" },
+        name: "700 ML",
+        description: "Frasco de aspiración de vidrio con tapa para recolección de líquidos aspirados en procedimientos clínicos y de laboratorio. || **Capacidad:** 700 ml.",
+        price: 1.2,
+        image: "/images/laboratorio/UTENSILIOS/FRASCO_ASPIRACION_700ML.png"
+      },
+      {
+        sku: "frasco-aspiracion-1lt",
+        attrs: { capacidad: "1-lt" },
+        name: "1 LT",
+        description: "Frasco de aspiración de vidrio con tapa y conexión en T para recolección de líquidos aspirados en procedimientos clínicos y de laboratorio. || **Capacidad:** 1 lt.",
+        price: 1.2,
+        image: "/images/laboratorio/UTENSILIOS/FRASCO_ASPIRACION_1LT.png"
+      }
+    ]
+  },
   {
     id: "extintor-acetato-buckeye-2-5-gln",
     name: "EXTINTOR BUCKEYE ACETATO 2.5 GLN",

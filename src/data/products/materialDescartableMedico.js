@@ -156,5 +156,87 @@ export const materialDescartableMedicoProducts = [
     image: "/images/descartable/MASCARILLAS/MASCARILLAS.png"
   },
 
+  {
+    id: "frasco-plastico-para-examen-de-orina",
+    name: "FRASCO PLÁSTICO PARA EXAMEN DE ORINA",
+    type: "Utensilios de laboratorio",
+    description: "Frasco plástico de boca ancha con tapa hermética, diseñado para la recolección, transporte y conservación segura de muestras de orina. Su cierre hermético previene derrames y contaminación cruzada, garantizando la integridad de la muestra desde la toma hasta el análisis. Fabricado en material plástico resistente y transparente que facilita la visualización del contenido, de uso único, ideal para laboratorios clínicos, centros de salud y hospitales.",
+    image: "/images/laboratorio/UTENSILIOS/FRASCO_ORINACARD.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "unidad", label: "Unidad" },
+          { id: "caja-250", label: "Caja × 250 und" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "frasco-orina-unidad",
+        attrs: { presentacion: "unidad" },
+        name: "UNIDAD",
+        description: "Frasco plástico de boca ancha con tapa hermética para recolección y transporte seguro de muestras de orina, de uso único. || **Presentación:** Unidad.",
+        price: 1.20,
+        image: "/images/laboratorio/UTENSILIOS/FRASCO_ORINA.png"
+      },
+      {
+        sku: "frasco-orina-caja-250",
+        attrs: { presentacion: "caja-250" },
+        name: "CAJA × 250 UND",
+        description: "Frasco plástico de boca ancha con tapa hermética para recolección y transporte seguro de muestras de orina, de uso único. || **Presentación:** Caja × 250 unidades.",
+        price: 192,
+        image: "/images/laboratorio/UTENSILIOS/FRASCO_ORINACARD.png"
+      }
+    ]
+  },
+  {
+    id: "frasco-con-espatula-para-muestra-heces",
+    name: "FRASCO CON ESPÁTULA PARA MUESTRA DE HECES",
+    type: "Utensilios de laboratorio",
+    description: "Frasco plástico hermético con espátula integrada en la tapa, diseñado para la recolección, transporte y conservación segura de muestras de heces. Su cierre hermético previene derrames y contaminación cruzada, garantizando la integridad de la muestra desde la toma hasta el análisis. Fabricado en material plástico resistente, de uso único, ideal para laboratorios clínicos, centros de salud y hospitales.",
+    image: "/images/laboratorio/UTENSILIOS/FRASCO_SAMPLIX250.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "unidad", label: "Unidad" },
+          { id: "caja-250", label: "Caja × 250 und" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "frasco-espatula-heces-unidad",
+        attrs: { presentacion: "unidad" },
+        name: "UNIDAD",
+        description: "Frasco plástico hermético con espátula integrada para recolección y transporte seguro de muestras de heces, de uso único. || **Presentación:** Unidad.",
+        price: 0.50,
+        image: "/images/laboratorio/UTENSILIOS/FRASCO_SAMPLIX.png"
+      },
+      {
+        sku: "frasco-espatula-heces-caja-250",
+        attrs: { presentacion: "caja-250" },
+        name: "CAJA × 250 UND",
+        description: "Frasco plástico hermético con espátula integrada para recolección y transporte seguro de muestras de heces, de uso único. || **Presentación:** Caja × 250 unidades.",
+        price: 100,
+        image: "/images/laboratorio/UTENSILIOS/FRASCO_SAMPLIX250.png"
+      }
+    ]
+  },
+
+
 ];
 

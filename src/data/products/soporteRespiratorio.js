@@ -498,7 +498,14 @@ export const soporteRespiratorioProducts = [
     image: "/images/respiratorio/placeholder.png"
   },
 
-
+  {
+    id: "frasco-humidificador-con-tapa-metal-500ml",
+    name: "FRASCO HUMIDIFICADOR CON TAPA METAL × 500 ML",
+    type: "Respiratorio",
+    description: "Frasco humidificador de 500 ml con tapa metálica, diseñado para la humidificación y burbujeo de gases en equipos de oxigenoterapia, sistemas de ventilación y aplicaciones de laboratorio que requieren control de la humedad del gas suministrado. Su construcción en material resistente garantiza durabilidad y hermeticidad, mientras que la tapa metálica asegura un cierre seguro y una conexión estable con los sistemas de tuberías y válvulas. De fácil limpieza y esterilización, es ideal para uso en laboratorios clínicos, hospitalarios y de investigación.",
+    price: 30,
+    image: "/images/respiratorio/FRASCO_HUMIDIFICADOR_500ML.png"
+  },
 
 
   {

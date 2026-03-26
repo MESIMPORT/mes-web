@@ -2267,4 +2267,163 @@
     ]
   },
 
+  {
+    id: "diagnostico-d-embarazo-tubo-25-tiras-prueba-cualitativa-de-hcg-en-orina-suero-marca-ctk",
+    name: "DIAGNOSTICO D/EMBARAZO (TUBO × 25 TIRAS),PRUEBA CUALITATIVA DE HCG EN ORINA/SUERO MARCA: CTK",
+    description: "DIAGNOSTICO D/EMBARAZO (TUBO × 25 TIRAS),PRUEBA CUALITATIVA DE HCG EN ORINA/SUERO MARCA: CTK",
+    price: 1.2,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "kit-de-grupo-sangu-neo",
+    name: "KIT DE GRUPO SANGUÍNEO",
+    description: "KIT DE GRUPO SANGUÍNEO",
+    price: 108,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "tiras-para-glucosa-marca-accuchek-instant-cja-de-50-unidades",
+    name: "TIRAS PARA GLUCOSA MARCA ACCUCHEK INSTANT CJA DE 50 UNIDADES",
+    description: "TIRAS PARA GLUCOSA MARCA ACCUCHEK INSTANT CJA DE 50 UNIDADES",
+    price: 84,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "tiras-para-glucosa-marca-accuchek-performa-cja-de-50-unidades",
+    name: "TIRAS PARA GLUCOSA MARCA ACCUCHEK PERFORMA CJA DE 50 UNIDADES",
+    description: "TIRAS PARA GLUCOSA MARCA ACCUCHEK PERFORMA CJA DE 50 UNIDADES",
+    price: 96,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "tiras-reactivas-accu-check-performa-25u",
+    name: "TIRAS REACTIVAS ACCU CHECK PERFORMA 25U",
+    description: "TIRAS REACTIVAS ACCU CHECK PERFORMA 25U",
+    price: 84,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "tiras-reactivas-d-orina-fco-100-und-marca-meditest-combi-11",
+    name: "TIRAS REACTIVAS D/ORINA FCO × 100 UND,MARCA MEDITEST COMBI 11",
+    description: "TIRAS REACTIVAS D/ORINA FCO × 100 UND,MARCA MEDITEST COMBI 11",
+    price: 78,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "tiras-reactivas-del-hemoglobinometro-marca-hemo-control-cja-de-50-test",
+    name: "TIRAS REACTIVAS DEL HEMOGLOBINOMETRO MARCA HEMO CONTROL CJA DE 50 TEST",
+    description: "TIRAS REACTIVAS DEL HEMOGLOBINOMETRO MARCA HEMO CONTROL CJA DE 50 TEST",
+    price: 190.8,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "capilares-con-heparina-marienfeld",
+    name: "CAPILARES CON HEPARINA (ROJO) × 100 UND – MARIENFELD",
+    type: "Utensilios de laboratorio",
+    description: "Tubos capilares con heparina marca Marienfeld, identificados con banda roja, diseñados para la recolección de sangre capilar y determinación del hematocrito por microcentrifugación. El recubrimiento interno con heparina previene la coagulación de la muestra, garantizando resultados precisos y reproducibles. Fabricados en vidrio de alta calidad con extremos sellables, compatibles con cera de sellado estándar. Presentación de 100 unidades. Ideales para laboratorios clínicos, hematológicos y de análisis de sangre.",
+    price: 21.6,
+    image: "/images/laboratorio/UTENSILIOS/CAPILARES_HEPARINA.png"
+  },
+
+  {
+    id: "tubos-capilares-sin-heparina",
+    name: "TUBOS CAPILARES SIN HEPARINA × 100 UND",
+    type: "Utensilios de laboratorio",
+    description: "Tubos capilares sin anticoagulante, diseñados para la recolección de sangre capilar en determinaciones de hematocrito y otras pruebas que requieren sangre no anticoagulada o suero. Fabricados en vidrio de alta calidad con extremos sellables, compatibles con cera de sellado estándar. Presentación de 100 unidades. Ideales para laboratorios clínicos y hematológicos donde se requiere trabajo con muestras sin anticoagulante.",
+    price: 9.6,
+    image: "/images/laboratorio/UTENSILIOS/CAPILARES_SIN_HEPARINA.png"
+  },
+  {
+    id: "tubo-anticoagulante-p-muestra-de-sangre-100und",
+    name: "TUBO ANTICOAGULANTE P/MUESTRA DE SANGRE × 100UND",
+    description: "TUBO ANTICOAGULANTE P/MUESTRA DE SANGRE × 100UND",
+    price: 45.6,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "tubo-para-muestra-de-sangre-con-anticoagulante-100u",
+    name: "TUBO PARA MUESTRA DE SANGRE CON ANTICOAGULANTE 100U",
+    description: "TUBO PARA MUESTRA DE SANGRE CON ANTICOAGULANTE 100U",
+    price: 45.6,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "tub-vacutainer-4-ml-tapa-lila-con-edta-4-ml-x-100-und-marca-vacustest",
+    name: "TUB. VACUTAINER 4 ml (TAPA LILA CON EDTA 4 ml)X 100 UND,MARCA: VACUSTEST",
+    description: "TUB. VACUTAINER 4 ml (TAPA LILA CON EDTA 4 ml)X 100 UND,MARCA: VACUSTEST",
+    price: 45.6,
+    image: "/images/laboratorio/placeholder.png"
+  },
+
+  {
+    id: "tubo-vacutainer-tapa-amarilla-c-gel-5-ml-100-und-marca-vacustest",
+    name: "TUBO VACUTAINER TAPA AMARILLA C/ GEL 5 ml × 100 UND,MARCA: VACUSTEST",
+    description: "TUBO VACUTAINER TAPA AMARILLA C/ GEL 5 ml × 100 UND,MARCA: VACUSTEST",
+    price: 48,
+    image: "/images/laboratorio/placeholder.png"
+  },
+
+  {
+    id: "tubos-recolector-de-extraccion-al-vacio-golden-plus-100-u",
+    name: "TUBOS (RECOLECTOR) DE EXTRACCION AL VACIO GOLDEN PLUS 100 U",
+    description: "TUBOS (RECOLECTOR) DE EXTRACCION AL VACIO GOLDEN PLUS 100 U",
+    price: 36,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "dispositivo-con-control-de-temperatura-marca-granding-modelo-china",
+    name: "DISPOSITIVO CON CONTROL DE TEMPERATURA, MARCA: GRANDING, MODELO CHINA",
+    description: "DISPOSITIVO CON CONTROL DE TEMPERATURA, MARCA: GRANDING, MODELO CHINA",
+    price: 1164,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "tiras-reactivas-glucometro",
+    name: "TIRAS REACTIVAS PARA GLUCÓMETRO x 50 UND",
+    type: "Laboratorio",
+    description: "Tiras reactivas para medición de glucosa en sangre. Compatibles con glucómetros de sus respectivas marcas. Caja por 50 unidades. Para uso en diagnóstico domiciliario y clínico.",
+    image: "/images/laboratorio/TIRAS_CARD.png",
+
+    attributeOrder: ["marca"],
+
+    attributes: [
+      {
+        id: "marca",
+        label: "Marca / Modelo",
+        type: "single",
+        values: [
+          { id: "active", label: "Accu-Chek Active" },
+          { id: "instant", label: "Accu-Chek Instant" },
+          { id: "nipro", label: "Nipro" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "tiras-accuchek-active",
+        attrs: { marca: "active" },
+        name: "Accu-Chek Active",
+        description: "Tiras reactivas originales Accu-Chek Active. Compatibles exclusivamente con glucómetro Accu-Chek Active. Tecnología de fotometría de reflexión. Requieren una pequeña muestra de sangre. Resultados en segundos. Caja x 50 unidades.",
+        price: 90,
+        image: "/images/laboratorio/TIRAS_ACTIVE.png"
+      },
+      {
+        sku: "tiras-accuchek-instant",
+        attrs: { marca: "instant" },
+        name: "Accu-Chek Instant",
+        description: "Tiras reactivas originales Accu-Chek Instant. Compatibles exclusivamente con glucómetro Accu-Chek Instant. Tecnología electroquímica para resultados precisos y rápidos. Sin codificación manual. Caja x 50 unidades.",
+        price: 73,
+        image: "/images/laboratorio/TIRAS_INSTANT.png"
+      },
+      {
+        sku: "tiras-nipro",
+        attrs: { marca: "nipro" },
+        name: "Nipro",
+        description: "Tiras reactivas Nipro para glucómetro de la misma marca. Tecnología electroquímica con enzima GDH-FAD de alta precisión. Mínimo volumen de muestra requerido. Resultados confiables para monitoreo diario de glucosa. Caja x 50 unidades.",
+        price: 67,
+        image: "/images/laboratorio/TIRAS_NIPRO.png"
+      }
+    ]
+  },
 ];

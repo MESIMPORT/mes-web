@@ -15,6 +15,28 @@ export const odontologiaProducts = [
     price: 60,
     image: "/images/descartables/placeholder.png"
   },
+
+  {
+    id: "tubo-de-pasta-profilactica-frasco-eufar-50gramos",
+    name: "TUBO DE PASTA PROFILACTICA FRASCO ***EUFAR 50GRAMOS***",
+    description: "TUBO DE PASTA PROFILACTICA FRASCO ***EUFAR 50GRAMOS***",
+    price: 18,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "fluoruro-de-sodio-sabor-chicle-fluofar-240-ml",
+    name: "FLUORURO DE SODIO SABOR CHICLE FLUOFAR 240 ml",
+    description: "FLUORURO DE SODIO SABOR CHICLE FLUOFAR 240 ml",
+    price: 19.2,
+    image: "/images/laboratorio/placeholder.png"
+  },
+  {
+    id: "fluoruro-de-sodio-sin-sabor-fluofar-200-ml",
+    name: "FLUORURO DE SODIO SIN SABOR FLUOFAR 200 ml",
+    description: "FLUORURO DE SODIO SIN SABOR FLUOFAR 200 ml",
+    price: 21.6,
+    image: "/images/laboratorio/placeholder.png"
+  },
   {
     id: "esponja-hemostatica-12und",
     name: "ESPONJA HEMOSTATICA × 12UND",
