@@ -1,9 +1,161 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
   CATEGORY_LABELS,
   PRODUCTS_BY_CATEGORY,
 } from "../data/products";
+
+/* ================================
+   CATEGORY BAR CON DRAG-SCROLL
+================================ */
+
+function CategoryBar({ activeCategory, location, navigate }) {
+  const barRef = useRef(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollStart = useRef(0);
+  const hasDragged = useRef(false);
+  const [dragging, setDragging] = useState(false);
+
+  /* Sincronizar id para restore de scroll */
+  useEffect(() => {
+    if (barRef.current) barRef.current.id = "catalog-category-bar";
+  }, []);
+
+  const onMouseDown = useCallback((e) => {
+    if (e.button !== 0) return;
+    isDragging.current = true;
+    hasDragged.current = false;
+    startX.current = e.pageX - barRef.current.offsetLeft;
+    scrollStart.current = barRef.current.scrollLeft;
+    setDragging(true);
+  }, []);
+
+  const onMouseMove = useCallback((e) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    const x = e.pageX - barRef.current.offsetLeft;
+    const delta = x - startX.current;
+    if (Math.abs(delta) > 4) hasDragged.current = true;
+    barRef.current.scrollLeft = scrollStart.current - delta;
+  }, []);
+
+  const onMouseUp = useCallback(() => {
+    isDragging.current = false;
+    setDragging(false);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+    };
+  }, [onMouseMove, onMouseUp]);
+
+  const handleBtnClick = useCallback((cb) => (e) => {
+    /* Si el usuario arrastró, cancelar el click */
+    if (hasDragged.current) { e.preventDefault(); return; }
+    cb();
+  }, []);
+
+  return (
+    <>
+      {/* Estilos para la scrollbar mejorada */}
+      <style>{`
+        .cat-bar {
+          scrollbar-width: thin;
+          scrollbar-color: #208790 transparent;
+        }
+        .cat-bar::-webkit-scrollbar {
+          height: 6px;
+          transition: height 0.2s;
+        }
+        .cat-bar:hover::-webkit-scrollbar {
+          height: 10px;
+        }
+        .cat-bar::-webkit-scrollbar-track {
+          background: transparent;
+          border-radius: 99px;
+          margin: 0 4px;
+        }
+        .cat-bar:hover::-webkit-scrollbar-track {
+          background: #e2e8f0;
+        }
+        .cat-bar::-webkit-scrollbar-thumb {
+          background: #208790;
+          border-radius: 99px;
+          border: 2px solid transparent;
+          background-clip: padding-box;
+          transition: background 0.2s;
+        }
+        .cat-bar:hover::-webkit-scrollbar-thumb {
+          background: #1a6e77;
+          border: 1px solid transparent;
+          background-clip: padding-box;
+        }
+        .cat-bar:active::-webkit-scrollbar-thumb,
+        .cat-bar.is-dragging::-webkit-scrollbar-thumb {
+          background: #155a62;
+        }
+      `}</style>
+
+      <div
+        ref={barRef}
+        className={`cat-bar mb-6 overflow-x-auto scroll-smooth pb-3 select-none${dragging ? " is-dragging" : ""}`}
+        style={{ WebkitOverflowScrolling: "touch" }}
+        onMouseDown={onMouseDown}
+      >
+        <div className="flex gap-3 min-w-max px-0.5 pt-0.5">
+          <button
+            onClick={handleBtnClick(() => {
+              const params = new URLSearchParams(location.search);
+              params.set("categoria", "all");
+              params.delete("type");
+              params.delete("brand");
+              navigate(`/catalogo?${params.toString()}`, { replace: true });
+            })}
+            className={`px-4 py-2 rounded-full text-sm border whitespace-nowrap transition-all duration-150 ${
+              activeCategory === "all"
+                ? "bg-[#208790] text-white border-[#208790] shadow-sm"
+                : "bg-white text-slate-700 border-slate-300 hover:bg-slate-50 hover:border-[#208790]/40 hover:shadow-sm"
+            }`}
+            style={{ cursor: "inherit" }}
+          >
+            Todos
+          </button>
+
+          {Object.entries(CATEGORY_LABELS).map(([slug, label]) => (
+            <button
+              key={slug}
+              onClick={handleBtnClick(() => {
+                const params = new URLSearchParams(location.search);
+                params.set("categoria", slug);
+                params.delete("type");
+                params.delete("brand");
+                params.delete("min");
+                params.delete("max");
+                params.delete("sort");
+                navigate(`/catalogo?${params.toString()}`);
+              })}
+              className={`px-4 py-2 rounded-full text-sm border whitespace-nowrap transition-all duration-150 ${
+                activeCategory === slug
+                  ? "bg-[#208790] text-white border-[#208790] shadow-sm"
+                  : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-[#208790]/40 hover:shadow-sm"
+              }`}
+              style={{ cursor: "inherit" }}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
+
+
 
 /* ================================
    HELPERS Y CONSTANTES
@@ -275,70 +427,11 @@ export default function CatalogPage({ cartCount = 0 }) {
         {/* ================================
             CATEGORÍAS HORIZONTALES
         ================================ */}
-        <div
-          id="catalog-category-bar"
-          className="mb-6 overflow-x-auto scroll-smooth pb-2 [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-slate-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#208790]"
-          style={{ WebkitOverflowScrolling: "touch" }}
-        >
-          <div className="flex gap-3 min-w-max">
-            <button
-              onClick={() => {
-                const params =
-                  new URLSearchParams(
-                    location.search
-                  );
-                params.set("categoria", "all");
-                params.delete("type");
-                params.delete("brand");
-
-                navigate(
-                  `/catalogo?${params.toString()}`,
-                  { replace: true }
-                );
-              }}
-              className={`px-4 py-2 rounded-full text-sm border whitespace-nowrap cursor-pointer ${activeCategory === "all"
-                ? "bg-[#208790] text-white border-[#208790]"
-                : "bg-white text-slate-700 border-slate-300 hover:bg-slate-50"
-                }`}
-            >
-              Todos
-            </button>
-
-            {Object.entries(
-              CATEGORY_LABELS
-            ).map(([slug, label]) => (
-              <button
-                key={slug}
-                onClick={() => {
-                  const params =
-                    new URLSearchParams(
-                      location.search
-                    );
-
-                  params.set(
-                    "categoria",
-                    slug
-                  );
-                  params.delete("type");
-                  params.delete("brand");
-                  params.delete("min");
-                  params.delete("max");
-                  params.delete("sort");
-
-                  navigate(
-                    `/catalogo?${params.toString()}`
-                  );
-                }}
-                className={`px-4 py-2 rounded-full text-sm border whitespace-nowrap cursor-pointer ${activeCategory === slug
-                  ? "bg-[#208790] text-white border-[#208790]"
-                  : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700"
-                  }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        </div>
+        <CategoryBar
+          activeCategory={activeCategory}
+          location={location}
+          navigate={navigate}
+        />
 
         {/* ================================
             GRID PRINCIPAL

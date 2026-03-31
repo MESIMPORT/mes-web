@@ -18,6 +18,7 @@ import { posicionamientoQuirurgicoProducts } from "./posicionamientoQuirurgico";
 import { equipamientoYLaboratorioYReactivosProducts } from "./equipamientoYLaboratorioYReactivos";
 import { dermoesteticaYCuidadoPersonalProducts } from "./dermoesteticaYCuidadoPersonal";
 import { odontologiaProducts } from "./odontologia";
+import { laminasHistologicasProducts } from "./laminasHistologicas";
 
 // ================================
 // LABELS BONITOS PARA UI
@@ -41,6 +42,7 @@ export const CATEGORY_LABELS = {
   "oftalmologia-y-optometria": "Oftalmología y optometría",
   "proteccion-radiologica": "Protección radiológica",
   "odontologia": "Odontología",
+  "laminas-histologicas": "Láminas histológicas",
 };
 
 // ================================
@@ -65,6 +67,7 @@ export const PRODUCTS_BY_CATEGORY = {
   "equipamiento-y-laboratorio-y-reactivos": equipamientoYLaboratorioYReactivosProducts,
   "dermoestetica-y-cuidado-personal": dermoesteticaYCuidadoPersonalProducts,
   "odontologia": odontologiaProducts,
+  "laminas-histologicas": laminasHistologicasProducts,
 
 };
 

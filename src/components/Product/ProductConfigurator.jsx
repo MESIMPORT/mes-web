@@ -523,12 +523,56 @@ export default function ProductConfigurator({ product, onAddToCart }) {
     }
 
     if (attr?.type === "multi") {
-      setSelAttrs((prev) => ({
-        ...prev,
-        [attrId]: prev[attrId]?.includes(valId)
-          ? prev[attrId].filter((v) => v !== valId)
-          : [...(prev[attrId] || []), valId],
-      }));
+      const isRemoving = prev => prev[attrId]?.includes(valId);
+      setSelAttrs((prev) => {
+        const removing = isRemoving(prev);
+
+        // Obtener el appliesTo del valor clickado (si existe)
+        const clickedValue = attr.values.find((av) => av.id === valId);
+        const clickedAppliesTo = clickedValue?.appliesTo;
+
+        let newMultiVal;
+        if (removing) {
+          // Deseleccionar
+          newMultiVal = (prev[attrId] || []).filter((v) => v !== valId);
+        } else if (clickedAppliesTo) {
+          // Radio-por-grupo: quitar otros del mismo grupo y seleccionar éste
+          const sameGroupIds = attr.values
+            .filter((av) => av.appliesTo === clickedAppliesTo)
+            .map((av) => av.id);
+          newMultiVal = [
+            ...(prev[attrId] || []).filter((v) => !sameGroupIds.includes(v)),
+            valId,
+          ];
+        } else {
+          // Multi normal (sin appliesTo)
+          newMultiVal = [...(prev[attrId] || []), valId];
+        }
+
+        const next = { ...prev, [attrId]: newMultiVal };
+
+        // Si se está deseleccionando un accesorio, limpiar valores downstream con appliesTo apuntando a valId
+        if (removing) {
+          const attrOrder = safeProduct.attributeOrder || [];
+          const currentIndex = attrOrder.indexOf(attrId);
+          for (let i = currentIndex + 1; i < attrOrder.length; i++) {
+            const downstreamAttrId = attrOrder[i];
+            const downstreamAttr = safeProduct.attributes.find((a) => a.id === downstreamAttrId);
+            if (!downstreamAttr) continue;
+            const currentSelected = next[downstreamAttrId];
+            if (!Array.isArray(currentSelected)) continue;
+            const valuesThatApply = downstreamAttr.values
+              .filter((dv) => dv.appliesTo === valId)
+              .map((dv) => dv.id);
+            if (valuesThatApply.length > 0) {
+              next[downstreamAttrId] = currentSelected.filter((sel) => !valuesThatApply.includes(sel));
+              if (next[downstreamAttrId].length === 0) delete next[downstreamAttrId];
+            }
+          }
+        }
+
+        return next;
+      });
     }
 
   };
@@ -737,6 +781,19 @@ export default function ProductConfigurator({ product, onAddToCart }) {
                 // Pre-calcular valores visibles para este atributo
                 const visibleValues = attr.values.filter((v) => {
                   if (attr.type === "multi") {
+                    // Si el valor tiene appliesTo, verificar contra el attr multi anterior
+                    if (v.appliesTo) {
+                      const attrOrder = safeProduct.attributeOrder || [];
+                      const currentIndex = attrOrder.indexOf(attr.id);
+                      if (currentIndex > 0) {
+                        const previousAttrId = attrOrder[currentIndex - 1];
+                        const prevAttr = safeProduct.attributes.find((a) => a.id === previousAttrId);
+                        if (prevAttr?.type === "multi") {
+                          const selectedMulti = selAttrs[previousAttrId] || [];
+                          return selectedMulti.includes(v.appliesTo);
+                        }
+                      }
+                    }
                     if (!v.compatibleWith) return true;
                     const firstAttrId = safeProduct.attributeOrder?.[0];
                     const selectedModel = firstAttrId ? selAttrs[firstAttrId]?.[0] : null;
@@ -750,6 +807,15 @@ export default function ProductConfigurator({ product, onAddToCart }) {
                     const previousAttrId = attrOrder[currentIndex - 1];
                     const hasPreviousSelected = previousAttrId ? selAttrs[previousAttrId]?.length > 0 : false;
                     if (!hasPreviousSelected) return false;
+                    // Si el valor tiene `appliesTo`, filtrarlo según los accesorios multi seleccionados
+                    if (v.appliesTo) {
+                      // Buscar el atributo multi anterior (accesorios)
+                      const prevAttr = safeProduct.attributes.find((a) => a.id === previousAttrId);
+                      if (prevAttr?.type === "multi") {
+                        const selectedMulti = selAttrs[previousAttrId] || [];
+                        return selectedMulti.includes(v.appliesTo);
+                      }
+                    }
                     return !isOptionDisabledCascade(attr.id, v.id, selAttrs, safeProduct.variants, safeProduct.attributeOrder);
                   }
                   return true;
@@ -769,6 +835,19 @@ export default function ProductConfigurator({ product, onAddToCart }) {
                         .filter((v) => {
                           // Si es tipo multi, filtrar por compatibilidad
                           if (attr.type === "multi") {
+                            // Si el valor tiene appliesTo, verificar contra el attr multi anterior
+                            if (v.appliesTo) {
+                              const attrOrder = safeProduct.attributeOrder || [];
+                              const currentIndex = attrOrder.indexOf(attr.id);
+                              if (currentIndex > 0) {
+                                const previousAttrId = attrOrder[currentIndex - 1];
+                                const prevAttr = safeProduct.attributes.find((a) => a.id === previousAttrId);
+                                if (prevAttr?.type === "multi") {
+                                  const selectedMulti = selAttrs[previousAttrId] || [];
+                                  return selectedMulti.includes(v.appliesTo);
+                                }
+                              }
+                            }
                             // Si no tiene compatibleWith, mostrar siempre
                             if (!v.compatibleWith) return true;
 
@@ -797,6 +876,15 @@ export default function ProductConfigurator({ product, onAddToCart }) {
 
                             // Si la cascada anterior no está seleccionada, ocultar esta cascada
                             if (!hasPreviousSelected) return false;
+
+                            // Si el valor tiene `appliesTo`, filtrarlo según los accesorios multi seleccionados
+                            if (v.appliesTo) {
+                              const prevAttr = safeProduct.attributes.find((a) => a.id === previousAttrId);
+                              if (prevAttr?.type === "multi") {
+                                const selectedMulti = selAttrs[previousAttrId] || [];
+                                return selectedMulti.includes(v.appliesTo);
+                              }
+                            }
 
                             // Si la cascada anterior está seleccionada, filtrar por inhabilitados
                             return !isOptionDisabledCascade(

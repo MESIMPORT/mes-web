@@ -8,7 +8,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     id: "aceite-de-inmersion-para-microscopia",
     name: "ACEITE DE INMERSIÓN PARA MICROSCOPÍA",
     type: "Reactivos",
-    description: "Aceite de inmersión para microscopía de la marca Oxford, diseñado para optimizar la resolución óptica en objetivos de inmersión. Su formulación garantiza un índice de refracción estable, baja fluorescencia y alta transparencia, siendo ideal para aplicaciones en laboratorios clínicos, académicos y de investigación. Conservar el envase bien cerrado en un lugar fresco y ventilado, a una temperatura entre 18 °C y 32 °C.",
+    description: "Aceite de inmersión para microscopía de alta pureza, diseñado para optimizar la resolución óptica en objetivos de inmersión. Su formulación garantiza un índice de refracción estable (n=1.515), baja fluorescencia y alta transparencia óptica, eliminando la interfase de aire entre el objetivo y la laminilla para obtener imágenes nítidas y con máximo detalle. Compatible con microscopios de campo claro, fluorescencia y contraste de fases. Conservar el envase bien cerrado en un lugar fresco y ventilado, a una temperatura entre 18 °C y 32 °C.",
     image: "/images/laboratorio/REACTIVOS/INMERSIONCARD.png",
 
     attributeOrder: ["volumen"],
@@ -28,27 +28,27 @@ export const equipamientoYLaboratorioYReactivosProducts = [
 
     variants: [
       {
-        sku: "aceite-inmersion-oxford-30ml",
+        sku: "aceite-inmersion-30ml",
         attrs: { volumen: "30-ml" },
         name: "30 ML",
-        description: "Aceite de inmersión Oxford para microscopía con índice de refracción estable y alta transparencia, ideal para objetivos de inmersión en laboratorios clínicos y de investigación. Conservar el envase bien cerrado en un lugar fresco y ventilado, a una temperatura entre 18 °C y 32 °C. || **Marca:** Oxford Lab Fine Chem LLP | **Volumen:** 30 ml.",
-        price: 5,
+        description: "Aceite de inmersión de alta pureza para microscopía con índice de refracción estable (n=1.515), baja fluorescencia y alta transparencia óptica. Compatible con microscopios de campo claro, fluorescencia y contraste de fases. Conservar el envase bien cerrado en un lugar fresco y ventilado, a una temperatura entre 18 °C y 32 °C. || **Volumen:** 30 ml.",
+        price: 65,
         image: "/images/laboratorio/REACTIVOS/INMERSION30.png"
       },
       {
-        sku: "aceite-inmersion-oxford-100ml",
+        sku: "aceite-inmersion-100ml",
         attrs: { volumen: "100-ml" },
         name: "100 ML",
-        description: "Aceite de inmersión Oxford para microscopía con índice de refracción estable y alta transparencia, ideal para objetivos de inmersión en laboratorios clínicos y de investigación. Conservar el envase bien cerrado en un lugar fresco y ventilado, a una temperatura entre 18 °C y 32 °C. || **Marca:** Oxford Lab Fine Chem LLP | **Volumen:** 100 ml.",
-        price: 60,
+        description: "Aceite de inmersión de alta pureza para microscopía con índice de refracción estable (n=1.515), baja fluorescencia y alta transparencia óptica. Compatible con microscopios de campo claro, fluorescencia y contraste de fases. Conservar el envase bien cerrado en un lugar fresco y ventilado, a una temperatura entre 18 °C y 32 °C. || **Volumen:** 100 ml.",
+        price: 80,
         image: "/images/laboratorio/REACTIVOS/INMERSION100.png"
       },
       {
-        sku: "aceite-inmersion-oxford-500ml",
+        sku: "aceite-inmersion-500ml",
         attrs: { volumen: "500-ml" },
         name: "500 ML",
-        description: "Aceite de inmersión Oxford para microscopía con índice de refracción estable y alta transparencia, ideal para objetivos de inmersión en laboratorios clínicos y de investigación. Conservar el envase bien cerrado en un lugar fresco y ventilado, a una temperatura entre 18 °C y 32 °C. || **Marca:** Oxford Lab Fine Chem LLP | **Volumen:** 500 ml.",
-        price: 5,
+        description: "Aceite de inmersión de alta pureza para microscopía con índice de refracción estable (n=1.515), baja fluorescencia y alta transparencia óptica. Compatible con microscopios de campo claro, fluorescencia y contraste de fases. Conservar el envase bien cerrado en un lugar fresco y ventilado, a una temperatura entre 18 °C y 32 °C. || **Volumen:** 500 ml.",
+        price: 240,
         image: "/images/laboratorio/REACTIVOS/INMERSION500.png"
       }
     ]
@@ -68,67 +68,98 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Presentación",
         type: "single",
         values: [
-          { id: "1-kg", label: "1 kg" },
-          { id: "4-kg", label: "4 kg" },
-          { id: "30-kg", label: "30 kg" }
+          { id: "1-lt", label: "1 lt" },
+          { id: "4-lt", label: "4 lt" },
+          { id: "30-lt", label: "30 lt" }
         ]
       }
     ],
 
     variants: [
       {
-        sku: "acido-acetico-glacial-1kg",
-        attrs: { presentacion: "1-kg" },
-        name: "1 KG",
-        description: "Ácido acético glacial de alta pureza para uso como reactivo químico, disolvente y síntesis orgánica en laboratorio. || **Presentación:** 1 kg.",
-        price: 78,
+        sku: "acido-acetico-glacial-1lt",
+        attrs: { presentacion: "1-lt" },
+        name: "1 LT",
+        description: "Ácido acético glacial de alta pureza para uso como reactivo químico, disolvente y síntesis orgánica en laboratorio. || **Presentación:** 1 lt.",
+        price: 50,
         image: "/images/laboratorio/REACTIVOS/ACETICO1.png"
       },
       {
-        sku: "acido-acetico-glacial-4kg",
-        attrs: { presentacion: "4-kg" },
-        name: "4 KG",
-        description: "Ácido acético glacial de alta pureza para uso como reactivo químico, disolvente y síntesis orgánica en laboratorio. || **Presentación:** 4 kg.",
-        price: 5,
+        sku: "acido-acetico-glacial-4lt",
+        attrs: { presentacion: "4-lt" },
+        name: "4 LT",
+        description: "Ácido acético glacial de alta pureza para uso como reactivo químico, disolvente y síntesis orgánica en laboratorio. || **Presentación:** 4 lt.",
+        price: 100,
         image: "/images/laboratorio/REACTIVOS/ACETICO4.png"
       },
       {
-        sku: "acido-acetico-glacial-30kg",
-        attrs: { presentacion: "30-kg" },
-        name: "30 KG",
-        description: "Ácido acético glacial de alta pureza para uso como reactivo químico, disolvente y síntesis orgánica en laboratorio. || **Presentación:** 30 kg.",
-        price: 5,
+        sku: "acido-acetico-glacial-30lt",
+        attrs: { presentacion: "30-lt" },
+        name: "30 LT",
+        description: "Ácido acético glacial de alta pureza para uso como reactivo químico, disolvente y síntesis orgánica en laboratorio. || **Presentación:** 30 lt.",
+        price: 650,
         image: "/images/laboratorio/REACTIVOS/ACETICO30.png"
       }
     ]
   },
   {
-    id: "acido-borico-500-grs",
-    name: "ÁCIDO BÓRICO 500 GRS",
+    id: "acido-borico",
+    name: "ÁCIDO BÓRICO",
     type: "Reactivos",
-    description: "Ácido bórico de alta pureza en presentación de 500 grs, utilizado como reactivo analítico en volumetrías de nitrógeno por el método Kjeldahl, preparación de soluciones tampón de pH ácido y como agente conservante en muestras biológicas. Sus propiedades antisépticas y fungistáticas lo hacen también útil en aplicaciones farmacéuticas y microbiológicas. Requiere almacenamiento en lugar fresco, seco y bien ventilado, alejado de bases fuertes. Ideal para laboratorios clínicos, académicos e industriales.",
-    price: 108,
-    image: "/images/laboratorio/REACTIVOS/ACIDO_BORICO.png"
+    description: "Ácido bórico de alta pureza, utilizado como reactivo analítico en volumetrías de nitrógeno por el método Kjeldahl, preparación de soluciones tampón de pH ácido y como agente conservante en muestras biológicas. Sus propiedades antisépticas y fungistáticas lo hacen también útil en aplicaciones farmacéuticas y microbiológicas. Requiere almacenamiento en lugar fresco, seco y bien ventilado, alejado de bases fuertes. Ideal para laboratorios clínicos, académicos e industriales.",
+    image: "/images/laboratorio/REACTIVOS/BORICOCARD.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "250-g", label: "250 g" },
+          { id: "500-g", label: "500 g" },
+          { id: "1-kg", label: "1 kg" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "acido-borico-250g",
+        attrs: { presentacion: "250-g" },
+        name: "250 G",
+        description: "Ácido bórico de alta pureza para volumetrías de nitrógeno, soluciones tampón y conservación de muestras biológicas en laboratorio. || **Presentación:** 250 g.",
+        price: 1,
+        image: "/images/laboratorio/REACTIVOS/BORICO250.png"
+      },
+      {
+        sku: "acido-borico-500g",
+        attrs: { presentacion: "500-g" },
+        name: "500 G",
+        description: "Ácido bórico de alta pureza para volumetrías de nitrógeno, soluciones tampón y conservación de muestras biológicas en laboratorio. || **Presentación:** 500 g.",
+        price: 1,
+        image: "/images/laboratorio/REACTIVOS/BORICO500.png"
+      },
+      {
+        sku: "acido-borico-1kg",
+        attrs: { presentacion: "1-kg" },
+        name: "1 KG",
+        description: "Ácido bórico de alta pureza para volumetrías de nitrógeno, soluciones tampón y conservación de muestras biológicas en laboratorio. || **Presentación:** 1 kg.",
+        price: 1,
+        image: "/images/laboratorio/REACTIVOS/BORICO1KG.png"
+      }
+    ]
   },
 
   {
-    id: "acido-clorobenzoico-al-99-500-g",
-    name: "ÁCIDO CLOROBENZOICO AL 99% 500 GRS",
+    id: "acido-fosforico-85",
+    name: "ÁCIDO FOSFÓRICO AL 85%",
     type: "Reactivos",
-    description: "Ácido clorobenzoico de pureza del 99% en presentación de 500 g, utilizado como reactivo intermedio en síntesis orgánica para la obtención de ésteres, amidas y otros derivados aromáticos. Su alta pureza lo hace adecuado como patrón de referencia en análisis volumétricos y como agente de partida en la producción de fármacos, colorantes y agroquímicos. Debe manipularse con equipos de protección personal adecuados y almacenarse en lugar fresco, seco y hermético. Ideal para laboratorios de síntesis, farmacéuticos y de investigación.",
-    price: 1.2,
-    image: "/images/laboratorio/REACTIVOS/ACIDO_CLOROBENZOICO.png"
-  },
-
-  {
-    id: "acido-fosforico-100-ml",
-    name: "ÁCIDO FOSFÓRICO – 100 ML",
-    type: "Reactivos",
-    description: "Ácido fosfórico de alta pureza en presentación de 100 ml, ampliamente utilizado como reactivo analítico en la determinación colorimétrica de fosfatos, preparación de soluciones tampón de pH controlado y como agente acidulante en síntesis química. Su carácter triprotónico permite trabajar en un amplio rango de pH, siendo esencial en técnicas de espectrofotometría, cromatografía y análisis de aguas. Por su naturaleza corrosiva, requiere manipulación con equipos de protección personal adecuados y almacenamiento en recipiente hermético alejado de bases. Ideal para laboratorios clínicos, académicos e industriales.",
-    price: 18,
+    description: "Ácido fosfórico al 85% de concentración para uso en laboratorio, ampliamente utilizado como reactivo analítico en la determinación colorimétrica de fosfatos, preparación de soluciones tampón de pH controlado y como agente acidulante en síntesis química. Su carácter triprotónico permite trabajar en un amplio rango de pH, siendo esencial en técnicas de espectrofotometría, cromatografía y análisis de aguas. Por su naturaleza corrosiva, requiere manipulación con equipos de protección personal adecuados y almacenamiento en recipiente hermético alejado de bases. Ideal para laboratorios clínicos, académicos e industriales. || **Presentación:** 1 lt.",
+    price: 30,
     image: "/images/laboratorio/REACTIVOS/ACIDO_FOSFORICO.png"
   },
-
 
   {
     id: "agar-bacteriologico-en-polvo-500gr",
@@ -140,8 +171,9 @@ export const equipamientoYLaboratorioYReactivosProducts = [
   },
   {
     id: "agua-desionizada-4lt",
-    name: "AGUA DESIONIZADA 4LT",
-    description: "AGUA DESIONIZADA 4LT",
+    name: "AGUA DESIONIZADA 4 LT",
+    type: "Reactivos",
+    description: "Agua desionizada en presentación de 4 litros, obtenida mediante proceso de intercambio iónico que elimina prácticamente la totalidad de sales minerales, iones y contaminantes disueltos, garantizando una conductividad eléctrica mínima. A diferencia del agua destilada, el proceso de desionización preserva las propiedades físicas del agua eliminando selectivamente los iones cargados, siendo ideal para preparación de soluciones de alta pureza, diluciones críticas, calibración de equipos, enjuague de material analítico y aplicaciones donde la presencia de iones podría interferir con los resultados. Ideal para laboratorios clínicos, analíticos, académicos e industriales.",
     price: 22.8,
     image: "/images/laboratorio/REACTIVOS/DESIONIZADA_4LT.png"
   },
@@ -150,7 +182,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     name: "AGUA DESTILADA",
     type: "Reactivos",
     description: "Agua destilada de alta pureza obtenida por proceso de destilación, libre de minerales, impurezas y microorganismos. Ideal para uso en laboratorios clínicos, académicos e industriales donde se requiere agua de calidad controlada para preparación de soluciones, diluciones y limpieza de material.",
-    image: "/images/laboratorio/REACTIVOS/DESTILADA_CARD.png",
+    image: "/images/laboratorio/REACTIVOS/DESTILADACARD.png",
 
     attributeOrder: ["capacidad"],
 
@@ -173,15 +205,15 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         attrs: { capacidad: "1-lt" },
         name: "1 LT",
         description: "Agua destilada de alta pureza libre de minerales e impurezas, ideal para preparación de soluciones y uso en laboratorio. || **Capacidad:** 1 lt.",
-        price: 8,
-        image: "/images/laboratorio/REACTIVOS/DESTILADA_1LT.png"
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/DESTILADA1LT.png"
       },
       {
         sku: "agua-destilada-4lt",
         attrs: { capacidad: "4-lt" },
         name: "4 LT",
         description: "Agua destilada de alta pureza libre de minerales e impurezas, ideal para preparación de soluciones y uso en laboratorio. || **Capacidad:** 4 lt.",
-        price: 30,
+        price: 15,
         image: "/images/laboratorio/REACTIVOS/DESTILADA_4LT.png"
       },
       {
@@ -189,7 +221,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         attrs: { capacidad: "20-lt" },
         name: "20 LT",
         description: "Agua destilada de alta pureza libre de minerales e impurezas, ideal para preparación de soluciones y uso en laboratorio. || **Capacidad:** 20 lt.",
-        price: 120,
+        price: 35,
         image: "/images/laboratorio/REACTIVOS/DESTILADA_20LT.png"
       }
     ]
@@ -285,94 +317,18 @@ export const equipamientoYLaboratorioYReactivosProducts = [
   },
 
   {
-    id: "barra-de-zinc-lamina",
-    name: "BARRA DE ZINC",
-    type: "Utensilios",
-    description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales.",
-    image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png",
-
-    attributeOrder: ["tamaño"],
-
-    attributes: [
-      {
-        id: "tamaño",
-        label: "Tamaño",
-        type: "single",
-        values: [
-          { id: "10x300", label: "10 x 300 mm" },
-          { id: "12x300", label: "12 x 300 mm" },
-          { id: "15x300", label: "15 x 300 mm" },
-          { id: "16x300", label: "16 x 300 mm" },
-          { id: "18x300", label: "18 x 300 mm" },
-          { id: "20x300", label: "20 x 300 mm" }
-        ]
-      }
-    ],
-
-    variants: [
-      {
-        sku: "barra-zinc-10x300",
-        attrs: { tamaño: "10x300" },
-        name: "10 x 300 mm",
-        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 10 x 300 mm.",
-        price: 120,
-        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
-      },
-      {
-        sku: "barra-zinc-12x300",
-        attrs: { tamaño: "12x300" },
-        name: "12 x 300 mm",
-        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 12 x 300 mm.",
-        price: 160,
-        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
-      },
-      {
-        sku: "barra-zinc-15x300",
-        attrs: { tamaño: "15x300" },
-        name: "15 x 300 mm",
-        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 15 x 300 mm.",
-        price: 220,
-        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
-      },
-      {
-        sku: "barra-zinc-16x300",
-        attrs: { tamaño: "16x300" },
-        name: "16 x 300 mm",
-        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 16 x 300 mm.",
-        price: 250,
-        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
-      },
-      {
-        sku: "barra-zinc-18x300",
-        attrs: { tamaño: "18x300" },
-        name: "18 x 300 mm",
-        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 18 x 300 mm.",
-        price: 290,
-        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
-      },
-      {
-        sku: "barra-zinc-20x300",
-        attrs: { tamaño: "20x300" },
-        name: "20 x 300 mm",
-        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 20 x 300 mm.",
-        price: 340,
-        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
-      }
-    ]
-  },
-
-  {
-    id: "biftalato-cido-de-potasio-500-g",
-    name: "BIFTALATO ÁCIDO DE POTASIO – 500 g",
-    description: "BIFTALATO ÁCIDO DE POTASIO – 500 g",
+    id: "biftalato-acido-de-potasio-500-g",
+    name: "BIFTALATO ÁCIDO DE POTASIO – 500 G",
+    type: "Reactivos",
+    description: "Biftalato ácido de potasio (KHC₈H₄O₄) de alta pureza en presentación de 500 g, ampliamente utilizado como patrón primario de referencia en volumetrías ácido-base para la estandarización de soluciones de hidróxido de sodio y otras bases fuertes. Su alta estabilidad química, bajo contenido de humedad y peso molecular exacto lo convierten en uno de los patrones primarios más confiables en química analítica. También empleado como solución tampón de pH 4.0 en la calibración de electrodos y pHmetros. Debe almacenarse en recipiente hermético, en lugar seco y a temperatura ambiente. Ideal para laboratorios analíticos, clínicos, académicos y de control de calidad.",
     price: 288,
     image: "/images/laboratorio/REACTIVOS/BIFTALATO.png"
   },
   {
-    id: "buffer-fosfato",
-    name: "BUFFER FOSFATO",
+    id: "buffer-fosfato-ph-7-4",
+    name: "BUFFER FOSFATO pH 7.4",
     type: "Reactivos",
-    description: "Buffer fosfato para uso en laboratorio, diseñado para mantener el pH estable en soluciones y medios de cultivo. Ampliamente utilizado en técnicas analíticas, preparación de reactivos y procesos bioquímicos en laboratorios clínicos, académicos y de investigación.",
+    description: "Solución buffer de fosfato a pH 7.4 para uso en laboratorio, formulada para mantener el pH estable en condiciones fisiológicas, siendo esencial en técnicas de biología molecular, inmunohistoquímica, citología, fijación de tejidos y lavado de muestras biológicas. Su valor de pH coincide con el pH fisiológico humano, lo que la convierte en una solución de referencia indispensable en procedimientos clínicos y de investigación. Ampliamente utilizada en preparación de reactivos, dilución de anticuerpos, cultivos celulares y análisis bioquímicos. Ideal para laboratorios clínicos, académicos y de investigación.",
     image: "/images/laboratorio/REACTIVOS/BUFFER_FOSFACARD.png",
 
     attributeOrder: ["capacidad"],
@@ -383,32 +339,31 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Capacidad",
         type: "single",
         values: [
-          { id: "100-ml", label: "100 ml" },
-          { id: "250-ml", label: "250 ml" }
+          { id: "250-ml", label: "250 ml" },
+          { id: "500-ml", label: "500 ml" }
         ]
       }
     ],
 
     variants: [
       {
-        sku: "buffer-fosfato-100ml",
-        attrs: { capacidad: "100-ml" },
-        name: "100 ML",
-        description: "Buffer fosfato para estabilización de pH en soluciones y medios de cultivo en laboratorio. || **Capacidad:** 100 ml.",
-        price: 1.2,
-        image: "/images/laboratorio/REACTIVOS/BUFFER_100.png"
-      },
-      {
-        sku: "buffer-fosfato-250ml",
+        sku: "buffer-fosfato-74-250ml",
         attrs: { capacidad: "250-ml" },
         name: "250 ML",
-        description: "Buffer fosfato para estabilización de pH en soluciones y medios de cultivo en laboratorio. || **Capacidad:** 250 ml.",
+        description: "Solución buffer de fosfato a pH 7.4 para estabilización de pH fisiológico en técnicas clínicas, biología molecular e inmunohistoquímica en laboratorio. || **pH:** 7.4 | **Capacidad:** 250 ml.",
         price: 1.2,
         image: "/images/laboratorio/REACTIVOS/BUFFER_250.png"
+      },
+      {
+        sku: "buffer-fosfato-74-500ml",
+        attrs: { capacidad: "500-ml" },
+        name: "500 ML",
+        description: "Solución buffer de fosfato a pH 7.4 para estabilización de pH fisiológico en técnicas clínicas, biología molecular e inmunohistoquímica en laboratorio. || **pH:** 7.4 | **Capacidad:** 500 ml.",
+        price: 1.2,
+        image: "/images/laboratorio/REACTIVOS/BUFFER_500.png"
       }
     ]
   },
-
   {
     id: "carbonato-de-sodio-500-g",
     name: "CARBONATO DE SODIO 500 G",
@@ -429,14 +384,15 @@ export const equipamientoYLaboratorioYReactivosProducts = [
   },
   {
     id: "cloruro-de-bismuto-iii-100-g",
-    name: "CLORURO DE BISMUTO III × 100 g",
-    description: "CLORURO DE BISMUTO III × 100 g",
+    name: "CLORURO DE BISMUTO III × 100 G",
+    type: "Reactivos",
+    description: "Cloruro de bismuto III (BiCl₃) de alta pureza en presentación de 100 g, utilizado como reactivo en síntesis orgánica e inorgánica, catálisis y preparación de compuestos de bismuto. Destaca por su aplicación en la reacción de Dragendorff para la detección de alcaloides, así como en análisis de identificación de compuestos nitrogenados en muestras biológicas y farmacéuticas. Su alta reactividad con el agua requiere almacenamiento en condiciones secas y herméticas, alejado de fuentes de humedad. Ideal para laboratorios analíticos, farmacéuticos y de investigación.",
     price: 1.2,
     image: "/images/laboratorio/REACTIVOS/CLORURO_BISMUTO.png"
   },
   {
-    id: "cloruro-de-cobalto-6-hidratos-500-gr",
-    name: "CLORURO DE COBALTO 6 HIDRATOS 500 GR",
+    id: "cloruro-de-cobalto-hexahidratado-500-gr",
+    name: "CLORURO DE COBALTO HEXAHIDRATADO 500 GR",
     type: "Reactivos",
     description: "Cloruro de cobalto hexahidratado de alta pureza en presentación de 500 g, reconocible por su característico color rosa-rojizo que vira a azul al perder agua, propiedad ampliamente utilizada como indicador de humedad en sílicagel y otros desecantes. Empleado como reactivo en síntesis inorgánica, preparación de soluciones patrón, electrodeposición de cobalto y como catalizador en diversas reacciones químicas. Requiere manipulación con equipos de protección personal adecuados dado su potencial efecto irritante. Ideal para laboratorios analíticos, académicos e industriales.",
     price: 504,
@@ -446,7 +402,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     id: "cloruro-de-sodio",
     name: "CLORURO DE SODIO",
     type: "Reactivos",
-    description: "Cloruro de sodio de alta pureza para uso en laboratorio, ampliamente utilizado en preparación de soluciones fisiológicas, medios de cultivo, técnicas analíticas y procesos bioquímicos. Ideal para laboratorios clínicos, académicos e industriales.",
+    description: "Cloruro de sodio (NaCl) sólido de alta pureza ≥99% para uso en laboratorio, presentado en forma de cristales o polvo fino de fácil disolución. Reactivo esencial para la preparación de soluciones fisiológicas (suero salino), soluciones estándar y de calibración, medios de cultivo microbiológico y soluciones tampón. Su alta pureza garantiza resultados reproducibles y confiables en técnicas analíticas, procesos bioquímicos y ensayos clínicos. Debe almacenarse en recipiente hermético en lugar fresco y seco. Ideal para laboratorios clínicos, académicos e industriales.",
     image: "/images/laboratorio/REACTIVOS/CLORUROCARD.png",
 
     attributeOrder: ["presentacion"],
@@ -457,7 +413,8 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Presentación",
         type: "single",
         values: [
-          { id: "100-gr", label: "100 g" },
+          { id: "250-g", label: "250 g" },
+          { id: "500-g", label: "500 g" },
           { id: "1-kg", label: "1 kg" }
         ]
       }
@@ -465,73 +422,131 @@ export const equipamientoYLaboratorioYReactivosProducts = [
 
     variants: [
       {
-        sku: "cloruro-sodio-100gr",
-        attrs: { presentacion: "100-gr" },
-        name: "100 G",
-        description: "Cloruro de sodio de alta pureza para preparación de soluciones y uso analítico en laboratorio. || **Presentación:** 100 g.",
+        sku: "cloruro-sodio-250g",
+        attrs: { presentacion: "250-g" },
+        name: "250 G",
+        description: "Cloruro de sodio sólido de alta pureza ≥99% para preparación de soluciones fisiológicas, estándares y reactivos en laboratorio. || **Pureza:** ≥99% NaCl | **Forma:** Sólido | **Presentación:** 250 g.",
         price: 7.2,
-        image: "/images/laboratorio/REACTIVOS/CLORURO_100.png"
+        image: "/images/laboratorio/REACTIVOS/CLORURO250.png"
       },
-
+      {
+        sku: "cloruro-sodio-500g",
+        attrs: { presentacion: "500-g" },
+        name: "500 G",
+        description: "Cloruro de sodio sólido de alta pureza ≥99% para preparación de soluciones fisiológicas, estándares y reactivos en laboratorio. || **Pureza:** ≥99% NaCl | **Forma:** Sólido | **Presentación:** 500 g.",
+        price: 42,
+        image: "/images/laboratorio/REACTIVOS/CLORURO500.png"
+      },
       {
         sku: "cloruro-sodio-1kg",
         attrs: { presentacion: "1-kg" },
         name: "1 KG",
-        description: "Cloruro de sodio de alta pureza para preparación de soluciones y uso analítico en laboratorio. || **Presentación:** 1 kg.",
+        description: "Cloruro de sodio sólido de alta pureza ≥99% para preparación de soluciones fisiológicas, estándares y reactivos en laboratorio. || **Pureza:** ≥99% NaCl | **Forma:** Sólido | **Presentación:** 1 kg.",
         price: 48,
-        image: "/images/laboratorio/REACTIVOS/CLORURO_1000.png"
+        image: "/images/laboratorio/REACTIVOS/CLORURO1000.png"
+      }
+    ]
+  },
+  {
+    id: "cloruro-ferrico",
+    name: "CLORURO FÉRRICO",
+    type: "Reactivos",
+    description: "Cloruro férrico (FeCl₃) sólido de alta pureza, ampliamente utilizado como reactivo oxidante en análisis químicos, coagulante en tratamiento de aguas y agente de grabado en circuitos electrónicos. En laboratorio se emplea en la detección de fenoles y compuestos aromáticos, síntesis inorgánica y como catalizador en reacciones de oxidación. Su naturaleza higroscópica requiere almacenamiento en recipiente hermético y lugar seco, alejado de la humedad. Ideal para laboratorios clínicos, académicos e industriales.",
+    image: "/images/laboratorio/REACTIVOS/CLORURO_FERRICOCARD.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "250-g", label: "250 g" },
+          { id: "500-g", label: "500 g" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "cloruro-ferrico-250g",
+        attrs: { presentacion: "250-g" },
+        name: "250 G",
+        description: "Cloruro férrico sólido de alta pureza para uso como reactivo oxidante, coagulante y agente de detección de fenoles en laboratorio. || **Forma:** Sólido | **Presentación:** 250 g.",
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/CLORUROFERRICO250.png"
+      },
+      {
+        sku: "cloruro-ferrico-500g",
+        attrs: { presentacion: "500-g" },
+        name: "500 G",
+        description: "Cloruro férrico sólido de alta pureza para uso como reactivo oxidante, coagulante y agente de detección de fenoles en laboratorio. || **Forma:** Sólido | **Presentación:** 500 g.",
+        price: 198,
+        image: "/images/laboratorio/REACTIVOS/CLORUROFERRICO500.png"
       }
     ]
   },
 
-  {
-    id: "cloruro-ferrico-500-grs",
-    name: "CLORURO FÉRRICO 500 GRS",
-    type: "Reactivos",
-    description: "Cloruro férrico de alta pureza en presentación de 500 g, ampliamente utilizado como reactivo oxidante en análisis químicos, coagulante en tratamiento de aguas y agente de grabado en circuitos electrónicos. En laboratorio se emplea en la detección de fenoles y compuestos aromáticos, síntesis inorgánica y como catalizador en reacciones de oxidación. Su naturaleza higroscópica requiere almacenamiento en recipiente hermético y lugar seco. Ideal para laboratorios clínicos, académicos e industriales.",
-    price: 198,
-    image: "/images/laboratorio/REACTIVOS/CLORURO_FERRICO.png"
-  },
-
 
   {
-    id: "formol-concentrado-500-ml",
-    name: "FORMOL CONCENTRADO × 500 ML",
+    id: "azul-de-metileno",
+    name: "AZUL DE METILENO",
     type: "Reactivos",
-    description: "Formol concentrado (solución de formaldehído al 37-40%) en presentación de 500 ml, ampliamente utilizado como fijador de tejidos biológicos en histología y anatomía patológica, conservante de muestras y reactivo en síntesis química. Su acción fijadora preserva la morfología celular y tisular, siendo esencial en la preparación de láminas histológicas y conservación de piezas anatómicas. Por su naturaleza tóxica, irritante y potencialmente cancerígena, debe manipularse en campana extractora con equipos de protección personal adecuados y almacenarse en lugar fresco, ventilado y alejado de fuentes de calor. Ideal para laboratorios de histología, patología, académicos y de investigación.",
-    price: 33.6,
-    image: "/images/laboratorio/REACTIVOS/FORMOL_500ML.png"
+    description: "Azul de metileno en estado sólido (polvo), colorante básico de amplio uso en técnicas de tinción histológica y microbiológica para la identificación de bacterias, núcleos celulares y estructuras tisulares. Su presentación en polvo permite preparar soluciones a la concentración requerida según cada aplicación. Empleado en la coloración de frotis sanguíneos, tinción de bacterias gram negativas y como indicador redox en análisis químicos. Su versatilidad lo hace también útil en pruebas de viabilidad celular y como antídoto en intoxicaciones por metahemoglobinemia en entornos clínicos. Ideal para laboratorios de microbiología, histología, clínicos y de investigación.",
+    image: "/images/laboratorio/REACTIVOS/AZUL_METILENO_CARD.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "100-g", label: "100 g" },
+          { id: "250-g", label: "250 g" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "azul-metileno-100g",
+        attrs: { presentacion: "100-g" },
+        name: "100 G",
+        description: "Azul de metileno en polvo para preparación de soluciones de tinción histológica, microbiológica y uso como indicador redox en laboratorio. || **Estado:** Sólido | **Presentación:** 100 g.",
+        price: 12,
+        image: "/images/laboratorio/REACTIVOS/AZUL_METILENO_100G.png"
+      },
+      {
+        sku: "azul-metileno-250g",
+        attrs: { presentacion: "250-g" },
+        name: "250 G",
+        description: "Azul de metileno en polvo para preparación de soluciones de tinción histológica, microbiológica y uso como indicador redox en laboratorio. || **Estado:** Sólido | **Presentación:** 250 g.",
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/AZUL_METILENO_250G.png"
+      }
+    ]
   },
-
-
-
-  {
-    id: "frasco-de-azul-de-metileno-100-ml",
-    name: "AZUL DE METILENO × 100 ML",
-    type: "Reactivos",
-    description: "Solución de azul de metileno en presentación de 100 ml, colorante básico de amplio uso en técnicas de tinción histológica y microbiológica para la identificación de bacterias, núcleos celulares y estructuras tisulares. Empleado en la coloración de frotis sanguíneos, tinción de bacterias gram negativas y como indicador redox en análisis químicos. Su versatilidad lo hace también útil en pruebas de viabilidad celular y como antídoto en intoxicaciones por metahemoglobinemia en entornos clínicos. Ideal para laboratorios de microbiología, histología, clínicos y de investigación.",
-    price: 12,
-    image: "/images/laboratorio/REACTIVOS/AZUL_METILENO_100ML.png"
-  },
-
 
 
   {
     id: "granallas-de-zinc-por-500-gr",
-    name: "GRANALLAS DE ZINC POR 500 GR",
+    name: "GRANALLAS DE ZINC 500 GR",
     type: "Utensilios",
     description: "Granallas de zinc de alta pureza en presentación de 500 g, utilizadas como material reductor en análisis químicos cuantitativos, determinaciones de metales pesados y reacciones de reducción en laboratorio. Su forma granular facilita el dosificado preciso y una reacción controlada, siendo ampliamente empleadas en técnicas analíticas como la determinación de nitratos, sulfatos y otros compuestos por vía húmeda. Ideales para laboratorios clínicos, académicos e industriales.",
     price: 198,
-    image: "/images/laboratorio/UTENSILIOS/GRANALLA_ZINC.png"
+    image: "/images/laboratorio/REACTIVOS/GRANALLA_ZINC.png"
   },
 
   {
     id: "hidróxido-de-magnesio-por-500-grs",
-    name: "HIDRÓXIDO DE MAGNESIO POR 500 GRS",
+    name: "HIDRÓXIDO DE MAGNESIO 500 GRS",
     type: "Reactivos",
     description: "Hidróxido de magnesio de alta pureza en presentación de 500 g, utilizado como reactivo base en análisis químicos, neutralización de ácidos y preparación de soluciones tamponadas. Sus propiedades antiácidas y su baja solubilidad en agua lo hacen ideal para aplicaciones en síntesis química, tratamiento de efluentes y procesos industriales. Ampliamente empleado en laboratorios clínicos, académicos e industriales donde se requiere un agente alcalinizante de acción controlada.",
     price: 144,
-    image: "/images/laboratorio/UTENSILIOS/HIDROXIDO_MAGNESIO.png"
+    image: "/images/laboratorio/REACTIVOS/HIDROXIDO_MAGNESIO.png"
   },
 
   {
@@ -555,7 +570,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     id: "indicador-azul-de-bromofenol-10-g",
     name: "INDICADOR AZUL DE BROMOFENOL 10 GRS",
     type: "Reactivos",
-    description: "Azul de bromofenol en presentación de 10 g, indicador de pH ampliamente utilizado en volumetrías ácido-base para señalar el punto de viraje en el rango de pH 3.0 a 4.6, pasando de amarillo a azul-violeta. Empleado también como colorante de seguimiento en electroforesis de proteínas y ácidos nucleicos en geles de agarosa y poliacrilamida, facilitando la visualización del frente de migración. Ideal para laboratorios analíticos, bioquímicos, académicos y de investigación.",
+    description: "Azul de bromofenol en estado sólido (polvo) en presentación de 10 g, indicador de pH ampliamente utilizado en volumetrías ácido-base para señalar el punto de viraje en el rango de pH 3.0 a 4.6, pasando de amarillo a azul-violeta. Su forma sólida permite preparar soluciones indicadoras a la concentración requerida con alta reproducibilidad. Empleado también como colorante de seguimiento en electroforesis de proteínas y ácidos nucleicos en geles de agarosa y poliacrilamida, facilitando la visualización del frente de migración. Debe almacenarse en recipiente hermético, en lugar fresco y seco. Ideal para laboratorios analíticos, bioquímicos, académicos y de investigación.",
     price: 1.2,
     image: "/images/laboratorio/REACTIVOS/AZUL_BROMOFENOL.png"
   },
@@ -568,55 +583,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     price: 204,
     image: "/images/laboratorio/REACTIVOS/FENOLFTALEINA.png"
   },
-  {
-    id: "kit-barras-magneticas-rotilabo-ptfe",
-    name: "KIT DE BARRAS MAGNÉTICAS ROTILABO® – PTFE",
-    type: "Utensilios",
-    description: "Kits de barras magnéticas recubiertas en PTFE (teflón) de la línea Rotilabo®, diseñados para agitación y disolución de reactivos en laboratorio. Disponibles en tres configuraciones según el número de piezas, variedad de tamaños y nivel de rendimiento requerido. Todas las barras presentan alta resistencia química frente a ácidos, bases y solventes, con superficie lisa antiadherente que facilita la limpieza y evita la contaminación de la muestra. Compatibles con agitadores magnéticos estándar, ideales para laboratorios clínicos, universitarios, industriales y de investigación.",
-    image: "/images/laboratorio/REACTIVOS/MAGNETOSCARD.png",
 
-    attributeOrder: ["kit"],
-
-    attributes: [
-      {
-        id: "kit",
-        label: "Kit",
-        type: "single",
-        values: [
-          { id: "kit-1", label: "10 PZA" },
-          { id: "kit-2", label: "18 PZA" },
-          { id: "kit-3", label: "14 PZA" }
-        ]
-      }
-    ],
-
-    variants: [
-      {
-        sku: "rotilabo-kit-1",
-        attrs: { kit: "kit-1" },
-        name: "SET BÁSICO",
-        description: "Kit de barras magnéticas recubiertas en PTFE con núcleo AlNiCo, compuesto por 10 piezas para agitación estándar en laboratorio. Alta resistencia química, superficie lisa antiadherente y estuche organizador de poliestireno incluido. No apto para autoclave. Ideal para uso educativo, académico y ensayos de rutina. || **Piezas:** 10 | **Núcleo:** AlNiCo | **Autoclavable:** No | **Dimensiones incluidas:** (1) 1.5 cm, (2) 2 cm, (2) 2.5 cm, (1) 3 cm, (2) 4 cm, (2) 5 cm.",
-        price: 5,
-        image: "/images/laboratorio/REACTIVOS/KIT_MAGNETOS_1.png"
-      },
-      {
-        sku: "rotilabo-kit-2",
-        attrs: { kit: "kit-2" },
-        name: "SET COMPLETO",
-        description: "Kit de barras magnéticas recubiertas en PTFE con núcleo AlNiCo, compuesto por 18 piezas en amplia variedad de tamaños para adaptarse a diferentes recipientes y volúmenes de trabajo. Alta resistencia química, superficie lisa antiadherente y estuche organizador robusto incluido. No apto para autoclave. Recomendado para laboratorios clínicos, universitarios e industriales que requieren versatilidad operativa. || **Piezas:** 18 | **Núcleo:** AlNiCo | **Autoclavable:** No | **Dimensiones incluidas:** (2) 1 cm, (2) 1.5 cm, (2) 2 cm, (2) 2.5 cm, (2) 3 cm, (2) 4 cm, (2) 5 cm, (2) 6 cm, (2) 8 cm.",
-        price: 5,
-        image: "/images/laboratorio/REACTIVOS/KIT_MAGNETOS_2.png"
-      },
-      {
-        sku: "rotilabo-kit-3",
-        attrs: { kit: "kit-3" },
-        name: "SET TURBOMAGNET AUTOCLAVABLE",
-        description: "Kit de barras magnéticas de alto rendimiento recubiertas en PTFE con núcleo de samario-cobalto (SmCo), compuesto por 14 piezas que ofrecen mayor fuerza magnética y estabilidad en soluciones de mayor viscosidad o volumen. Las barras son aptas para esterilización en autoclave, ideales para entornos que requieren condiciones controladas. Estuche organizador incluido (no autoclavable). Recomendado para laboratorios de investigación, control de calidad y aplicaciones especializadas. || **Piezas:** 14 | **Núcleo:** Samario-Cobalto (SmCo) | **Autoclavable:** Sí (barras) | **Dimensiones incluidas:** (2) 0.8 cm, (2) 1.2 cm, (2) 2 cm, (2) 2.5 cm, (2) 3 cm, (2) 4 cm, (1) 5 cm, (1) 6 cm.",
-        price: 5,
-        image: "/images/laboratorio/REACTIVOS/KIT_MAGNETOS_3.png"
-      }
-    ]
-  },
   {
     id: "kit-soluciones-buffer-hanna-instruments",
     name: "KIT DE SOLUCIONES BUFFER pH 4.0 / 7.0 / 10.01 × 500 ML – HANNA INSTRUMENTS",
@@ -674,6 +641,55 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     description: "Solución de Lugol parasitológico en presentación de 500 ml, formulada específicamente para la identificación y diferenciación de quistes y trofozoítos de protozoos intestinales en muestras de heces. Su concentración de yodo tiñe selectivamente el glucógeno y los núcleos de los parásitos, facilitando su visualización al microscopio en exámenes coproparasitológicos. Esencial en laboratorios clínicos y de parasitología para el diagnóstico de infecciones por Entamoeba, Giardia y otros protozoos intestinales. Debe almacenarse en frasco ámbar y lugar protegido de la luz.",
     price: 72,
     image: "/images/laboratorio/REACTIVOS/LUGOL_PARASITOLOGICO.png"
+  },
+  {
+    id: "kit-barras-magneticas-rotilabo-ptfe",
+    name: "KIT DE BARRAS MAGNÉTICAS ROTILABO® – PTFE",
+    type: "Utensilios",
+    description: "Kits de barras magnéticas recubiertas en PTFE (teflón) de la línea Rotilabo®, diseñados para agitación y disolución de reactivos en laboratorio. Disponibles en tres configuraciones según el número de piezas, variedad de tamaños y nivel de rendimiento requerido. Todas las barras presentan alta resistencia química frente a ácidos, bases y solventes, con superficie lisa antiadherente que facilita la limpieza y evita la contaminación de la muestra. Compatibles con agitadores magnéticos estándar, ideales para laboratorios clínicos, universitarios, industriales y de investigación.",
+    image: "/images/laboratorio/REACTIVOS/MAGNETOSCARD.png",
+
+    attributeOrder: ["kit"],
+
+    attributes: [
+      {
+        id: "kit",
+        label: "Kit",
+        type: "single",
+        values: [
+          { id: "kit-1", label: "10 PZA" },
+          { id: "kit-2", label: "18 PZA" },
+          { id: "kit-3", label: "14 PZA" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "rotilabo-kit-1",
+        attrs: { kit: "kit-1" },
+        name: "SET BÁSICO",
+        description: "Kit de barras magnéticas recubiertas en PTFE con núcleo AlNiCo, compuesto por 10 piezas para agitación estándar en laboratorio. Alta resistencia química, superficie lisa antiadherente y estuche organizador de poliestireno incluido. No apto para autoclave. Ideal para uso educativo, académico y ensayos de rutina. || **Piezas:** 10 | **Núcleo:** AlNiCo | **Autoclavable:** No | **Dimensiones incluidas:** (1) 1.5 cm, (2) 2 cm, (2) 2.5 cm, (1) 3 cm, (2) 4 cm, (2) 5 cm.",
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/KIT_MAGNETOS_1.png"
+      },
+      {
+        sku: "rotilabo-kit-2",
+        attrs: { kit: "kit-2" },
+        name: "SET COMPLETO",
+        description: "Kit de barras magnéticas recubiertas en PTFE con núcleo AlNiCo, compuesto por 18 piezas en amplia variedad de tamaños para adaptarse a diferentes recipientes y volúmenes de trabajo. Alta resistencia química, superficie lisa antiadherente y estuche organizador robusto incluido. No apto para autoclave. Recomendado para laboratorios clínicos, universitarios e industriales que requieren versatilidad operativa. || **Piezas:** 18 | **Núcleo:** AlNiCo | **Autoclavable:** No | **Dimensiones incluidas:** (2) 1 cm, (2) 1.5 cm, (2) 2 cm, (2) 2.5 cm, (2) 3 cm, (2) 4 cm, (2) 5 cm, (2) 6 cm, (2) 8 cm.",
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/KIT_MAGNETOS_2.png"
+      },
+      {
+        sku: "rotilabo-kit-3",
+        attrs: { kit: "kit-3" },
+        name: "SET TURBOMAGNET AUTOCLAVABLE",
+        description: "Kit de barras magnéticas de alto rendimiento recubiertas en PTFE con núcleo de samario-cobalto (SmCo), compuesto por 14 piezas que ofrecen mayor fuerza magnética y estabilidad en soluciones de mayor viscosidad o volumen. Las barras son aptas para esterilización en autoclave, ideales para entornos que requieren condiciones controladas. Estuche organizador incluido (no autoclavable). Recomendado para laboratorios de investigación, control de calidad y aplicaciones especializadas. || **Piezas:** 14 | **Núcleo:** Samario-Cobalto (SmCo) | **Autoclavable:** Sí (barras) | **Dimensiones incluidas:** (2) 0.8 cm, (2) 1.2 cm, (2) 2 cm, (2) 2.5 cm, (2) 3 cm, (2) 4 cm, (1) 5 cm, (1) 6 cm.",
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/KIT_MAGNETOS_3.png"
+      }
+    ]
   },
   {
     id: "pinza-bureta-mariposa-con-nuez",
@@ -2606,7 +2622,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
   {
     id: "placas-petri-vidrio-borosilicato",
     name: "PLACAS PETRI – VIDRIO BOROSILICATO",
-    type: "Utensilios de laboratorio",
+    Type: "Utensilios ",
     description: "Placas Petri fabricadas en vidrio de borosilicato (Boro 3.3), diseñadas para el cultivo y aislamiento de microorganismos en laboratorio. Su superficie lisa y uniforme permite una distribución homogénea del medio de cultivo, mientras que su alta resistencia térmica facilita la esterilización en autoclave. Disponibles en versión lisa y con divisiones internas que permiten el cultivo simultáneo de múltiples muestras en una misma placa. Ideales para laboratorios clínicos, microbiológicos, académicos e industriales.",
     image: "/images/laboratorio/UTENSILIOS/PETRICARD.png",
 
@@ -2661,20 +2677,108 @@ export const equipamientoYLaboratorioYReactivosProducts = [
       }
     ]
   },
-
   {
     id: "soporte-universal-metalico-base-pesada",
-    name: "SOPORTE UNIVERSAL METALICO BASE PESADA",
-    description: "SOPORTE UNIVERSAL METALICO BASE PESADA",
-    price: 66,
-    image: "/images/laboratorio/placeholder.png"
+    name: "SOPORTE UNIVERSAL METÁLICO BASE PESADA",
+    Type: "Utensilios ",
+    image: "/images/laboratorio/UTENSILIOS/SOPORTE_UNIVERSAL_CARD.png",
+
+    priceRange: {
+      min: 5,
+      max: 5
+    },
+
+    attributeOrder: ["base", "accesorios", "tamano"],
+
+    attributes: [
+      {
+        id: "base",
+        label: "Modelo",
+        type: "single",
+        values: [
+          { id: "simple", label: "Simple (base + varilla)" }
+        ]
+      },
+      {
+        id: "accesorios",
+        label: "Accesorios",
+        type: "multi",
+        values: [
+          {
+            id: "pinza-doble-nuez",
+            label: "Pinza universal con doble nuez",
+            name: "Pinza universal con doble nuez",
+            priceDelta: 5,
+            compatibleWith: ["simple"],
+            images: [
+              "/images/laboratorio/UTENSILIOS/SOPORTE_PINZA_NUEZ.png"
+            ]
+          },
+          {
+            id: "aro-metalico",
+            label: "Aro metálico",
+            name: "Aro metálico",
+            priceDelta: 5,
+            compatibleWith: ["simple"],
+            images: [
+              "/images/laboratorio/UTENSILIOS/SOPORTE_ARO.png"
+            ]
+          },
+          {
+            id: "rejilla-ceramica",
+            label: "Rejilla metálica con centro cerámico",
+            name: "Rejilla metálica con centro cerámico",
+            priceDelta: 5,
+            compatibleWith: ["simple"],
+            images: [
+              "/images/laboratorio/UTENSILIOS/SOPORTE_REJILLA.png"
+            ]
+          }
+        ]
+      },
+      {
+        id: "tamano",
+        label: "Tamaño",
+        type: "multi",
+        values: [
+          // Tamaños para Aro metálico
+          { id: "aro-60mm", label: "Aro – 60 mm", appliesTo: "aro-metalico" },
+          { id: "aro-80mm", label: "Aro – 80 mm", appliesTo: "aro-metalico" },
+          { id: "aro-100mm", label: "Aro – 100 mm", appliesTo: "aro-metalico" },
+          // Tamaños para Rejilla cerámica
+          { id: "rejilla-125mm", label: "Rejilla – 12.5 cm", appliesTo: "rejilla-ceramica" },
+          { id: "rejilla-150mm", label: "Rejilla – 15 cm", appliesTo: "rejilla-ceramica" },
+          { id: "rejilla-200mm", label: "Rejilla – 20 cm", appliesTo: "rejilla-ceramica" }
+        ]
+      }
+    ],
+
+    // tamano solo activo si se selecciona aro o rejilla; pinza no activa tamano
+    attributeRules: {
+      "pinza-doble-nuez": { tamano: [] },
+      "aro-metalico": { tamano: ["aro-60mm", "aro-80mm", "aro-100mm"] },
+      "rejilla-ceramica": { tamano: ["rejilla-125mm", "rejilla-150mm", "rejilla-200mm"] }
+    },
+
+    variants: [
+      {
+        sku: "soporte-simple",
+        attrs: { base: "simple" },
+        name: "SIMPLE – BASE + VARILLA",
+        description: "Soporte universal metálico de base pesada con varilla vertical roscada que permite el montaje de accesorios a distintas alturas. Su base de hierro fundido garantiza estabilidad durante procedimientos experimentales que requieren sujeción de buretas, matraces, condensadores y otros equipos de laboratorio. Compatible con pinza universal, aros metálicos y rejillas cerámicas como accesorios opcionales. Ideal para laboratorios clínicos, académicos e industriales. || **Incluye:** Base de hierro fundido y varilla metálica roscada.",
+        price: 5,
+        images: [
+          "/images/laboratorio/UTENSILIOS/SOPORTE_UNIVERSAL_CARD.png"
+        ]
+      }
+    ]
   },
   {
     id: "tubo-de-ensayo-vidrio",
     name: "TUBO DE ENSAYO DE VIDRIO",
     type: "Utensilios",
     description: "Tubos de ensayo fabricados en vidrio de borosilicato, diseñados para la realización de reacciones químicas, cultivos, mezclas y ensayos en laboratorio. Su alta resistencia térmica y química los hace compatibles con la mayoría de reactivos y fuentes de calor. Disponibles en distintas dimensiones y con opción de tapa rosca para mayor hermeticidad. Ideales para laboratorios clínicos, microbiológicos, académicos e industriales.",
-    image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_CARD.png",
+    image: "/images/laboratorio/UTENSILIOS/TUBOSCARD.png",
 
     attributeOrder: ["tipo", "medida"],
 
@@ -2684,8 +2788,8 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Tipo",
         type: "single",
         values: [
-          { id: "abierto", label: "Abierto" },
-          { id: "tapa-rosca", label: "Con tapa rosca" }
+          { id: "abierto", label: "Sin tapa" },
+          { id: "tapa-rosca", label: "Con tapa" }
         ]
       },
       {
@@ -2720,7 +2824,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         name: "ABIERTO 10 × 75 mm",
         description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 10 × 75 mm.",
         price: 1.2,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_10x75.png"
+        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
       },
       {
         sku: "tubo-ensayo-abierto-12x75",
@@ -2728,7 +2832,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         name: "ABIERTO 12 × 75 mm",
         description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 12 × 75 mm.",
         price: 0.84,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_12x75.png"
+        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
       },
       {
         sku: "tubo-ensayo-abierto-13x100",
@@ -2736,7 +2840,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         name: "ABIERTO 13 × 100 mm",
         description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 13 × 100 mm.",
         price: 1.2,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_13x100.png"
+        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
       },
       {
         sku: "tubo-ensayo-abierto-13x150",
@@ -2744,7 +2848,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         name: "ABIERTO 13 × 150 mm",
         description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 13 × 150 mm.",
         price: 0.84,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_13x150.png"
+        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
       },
       {
         sku: "tubo-ensayo-abierto-16x150",
@@ -2752,7 +2856,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         name: "ABIERTO 16 × 150 mm",
         description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 16 × 150 mm.",
         price: 5,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_16x150.png"
+        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
       },
       {
         sku: "tubo-ensayo-abierto-18x180",
@@ -2760,7 +2864,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         name: "ABIERTO 18 × 180 mm",
         description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 18 × 180 mm.",
         price: 5,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_18x180.png"
+        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
       },
       {
         sku: "tubo-ensayo-abierto-20x200",
@@ -2768,7 +2872,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         name: "ABIERTO 20 × 200 mm",
         description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 20 × 200 mm.",
         price: 5,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_20x200.png"
+        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
       },
 
       // ─── CON TAPA ROSCA ───────────────────────────────────────
@@ -2778,7 +2882,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         name: "TAPA ROSCA 13 × 100 mm × 100 UND",
         description: "Tubo de ensayo de vidrio borosilicato con tapa rosca para mayor hermeticidad en almacenamiento y transporte de muestras. || **Tipo:** Con tapa rosca | **Medida:** 13 × 100 mm | **Presentación:** Caja × 100 und.",
         price: 348,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ROSCA_13x100.png"
+        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ROSCA.png"
       },
       {
         sku: "tubo-ensayo-rosca-16x125",
@@ -2786,7 +2890,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         name: "TAPA ROSCA 16 × 125 mm",
         description: "Tubo de ensayo de vidrio borosilicato con tapa rosca para mayor hermeticidad en almacenamiento y transporte de muestras. || **Tipo:** Con tapa rosca | **Medida:** 16 × 125 mm.",
         price: 5,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ROSCA_16x125.png"
+        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ROSCA.png"
       },
       {
         sku: "tubo-ensayo-rosca-18x150",
@@ -2794,7 +2898,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         name: "TAPA ROSCA 18 × 150 mm",
         description: "Tubo de ensayo de vidrio borosilicato con tapa rosca para mayor hermeticidad en almacenamiento y transporte de muestras. || **Tipo:** Con tapa rosca | **Medida:** 18 × 150 mm.",
         price: 5,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ROSCA_18x150.png"
+        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ROSCA.png"
       },
       {
         sku: "tubo-ensayo-rosca-20x200",
@@ -2802,32 +2906,60 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         name: "TAPA ROSCA 20 × 200 mm",
         description: "Tubo de ensayo de vidrio borosilicato con tapa rosca para mayor hermeticidad en almacenamiento y transporte de muestras. || **Tipo:** Con tapa rosca | **Medida:** 20 × 200 mm.",
         price: 5,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ROSCA_20x200.png"
+        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ROSCA.png"
       }
     ]
   },
 
+
   {
-    id: "filtro-de-membrana-0-45um-47mm-syvet",
-    name: "FILTRO DE MEMBRANA 0.45 µm × 47 mm – SYVET × 200 UND",
-    type: "Utensilios",
-    description: "Filtro de membrana de 0.45 µm de tamaño de poro y 47 mm de diámetro, marca Syvet, en presentación de caja por 200 unidades. Diseñado para la filtración estéril de soluciones, retención de bacterias y partículas en análisis microbiológicos, preparación de medios de cultivo y control de calidad de agua. Su membrana de baja adsorción de proteínas garantiza alta eficiencia de filtración sin comprometer la integridad de la muestra. Compatible con portafiltros estándar de 47 mm. Ideal para laboratorios clínicos, microbiológicos, farmacéuticos y de análisis de aguas.",
-    price: 420,
-    image: "/images/laboratorio/UTENSILIOS/FILTRO_MEMBRANA_045_SYVET.png"
-  },
-  {
-    id: "rejilla-metalica-con-centro-de-ceramico-de-15-15-cm",
-    name: "REJILLA METALICA CON CENTRO DE CERAMICO DE 15*15 cm)",
-    description: "REJILLA METALICA CON CENTRO DE CERAMICO DE 15*15 cm)",
-    price: 7.2,
-    image: "/images/laboratorio/placeholder.png"
-  },
-  {
-    id: "espatula-de-laboratorio-de-metal-de-17-cm-mango-madera",
-    name: "ESPATULA DE LABORATORIO DE METAL DE 17 cm MANGO MADERA",
-    description: "ESPATULA DE LABORATORIO DE METAL DE 17 cm MANGO MADERA",
-    price: 10.8,
-    image: "/images/laboratorio/placeholder.png"
+    id: "espatula-de-laboratorio-metal-mango-madera",
+    name: "ESPÁTULA ACERO INOX Y MANGO DE MADERA",
+    Type: "Utensilios ",
+    description: "Espátula de laboratorio fabricada en acero inoxidable con mango de madera, diseñada para la manipulación, trasvase y pesado de reactivos sólidos, polvos y muestras en laboratorio. Su hoja metálica de doble extremo permite raspar, mezclar y transferir materiales con precisión, mientras que el mango de madera proporciona un agarre cómodo y aislado del calor. Resistente a la mayoría de reactivos químicos y de fácil limpieza. Ideal para laboratorios clínicos, académicos e industriales.",
+    image: "/images/laboratorio/UTENSILIOS/ESPATULA.png",
+
+    attributeOrder: ["lamina"],
+
+    attributes: [
+      {
+        id: "lamina",
+        label: "Lámina de acero (sin mango)",
+        type: "single",
+        values: [
+          { id: "10-cm", label: "10 cm" },
+          { id: "15-cm", label: "15 cm" },
+          { id: "20-cm", label: "20 cm" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "espatula-metal-madera-10cm",
+        attrs: { lamina: "10-cm" },
+        name: "LÁMINA 10 CM",
+        description: "Espátula de acero inoxidable con mango de madera para manipulación y trasvase de reactivos sólidos y polvos en laboratorio. || **Lámina de acero:** 10 cm.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/ESPATULA.png"
+      },
+      {
+        sku: "espatula-metal-madera-15cm",
+        attrs: { lamina: "15-cm" },
+        name: "LÁMINA 15 CM",
+        description: "Espátula de acero inoxidable con mango de madera para manipulación y trasvase de reactivos sólidos y polvos en laboratorio. || **Lámina de acero:** 15 cm.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/ESPATULA.png"
+      },
+      {
+        sku: "espatula-metal-madera-20cm",
+        attrs: { lamina: "20-cm" },
+        name: "LÁMINA 20 CM",
+        description: "Espátula de acero inoxidable con mango de madera para manipulación y trasvase de reactivos sólidos y polvos en laboratorio. || **Lámina de acero:** 20 cm.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/ESPATULA.png"
+      }
+    ]
   },
   {
     id: "reactivo-de-fehling",
@@ -2879,14 +3011,6 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     image: "/images/laboratorio/REACTIVOS/MOLISCH.png"
   },
 
-  {
-    id: "reactivo-de-tollens-100-ml",
-    name: "REACTIVO DE TOLLENS × 100 ML",
-    type: "Reactivos",
-    description: "Reactivo de Tollens (solución amoniacal de óxido de plata) en presentación de 100 ml, utilizado en la prueba del espejo de plata para la detección de aldehídos y azúcares reductores. En presencia de grupos aldehído produce un depósito brillante de plata metálica sobre las paredes del recipiente, siendo una prueba altamente específica y visual. Por su inestabilidad, debe prepararse o adquirirse fresco y usarse inmediatamente. Ampliamente empleado en química orgánica, bioquímica y análisis de carbohidratos en laboratorios académicos y de investigación.",
-    price: 81.6,
-    image: "/images/laboratorio/REACTIVOS/TOLLENS.png"
-  },
 
   {
     id: "solucion-de-fenolftaleina-al-1-100-ml",
@@ -2914,7 +3038,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         values: [
           { id: "solucion-100ml", label: "Solución × 100 ml" },
           { id: "pentahidratado-500g", label: "Pentahidratado 500 g" },
-          { id: "solido-1kg", label: "Sólido 1 kg" }
+          { id: "pentahidratado-1kg", label: "Pentahidratado 1 kg" }
         ]
       }
     ],
@@ -2937,10 +3061,10 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_500G.png"
       },
       {
-        sku: "sulfato-cobre-solido-1kg",
-        attrs: { presentacion: "solido-1kg" },
-        name: "SÓLIDO 1 KG",
-        description: "Sulfato de cobre sólido de alta pureza en presentación de 1 kg para uso analítico, síntesis química y preparación de soluciones en laboratorio. || **Forma:** Sólido | **Presentación:** 1 kg.",
+        sku: "sulfato-cobre-pentahidratado-1kg",
+        attrs: { presentacion: "pentahidratado-1kg" },
+        name: "PENTAHIDRATADO 1 KG",
+        description: "Sulfato de cobre pentahidratado (CuSO₄·5H₂O) de alta pureza al 99% para uso analítico, síntesis química y preparación de soluciones en laboratorio. || **Forma:** Sólido pentahidratado | **Presentación:** 1 kg.",
         price: 96,
         image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_1KG.png"
       }
@@ -3024,7 +3148,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     name: "GLUCOSA ANHIDRA",
     type: "Reactivos",
     description: "Glucosa anhidra de alta pureza, utilizada como reactivo patrón primario en la preparación de soluciones estándar para curvas de calibración, determinación de glucosa en muestras biológicas y control de calidad en métodos enzimáticos y colorimétricos. Su forma anhidra garantiza una pureza superior y mayor estabilidad frente a la forma hidratada, siendo esencial en laboratorios clínicos, bioquímicos y de investigación donde se requiere precisión en la cuantificación de carbohidratos.",
-    image: "/images/laboratorio/REACTIVOS/GLUCOSA_ANHIDRA.png",
+    image: "/images/laboratorio/REACTIVOS/GLUCOSA_ANHIDRA_CARD.png",
 
     attributeOrder: ["presentacion"],
 
@@ -3096,39 +3220,243 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     image: "/images/laboratorio/REACTIVOS/NITRATO_FERRICO.png"
   },
   {
-    id: "indicador-azul-de-timo-10-g",
-    name: "INDICADOR AZUL DE TIMO × 10 G",
+    id: "indicador-azul-de-timol",
+    name: "INDICADOR AZUL DE TIMOL",
     type: "Reactivos",
-    description: "Azul de timo (timolsulfonftaleína) en presentación de 10 g, indicador de doble viraje utilizado en volumetrías ácido-base. Presenta viraje de rojo a amarillo en el rango pH 1.2–2.8 y de amarillo a azul en el rango pH 8.0–9.6, siendo especialmente útil en titulaciones en medios semiacuosos y determinaciones potenciométricas. Su doble rango de viraje lo convierte en un indicador versátil para análisis de acidez y alcalinidad en muestras complejas. Ideal para laboratorios analíticos, académicos y de investigación.",
-    price: 1.2,
-    image: "/images/laboratorio/REACTIVOS/AZUL_TIMO.png"
+    description: "Azul de timol (timolsulfonftaleína), indicador de doble viraje utilizado en volumetrías ácido-base. Presenta viraje de rojo a amarillo en el rango pH 1.2–2.8 y de amarillo a azul en el rango pH 8.0–9.6, siendo especialmente útil en titulaciones en medios semiacuosos y determinaciones potenciométricas. Disponible en estado sólido para preparación de soluciones a la concentración requerida y en solución lista para usar. Ideal para laboratorios analíticos, académicos y de investigación.",
+    image: "/images/laboratorio/REACTIVOS/AZUL_TIMO_CARD.png",
+
+    attributeOrder: ["forma"],
+
+    attributes: [
+      {
+        id: "forma",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "solido-10g", label: "Sólido × 10 g" },
+          { id: "solucion-50ml", label: "Solución × 50 ml" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "azul-timol-solido-10g",
+        attrs: { forma: "solido-10g" },
+        name: "SÓLIDO × 10 G",
+        description: "Azul de timol en estado sólido (polvo) para preparación de soluciones indicadoras a la concentración requerida en volumetrías ácido-base y análisis potenciométricos. || **Estado:** Sólido | **Presentación:** 10 g | **Rango pH:** 1.2–2.8 y 8.0–9.6.",
+        price: 1.2,
+        image: "/images/laboratorio/REACTIVOS/AZUL_TIMO_SOLIDO.png"
+      },
+      {
+        sku: "azul-timol-solucion-50ml",
+        attrs: { forma: "solucion-50ml" },
+        name: "SOLUCIÓN × 50 ML",
+        description: "Azul de timol en solución lista para usar como indicador de pH en volumetrías ácido-base y titulaciones en medios semiacuosos. || **Estado:** Solución | **Presentación:** 50 ml | **Rango pH:** 1.2–2.8 y 8.0–9.6.",
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/AZUL_TIMO_SOL.png"
+      }
+    ]
   },
 
   {
-    id: "indicador-naranja-de-metilo-10-g",
-    name: "INDICADOR NARANJA DE METILO × 10 G",
+    id: "indicador-naranja-de-metilo",
+    name: "INDICADOR NARANJA DE METILO",
     type: "Reactivos",
-    description: "Naranja de metilo en presentación de 10 g, indicador de pH ampliamente utilizado en volumetrías ácido-base para señalar el punto de viraje en el rango pH 3.1–4.4, pasando de rojo a naranja-amarillo. Especialmente adecuado para titulaciones de ácidos fuertes con bases fuertes y determinación de acidez en muestras de agua, alimentos y productos industriales. Su alta sensibilidad en el rango ácido lo convierte en un indicador estándar en análisis volumétrico clásico. Ideal para laboratorios analíticos, académicos e industriales.",
-    price: 84,
-    image: "/images/laboratorio/REACTIVOS/NARANJA_METILO.png"
+    description: "Naranja de metilo, indicador de pH ampliamente utilizado en volumetrías ácido-base para señalar el punto de viraje en el rango pH 3.1–4.4, pasando de rojo a naranja-amarillo. Especialmente adecuado para titulaciones de ácidos fuertes con bases fuertes y determinación de acidez en muestras de agua, alimentos y productos industriales. Disponible en estado sólido para preparación de soluciones y en solución lista para usar. Ideal para laboratorios analíticos, académicos e industriales.",
+    image: "/images/laboratorio/REACTIVOS/NARANJA_METILO_CARD.png",
+
+    attributeOrder: ["forma"],
+
+    attributes: [
+      {
+        id: "forma",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "solido-10g", label: "Sólido × 10 g" },
+          { id: "solucion-100ml", label: "Solución × 100 ml" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "naranja-metilo-solido-10g",
+        attrs: { forma: "solido-10g" },
+        name: "SÓLIDO × 10 G",
+        description: "Naranja de metilo en estado sólido (polvo) para preparación de soluciones indicadoras a la concentración requerida en volumetrías ácido-base. || **Estado:** Sólido | **Presentación:** 10 g | **Rango pH:** 3.1–4.4.",
+        price: 84,
+        image: "/images/laboratorio/REACTIVOS/NARANJA_METILO_SOLIDO.png"
+      },
+      {
+        sku: "naranja-metilo-solucion-100ml",
+        attrs: { forma: "solucion-100ml" },
+        name: "SOLUCIÓN × 100 ML",
+        description: "Naranja de metilo en solución lista para usar como indicador de pH en volumetrías ácido-base y determinación de acidez en muestras de agua, alimentos y productos industriales. || **Estado:** Solución | **Presentación:** 100 ml | **Rango pH:** 3.1–4.4.",
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/NARANJA_METILO_SOL.png"
+      }
+    ]
   },
 
   {
-    id: "indicador-rojo-de-cresol-10-g",
-    name: "INDICADOR ROJO DE CRESOL × 10 G",
+    id: "indicador-rojo-de-cresol",
+    name: "INDICADOR ROJO DE CRESOL",
     type: "Reactivos",
-    description: "Rojo de cresol en presentación de 10 g, indicador de pH de doble viraje utilizado en volumetrías ácido-base. Presenta viraje de rojo a amarillo en el rango pH 0.2–1.8 y de amarillo a rojo-púrpura en el rango pH 7.0–8.8, siendo útil para titulaciones en medios ácidos y ligeramente alcalinos. Ampliamente empleado en análisis de acidez de muestras biológicas, aguas y productos farmacéuticos. Ideal para laboratorios analíticos, clínicos y académicos.",
-    price: 1.2,
-    image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL.png"
+    description: "Rojo de cresol, indicador de pH de doble viraje utilizado en volumetrías ácido-base. Presenta viraje de rojo a amarillo en el rango pH 0.2–1.8 y de amarillo a rojo-púrpura en el rango pH 7.0–8.8, siendo útil para titulaciones en medios ácidos y ligeramente alcalinos. Disponible en estado sólido para preparación de soluciones y en solución lista para usar. Ampliamente empleado en análisis de acidez de muestras biológicas, aguas y productos farmacéuticos. Ideal para laboratorios analíticos, clínicos y académicos.",
+    image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL_CARD.png",
+
+    attributeOrder: ["forma"],
+
+    attributes: [
+      {
+        id: "forma",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "solido-10g", label: "Sólido × 10 g" },
+          { id: "solucion-50ml", label: "Solución × 50 ml" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "rojo-cresol-solido-10g",
+        attrs: { forma: "solido-10g" },
+        name: "SÓLIDO × 10 G",
+        description: "Rojo de cresol en estado sólido (polvo) para preparación de soluciones indicadoras a la concentración requerida en volumetrías ácido-base. || **Estado:** Sólido | **Presentación:** 10 g | **Rango pH:** 0.2–1.8 y 7.0–8.8.",
+        price: 1.2,
+        image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL_SOLIDO.png"
+      },
+      {
+        sku: "rojo-cresol-solucion-50ml",
+        attrs: { forma: "solucion-50ml" },
+        name: "SOLUCIÓN × 50 ML",
+        description: "Rojo de cresol en solución lista para usar como indicador de pH en volumetrías ácido-base y análisis de acidez en muestras biológicas y farmacéuticas. || **Estado:** Solución | **Presentación:** 50 ml | **Rango pH:** 0.2–1.8 y 7.0–8.8.",
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL_SOL.png"
+      }
+    ]
   },
 
   {
-    id: "verde-de-bromocresol-ppr-100-grs",
-    name: "VERDE DE BROMOCRESOL PPR × 100 GRS",
+    id: "indicador-verde-de-bromocresol",
+    name: "VERDE DE BROMOCRESOL PPR",
     type: "Reactivos",
-    description: "Verde de bromocresol de grado PPR en presentación de 100 g, indicador de pH con rango de viraje entre pH 3.8 y 5.4, pasando de amarillo a azul-verde. Ampliamente utilizado en volumetrías ácido-base, determinación de acidez en muestras biológicas y alimentarias, y como colorante de seguimiento en electroforesis de proteínas y ácidos nucleicos. Su grado de pureza PPR garantiza una alta reproducibilidad y fiabilidad en los resultados analíticos. Ideal para laboratorios analíticos, bioquímicos y académicos.",
-    price: 288,
-    image: "/images/laboratorio/REACTIVOS/VERDE_BROMOCRESOL.png"
+    description: "Verde de bromocresol de grado PPR, indicador de pH con rango de viraje entre pH 3.8 y 5.4, pasando de amarillo a azul-verde. Ampliamente utilizado en volumetrías ácido-base, determinación de acidez en muestras biológicas y alimentarias, y como colorante de seguimiento en electroforesis de proteínas y ácidos nucleicos. Disponible en estado sólido y en solución lista para usar. Su grado de pureza PPR garantiza alta reproducibilidad y fiabilidad en los resultados analíticos. Ideal para laboratorios analíticos, bioquímicos y académicos.",
+    image: "/images/laboratorio/REACTIVOS/VERDE_BROMOCRESOL_CARD.png",
+
+    attributeOrder: ["forma"],
+
+    attributes: [
+      {
+        id: "forma",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "solido-100g", label: "Sólido × 100 g" },
+          { id: "solucion-100ml", label: "Solución × 100 ml" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "verde-bromocresol-solido-100g",
+        attrs: { forma: "solido-100g" },
+        name: "SÓLIDO × 100 G",
+        description: "Verde de bromocresol PPR en estado sólido (polvo) para preparación de soluciones indicadoras en volumetrías ácido-base y electroforesis de proteínas y ácidos nucleicos. || **Estado:** Sólido | **Grado:** PPR | **Presentación:** 100 g | **Rango pH:** 3.8–5.4.",
+        price: 288,
+        image: "/images/laboratorio/REACTIVOS/VERDE_BROMOCRESOL_SOLIDO.png"
+      },
+      {
+        sku: "verde-bromocresol-solucion-100ml",
+        attrs: { forma: "solucion-100ml" },
+        name: "SOLUCIÓN × 100 ML",
+        description: "Verde de bromocresol PPR en solución lista para usar como indicador de pH en volumetrías ácido-base y seguimiento de migración en electroforesis. || **Estado:** Solución | **Grado:** PPR | **Presentación:** 100 ml | **Rango pH:** 3.8–5.4.",
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/VERDE_BROMOCRESOL_SOL.png"
+      }
+    ]
+  },
+  {
+    id: "barra-de-zinc",
+    name: "BARRA DE ZINC",
+    type: "Utensilios",
+    description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales.",
+    image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png",
+
+    attributeOrder: ["tamaño"],
+
+    attributes: [
+      {
+        id: "tamaño",
+        label: "Tamaño",
+        type: "single",
+        values: [
+          { id: "10x300", label: "10 x 300 mm" },
+          { id: "12x300", label: "12 x 300 mm" },
+          { id: "15x300", label: "15 x 300 mm" },
+          { id: "16x300", label: "16 x 300 mm" },
+          { id: "18x300", label: "18 x 300 mm" },
+          { id: "20x300", label: "20 x 300 mm" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "barra-zinc-10x300",
+        attrs: { tamaño: "10x300" },
+        name: "10 x 300 mm",
+        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 10 x 300 mm.",
+        price: 120,
+        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
+      },
+      {
+        sku: "barra-zinc-12x300",
+        attrs: { tamaño: "12x300" },
+        name: "12 x 300 mm",
+        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 12 x 300 mm.",
+        price: 160,
+        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
+      },
+      {
+        sku: "barra-zinc-15x300",
+        attrs: { tamaño: "15x300" },
+        name: "15 x 300 mm",
+        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 15 x 300 mm.",
+        price: 220,
+        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
+      },
+      {
+        sku: "barra-zinc-16x300",
+        attrs: { tamaño: "16x300" },
+        name: "16 x 300 mm",
+        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 16 x 300 mm.",
+        price: 250,
+        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
+      },
+      {
+        sku: "barra-zinc-18x300",
+        attrs: { tamaño: "18x300" },
+        name: "18 x 300 mm",
+        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 18 x 300 mm.",
+        price: 290,
+        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
+      },
+      {
+        sku: "barra-zinc-20x300",
+        attrs: { tamaño: "20x300" },
+        name: "20 x 300 mm",
+        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 20 x 300 mm.",
+        price: 340,
+        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
+      }
+    ]
   },
 
   {
@@ -3192,5 +3520,14 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     price: 1.2,
     image: "/images/laboratorio/placeholder.png"
   },
+  {
+    id: "filtro-de-membrana-0-45um-47mm-syvet",
+    name: "FILTRO DE MEMBRANA 0.45 µm × 47 mm – SYVET × 200 UND",
+    type: "Utensilios",
+    description: "Filtro de membrana de 0.45 µm de tamaño de poro y 47 mm de diámetro, marca Syvet, en presentación de caja por 200 unidades. Diseñado para la filtración estéril de soluciones, retención de bacterias y partículas en análisis microbiológicos, preparación de medios de cultivo y control de calidad de agua. Su membrana de baja adsorción de proteínas garantiza alta eficiencia de filtración sin comprometer la integridad de la muestra. Compatible con portafiltros estándar de 47 mm. Ideal para laboratorios clínicos, microbiológicos, farmacéuticos y de análisis de aguas.",
+    price: 420,
+    image: "/images/laboratorio/UTENSILIOS/FILTRO_MEMBRANA_045_SYVET.png"
+  },
+
 ];
 
