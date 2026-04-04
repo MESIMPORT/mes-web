@@ -595,20 +595,34 @@ export default function ProductConfigurator({ product, onAddToCart }) {
 
     // ===== TIPO 3 =====
     if (hasVariants && selectedSkuVariant) {
+      // Incluir accesorios multi seleccionados (si los hay)
+      const accessoryIds = selectedMultiValues.map((v) => v.id).sort().join("+");
+      const accessoryLabels = selectedMultiValues.map((v) => v.label || v.name || v.id);
+      const accessoryPrice = selectedMultiValues.reduce((sum, v) => sum + (v.priceDelta || 0), 0);
+
+      const baseLabel = selectedSkuVariant.code || selectedSkuVariant.sku || "Configuración";
+      const fullLineItemId = accessoryIds
+        ? `${safeProduct.id}-${selectedSkuVariant.sku || selectedSkuVariant.code}-${accessoryIds}`
+        : `${safeProduct.id}-${selectedSkuVariant.sku || selectedSkuVariant.code}`;
+
+      const fullVariantLabel = accessoryLabels.length > 0
+        ? `${baseLabel} + ${accessoryLabels.join(" + ")}`
+        : baseLabel;
+
       onAddToCart?.({
         ...safeProduct,
-        lineItemId: `${safeProduct.id}-${selectedSkuVariant.sku || selectedSkuVariant.code}`,
+        lineItemId: fullLineItemId,
         variant: selectedSkuVariant,
-        variantLabel:
-          selectedSkuVariant.code || selectedSkuVariant.sku || "Configuración",
+        variantLabel: fullVariantLabel,
+        accessories: accessoryLabels,
         image:
           activeImage ||
           selectedSkuVariant.images?.[0] ||
           selectedSkuVariant.image ||
           safeProduct.image,
-        price: selectedSkuVariant.price,
+        price: (selectedSkuVariant.price || 0) + accessoryPrice,
       });
-      console.log("🟢 ADD DONE TIPO 2", safeProduct.id);
+      console.log("🟢 ADD DONE TIPO 3", safeProduct.id);
       // 🔔 PASO 2 — AQUÍ
       setButtonLocked(true);
       setTimeout(() => setButtonLocked(false), 1500);

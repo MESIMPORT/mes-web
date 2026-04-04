@@ -100,30 +100,30 @@ export default function ProductPage({ cartCount, onAddToCart }) {
         </div>
       </main>
 
-      {/* ── CHIP FLOTANTE MOBILE (fixed bottom-center, zona del pulgar) ── */}
-      <div className="lg:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50">
+      {/* ── CHIP FLOTANTE MOBILE (fixed bottom-left, opuesto al mini carrito) ── */}
+      <div className="lg:hidden fixed bottom-4 left-4 z-50">
         <button
           type="button"
           onClick={handleClose}
           aria-label="Volver al catálogo"
           className="
-            inline-flex items-center gap-2
+            inline-flex items-center gap-1.5
             rounded-full
             border border-slate-200/60 dark:border-slate-700/60
             bg-slate-900/85 dark:bg-slate-950/90
             backdrop-blur-md
-            px-5 py-3
-            text-sm font-medium text-white
-            shadow-xl shadow-black/20
+            px-4 py-2
+            text-sm font-semibold text-white
+            shadow-lg shadow-black/20
             active:scale-95
             transition-transform duration-100
             cursor-pointer
           "
         >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 shrink-0">
             <path fillRule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z" clipRule="evenodd" />
           </svg>
-          Volver al catálogo
+          Catálogo
         </button>
       </div>
     </>
