@@ -262,7 +262,7 @@ export default function ProductConfigurator({ product, onAddToCart }) {
   // ✅ useMemo evita que se cree un nuevo array en cada render
   // Sin esto, el useEffect([accessoryImages]) se disparaba en cada render → bucle infinito
   const accessoryImages = useMemo(
-    () => selectedMultiValues.flatMap((v) => v.images || []),
+    () => selectedMultiValues.flatMap((v) => v.images || (v.image ? [v.image.trim()] : [])),
     [selectedMultiValues]
   );
 

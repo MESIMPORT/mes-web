@@ -347,7 +347,17 @@ export const rehabilitacionYFisioterapiaProducts = [
       }
     ]
   },
+  {
+    id: "set-goniometro-6-pzas",
+    name: "SET DE GONIÓMETRO 6 PZAS",
+    type: "Antropometria",
+    description: "Set profesional de 6 goniómetros de PVC transparente de alta calidad, en distintos tamaños (6\", 8\" y 12\") para cubrir todas las articulaciones del cuerpo. Incluye goniómetros de brazo largo para caderas, rodillas y hombros; de brazo corto para muñecas, tobillos y dedos; un goniómetro para flexión lumbar y un goniómetro de dedo para evaluaciones de rango articular fino. Escala de 0° a 360° con graduaciones en negro y rojo de fácil lectura. Ligeros, resistentes y de uso clínico, ideales para fisioterapia, traumatología y rehabilitación.",
 
+    price: 50,
+
+    image: "/images/diagnostico/GONIOMETRO/GONIOMETRO.png",
+
+  },
   {
     id: "pesa-tobillera",
     name: "PESA TOBILLERA CON VELCRO",
