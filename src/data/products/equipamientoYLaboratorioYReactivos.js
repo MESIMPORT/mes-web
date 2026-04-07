@@ -642,6 +642,504 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     price: 72,
     image: "/images/laboratorio/REACTIVOS/LUGOL_PARASITOLOGICO.png"
   },
+
+  {
+    id: "reactivo-de-fehling",
+    name: "REACTIVO DE FEHLING",
+    type: "Reactivos",
+    description: "Reactivo de Fehling para la detección e identificación de azúcares reductores en muestras biológicas, alimentos y soluciones químicas. Se compone de dos soluciones (A y B) que se mezclan en partes iguales antes de su uso, produciendo un precipitado rojo ladrillo en presencia de glucosa y otros monosacáridos reductores. Ampliamente utilizado en análisis clínicos, control de calidad alimentario y prácticas de bioquímica en laboratorios académicos e industriales.",
+    image: "/images/laboratorio/REACTIVOS/FEHLING_CARD.png",
+
+    attributeOrder: ["solucion"],
+
+    attributes: [
+      {
+        id: "solucion",
+        label: "Solución",
+        type: "single",
+        values: [
+          { id: "fehling-a", label: "Fehling A" },
+          { id: "fehling-b", label: "Fehling B" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "reactivo-fehling-a-100ml",
+        attrs: { solucion: "fehling-a" },
+        name: "FEHLING A × 100 ML",
+        description: "Solución A del reactivo de Fehling (sulfato de cobre en solución acuosa), utilizada junto con la solución B para la detección de azúcares reductores en muestras biológicas y alimentarias. || **Solución:** Fehling A | **Capacidad:** 100 ml.",
+        price: 18,
+        image: "/images/laboratorio/REACTIVOS/FEHLING_A.png"
+      },
+      {
+        sku: "reactivo-fehling-b-100ml",
+        attrs: { solucion: "fehling-b" },
+        name: "FEHLING B × 100 ML",
+        description: "Solución B del reactivo de Fehling (tartrato de sodio y potasio en hidróxido de sodio), utilizada junto con la solución A para la detección de azúcares reductores en muestras biológicas y alimentarias. || **Solución:** Fehling B | **Capacidad:** 100 ml.",
+        price: 19.2,
+        image: "/images/laboratorio/REACTIVOS/FEHLING_B.png"
+      }
+    ]
+  },
+
+  {
+    id: "reactivo-de-molish-500-g",
+    name: "REACTIVO DE MOLISCH × 500 G",
+    type: "Reactivos",
+    description: "Reactivo de Molisch en presentación de 500 g, utilizado en la prueba cualitativa general para la detección de carbohidratos en muestras biológicas y soluciones químicas. En presencia de cualquier hidrato de carbono produce un característico anillo púrpura-violeta en la interfase con el ácido sulfúrico concentrado, siendo una de las reacciones más sensibles y universales para la identificación de azúcares. Ampliamente empleado en bioquímica clínica, análisis de alimentos y prácticas de laboratorio académico.",
+    price: 1.2,
+    image: "/images/laboratorio/REACTIVOS/MOLISCH.png"
+  },
+
+
+  {
+    id: "solucion-de-fenolftaleina-al-1-100-ml",
+    name: "SOLUCIÓN DE FENOLFTALEÍNA AL 1% × 100 ML",
+    type: "Reactivos",
+    description: "Solución de fenolftaleína al 1% en presentación de 100 ml, lista para usar como indicador de pH en volumetrías ácido-base. Su rango de viraje entre pH 8.2 y 10.0, pasando de incoloro a rosa-fucsia intenso, la convierte en el indicador estándar para titulaciones alcalimétricas y determinación de acidez en muestras de agua, alimentos y productos industriales. Debe almacenarse en frasco ámbar, protegida de la luz y a temperatura ambiente. Ideal para laboratorios analíticos, clínicos y académicos.",
+    price: 14.4,
+    image: "/images/laboratorio/REACTIVOS/FENOLFTALEINA_SOL.png"
+  },
+
+  {
+    id: "sulfato-de-cobre",
+    name: "SULFATO DE COBRE",
+    type: "Reactivos",
+    description: "Sulfato de cobre de alta pureza, disponible en solución lista para usar y en forma sólida pentahidratada en distintas presentaciones. Ampliamente utilizado como reactivo en la reacción de Biuret para detección de proteínas, preparación del reactivo de Fehling, análisis microbiológicos y síntesis química. Su característico color azul intenso facilita su identificación en las reacciones. Debe almacenarse en lugar fresco, seco y alejado de metales reactivos. Ideal para laboratorios clínicos, bioquímicos, académicos e industriales.",
+    image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_CARD.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "solucion-100ml", label: "Solución × 100 ml" },
+          { id: "pentahidratado-500g", label: "Pentahidratado 500 g" },
+          { id: "pentahidratado-1kg", label: "Pentahidratado 1 kg" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "sulfato-cobre-solucion-100ml",
+        attrs: { presentacion: "solucion-100ml" },
+        name: "SOLUCIÓN × 100 ML",
+        description: "Solución de sulfato de cobre lista para usar en reacción de Biuret, preparación de reactivo de Fehling y análisis microbiológicos en laboratorio. || **Forma:** Solución | **Capacidad:** 100 ml.",
+        price: 24,
+        image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_SOL.png"
+      },
+      {
+        sku: "sulfato-cobre-pentahidratado-500g",
+        attrs: { presentacion: "pentahidratado-500g" },
+        name: "PENTAHIDRATADO 500 G",
+        description: "Sulfato de cobre pentahidratado (CuSO₄·5H₂O) de alta pureza al 99% para uso analítico, síntesis química y preparación de soluciones en laboratorio. || **Forma:** Sólido pentahidratado | **Presentación:** 500 g.",
+        price: 84,
+        image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_500G.png"
+      },
+      {
+        sku: "sulfato-cobre-pentahidratado-1kg",
+        attrs: { presentacion: "pentahidratado-1kg" },
+        name: "PENTAHIDRATADO 1 KG",
+        description: "Sulfato de cobre pentahidratado (CuSO₄·5H₂O) de alta pureza al 99% para uso analítico, síntesis química y preparación de soluciones en laboratorio. || **Forma:** Sólido pentahidratado | **Presentación:** 1 kg.",
+        price: 96,
+        image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_1KG.png"
+      }
+    ]
+  },
+  {
+    id: "sulfato-de-hierro-heptahidratado-al-99-500-g",
+    name: "SULFATO DE HIERRO HEPTAHIDRATADO AL 99% × 500 G",
+    type: "Reactivos",
+    description: "Sulfato de hierro (II) heptahidratado de pureza al 99% en presentación de 500 g, conocido también como sulfato ferroso. Ampliamente utilizado como agente reductor en análisis volumétricos, determinación de oxidantes por permanganometría y dichromatometría, así como en la preparación del reactivo de Mohr para determinación de cloruros. Su color verde característico vira a amarillo-marrón por oxidación, siendo este cambio un indicador de su estado de conservación. Debe almacenarse en recipiente hermético, en lugar fresco y seco. Ideal para laboratorios analíticos, académicos e industriales.",
+    price: 198,
+    image: "/images/laboratorio/REACTIVOS/SULFATO_HIERRO.png"
+  },
+
+  {
+    id: "sulfato-de-niquel-hexahidratado-al-99-500-g",
+    name: "SULFATO DE NÍQUEL HEXAHIDRATADO AL 99% × 500 G",
+    type: "Reactivos",
+    description: "Sulfato de níquel hexahidratado de pureza al 99% en presentación de 500 g, reconocible por su característico color verde-azulado. Utilizado como reactivo en síntesis inorgánica, electrodeposición de níquel, preparación de soluciones patrón y catálisis química. Por su clasificación como compuesto tóxico y potencialmente cancerígeno, requiere manipulación con equipos de protección personal adecuados y descarte conforme a la normativa de residuos peligrosos. Debe almacenarse en recipiente hermético, en lugar fresco, seco y ventilado. Ideal para laboratorios analíticos, electroquímicos y de investigación.",
+    price: 184.8,
+    image: "/images/laboratorio/REACTIVOS/SULFATO_NIQUEL.png"
+  },
+
+  {
+    id: "sulfato-de-zinc-500-grs",
+    name: "SULFATO DE ZINC 500 GRS",
+    type: "Reactivos",
+    description: "Sulfato de zinc de alta pureza en presentación de 500 g, ampliamente utilizado como reactivo en análisis químicos, preparación de soluciones de precipitación y técnicas de concentración de parásitos en coproparasitología (método de flotación de Faust). También empleado en síntesis inorgánica, galvanoplastia y como suplemento mineral en medios de cultivo microbiológico. Debe almacenarse en recipiente hermético en lugar fresco y seco. Ideal para laboratorios clínicos, parasitológicos, académicos e industriales.",
+    price: 60,
+    image: "/images/laboratorio/REACTIVOS/SULFATO_ZINC.png"
+  },
+
+  {
+    id: "tetracloruro-de-carbono-200-ml",
+    name: "TETRACLORURO DE CARBONO × 200 ML",
+    type: "Reactivos",
+    description: "Tetracloruro de carbono de alta pureza en presentación de 200 ml, solvente orgánico no polar ampliamente utilizado en extracción de lípidos, grasas y compuestos apolares, así como en espectroscopía infrarroja y análisis cromatográfico. Por su alta densidad y baja miscibilidad con agua es empleado en extracciones líquido-líquido en química analítica. Debido a su toxicidad hepática, potencial cancerígeno y efecto sobre la capa de ozono, debe manipularse estrictamente en campana extractora con equipos de protección personal adecuados y descartarse según normativa de residuos peligrosos. Ideal para laboratorios analíticos y de investigación.",
+    price: 192,
+    image: "/images/laboratorio/REACTIVOS/TETRACLORURO_CARBONO.png"
+  },
+
+  {
+    id: "tiocianato-de-potasio-100-g",
+    name: "TIOCIANATO DE POTASIO × 100 G",
+    type: "Reactivos",
+    description: "Tiocianato de potasio de alta pureza en presentación de 100 g, utilizado como reactivo volumétrico en el método de Volhard para la determinación de halógenos por argentometría, así como en la detección colorimétrica de iones hierro (III), con los que forma un complejo rojo sangre característico. Empleado también en síntesis orgánica e inorgánica y como ligando en química de coordinación. Por su toxicidad moderada, debe manipularse con equipos de protección personal adecuados y almacenarse en lugar fresco, seco y alejado de ácidos fuertes. Ideal para laboratorios analíticos, académicos y de investigación.",
+    price: 174,
+    image: "/images/laboratorio/REACTIVOS/TIOCIANATO_POTASIO.png"
+  },
+
+
+  {
+    id: "zinc-metalico-polvo-por-500-grs",
+    name: "ZINC METÁLICO POLVO × 500 GRS",
+    type: "Reactivos",
+    description: "Zinc metálico en polvo de alta pureza en presentación de 500 g, utilizado como agente reductor en análisis químicos cuantitativos, determinación de nitratos y nitritos, y reacciones de reducción en química analítica. Su forma pulverizada maximiza la superficie de reacción, acelerando los procesos de reducción y disolución en medios ácidos. Debe almacenarse en recipiente hermético, en lugar seco y alejado de ácidos y oxidantes. Ideal para laboratorios analíticos, académicos e industriales.",
+    price: 162,
+    image: "/images/laboratorio/REACTIVOS/ZINC_METALICO_POLVO.png"
+  },
+
+  {
+    id: "oxido-de-zinc-0-5-kg",
+    name: "ÓXIDO DE ZINC × 500 GRS",
+    type: "Reactivos",
+    description: "Óxido de zinc de alta pureza en presentación de 500 g, utilizado como reactivo en síntesis inorgánica, preparación de pigmentos, análisis químicos y como precursor en la fabricación de compuestos de zinc. Sus propiedades anfóteras le permiten reaccionar tanto con ácidos como con bases, siendo ampliamente empleado en procesos de neutralización, catálisis y como agente desecante. Debe almacenarse en recipiente hermético en lugar fresco, seco y ventilado. Ideal para laboratorios analíticos, académicos e industriales.",
+    price: 84,
+    image: "/images/laboratorio/REACTIVOS/OXIDO_ZINC.png"
+  },
+
+  {
+    id: "acido-sulfosalicilico-100-ml",
+    name: "ÁCIDO SULFOSALICÍLICO × 100 ML",
+    type: "Reactivos",
+    description: "Ácido sulfosalicílico en presentación de 100 ml, ampliamente utilizado como reactivo de precipitación de proteínas en orina para la detección semicuantitativa de proteinuria en análisis clínicos. Su reacción con proteínas produce una turbidez proporcional a la concentración proteica, siendo una prueba rápida y sensible en el laboratorio clínico. También empleado como agente quelante y en síntesis orgánica. Debe manipularse con equipos de protección personal adecuados y almacenarse en lugar fresco, seco y protegido de la luz. Ideal para laboratorios clínicos, académicos y de investigación.",
+    price: 48,
+    image: "/images/laboratorio/REACTIVOS/ACIDO_SULFOSALICILICO.png"
+  },
+
+  {
+    id: "glucosa-anhidra",
+    name: "GLUCOSA ANHIDRA",
+    type: "Reactivos",
+    description: "Glucosa anhidra de alta pureza, utilizada como reactivo patrón primario en la preparación de soluciones estándar para curvas de calibración, determinación de glucosa en muestras biológicas y control de calidad en métodos enzimáticos y colorimétricos. Su forma anhidra garantiza una pureza superior y mayor estabilidad frente a la forma hidratada, siendo esencial en laboratorios clínicos, bioquímicos y de investigación donde se requiere precisión en la cuantificación de carbohidratos.",
+    image: "/images/laboratorio/REACTIVOS/GLUCOSA_ANHIDRA_CARD.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "500-g", label: "500 g" },
+          { id: "1-kg", label: "1 kg" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "glucosa-anhidra-500g",
+        attrs: { presentacion: "500-g" },
+        name: "500 G",
+        description: "Glucosa anhidra de alta pureza para preparación de soluciones estándar y determinación de glucosa en muestras biológicas. || **Presentación:** 500 g.",
+        price: 45.6,
+        image: "/images/laboratorio/REACTIVOS/GLUCOSA_ANHIDRA500.png"
+      },
+      {
+        sku: "glucosa-anhidra-1kg",
+        attrs: { presentacion: "1-kg" },
+        name: "1 KG",
+        description: "Glucosa anhidra de alta pureza para preparación de soluciones estándar y determinación de glucosa en muestras biológicas. || **Presentación:** 1 kg.",
+        price: 72,
+        image: "/images/laboratorio/REACTIVOS/GLUCOSA_ANHIDRA1000.png"
+      }
+    ]
+  },
+
+  {
+    id: "hidróxido-de-sodio-1000-grs",
+    name: "HIDRÓXIDO DE SODIO × 1000 GRS",
+    type: "Reactivos",
+    description: "Hidróxido de sodio (NaOH) de alta pureza en presentación de 1 kg, uno de los reactivos alcalinos más utilizados en química analítica e industrial. Empleado como agente neutralizante en volumetrías ácido-base, preparación de soluciones tampón, digestión de muestras biológicas y síntesis química. Su fuerte carácter básico y alta solubilidad en agua lo convierten en un insumo esencial en laboratorios clínicos, académicos e industriales. Por su naturaleza extremadamente corrosiva y su reacción exotérmica al disolverse en agua, debe manipularse con equipos de protección personal adecuados y almacenarse en recipiente hermético, en lugar fresco, seco y alejado de ácidos y materiales orgánicos.",
+    price: 468,
+    image: "/images/laboratorio/REACTIVOS/HIDROXIDO_SODIO.png"
+  },
+
+  {
+    id: "nitrato-de-cadmio-500-grs",
+    name: "NITRATO DE CADMIO × 500 GRS",
+    type: "Reactivos",
+    description: "Nitrato de cadmio de alta pureza en presentación de 500 g, utilizado como reactivo en síntesis inorgánica, preparación de soluciones de cadmio para análisis espectroscópico y como precursor en la fabricación de pigmentos y semiconductores de cadmio. Por su clasificación como compuesto altamente tóxico, cancerígeno y peligroso para el medio ambiente, requiere manipulación estricta con equipos de protección personal completos y descarte conforme a la normativa de residuos peligrosos. Debe almacenarse en recipiente hermético, en lugar fresco, seco y ventilado, alejado de reductores y materiales orgánicos. Ideal para laboratorios analíticos, de síntesis y de investigación.",
+    price: 384,
+    image: "/images/laboratorio/REACTIVOS/NITRATO_CADMIO.png"
+  },
+
+  {
+    id: "nitrato-de-plata-solucion-agno3-al-3-100-ml",
+    name: "NITRATO DE PLATA SOLUCIÓN (AgNO₃) AL 3% × 100 ML",
+    type: "Reactivos",
+    description: "Solución de nitrato de plata al 3% (AgNO₃) en presentación de 100 ml, ampliamente utilizada en volumetrías de precipitación para la determinación de cloruros por el método de Mohr y Volhard, así como en la detección de halogenuros en muestras clínicas, aguas y alimentos. Su acción bactericida la hace también útil en aplicaciones microbiológicas y dermatológicas. Por su sensibilidad a la luz, debe almacenarse en frasco ámbar, en lugar oscuro y fresco. Requiere manipulación con guantes ya que mancha la piel de forma persistente. Ideal para laboratorios analíticos, clínicos y académicos.",
+    price: 204,
+    image: "/images/laboratorio/REACTIVOS/NITRATO_PLATA_SOL.png"
+  },
+
+  {
+    id: "nitrato-ferrico-100-g",
+    name: "NITRATO FÉRRICO × 100 G",
+    type: "Reactivos",
+    description: "Nitrato férrico (Fe(NO₃)₃) de alta pureza en presentación de 100 g, utilizado como reactivo oxidante en síntesis orgánica e inorgánica, grabado de metales y como catalizador en diversas reacciones químicas. En análisis cualitativo es empleado para la detección de tiocianatos, con los que forma un complejo rojo sangre característico, y en la identificación de fenoles y compuestos aromáticos. Debe almacenarse en recipiente hermético en lugar fresco, seco y alejado de reductores y materiales orgánicos. Ideal para laboratorios analíticos, académicos e industriales.",
+    price: 1.2,
+    image: "/images/laboratorio/REACTIVOS/NITRATO_FERRICO.png"
+  },
+  {
+    id: "indicador-azul-de-timol",
+    name: "INDICADOR AZUL DE TIMOL",
+    type: "Reactivos",
+    description: "Azul de timol (timolsulfonftaleína), indicador de doble viraje utilizado en volumetrías ácido-base. Presenta viraje de rojo a amarillo en el rango pH 1.2–2.8 y de amarillo a azul en el rango pH 8.0–9.6, siendo especialmente útil en titulaciones en medios semiacuosos y determinaciones potenciométricas. Disponible en estado sólido para preparación de soluciones a la concentración requerida y en solución lista para usar. Ideal para laboratorios analíticos, académicos y de investigación.",
+    image: "/images/laboratorio/REACTIVOS/AZUL_TIMO_CARD.png",
+
+    attributeOrder: ["forma"],
+
+    attributes: [
+      {
+        id: "forma",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "solido-10g", label: "Sólido × 10 g" },
+          { id: "solucion-50ml", label: "Solución × 50 ml" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "azul-timol-solido-10g",
+        attrs: { forma: "solido-10g" },
+        name: "SÓLIDO × 10 G",
+        description: "Azul de timol en estado sólido (polvo) para preparación de soluciones indicadoras a la concentración requerida en volumetrías ácido-base y análisis potenciométricos. || **Estado:** Sólido | **Presentación:** 10 g | **Rango pH:** 1.2–2.8 y 8.0–9.6.",
+        price: 1.2,
+        image: "/images/laboratorio/REACTIVOS/AZUL_TIMO_SOLIDO.png"
+      },
+      {
+        sku: "azul-timol-solucion-50ml",
+        attrs: { forma: "solucion-50ml" },
+        name: "SOLUCIÓN × 50 ML",
+        description: "Azul de timol en solución lista para usar como indicador de pH en volumetrías ácido-base y titulaciones en medios semiacuosos. || **Estado:** Solución | **Presentación:** 50 ml | **Rango pH:** 1.2–2.8 y 8.0–9.6.",
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/AZUL_TIMO_SOL.png"
+      }
+    ]
+  },
+
+  {
+    id: "indicador-naranja-de-metilo",
+    name: "INDICADOR NARANJA DE METILO",
+    type: "Reactivos",
+    description: "Naranja de metilo, indicador de pH ampliamente utilizado en volumetrías ácido-base para señalar el punto de viraje en el rango pH 3.1–4.4, pasando de rojo a naranja-amarillo. Especialmente adecuado para titulaciones de ácidos fuertes con bases fuertes y determinación de acidez en muestras de agua, alimentos y productos industriales. Disponible en estado sólido para preparación de soluciones y en solución lista para usar. Ideal para laboratorios analíticos, académicos e industriales.",
+    image: "/images/laboratorio/REACTIVOS/NARANJA_METILO_CARD.png",
+
+    attributeOrder: ["forma"],
+
+    attributes: [
+      {
+        id: "forma",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "solido-10g", label: "Sólido × 10 g" },
+          { id: "solucion-100ml", label: "Solución × 100 ml" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "naranja-metilo-solido-10g",
+        attrs: { forma: "solido-10g" },
+        name: "SÓLIDO × 10 G",
+        description: "Naranja de metilo en estado sólido (polvo) para preparación de soluciones indicadoras a la concentración requerida en volumetrías ácido-base. || **Estado:** Sólido | **Presentación:** 10 g | **Rango pH:** 3.1–4.4.",
+        price: 84,
+        image: "/images/laboratorio/REACTIVOS/NARANJA_METILO_SOLIDO.png"
+      },
+      {
+        sku: "naranja-metilo-solucion-100ml",
+        attrs: { forma: "solucion-100ml" },
+        name: "SOLUCIÓN × 100 ML",
+        description: "Naranja de metilo en solución lista para usar como indicador de pH en volumetrías ácido-base y determinación de acidez en muestras de agua, alimentos y productos industriales. || **Estado:** Solución | **Presentación:** 100 ml | **Rango pH:** 3.1–4.4.",
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/NARANJA_METILO_SOL.png"
+      }
+    ]
+  },
+
+  {
+    id: "indicador-rojo-de-cresol",
+    name: "INDICADOR ROJO DE CRESOL",
+    type: "Reactivos",
+    description: "Rojo de cresol, indicador de pH de doble viraje utilizado en volumetrías ácido-base. Presenta viraje de rojo a amarillo en el rango pH 0.2–1.8 y de amarillo a rojo-púrpura en el rango pH 7.0–8.8, siendo útil para titulaciones en medios ácidos y ligeramente alcalinos. Disponible en estado sólido para preparación de soluciones y en solución lista para usar. Ampliamente empleado en análisis de acidez de muestras biológicas, aguas y productos farmacéuticos. Ideal para laboratorios analíticos, clínicos y académicos.",
+    image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL_CARD.png",
+
+    attributeOrder: ["forma"],
+
+    attributes: [
+      {
+        id: "forma",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "solido-10g", label: "Sólido × 10 g" },
+          { id: "solucion-50ml", label: "Solución × 50 ml" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "rojo-cresol-solido-10g",
+        attrs: { forma: "solido-10g" },
+        name: "SÓLIDO × 10 G",
+        description: "Rojo de cresol en estado sólido (polvo) para preparación de soluciones indicadoras a la concentración requerida en volumetrías ácido-base. || **Estado:** Sólido | **Presentación:** 10 g | **Rango pH:** 0.2–1.8 y 7.0–8.8.",
+        price: 1.2,
+        image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL_SOLIDO.png"
+      },
+      {
+        sku: "rojo-cresol-solucion-50ml",
+        attrs: { forma: "solucion-50ml" },
+        name: "SOLUCIÓN × 50 ML",
+        description: "Rojo de cresol en solución lista para usar como indicador de pH en volumetrías ácido-base y análisis de acidez en muestras biológicas y farmacéuticas. || **Estado:** Solución | **Presentación:** 50 ml | **Rango pH:** 0.2–1.8 y 7.0–8.8.",
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL_SOL.png"
+      }
+    ]
+  },
+
+  {
+    id: "indicador-verde-de-bromocresol",
+    name: "VERDE DE BROMOCRESOL PPR",
+    type: "Reactivos",
+    description: "Verde de bromocresol de grado PPR, indicador de pH con rango de viraje entre pH 3.8 y 5.4, pasando de amarillo a azul-verde. Ampliamente utilizado en volumetrías ácido-base, determinación de acidez en muestras biológicas y alimentarias, y como colorante de seguimiento en electroforesis de proteínas y ácidos nucleicos. Disponible en estado sólido y en solución lista para usar. Su grado de pureza PPR garantiza alta reproducibilidad y fiabilidad en los resultados analíticos. Ideal para laboratorios analíticos, bioquímicos y académicos.",
+    image: "/images/laboratorio/REACTIVOS/VERDE_BROMOCRESOL_CARD.png",
+
+    attributeOrder: ["forma"],
+
+    attributes: [
+      {
+        id: "forma",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "solido-100g", label: "Sólido × 100 g" },
+          { id: "solucion-100ml", label: "Solución × 100 ml" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "verde-bromocresol-solido-100g",
+        attrs: { forma: "solido-100g" },
+        name: "SÓLIDO × 100 G",
+        description: "Verde de bromocresol PPR en estado sólido (polvo) para preparación de soluciones indicadoras en volumetrías ácido-base y electroforesis de proteínas y ácidos nucleicos. || **Estado:** Sólido | **Grado:** PPR | **Presentación:** 100 g | **Rango pH:** 3.8–5.4.",
+        price: 288,
+        image: "/images/laboratorio/REACTIVOS/VERDE_BROMOCRESOL_SOLIDO.png"
+      },
+      {
+        sku: "verde-bromocresol-solucion-100ml",
+        attrs: { forma: "solucion-100ml" },
+        name: "SOLUCIÓN × 100 ML",
+        description: "Verde de bromocresol PPR en solución lista para usar como indicador de pH en volumetrías ácido-base y seguimiento de migración en electroforesis. || **Estado:** Solución | **Grado:** PPR | **Presentación:** 100 ml | **Rango pH:** 3.8–5.4.",
+        price: 5,
+        image: "/images/laboratorio/REACTIVOS/VERDE_BROMOCRESOL_SOL.png"
+      }
+    ]
+  },
+  {
+    id: "barra-de-zinc",
+    name: "BARRA DE ZINC",
+    type: "Utensilios",
+    description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales.",
+    image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png",
+
+    attributeOrder: ["tamaño"],
+
+    attributes: [
+      {
+        id: "tamaño",
+        label: "Tamaño",
+        type: "single",
+        values: [
+          { id: "10x300", label: "10 x 300 mm" },
+          { id: "12x300", label: "12 x 300 mm" },
+          { id: "15x300", label: "15 x 300 mm" },
+          { id: "16x300", label: "16 x 300 mm" },
+          { id: "18x300", label: "18 x 300 mm" },
+          { id: "20x300", label: "20 x 300 mm" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "barra-zinc-10x300",
+        attrs: { tamaño: "10x300" },
+        name: "10 x 300 mm",
+        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 10 x 300 mm.",
+        price: 120,
+        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
+      },
+      {
+        sku: "barra-zinc-12x300",
+        attrs: { tamaño: "12x300" },
+        name: "12 x 300 mm",
+        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 12 x 300 mm.",
+        price: 160,
+        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
+      },
+      {
+        sku: "barra-zinc-15x300",
+        attrs: { tamaño: "15x300" },
+        name: "15 x 300 mm",
+        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 15 x 300 mm.",
+        price: 220,
+        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
+      },
+      {
+        sku: "barra-zinc-16x300",
+        attrs: { tamaño: "16x300" },
+        name: "16 x 300 mm",
+        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 16 x 300 mm.",
+        price: 250,
+        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
+      },
+      {
+        sku: "barra-zinc-18x300",
+        attrs: { tamaño: "18x300" },
+        name: "18 x 300 mm",
+        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 18 x 300 mm.",
+        price: 290,
+        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
+      },
+      {
+        sku: "barra-zinc-20x300",
+        attrs: { tamaño: "20x300" },
+        name: "20 x 300 mm",
+        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 20 x 300 mm.",
+        price: 340,
+        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
+      }
+    ]
+  },
   {
     id: "kit-barras-magneticas-rotilabo-ptfe",
     name: "KIT DE BARRAS MAGNÉTICAS ROTILABO® – PTFE",
@@ -1343,6 +1841,9 @@ export const equipamientoYLaboratorioYReactivosProducts = [
       { sku: "escobilla-botella-80mm-50cm-acero", attrs: { tipo: "botella", diametro: "80-mm", longitud: "50-cm", material: "acero" }, name: "BOTELLA Ø80mm 50cm ACERO", description: "Escobilla tipo botella de acero para limpieza intensiva de botellas grandes de laboratorio. || **Tipo:** Botella | **Diámetro:** 80 mm | **Longitud:** 50 cm | **Material:** Acero.", price: 5, image: "/images/laboratorio/ESCOBILLAS/botella-80mm-50cm-acero.png" }
     ]
   },
+
+
+
   {
     id: "frascos-vidrio",
     name: "FRASCOS DE VIDRIO",
@@ -2211,73 +2712,6 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     price: 6,
     image: "/images/laboratorio/UTENSILIOS/CUBREOBJETOS.png"
   },
-  {
-    id: "matraz-erlenmeyer-graduado-borosilicato",
-    name: "MATRAZES ERLENMEYER",
-    type: "Utensilios",
-    description: "Matraz Erlenmeyer graduado fabricado en vidrio de borosilicato (Boro 3.3), diseñado para mezcla, calentamiento y almacenamiento de soluciones en laboratorio. Su forma cónica característica minimiza la evaporación y reduce el riesgo de derrames durante la agitación. Las graduaciones impresas permiten una estimación rápida del volumen, mientras que su alta resistencia química y térmica lo hace compatible con la mayoría de reactivos y fuentes de calor. Ideal para laboratorios clínicos, académicos e industriales.",
-    image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_CARD.png",
-
-    attributeOrder: ["capacidad"],
-
-    attributes: [
-      {
-        id: "capacidad",
-        label: "Capacidad",
-        type: "single",
-        values: [
-          { id: "50-ml", label: "50 ml" },
-          { id: "100-ml", label: "100 ml" },
-          { id: "250-ml", label: "250 ml" },
-          { id: "500-ml", label: "500 ml" },
-          { id: "1000-ml", label: "1000 ml" }
-        ]
-      }
-    ],
-
-    variants: [
-      {
-        sku: "erlenmeyer-boro-50ml",
-        attrs: { capacidad: "50-ml" },
-        name: "50 ML",
-        description: "Matraz Erlenmeyer graduado de vidrio de borosilicato para mezcla, calentamiento y almacenamiento de soluciones en laboratorio. || **Capacidad:** 50 ml.",
-        price: 38.4,
-        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_50ML.png"
-      },
-      {
-        sku: "erlenmeyer-boro-100ml",
-        attrs: { capacidad: "100-ml" },
-        name: "100 ML",
-        description: "Matraz Erlenmeyer graduado de vidrio de borosilicato para mezcla, calentamiento y almacenamiento de soluciones en laboratorio. || **Capacidad:** 100 ml.",
-        price: 39.6,
-        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_100ML.png"
-      },
-      {
-        sku: "erlenmeyer-boro-250ml",
-        attrs: { capacidad: "250-ml" },
-        name: "250 ML",
-        description: "Matraz Erlenmeyer graduado de vidrio de borosilicato para mezcla, calentamiento y almacenamiento de soluciones en laboratorio. || **Capacidad:** 250 ml.",
-        price: 14.4,
-        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_250ML.png"
-      },
-      {
-        sku: "erlenmeyer-boro-500ml",
-        attrs: { capacidad: "500-ml" },
-        name: "500 ML",
-        description: "Matraz Erlenmeyer graduado de vidrio de borosilicato para mezcla, calentamiento y almacenamiento de soluciones en laboratorio. || **Capacidad:** 500 ml.",
-        price: 50.4,
-        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_500ML.png"
-      },
-      {
-        sku: "erlenmeyer-boro-1000ml",
-        attrs: { capacidad: "1000-ml" },
-        name: "1000 ML",
-        description: "Matraz Erlenmeyer graduado de vidrio de borosilicato para mezcla, calentamiento y almacenamiento de soluciones en laboratorio. || **Capacidad:** 1000 ml.",
-        price: 30,
-        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_1000ML.png"
-      }
-    ]
-  },
 
   {
     id: "mechero-de-alcohol-con-tapa-de-metal",
@@ -2773,6 +3207,813 @@ export const equipamientoYLaboratorioYReactivosProducts = [
       }
     ]
   },
+
+  {
+    id: "matraz-fondo-borosilicato",
+    name: "MATRACES DE FONDO – VIDRIO BOROSILICATO",
+    type: "Utensilios",
+    description: "Matraces de vidrio de borosilicato 3.3 fabricados bajo norma ISO 4797, disponibles en fondo plano y fondo redondo con 1, 2 o 3 bocas esmeriladas estándar 24/40. El fondo plano es ideal para calentamiento estático en platinas y hornos; el fondo redondo garantiza distribución homogénea del calor en mantas calefactoras, siendo la base estándar para sistemas de destilación, reflujo y síntesis química. Compatibles con condensadores, embudos de adición y demás accesorios esmerilados estándar. Ideales para laboratorios clínicos, universitarios y de investigación.",
+    image: "/images/laboratorio/UTENSILIOS/MATRAZ_FONDO_CARD.png",
+
+    attributeOrder: ["fondo", "bocas", "capacidad"],
+
+    attributes: [
+      {
+        id: "fondo",
+        label: "Tipo de fondo",
+        type: "single",
+        values: [
+          { id: "plano", label: "Fondo plano" },
+          { id: "redondo", label: "Fondo redondo" }
+        ]
+      },
+      {
+        id: "bocas",
+        label: "Número de bocas",
+        type: "single",
+        values: [
+          { id: "1-boca", label: "1 boca" },
+          { id: "2-bocas", label: "2 bocas" },
+          { id: "3-bocas", label: "3 bocas" }
+        ]
+      },
+      {
+        id: "capacidad",
+        label: "Capacidad",
+        type: "single",
+        values: [
+          { id: "250-ml", label: "250 ml" },
+          { id: "500-ml", label: "500 ml" },
+          { id: "1000-ml", label: "1000 ml" },
+          { id: "2000-ml", label: "2000 ml" }
+        ]
+      }
+    ],
+
+    attributeRules: {
+      // Fondo → Bocas
+      "plano": { bocas: ["1-boca"] },
+      "redondo": { bocas: ["1-boca", "2-bocas", "3-bocas"] },
+
+      // Bocas → Capacidad
+      "1-boca": { capacidad: ["250-ml", "500-ml", "1000-ml", "2000-ml"] },
+      "2-bocas": { capacidad: ["500-ml", "1000-ml"] },
+      "3-bocas": { capacidad: ["500-ml", "1000-ml"] }
+    },
+
+    variants: [
+
+      // ─── FONDO PLANO – 1 BOCA ─────────────────────────────────────────────────
+      {
+        sku: "matraz-plano-1b-250ml",
+        attrs: { fondo: "plano", bocas: "1-boca", capacidad: "250-ml" },
+        name: "FONDO PLANO 1 BOCA – 250 ML",
+        description: "Matraz de fondo plano de vidrio borosilicato 3.3 con 1 boca esmerilada estándar 24/40. Ideal para calentamiento en platinas y hornos, almacenamiento de soluciones y montajes que requieren base estable. || Capacidad: 250 ml | Bocas: 1 esmerilada 24/40 | Norma: ISO 4797 | Uso: Calentamiento estático, almacenamiento.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/MATRAZ_PLANO_1B_250.png"
+      },
+      {
+        sku: "matraz-plano-1b-500ml",
+        attrs: { fondo: "plano", bocas: "1-boca", capacidad: "500-ml" },
+        name: "FONDO PLANO 1 BOCA – 500 ML",
+        description: "Matraz de fondo plano de vidrio borosilicato 3.3 con 1 boca esmerilada estándar 24/40. Ideal para calentamiento en platinas y hornos, almacenamiento de soluciones y montajes que requieren base estable. || Capacidad: 500 ml | Bocas: 1 esmerilada 24/40 | Norma: ISO 4797 | Uso: Calentamiento estático, almacenamiento.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/MATRAZ_PLANO_1B_500.png"
+      },
+      {
+        sku: "matraz-plano-1b-1000ml",
+        attrs: { fondo: "plano", bocas: "1-boca", capacidad: "1000-ml" },
+        name: "FONDO PLANO 1 BOCA – 1000 ML",
+        description: "Matraz de fondo plano de vidrio borosilicato 3.3 con 1 boca esmerilada estándar 24/40. Ideal para calentamiento en platinas y hornos, almacenamiento de soluciones y montajes que requieren base estable. || Capacidad: 1000 ml | Bocas: 1 esmerilada 24/40 | Norma: ISO 4797 | Uso: Calentamiento estático, almacenamiento.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/MATRAZ_PLANO_1B_1000.png"
+      },
+      {
+        sku: "matraz-plano-1b-2000ml",
+        attrs: { fondo: "plano", bocas: "1-boca", capacidad: "2000-ml" },
+        name: "FONDO PLANO 1 BOCA – 2000 ML",
+        description: "Matraz de fondo plano de vidrio borosilicato 3.3 con 1 boca esmerilada estándar 24/40. Ideal para calentamiento en platinas y hornos, almacenamiento de soluciones y montajes que requieren base estable. || Capacidad: 2000 ml | Bocas: 1 esmerilada 24/40 | Norma: ISO 4797 | Uso: Calentamiento estático, almacenamiento.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/MATRAZ_PLANO_1B_2000.png"
+      },
+
+      // ─── FONDO REDONDO – 1 BOCA ───────────────────────────────────────────────
+      {
+        sku: "matraz-redondo-1b-250ml",
+        attrs: { fondo: "redondo", bocas: "1-boca", capacidad: "250-ml" },
+        name: "FONDO REDONDO 1 BOCA – 250 ML",
+        description: "Matraz de fondo redondo de vidrio borosilicato 3.3 con 1 boca esmerilada estándar 24/40. Su base esférica garantiza calentamiento homogéneo en manta calefactora, siendo la pieza base estándar para destilación simple y reflujo. || Capacidad: 250 ml | Bocas: 1 esmerilada 24/40 | Norma: ISO 4797 | Uso: Destilación, reflujo, síntesis.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/MATRAZ_REDONDO_1B_250.png"
+      },
+      {
+        sku: "matraz-redondo-1b-500ml",
+        attrs: { fondo: "redondo", bocas: "1-boca", capacidad: "500-ml" },
+        name: "FONDO REDONDO 1 BOCA – 500 ML",
+        description: "Matraz de fondo redondo de vidrio borosilicato 3.3 con 1 boca esmerilada estándar 24/40. Su base esférica garantiza calentamiento homogéneo en manta calefactora, siendo la pieza base estándar para destilación simple y reflujo. || Capacidad: 500 ml | Bocas: 1 esmerilada 24/40 | Norma: ISO 4797 | Uso: Destilación, reflujo, síntesis.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/MATRAZ_REDONDO_1B_500.png"
+      },
+      {
+        sku: "matraz-redondo-1b-1000ml",
+        attrs: { fondo: "redondo", bocas: "1-boca", capacidad: "1000-ml" },
+        name: "FONDO REDONDO 1 BOCA – 1000 ML",
+        description: "Matraz de fondo redondo de vidrio borosilicato 3.3 con 1 boca esmerilada estándar 24/40. Su base esférica garantiza calentamiento homogéneo en manta calefactora, siendo la pieza base estándar para destilación simple y reflujo. || Capacidad: 1000 ml | Bocas: 1 esmerilada 24/40 | Norma: ISO 4797 | Uso: Destilación, reflujo, síntesis.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/MATRAZ_REDONDO_1B_1000.png"
+      },
+      {
+        sku: "matraz-redondo-1b-2000ml",
+        attrs: { fondo: "redondo", bocas: "1-boca", capacidad: "2000-ml" },
+        name: "FONDO REDONDO 1 BOCA – 2000 ML",
+        description: "Matraz de fondo redondo de vidrio borosilicato 3.3 con 1 boca esmerilada estándar 24/40. Su base esférica garantiza calentamiento homogéneo en manta calefactora, siendo la pieza base para destilación y síntesis a mayor escala. || Capacidad: 2000 ml | Bocas: 1 esmerilada 24/40 | Norma: ISO 4797 | Uso: Destilación, reflujo, síntesis a escala.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/MATRAZ_REDONDO_1B_2000.png"
+      },
+
+      // ─── FONDO REDONDO – 2 BOCAS ──────────────────────────────────────────────
+      {
+        sku: "matraz-redondo-2b-500ml",
+        attrs: { fondo: "redondo", bocas: "2-bocas", capacidad: "500-ml" },
+        name: "FONDO REDONDO 2 BOCAS – 500 ML",
+        description: "Matraz de fondo redondo de vidrio borosilicato 3.3 con boca central recta y boca lateral inclinada a 20°, ambas con junta esmerilada estándar 24/40. Permite conectar simultáneamente condensador y embudo de adición o termómetro para procedimientos de destilación y síntesis más complejos. || Capacidad: 500 ml | Bocas: 2 esmeriladas 24/40 | Ángulo boca lateral: 20° | Norma: ISO 4797.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/MATRAZ_REDONDO_2B_500.png"
+      },
+      {
+        sku: "matraz-redondo-2b-1000ml",
+        attrs: { fondo: "redondo", bocas: "2-bocas", capacidad: "1000-ml" },
+        name: "FONDO REDONDO 2 BOCAS – 1000 ML",
+        description: "Matraz de fondo redondo de vidrio borosilicato 3.3 con boca central recta y boca lateral inclinada a 20°, ambas con junta esmerilada estándar 24/40. Permite conectar simultáneamente condensador y embudo de adición o termómetro para procedimientos de destilación y síntesis más complejos. || Capacidad: 1000 ml | Bocas: 2 esmeriladas 24/40 | Ángulo boca lateral: 20° | Norma: ISO 4797.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/MATRAZ_REDONDO_2B_1000.png"
+      },
+
+      // ─── FONDO REDONDO – 3 BOCAS ──────────────────────────────────────────────
+      {
+        sku: "matraz-redondo-3b-500ml",
+        attrs: { fondo: "redondo", bocas: "3-bocas", capacidad: "500-ml" },
+        name: "FONDO REDONDO 3 BOCAS – 500 ML",
+        description: "Matraz de fondo redondo de vidrio borosilicato 3.3 con 3 bocas paralelas con junta esmerilada estándar 24/40. Permite conectar simultáneamente condensador, embudo de adición y termómetro o agitador, siendo la pieza base para síntesis química compleja y reacciones multicomponente. || Capacidad: 500 ml | Bocas: 3 esmeriladas 24/40 | Norma: DIN 12394 / ISO 4797 | Uso: Síntesis multifunción, reacciones complejas.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/MATRAZ_REDONDO_3B_500.png"
+      },
+      {
+        sku: "matraz-redondo-3b-1000ml",
+        attrs: { fondo: "redondo", bocas: "3-bocas", capacidad: "1000-ml" },
+        name: "FONDO REDONDO 3 BOCAS – 1000 ML",
+        description: "Matraz de fondo redondo de vidrio borosilicato 3.3 con 3 bocas paralelas con junta esmerilada estándar 24/40. Permite conectar simultáneamente condensador, embudo de adición y termómetro o agitador, siendo la pieza base para síntesis química compleja y reacciones multicomponente a mayor escala. || Capacidad: 1000 ml | Bocas: 3 esmeriladas 24/40 | Norma: DIN 12394 / ISO 4797 | Uso: Síntesis multifunción, reacciones complejas.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/MATRAZ_REDONDO_3B_1000.png"
+      }
+    ]
+  },
+
+  {
+    id: "tubo-centrifuga-vidrio-borosilicato",
+    name: "TUBO DE CENTRÍFUGA CÓNICO BOROSILICATO",
+    type: "Utensilios",
+    description: "Tubo de centrífuga cónico de vidrio borosilicato 3.3 con fondo en punta para lectura directa de sedimento y recuperación cuantitativa del pellet en laboratorio clínico y analítico. Graduado en ml para lectura directa del volumen sedimentado. Compatible con tapones de goma o plástico estándar. Indicado para separación de suero, plasma, urinálisis y sedimento urinario. || Forma: Cónico | Capacidad: 15 ml | Material: Borosilicato 3.3 | Uso: Urinálisis, sedimento urinario, separación de fluidos biológicos.",
+    price: 5,
+    image: "/images/laboratorio/UTENSILIOS/TUBO_CENTRIFUGA_CONICO_15.png"
+  },
+
+  {
+    id: "embudo-buchner-vidrio-borosilicato",
+    name: "EMBUDO BÜCHNER PORCELANA",
+    type: "Utensilios",
+    description: "Embudo Büchner fabricado en porcelana, diseñado para filtración al vacío de sólidos en laboratorio. Su placa porosa de porcelana integrada permite la retención uniforme del sólido sin necesidad de papel filtro en aplicaciones donde se requiere mayor resistencia química. Disponible en distintos diámetros para adaptarse a diferentes volúmenes de filtración y sistemas de vacío. Compatible con matraces Kitasato y tapones horadados estándar. Ideal para laboratorios clínicos, químicos, académicos e industriales.",
+    image: "/images/laboratorio/UTENSILIOS/BUCHNER_CARD.png",
+
+    attributeOrder: ["diametro"],
+
+    attributes: [
+      {
+        id: "diametro",
+        label: "Diámetro",
+        type: "single",
+        values: [
+          { id: "35-mm", label: "35 mm" },
+          { id: "55-mm", label: "55 mm" },
+          { id: "75-mm", label: "75 mm" },
+          { id: "100-mm", label: "100 mm" },
+          { id: "125-mm", label: "125 mm" },
+          { id: "150-mm", label: "150 mm" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "buchner-35mm",
+        attrs: { diametro: "35-mm" },
+        name: "BÜCHNER 35 MM",
+        description: "Embudo Büchner de porcelana con plato poroso sinterizado para filtración al vacío de pequeños volúmenes. Compatible con tapón horadado y matraz Kitasato estándar. || Diámetro: 35 mm | Material: Porcelana | Uso: Filtración al vacío de pequeños volúmenes.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/BUCHNER.png"
+      },
+      {
+        sku: "buchner-55mm",
+        attrs: { diametro: "55-mm" },
+        name: "BÜCHNER 55 MM",
+        description: "Embudo Büchner de porcelana con plato poroso sinterizado para filtración al vacío de volúmenes pequeños a medianos. Compatible con tapón horadado y matraz Kitasato estándar. || Diámetro: 55 mm | Material: Porcelana | Uso: Filtración al vacío, separación de sólidos.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/BUCHNER.png"
+      },
+      {
+        sku: "buchner-75mm",
+        attrs: { diametro: "75-mm" },
+        name: "BÜCHNER 75 MM",
+        description: "Embudo Büchner de porcelana con plato poroso sinterizado para filtración al vacío de volúmenes medianos. Compatible con tapón horadado y matraz Kitasato estándar. || Diámetro: 75 mm | Material: Porcelana | Uso: Filtración al vacío, separación de sólidos.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/BUCHNER.png"
+      },
+      {
+        sku: "buchner-100mm",
+        attrs: { diametro: "100-mm" },
+        name: "BÜCHNER 100 MM",
+        description: "Embudo Büchner de porcelana con plato poroso sinterizado para filtración al vacío de volúmenes medianos a grandes. El tamaño más utilizado en laboratorios analíticos e industriales. Compatible con tapón horadado y matraz Kitasato estándar. || Diámetro: 100 mm | Material: Porcelana | Uso: Filtración al vacío estándar de laboratorio.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/BUCHNER.png"
+      },
+      {
+        sku: "buchner-125mm",
+        attrs: { diametro: "125-mm" },
+        name: "BÜCHNER 125 MM",
+        description: "Embudo Büchner de porcelana con plato poroso sinterizado para filtración al vacío de grandes volúmenes. Compatible con tapón horadado y matraz Kitasato de mayor capacidad. || Diámetro: 125 mm | Material: Porcelana | Uso: Filtración al vacío de grandes volúmenes.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/BUCHNER.png"
+      },
+      {
+        sku: "buchner-150mm",
+        attrs: { diametro: "150-mm" },
+        name: "BÜCHNER 150 MM",
+        description: "Embudo Büchner de porcelana con plato poroso sinterizado para filtración al vacío de volúmenes industriales. Compatible con tapón horadado y matraz Kitasato de gran capacidad. || Diámetro: 150 mm | Material: Porcelana | Uso: Filtración industrial y de alto volumen.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/BUCHNER.png"
+      }
+    ]
+  },
+  {
+    id: "tubo-durham-vidrio-borosilicato",
+    name: "TUBO DE DURHAM – VIDRIO BOROSILICATO",
+    type: "Utensilios",
+    description: "Tubo de Durham fabricado en vidrio de borosilicato 3.3, diseñado para la detección de producción de gas en pruebas de fermentación microbiológica. Se introduce invertido dentro del tubo de ensayo con caldo de cultivo — cuando el microorganismo fermenta el sustrato produciendo gas, este queda atrapado en el interior del tubo de Durham formando una burbuja visible. Esencial en pruebas de identificación bioquímica de enterobacterias, coliformes y otros microorganismos fermentadores. Autoclavable y resistente a reactivos estándar de microbiología. Ideal para laboratorios clínicos, microbiológicos y académicos.",
+    image: "/images/laboratorio/UTENSILIOS/DURHAM_CARD.png",
+
+    attributeOrder: ["medida"],
+
+    attributes: [
+      {
+        id: "medida",
+        label: "Medida (Ø × largo)",
+        type: "single",
+        values: [
+          { id: "6x30", label: "6 × 30 mm" },
+          { id: "8x40", label: "8 × 40 mm" },
+          { id: "10x50", label: "10 × 50 mm" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "tubo-durham-6x30",
+        attrs: { medida: "6x30" },
+        name: "6 × 30 MM",
+        description: "Tubo de Durham de vidrio borosilicato 3.3 para detección de producción de gas en fermentación microbiológica. Se usa invertido dentro del tubo de ensayo con caldo de cultivo. Autoclavable. || Medida: 6 × 30 mm | Material: Borosilicato 3.3 | Uso: Pruebas de fermentación, identificación de enterobacterias.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/DURHAM.png"
+      },
+      {
+        sku: "tubo-durham-8x40",
+        attrs: { medida: "8x40" },
+        name: "8 × 40 MM",
+        description: "Tubo de Durham de vidrio borosilicato 3.3 para detección de producción de gas en fermentación microbiológica. Se usa invertido dentro del tubo de ensayo con caldo de cultivo. Autoclavable. || Medida: 8 × 40 mm | Material: Borosilicato 3.3 | Uso: Pruebas de fermentación, identificación de coliformes.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/DURHAM.png"
+      },
+      {
+        sku: "tubo-durham-10x50",
+        attrs: { medida: "10x50" },
+        name: "10 × 50 MM",
+        description: "Tubo de Durham de vidrio borosilicato 3.3 para detección de producción de gas en fermentación microbiológica. Se usa invertido dentro del tubo de ensayo con caldo de cultivo. Autoclavable. || Medida: 10 × 50 mm | Material: Borosilicato 3.3 | Uso: Pruebas de fermentación, identificación microbiológica.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/DURHAM.png"
+      }
+    ]
+  },
+  {
+    id: "camara-neubauer-vidrio",
+    name: "CÁMARA DE NEUBAUER MEJORADA",
+    type: "Utensilios",
+    description: "Cámara de Neubauer mejorada (Improved Neubauer) de vidrio óptico con cubreobjetos de precisión incluido, diseñada para el recuento manual de células en microscopía. Su cuadrícula central de triple línea grabada con láser facilita la diferenciación de los límites de conteo y reduce el error del observador respecto a la versión estándar. Permite el conteo de eritrocitos, leucocitos, plaquetas, espermatozoides, células de levadura y otros elementos formes en suspensión. Imprescindible en laboratorios clínicos, hematológicos, de reproducción asistida y de investigación celular. || Profundidad: 0,1 mm | Área: 9 mm² (3 × 3 mm) | Cuadrícula: Triple línea grabada con láser | Incluye: Cubreobjetos de precisión | Uso: Recuento de plaquetas, espermatozoides, células pequeñas, hematología avanzada.",
+    price: 5,
+    image: "/images/laboratorio/UTENSILIOS/NEUBAUER_IMPROVED.png"
+  },
+  // ─── 1. CONDENSADORES ─────────────────────────────────────────────────────────
+  {
+    id: "condensador-vidrio-borosilicato",
+    name: "CONDENSADORES – VIDRIO BOROSILICATO",
+    type: "Utensilios",
+    description: "Condensadores de vidrio de borosilicato 3.3 con junta esmerilada estándar 24/40, diseñados para sistemas de destilación y reflujo en laboratorio. Disponibles en tres tipos según la aplicación: Liebig (tubo interior recto, ideal para destilación simple), Allihn (tubo interior con bulbos, mayor superficie de condensación para reflujo) y Graham (espiral interior, máxima eficiencia de condensación para sustancias volátiles). Todos incluyen conexiones de manguera de vidrio para entrada y salida de agua refrigerante. Ideales para laboratorios universitarios, de síntesis química y de investigación.",
+    image: "/images/laboratorio/UTENSILIOS/CONDENSADOR_CARD.png",
+
+    attributeOrder: ["tipo", "longitud"],
+
+    attributes: [
+      {
+        id: "tipo",
+        label: "Tipo",
+        type: "single",
+        values: [
+          { id: "liebig", label: "Liebig – Tubo recto (destilación)" },
+          { id: "allihn", label: "Allihn – Bulbos (reflujo)" },
+          { id: "graham", label: "Graham – Espiral (alta eficiencia)" }
+        ]
+      },
+      {
+        id: "longitud",
+        label: "Longitud de camisa",
+        type: "single",
+        values: [
+          { id: "200-mm", label: "200 mm" },
+          { id: "300-mm", label: "300 mm" },
+          { id: "400-mm", label: "400 mm" }
+        ]
+      }
+    ],
+
+    variants: [
+      // ─── LIEBIG ───────────────────────────────────────────────────────────────
+      {
+        sku: "condensador-liebig-200mm",
+        attrs: { tipo: "liebig", longitud: "200-mm" },
+        name: "LIEBIG 200 MM",
+        description: "Condensador Liebig de tubo interior recto de vidrio borosilicato 3.3 con junta esmerilada 24/40 en ambos extremos. Ideal para destilación simple de volúmenes pequeños. Incluye conexiones de manguera de vidrio para entrada y salida de agua refrigerante. || Tipo: Liebig | Longitud camisa: 200 mm | Junta: 24/40 | Uso: Destilación simple.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/CONDENSADOR_LIEBIG.png"
+      },
+      {
+        sku: "condensador-liebig-300mm",
+        attrs: { tipo: "liebig", longitud: "300-mm" },
+        name: "LIEBIG 300 MM",
+        description: "Condensador Liebig de tubo interior recto de vidrio borosilicato 3.3 con junta esmerilada 24/40. El tamaño más utilizado en laboratorios para destilación simple y fraccionada. Incluye conexiones de manguera de vidrio. || Tipo: Liebig | Longitud camisa: 300 mm | Junta: 24/40 | Uso: Destilación simple y fraccionada.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/CONDENSADOR_LIEBIG.png"
+      },
+      {
+        sku: "condensador-liebig-400mm",
+        attrs: { tipo: "liebig", longitud: "400-mm" },
+        name: "LIEBIG 400 MM",
+        description: "Condensador Liebig de tubo interior recto de vidrio borosilicato 3.3 con junta esmerilada 24/40. Mayor longitud para destilación de mezclas con puntos de ebullición próximos. Incluye conexiones de manguera de vidrio. || Tipo: Liebig | Longitud camisa: 400 mm | Junta: 24/40 | Uso: Destilación de mezclas complejas.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/CONDENSADOR_LIEBIG.png"
+      },
+
+      // ─── ALLIHN ───────────────────────────────────────────────────────────────
+      {
+        sku: "condensador-allihn-200mm",
+        attrs: { tipo: "allihn", longitud: "200-mm" },
+        name: "ALLIHN 200 MM",
+        description: "Condensador Allihn de tubo interior con bulbos de vidrio borosilicato 3.3 con junta esmerilada 24/40. Los bulbos aumentan la superficie de condensación, siendo el estándar para sistemas de reflujo donde los vapores deben condensarse y retornar al matraz. Incluye conexiones de manguera de vidrio. || Tipo: Allihn | Longitud camisa: 200 mm | Junta: 24/40 | Uso: Reflujo.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/CONDENSADOR_ALLIHN.png"
+      },
+      {
+        sku: "condensador-allihn-300mm",
+        attrs: { tipo: "allihn", longitud: "300-mm" },
+        name: "ALLIHN 300 MM",
+        description: "Condensador Allihn de tubo interior con bulbos de vidrio borosilicato 3.3 con junta esmerilada 24/40. Mayor superficie de condensación para reflujo prolongado de reacciones que generan calor moderado. Incluye conexiones de manguera de vidrio. || Tipo: Allihn | Longitud camisa: 300 mm | Junta: 24/40 | Uso: Reflujo prolongado.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/CONDENSADOR_ALLIHN.png"
+      },
+      {
+        sku: "condensador-allihn-400mm",
+        attrs: { tipo: "allihn", longitud: "400-mm" },
+        name: "ALLIHN 400 MM",
+        description: "Condensador Allihn de tubo interior con bulbos de vidrio borosilicato 3.3 con junta esmerilada 24/40. Máxima superficie de condensación en la línea Allihn para reflujo de reacciones exotérmicas y síntesis prolongadas. || Tipo: Allihn | Longitud camisa: 400 mm | Junta: 24/40 | Uso: Reflujo de síntesis prolongadas.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/CONDENSADOR_ALLIHN.png"
+      },
+
+      // ─── GRAHAM ───────────────────────────────────────────────────────────────
+      {
+        sku: "condensador-graham-200mm",
+        attrs: { tipo: "graham", longitud: "200-mm" },
+        name: "GRAHAM 200 MM",
+        description: "Condensador Graham de espiral interior de vidrio borosilicato 3.3 con junta esmerilada 24/40. La espiral maximiza la superficie de contacto del vapor con la pared fría, logrando la mayor eficiencia de condensación entre los tipos estándar. Indicado para sustancias muy volátiles. || Tipo: Graham | Longitud camisa: 200 mm | Junta: 24/40 | Uso: Sustancias volátiles, alta eficiencia.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/CONDENSADOR_GRAHAM.png"
+      },
+      {
+        sku: "condensador-graham-300mm",
+        attrs: { tipo: "graham", longitud: "300-mm" },
+        name: "GRAHAM 300 MM",
+        description: "Condensador Graham de espiral interior de vidrio borosilicato 3.3 con junta esmerilada 24/40. Alta eficiencia de condensación para sustancias de bajo punto de ebullición y sistemas donde se requiere recuperación máxima de vapor. || Tipo: Graham | Longitud camisa: 300 mm | Junta: 24/40 | Uso: Alta recuperación de vapor.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/CONDENSADOR_GRAHAM.png"
+      },
+      {
+        sku: "condensador-graham-400mm",
+        attrs: { tipo: "graham", longitud: "400-mm" },
+        name: "GRAHAM 400 MM",
+        description: "Condensador Graham de espiral interior de vidrio borosilicato 3.3 con junta esmerilada 24/40. La mayor eficiencia de condensación disponible para síntesis con solventes muy volátiles y extracción por arrastre de vapor. || Tipo: Graham | Longitud camisa: 400 mm | Junta: 24/40 | Uso: Síntesis con solventes volátiles, extracción.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/CONDENSADOR_GRAHAM.png"
+      }
+    ]
+  },
+
+  // ─── 2. AMPOLLA DE DECANTACIÓN CILÍNDRICA ─────────────────────────────────────
+  {
+    id: "ampolla-decantacion-cilindrica-borosilicato",
+    name: "AMPOLLA DE DECANTACIÓN CILÍNDRICA – VIDRIO BOROSILICATO",
+    type: "Utensilios",
+    description: "Ampolla de decantación de forma cilíndrica fabricada en vidrio de borosilicato 3.3 con llave de paso de teflón (PTFE) y tapa esmerilada. Su forma cilíndrica facilita la lectura del volumen de cada fase durante la separación y permite una decantación más controlada que la pera de separación. Compatible con la mayoría de solventes orgánicos y ácidos diluidos. Indicada para extracciones líquido-líquido, separación de fases y purificación de compuestos en laboratorios analíticos, académicos e industriales.",
+    image: "/images/laboratorio/UTENSILIOS/AMPOLLA_CILINDRICA_CARD.png",
+
+    attributeOrder: ["capacidad"],
+
+    attributes: [
+      {
+        id: "capacidad",
+        label: "Capacidad",
+        type: "single",
+        values: [
+          { id: "50-ml", label: "50 ml" },
+          { id: "125-ml", label: "125 ml" },
+          { id: "250-ml", label: "250 ml" },
+          { id: "500-ml", label: "500 ml" },
+          { id: "1000-ml", label: "1000 ml" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "ampolla-cilindrica-50ml",
+        attrs: { capacidad: "50-ml" },
+        name: "50 ML",
+        description: "Ampolla de decantación cilíndrica de vidrio borosilicato 3.3 con llave PTFE y tapa esmerilada para extracción líquido-líquido y separación de fases. || Capacidad: 50 ml | Llave: PTFE | Tapa: Esmerilada | Uso: Extracción líquido-líquido a pequeña escala.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/AMPOLLA_CILINDRICA.png"
+      },
+      {
+        sku: "ampolla-cilindrica-125ml",
+        attrs: { capacidad: "125-ml" },
+        name: "125 ML",
+        description: "Ampolla de decantación cilíndrica de vidrio borosilicato 3.3 con llave PTFE y tapa esmerilada para extracción líquido-líquido y separación de fases. || Capacidad: 125 ml | Llave: PTFE | Tapa: Esmerilada | Uso: Extracción líquido-líquido.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/AMPOLLA_CILINDRICA.png"
+      },
+      {
+        sku: "ampolla-cilindrica-250ml",
+        attrs: { capacidad: "250-ml" },
+        name: "250 ML",
+        description: "Ampolla de decantación cilíndrica de vidrio borosilicato 3.3 con llave PTFE y tapa esmerilada. El tamaño más utilizado en extracciones analíticas estándar. || Capacidad: 250 ml | Llave: PTFE | Tapa: Esmerilada | Uso: Extracción analítica estándar.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/AMPOLLA_CILINDRICA.png"
+      },
+      {
+        sku: "ampolla-cilindrica-500ml",
+        attrs: { capacidad: "500-ml" },
+        name: "500 ML",
+        description: "Ampolla de decantación cilíndrica de vidrio borosilicato 3.3 con llave PTFE y tapa esmerilada para extracciones de mayor volumen. || Capacidad: 500 ml | Llave: PTFE | Tapa: Esmerilada | Uso: Extracción de mayor volumen, purificación.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/AMPOLLA_CILINDRICA.png"
+      },
+      {
+        sku: "ampolla-cilindrica-1000ml",
+        attrs: { capacidad: "1000-ml" },
+        name: "1000 ML",
+        description: "Ampolla de decantación cilíndrica de vidrio borosilicato 3.3 con llave PTFE y tapa esmerilada para extracciones industriales y procesamiento de grandes volúmenes. || Capacidad: 1000 ml | Llave: PTFE | Tapa: Esmerilada | Uso: Extracción industrial, grandes volúmenes.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/AMPOLLA_CILINDRICA.png"
+      }
+    ]
+  },
+
+  // ─── 4. DESECADOR DE VIDRIO ───────────────────────────────────────────────────
+  {
+    id: "desecador-vidrio-borosilicato",
+    name: "DESECADOR – VIDRIO BOROSILICATO",
+    type: "Utensilios",
+    description: "Desecador de vidrio de borosilicato con tapa esmerilada y placa de porcelana perforada incluida, diseñado para la conservación de muestras higroscópicas, reactivos sensibles a la humedad y piezas calientes que deben enfriarse sin absorber agua del ambiente. Su cierre esmerilado garantiza hermeticidad total cuando se aplica grasa de vacío en la unión. El espacio inferior aloja el agente desecante (sílicagel, pentóxido de fósforo u otro) y la placa de porcelana separa las muestras del desecante. Ideal para laboratorios analíticos, clínicos y académicos.",
+    image: "/images/laboratorio/UTENSILIOS/DESECADOR_CARD.png",
+
+    attributeOrder: ["diametro"],
+
+    attributes: [
+      {
+        id: "diametro",
+        label: "Diámetro interior",
+        type: "single",
+        values: [
+          { id: "150-mm", label: "150 mm" },
+          { id: "210-mm", label: "210 mm" },
+          { id: "240-mm", label: "240 mm" },
+          { id: "300-mm", label: "300 mm" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "desecador-vidrio-150mm",
+        attrs: { diametro: "150-mm" },
+        name: "150 MM",
+        description: "Desecador de vidrio borosilicato con tapa esmerilada y placa de porcelana perforada incluida. Capacidad para muestras de pequeño formato. Requiere aplicación de grasa de vacío en la unión esmerilada para garantizar hermeticidad. || Diámetro interior: 150 mm | Incluye: Placa de porcelana | Cierre: Tapa esmerilada | Uso: Conservación de muestras y reactivos higroscópicos.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/DESECADOR.png"
+      },
+      {
+        sku: "desecador-vidrio-210mm",
+        attrs: { diametro: "210-mm" },
+        name: "210 MM",
+        description: "Desecador de vidrio borosilicato con tapa esmerilada y placa de porcelana perforada incluida. Tamaño estándar para laboratorios analíticos y gravimétricos. Requiere aplicación de grasa de vacío en la unión esmerilada. || Diámetro interior: 210 mm | Incluye: Placa de porcelana | Cierre: Tapa esmerilada | Uso: Enfriamiento de crisoles, conservación de reactivos.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/DESECADOR.png"
+      },
+      {
+        sku: "desecador-vidrio-240mm",
+        attrs: { diametro: "240-mm" },
+        name: "240 MM",
+        description: "Desecador de vidrio borosilicato con tapa esmerilada y placa de porcelana perforada incluida. Mayor capacidad para conservar simultáneamente varias muestras o crisoles calientes. || Diámetro interior: 240 mm | Incluye: Placa de porcelana | Cierre: Tapa esmerilada | Uso: Conservación múltiple de muestras y crisoles.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/DESECADOR.png"
+      },
+      {
+        sku: "desecador-vidrio-300mm",
+        attrs: { diametro: "300-mm" },
+        name: "300 MM",
+        description: "Desecador de vidrio borosilicato de gran capacidad con tapa esmerilada y placa de porcelana perforada incluida. Para conservación simultánea de múltiples muestras o equipos de mayor tamaño en laboratorios industriales y de investigación. || Diámetro interior: 300 mm | Incluye: Placa de porcelana | Cierre: Tapa esmerilada | Uso: Laboratorio industrial, conservación a gran escala.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/DESECADOR.png"
+      }
+    ]
+  },
+
+  // ─── 5. ERLENMEYER CON TAPA ESMERILADA ───────────────────────────────────────
+  {
+    id: "matraz-erlenmeyer-borosilicato",
+    name: "MATRAZ ERLENMEYER – VIDRIO BOROSILICATO",
+    type: "Utensilios",
+    description: "Matraz Erlenmeyer fabricado en vidrio de borosilicato 3.3, diseñado para mezcla, calentamiento y almacenamiento de soluciones en laboratorio. Su forma cónica minimiza la evaporación y reduce el riesgo de derrames durante la agitación. Disponible en versión boca estándar graduada para uso general, y versión con tapa esmerilada 24/40 para cierre hermético que evita la evaporación de solventes volátiles y la contaminación de la muestra. Ideal para preparación de soluciones, cultivos microbiológicos y síntesis química en laboratorios clínicos, académicos e industriales.",
+    image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_CARD.png",
+
+    attributeOrder: ["tipo", "capacidad"],
+
+    attributes: [
+      {
+        id: "tipo",
+        label: "Tipo de boca",
+        type: "single",
+        values: [
+          { id: "estandar", label: "Boca estándar graduada" },
+          { id: "esmerilada", label: "Con tapa esmerilada 24/40" }
+        ]
+      },
+      {
+        id: "capacidad",
+        label: "Capacidad",
+        type: "single",
+        values: [
+          { id: "50-ml", label: "50 ml" },
+          { id: "100-ml", label: "100 ml" },
+          { id: "250-ml", label: "250 ml" },
+          { id: "500-ml", label: "500 ml" },
+          { id: "1000-ml", label: "1000 ml" }
+        ]
+      }
+    ],
+
+    attributeRules: {
+      "estandar": { capacidad: ["50-ml", "100-ml", "250-ml", "500-ml", "1000-ml"] },
+      "esmerilada": { capacidad: ["50-ml", "100-ml", "250-ml", "500-ml", "1000-ml"] }
+    },
+
+    variants: [
+      // ─── BOCA ESTÁNDAR ────────────────────────────────────────────────────────
+      {
+        sku: "erlenmeyer-boro-50ml",
+        attrs: { tipo: "estandar", capacidad: "50-ml" },
+        name: "BOCA ESTÁNDAR – 50 ML",
+        description: "Matraz Erlenmeyer de vidrio borosilicato 3.3 con boca estándar graduada para mezcla, calentamiento y almacenamiento de soluciones. || Capacidad: 50 ml | Tapa: Boca estándar | Norma: Borosilicato 3.3.",
+        price: 38.4,
+        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_50ML.png"
+      },
+      {
+        sku: "erlenmeyer-boro-100ml",
+        attrs: { tipo: "estandar", capacidad: "100-ml" },
+        name: "BOCA ESTÁNDAR – 100 ML",
+        description: "Matraz Erlenmeyer de vidrio borosilicato 3.3 con boca estándar graduada para mezcla, calentamiento y almacenamiento de soluciones. || Capacidad: 100 ml | Tapa: Boca estándar | Norma: Borosilicato 3.3.",
+        price: 39.6,
+        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_100ML.png"
+      },
+      {
+        sku: "erlenmeyer-boro-250ml",
+        attrs: { tipo: "estandar", capacidad: "250-ml" },
+        name: "BOCA ESTÁNDAR – 250 ML",
+        description: "Matraz Erlenmeyer de vidrio borosilicato 3.3 con boca estándar graduada para mezcla, calentamiento y almacenamiento de soluciones. || Capacidad: 250 ml | Tapa: Boca estándar | Norma: Borosilicato 3.3.",
+        price: 14.4,
+        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_250ML.png"
+      },
+      {
+        sku: "erlenmeyer-boro-500ml",
+        attrs: { tipo: "estandar", capacidad: "500-ml" },
+        name: "BOCA ESTÁNDAR – 500 ML",
+        description: "Matraz Erlenmeyer de vidrio borosilicato 3.3 con boca estándar graduada para mezcla, calentamiento y almacenamiento de soluciones. || Capacidad: 500 ml | Tapa: Boca estándar | Norma: Borosilicato 3.3.",
+        price: 50.4,
+        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_500ML.png"
+      },
+      {
+        sku: "erlenmeyer-boro-1000ml",
+        attrs: { tipo: "estandar", capacidad: "1000-ml" },
+        name: "BOCA ESTÁNDAR – 1000 ML",
+        description: "Matraz Erlenmeyer de vidrio borosilicato 3.3 con boca estándar graduada para mezcla, calentamiento y almacenamiento de soluciones. || Capacidad: 1000 ml | Tapa: Boca estándar | Norma: Borosilicato 3.3.",
+        price: 30,
+        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_1000ML.png"
+      },
+
+      // ─── TAPA ESMERILADA ──────────────────────────────────────────────────────
+      {
+        sku: "erlenmeyer-esm-50ml",
+        attrs: { tipo: "esmerilada", capacidad: "50-ml" },
+        name: "TAPA ESMERILADA – 50 ML",
+        description: "Matraz Erlenmeyer de vidrio borosilicato 3.3 con tapa esmerilada 24/40 para cierre hermético, evitando evaporación de solventes volátiles y contaminación de la muestra. || Capacidad: 50 ml | Tapa: Esmerilada 24/40 | Uso: Solventes volátiles, almacenamiento hermético.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_ESM_50.png"
+      },
+      {
+        sku: "erlenmeyer-esm-100ml",
+        attrs: { tipo: "esmerilada", capacidad: "100-ml" },
+        name: "TAPA ESMERILADA – 100 ML",
+        description: "Matraz Erlenmeyer de vidrio borosilicato 3.3 con tapa esmerilada 24/40 para cierre hermético, evitando evaporación de solventes volátiles y contaminación de la muestra. || Capacidad: 100 ml | Tapa: Esmerilada 24/40 | Uso: Almacenamiento hermético, agitación.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_ESM_100.png"
+      },
+      {
+        sku: "erlenmeyer-esm-250ml",
+        attrs: { tipo: "esmerilada", capacidad: "250-ml" },
+        name: "TAPA ESMERILADA – 250 ML",
+        description: "Matraz Erlenmeyer de vidrio borosilicato 3.3 con tapa esmerilada 24/40. El tamaño más utilizado para preparación y almacenamiento de soluciones estándar y cultivos microbiológicos. || Capacidad: 250 ml | Tapa: Esmerilada 24/40 | Uso: Soluciones estándar, cultivos microbiológicos.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_ESM_250.png"
+      },
+      {
+        sku: "erlenmeyer-esm-500ml",
+        attrs: { tipo: "esmerilada", capacidad: "500-ml" },
+        name: "TAPA ESMERILADA – 500 ML",
+        description: "Matraz Erlenmeyer de vidrio borosilicato 3.3 con tapa esmerilada 24/40 para preparación y almacenamiento hermético de soluciones de mayor volumen. || Capacidad: 500 ml | Tapa: Esmerilada 24/40 | Uso: Preparación de soluciones, síntesis química.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_ESM_500.png"
+      },
+      {
+        sku: "erlenmeyer-esm-1000ml",
+        attrs: { tipo: "esmerilada", capacidad: "1000-ml" },
+        name: "TAPA ESMERILADA – 1000 ML",
+        description: "Matraz Erlenmeyer de vidrio borosilicato 3.3 con tapa esmerilada 24/40 para preparación y almacenamiento hermético de grandes volúmenes. || Capacidad: 1000 ml | Tapa: Esmerilada 24/40 | Uso: Grandes volúmenes, síntesis y cultivos.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/ERLENMEYER_ESM_1000.png"
+      }
+    ]
+  },
+
+  // ─── 1. TUBO DE WINTROBE ──────────────────────────────────────────────────────
+  {
+    id: "tubo-wintrobe-vidrio",
+    name: "TUBO DE WINTROBE – VIDRIO",
+    type: "Utensilios",
+    description: "Tubo de Wintrobe de vidrio de alta calidad óptica, diseñado para la determinación de la velocidad de eritrosedimentación (VES) por el método de Wintrobe y para la medición del hematocrito por centrifugación. Su forma cilíndrica de paredes rectas y graduación de doble escala (0–100 mm) permite leer simultáneamente el hematocrito (desde arriba) y la sedimentación (desde abajo) en el mismo tubo. Longitud estándar de 110 mm con diámetro interno de 2,5 mm. Imprescindible en laboratorios de hematología clínica.",
+    image: "/images/laboratorio/UTENSILIOS/WINTROBE.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "unidad", label: "Unidad" },
+          { id: "caja-10", label: "Caja × 10 und" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "tubo-wintrobe-unidad",
+        attrs: { presentacion: "unidad" },
+        name: "TUBO DE WINTROBE – UNIDAD",
+        description: "Tubo de Wintrobe de vidrio óptico con doble escala graduada para determinación de VES y hematocrito por el método de Wintrobe. || Longitud: 110 mm | Diámetro interno: 2,5 mm | Escala: 0–100 mm doble lectura | Uso: VES método Wintrobe, hematocrito.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/WINTROBE.png"
+      },
+      {
+        sku: "tubo-wintrobe-caja-10",
+        attrs: { presentacion: "caja-10" },
+        name: "TUBO DE WINTROBE – CAJA × 10 UND",
+        description: "Caja de 10 tubos de Wintrobe de vidrio óptico con doble escala graduada para determinación de VES y hematocrito por el método de Wintrobe. || Longitud: 110 mm | Diámetro interno: 2,5 mm | Escala: 0–100 mm doble lectura | Presentación: Caja × 10 unidades.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/WINTROBE.png"
+      }
+    ]
+  },
+
+  // ─── 2. TUBO DE WESTERGREN ────────────────────────────────────────────────────
+  {
+    id: "tubo-westergren-vidrio",
+    name: "TUBO DE WESTERGREN – VIDRIO",
+    type: "Utensilios",
+    description: "Tubo de Westergren de vidrio de alta calidad óptica, diseñado para la determinación de la velocidad de eritrosedimentación (VES) por el método de Westergren, estándar internacional recomendado por el ICSH (International Council for Standardization in Haematology). Longitud de 300 mm con diámetro interno de 2,55 mm y graduación de 0 a 200 mm. Se usa verticalmente en gradilla especial durante exactamente 1 hora para la lectura del sedimento. Imprescindible en laboratorios de hematología clínica para el diagnóstico y seguimiento de procesos inflamatorios, infecciosos y autoinmunes.",
+    image: "/images/laboratorio/UTENSILIOS/WESTERGREN.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "unidad", label: "Unidad" },
+          { id: "caja-10", label: "Caja × 10 und" },
+          { id: "caja-50", label: "Caja × 50 und" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "tubo-westergren-unidad",
+        attrs: { presentacion: "unidad" },
+        name: "TUBO DE WESTERGREN – UNIDAD",
+        description: "Tubo de Westergren de vidrio óptico para determinación de VES por el método estándar ICSH. || Longitud: 300 mm | Diámetro interno: 2,55 mm | Escala: 0–200 mm | Uso: VES método Westergren estándar ICSH.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/WESTERGREN.png"
+      },
+      {
+        sku: "tubo-westergren-caja-10",
+        attrs: { presentacion: "caja-10" },
+        name: "TUBO DE WESTERGREN – CAJA × 10 UND",
+        description: "Caja de 10 tubos de Westergren de vidrio óptico para determinación de VES por el método estándar ICSH. || Longitud: 300 mm | Diámetro interno: 2,55 mm | Escala: 0–200 mm | Presentación: Caja × 10 unidades.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/WESTERGREN.png"
+      },
+      {
+        sku: "tubo-westergren-caja-50",
+        attrs: { presentacion: "caja-50" },
+        name: "TUBO DE WESTERGREN – CAJA × 50 UND",
+        description: "Caja de 50 tubos de Westergren de vidrio óptico para laboratorios de hematología clínica con alto volumen de determinaciones de VES. || Longitud: 300 mm | Diámetro interno: 2,55 mm | Escala: 0–200 mm | Presentación: Caja × 50 unidades.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/WESTERGREN.png"
+      }
+    ]
+  },
+
+  // ─── 3. CÁMARA HÚMEDA DE VIDRIO ───────────────────────────────────────────────
+  {
+    id: "camara-humeda-vidrio",
+    name: "BANDEJA DE TINCION",
+    type: "Utensilios",
+    description: "Cámara húmeda de vidrio diseñada para la incubación de portaobjetos en condiciones de humedad controlada, evitando la desecación de las muestras durante procedimientos de inmunohistoquímica, inmunofluorescencia, hibridación in situ (FISH) e incubación de anticuerpos. Su base cuenta con barras de soporte para elevar los portaobjetos sobre una capa de agua o solución tampón que mantiene la humedad del ambiente interior. La tapa de vidrio garantiza hermeticidad y permite la visualización de los portaobjetos sin abrir la cámara. Imprescindible en laboratorios de histopatología, citología, biología molecular y de investigación.",
+    image: "/images/laboratorio/UTENSILIOS/BANDEJA_TINCION_CARD.png",
+
+    attributeOrder: ["capacidad"],
+
+    attributes: [
+      {
+        id: "capacidad",
+        label: "Capacidad",
+        type: "single",
+        values: [
+          { id: "10-laminillas", label: "Hasta 10 portaobjetos" },
+          { id: "20-laminillas", label: "Hasta 20 portaobjetos" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "camara-humeda-10",
+        attrs: { capacidad: "10-laminillas" },
+        name: "HASTA 10 PORTAOBJETOS",
+        description: "Cámara húmeda de vidrio para incubación de hasta 10 portaobjetos en condiciones de humedad controlada. Indicada para inmunohistoquímica, inmunofluorescencia e hibridación in situ. Base con barras de soporte y tapa hermética de vidrio. || Capacidad: 10 portaobjetos | Material: Vidrio | Uso: IHQ, IF, FISH, incubación de anticuerpos.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/BANDEJA_TINCION.png"
+      },
+      {
+        sku: "camara-humeda-20",
+        attrs: { capacidad: "20-laminillas" },
+        name: "HASTA 20 PORTAOBJETOS",
+        description: "Cámara húmeda de vidrio de mayor capacidad para incubación simultánea de hasta 20 portaobjetos en condiciones de humedad controlada. Indicada para laboratorios con mayor volumen de procesamiento en inmunohistoquímica, inmunofluorescencia e hibridación in situ. Base con barras de soporte y tapa hermética de vidrio. || Capacidad: 20 portaobjetos | Material: Vidrio | Uso: IHQ, IF, FISH, procesamiento a mayor escala.",
+        price: 5,
+        image: "/images/laboratorio/UTENSILIOS/BANDEJA_TINCION.png"
+      }
+    ]
+  },
   {
     id: "tubo-de-ensayo-vidrio",
     name: "TUBO DE ENSAYO DE VIDRIO",
@@ -2961,573 +4202,8 @@ export const equipamientoYLaboratorioYReactivosProducts = [
       }
     ]
   },
-  {
-    id: "reactivo-de-fehling",
-    name: "REACTIVO DE FEHLING",
-    type: "Reactivos",
-    description: "Reactivo de Fehling para la detección e identificación de azúcares reductores en muestras biológicas, alimentos y soluciones químicas. Se compone de dos soluciones (A y B) que se mezclan en partes iguales antes de su uso, produciendo un precipitado rojo ladrillo en presencia de glucosa y otros monosacáridos reductores. Ampliamente utilizado en análisis clínicos, control de calidad alimentario y prácticas de bioquímica en laboratorios académicos e industriales.",
-    image: "/images/laboratorio/REACTIVOS/FEHLING_CARD.png",
-
-    attributeOrder: ["solucion"],
-
-    attributes: [
-      {
-        id: "solucion",
-        label: "Solución",
-        type: "single",
-        values: [
-          { id: "fehling-a", label: "Fehling A" },
-          { id: "fehling-b", label: "Fehling B" }
-        ]
-      }
-    ],
-
-    variants: [
-      {
-        sku: "reactivo-fehling-a-100ml",
-        attrs: { solucion: "fehling-a" },
-        name: "FEHLING A × 100 ML",
-        description: "Solución A del reactivo de Fehling (sulfato de cobre en solución acuosa), utilizada junto con la solución B para la detección de azúcares reductores en muestras biológicas y alimentarias. || **Solución:** Fehling A | **Capacidad:** 100 ml.",
-        price: 18,
-        image: "/images/laboratorio/REACTIVOS/FEHLING_A.png"
-      },
-      {
-        sku: "reactivo-fehling-b-100ml",
-        attrs: { solucion: "fehling-b" },
-        name: "FEHLING B × 100 ML",
-        description: "Solución B del reactivo de Fehling (tartrato de sodio y potasio en hidróxido de sodio), utilizada junto con la solución A para la detección de azúcares reductores en muestras biológicas y alimentarias. || **Solución:** Fehling B | **Capacidad:** 100 ml.",
-        price: 19.2,
-        image: "/images/laboratorio/REACTIVOS/FEHLING_B.png"
-      }
-    ]
-  },
-
-  {
-    id: "reactivo-de-molish-500-g",
-    name: "REACTIVO DE MOLISCH × 500 G",
-    type: "Reactivos",
-    description: "Reactivo de Molisch en presentación de 500 g, utilizado en la prueba cualitativa general para la detección de carbohidratos en muestras biológicas y soluciones químicas. En presencia de cualquier hidrato de carbono produce un característico anillo púrpura-violeta en la interfase con el ácido sulfúrico concentrado, siendo una de las reacciones más sensibles y universales para la identificación de azúcares. Ampliamente empleado en bioquímica clínica, análisis de alimentos y prácticas de laboratorio académico.",
-    price: 1.2,
-    image: "/images/laboratorio/REACTIVOS/MOLISCH.png"
-  },
 
 
-  {
-    id: "solucion-de-fenolftaleina-al-1-100-ml",
-    name: "SOLUCIÓN DE FENOLFTALEÍNA AL 1% × 100 ML",
-    type: "Reactivos",
-    description: "Solución de fenolftaleína al 1% en presentación de 100 ml, lista para usar como indicador de pH en volumetrías ácido-base. Su rango de viraje entre pH 8.2 y 10.0, pasando de incoloro a rosa-fucsia intenso, la convierte en el indicador estándar para titulaciones alcalimétricas y determinación de acidez en muestras de agua, alimentos y productos industriales. Debe almacenarse en frasco ámbar, protegida de la luz y a temperatura ambiente. Ideal para laboratorios analíticos, clínicos y académicos.",
-    price: 14.4,
-    image: "/images/laboratorio/REACTIVOS/FENOLFTALEINA_SOL.png"
-  },
-
-  {
-    id: "sulfato-de-cobre",
-    name: "SULFATO DE COBRE",
-    type: "Reactivos",
-    description: "Sulfato de cobre de alta pureza, disponible en solución lista para usar y en forma sólida pentahidratada en distintas presentaciones. Ampliamente utilizado como reactivo en la reacción de Biuret para detección de proteínas, preparación del reactivo de Fehling, análisis microbiológicos y síntesis química. Su característico color azul intenso facilita su identificación en las reacciones. Debe almacenarse en lugar fresco, seco y alejado de metales reactivos. Ideal para laboratorios clínicos, bioquímicos, académicos e industriales.",
-    image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_CARD.png",
-
-    attributeOrder: ["presentacion"],
-
-    attributes: [
-      {
-        id: "presentacion",
-        label: "Presentación",
-        type: "single",
-        values: [
-          { id: "solucion-100ml", label: "Solución × 100 ml" },
-          { id: "pentahidratado-500g", label: "Pentahidratado 500 g" },
-          { id: "pentahidratado-1kg", label: "Pentahidratado 1 kg" }
-        ]
-      }
-    ],
-
-    variants: [
-      {
-        sku: "sulfato-cobre-solucion-100ml",
-        attrs: { presentacion: "solucion-100ml" },
-        name: "SOLUCIÓN × 100 ML",
-        description: "Solución de sulfato de cobre lista para usar en reacción de Biuret, preparación de reactivo de Fehling y análisis microbiológicos en laboratorio. || **Forma:** Solución | **Capacidad:** 100 ml.",
-        price: 24,
-        image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_SOL.png"
-      },
-      {
-        sku: "sulfato-cobre-pentahidratado-500g",
-        attrs: { presentacion: "pentahidratado-500g" },
-        name: "PENTAHIDRATADO 500 G",
-        description: "Sulfato de cobre pentahidratado (CuSO₄·5H₂O) de alta pureza al 99% para uso analítico, síntesis química y preparación de soluciones en laboratorio. || **Forma:** Sólido pentahidratado | **Presentación:** 500 g.",
-        price: 84,
-        image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_500G.png"
-      },
-      {
-        sku: "sulfato-cobre-pentahidratado-1kg",
-        attrs: { presentacion: "pentahidratado-1kg" },
-        name: "PENTAHIDRATADO 1 KG",
-        description: "Sulfato de cobre pentahidratado (CuSO₄·5H₂O) de alta pureza al 99% para uso analítico, síntesis química y preparación de soluciones en laboratorio. || **Forma:** Sólido pentahidratado | **Presentación:** 1 kg.",
-        price: 96,
-        image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_1KG.png"
-      }
-    ]
-  },
-  {
-    id: "sulfato-de-hierro-heptahidratado-al-99-500-g",
-    name: "SULFATO DE HIERRO HEPTAHIDRATADO AL 99% × 500 G",
-    type: "Reactivos",
-    description: "Sulfato de hierro (II) heptahidratado de pureza al 99% en presentación de 500 g, conocido también como sulfato ferroso. Ampliamente utilizado como agente reductor en análisis volumétricos, determinación de oxidantes por permanganometría y dichromatometría, así como en la preparación del reactivo de Mohr para determinación de cloruros. Su color verde característico vira a amarillo-marrón por oxidación, siendo este cambio un indicador de su estado de conservación. Debe almacenarse en recipiente hermético, en lugar fresco y seco. Ideal para laboratorios analíticos, académicos e industriales.",
-    price: 198,
-    image: "/images/laboratorio/REACTIVOS/SULFATO_HIERRO.png"
-  },
-
-  {
-    id: "sulfato-de-niquel-hexahidratado-al-99-500-g",
-    name: "SULFATO DE NÍQUEL HEXAHIDRATADO AL 99% × 500 G",
-    type: "Reactivos",
-    description: "Sulfato de níquel hexahidratado de pureza al 99% en presentación de 500 g, reconocible por su característico color verde-azulado. Utilizado como reactivo en síntesis inorgánica, electrodeposición de níquel, preparación de soluciones patrón y catálisis química. Por su clasificación como compuesto tóxico y potencialmente cancerígeno, requiere manipulación con equipos de protección personal adecuados y descarte conforme a la normativa de residuos peligrosos. Debe almacenarse en recipiente hermético, en lugar fresco, seco y ventilado. Ideal para laboratorios analíticos, electroquímicos y de investigación.",
-    price: 184.8,
-    image: "/images/laboratorio/REACTIVOS/SULFATO_NIQUEL.png"
-  },
-
-  {
-    id: "sulfato-de-zinc-500-grs",
-    name: "SULFATO DE ZINC 500 GRS",
-    type: "Reactivos",
-    description: "Sulfato de zinc de alta pureza en presentación de 500 g, ampliamente utilizado como reactivo en análisis químicos, preparación de soluciones de precipitación y técnicas de concentración de parásitos en coproparasitología (método de flotación de Faust). También empleado en síntesis inorgánica, galvanoplastia y como suplemento mineral en medios de cultivo microbiológico. Debe almacenarse en recipiente hermético en lugar fresco y seco. Ideal para laboratorios clínicos, parasitológicos, académicos e industriales.",
-    price: 60,
-    image: "/images/laboratorio/REACTIVOS/SULFATO_ZINC.png"
-  },
-
-  {
-    id: "tetracloruro-de-carbono-200-ml",
-    name: "TETRACLORURO DE CARBONO × 200 ML",
-    type: "Reactivos",
-    description: "Tetracloruro de carbono de alta pureza en presentación de 200 ml, solvente orgánico no polar ampliamente utilizado en extracción de lípidos, grasas y compuestos apolares, así como en espectroscopía infrarroja y análisis cromatográfico. Por su alta densidad y baja miscibilidad con agua es empleado en extracciones líquido-líquido en química analítica. Debido a su toxicidad hepática, potencial cancerígeno y efecto sobre la capa de ozono, debe manipularse estrictamente en campana extractora con equipos de protección personal adecuados y descartarse según normativa de residuos peligrosos. Ideal para laboratorios analíticos y de investigación.",
-    price: 192,
-    image: "/images/laboratorio/REACTIVOS/TETRACLORURO_CARBONO.png"
-  },
-
-  {
-    id: "tiocianato-de-potasio-100-g",
-    name: "TIOCIANATO DE POTASIO × 100 G",
-    type: "Reactivos",
-    description: "Tiocianato de potasio de alta pureza en presentación de 100 g, utilizado como reactivo volumétrico en el método de Volhard para la determinación de halógenos por argentometría, así como en la detección colorimétrica de iones hierro (III), con los que forma un complejo rojo sangre característico. Empleado también en síntesis orgánica e inorgánica y como ligando en química de coordinación. Por su toxicidad moderada, debe manipularse con equipos de protección personal adecuados y almacenarse en lugar fresco, seco y alejado de ácidos fuertes. Ideal para laboratorios analíticos, académicos y de investigación.",
-    price: 174,
-    image: "/images/laboratorio/REACTIVOS/TIOCIANATO_POTASIO.png"
-  },
-
-
-  {
-    id: "zinc-metalico-polvo-por-500-grs",
-    name: "ZINC METÁLICO POLVO × 500 GRS",
-    type: "Reactivos",
-    description: "Zinc metálico en polvo de alta pureza en presentación de 500 g, utilizado como agente reductor en análisis químicos cuantitativos, determinación de nitratos y nitritos, y reacciones de reducción en química analítica. Su forma pulverizada maximiza la superficie de reacción, acelerando los procesos de reducción y disolución en medios ácidos. Debe almacenarse en recipiente hermético, en lugar seco y alejado de ácidos y oxidantes. Ideal para laboratorios analíticos, académicos e industriales.",
-    price: 162,
-    image: "/images/laboratorio/REACTIVOS/ZINC_METALICO_POLVO.png"
-  },
-
-  {
-    id: "oxido-de-zinc-0-5-kg",
-    name: "ÓXIDO DE ZINC × 500 GRS",
-    type: "Reactivos",
-    description: "Óxido de zinc de alta pureza en presentación de 500 g, utilizado como reactivo en síntesis inorgánica, preparación de pigmentos, análisis químicos y como precursor en la fabricación de compuestos de zinc. Sus propiedades anfóteras le permiten reaccionar tanto con ácidos como con bases, siendo ampliamente empleado en procesos de neutralización, catálisis y como agente desecante. Debe almacenarse en recipiente hermético en lugar fresco, seco y ventilado. Ideal para laboratorios analíticos, académicos e industriales.",
-    price: 84,
-    image: "/images/laboratorio/REACTIVOS/OXIDO_ZINC.png"
-  },
-
-  {
-    id: "acido-sulfosalicilico-100-ml",
-    name: "ÁCIDO SULFOSALICÍLICO × 100 ML",
-    type: "Reactivos",
-    description: "Ácido sulfosalicílico en presentación de 100 ml, ampliamente utilizado como reactivo de precipitación de proteínas en orina para la detección semicuantitativa de proteinuria en análisis clínicos. Su reacción con proteínas produce una turbidez proporcional a la concentración proteica, siendo una prueba rápida y sensible en el laboratorio clínico. También empleado como agente quelante y en síntesis orgánica. Debe manipularse con equipos de protección personal adecuados y almacenarse en lugar fresco, seco y protegido de la luz. Ideal para laboratorios clínicos, académicos y de investigación.",
-    price: 48,
-    image: "/images/laboratorio/REACTIVOS/ACIDO_SULFOSALICILICO.png"
-  },
-
-  {
-    id: "glucosa-anhidra",
-    name: "GLUCOSA ANHIDRA",
-    type: "Reactivos",
-    description: "Glucosa anhidra de alta pureza, utilizada como reactivo patrón primario en la preparación de soluciones estándar para curvas de calibración, determinación de glucosa en muestras biológicas y control de calidad en métodos enzimáticos y colorimétricos. Su forma anhidra garantiza una pureza superior y mayor estabilidad frente a la forma hidratada, siendo esencial en laboratorios clínicos, bioquímicos y de investigación donde se requiere precisión en la cuantificación de carbohidratos.",
-    image: "/images/laboratorio/REACTIVOS/GLUCOSA_ANHIDRA_CARD.png",
-
-    attributeOrder: ["presentacion"],
-
-    attributes: [
-      {
-        id: "presentacion",
-        label: "Presentación",
-        type: "single",
-        values: [
-          { id: "500-g", label: "500 g" },
-          { id: "1-kg", label: "1 kg" }
-        ]
-      }
-    ],
-
-    variants: [
-      {
-        sku: "glucosa-anhidra-500g",
-        attrs: { presentacion: "500-g" },
-        name: "500 G",
-        description: "Glucosa anhidra de alta pureza para preparación de soluciones estándar y determinación de glucosa en muestras biológicas. || **Presentación:** 500 g.",
-        price: 45.6,
-        image: "/images/laboratorio/REACTIVOS/GLUCOSA_ANHIDRA500.png"
-      },
-      {
-        sku: "glucosa-anhidra-1kg",
-        attrs: { presentacion: "1-kg" },
-        name: "1 KG",
-        description: "Glucosa anhidra de alta pureza para preparación de soluciones estándar y determinación de glucosa en muestras biológicas. || **Presentación:** 1 kg.",
-        price: 72,
-        image: "/images/laboratorio/REACTIVOS/GLUCOSA_ANHIDRA1000.png"
-      }
-    ]
-  },
-
-  {
-    id: "hidróxido-de-sodio-1000-grs",
-    name: "HIDRÓXIDO DE SODIO × 1000 GRS",
-    type: "Reactivos",
-    description: "Hidróxido de sodio (NaOH) de alta pureza en presentación de 1 kg, uno de los reactivos alcalinos más utilizados en química analítica e industrial. Empleado como agente neutralizante en volumetrías ácido-base, preparación de soluciones tampón, digestión de muestras biológicas y síntesis química. Su fuerte carácter básico y alta solubilidad en agua lo convierten en un insumo esencial en laboratorios clínicos, académicos e industriales. Por su naturaleza extremadamente corrosiva y su reacción exotérmica al disolverse en agua, debe manipularse con equipos de protección personal adecuados y almacenarse en recipiente hermético, en lugar fresco, seco y alejado de ácidos y materiales orgánicos.",
-    price: 468,
-    image: "/images/laboratorio/REACTIVOS/HIDROXIDO_SODIO.png"
-  },
-
-  {
-    id: "nitrato-de-cadmio-500-grs",
-    name: "NITRATO DE CADMIO × 500 GRS",
-    type: "Reactivos",
-    description: "Nitrato de cadmio de alta pureza en presentación de 500 g, utilizado como reactivo en síntesis inorgánica, preparación de soluciones de cadmio para análisis espectroscópico y como precursor en la fabricación de pigmentos y semiconductores de cadmio. Por su clasificación como compuesto altamente tóxico, cancerígeno y peligroso para el medio ambiente, requiere manipulación estricta con equipos de protección personal completos y descarte conforme a la normativa de residuos peligrosos. Debe almacenarse en recipiente hermético, en lugar fresco, seco y ventilado, alejado de reductores y materiales orgánicos. Ideal para laboratorios analíticos, de síntesis y de investigación.",
-    price: 384,
-    image: "/images/laboratorio/REACTIVOS/NITRATO_CADMIO.png"
-  },
-
-  {
-    id: "nitrato-de-plata-solucion-agno3-al-3-100-ml",
-    name: "NITRATO DE PLATA SOLUCIÓN (AgNO₃) AL 3% × 100 ML",
-    type: "Reactivos",
-    description: "Solución de nitrato de plata al 3% (AgNO₃) en presentación de 100 ml, ampliamente utilizada en volumetrías de precipitación para la determinación de cloruros por el método de Mohr y Volhard, así como en la detección de halogenuros en muestras clínicas, aguas y alimentos. Su acción bactericida la hace también útil en aplicaciones microbiológicas y dermatológicas. Por su sensibilidad a la luz, debe almacenarse en frasco ámbar, en lugar oscuro y fresco. Requiere manipulación con guantes ya que mancha la piel de forma persistente. Ideal para laboratorios analíticos, clínicos y académicos.",
-    price: 204,
-    image: "/images/laboratorio/REACTIVOS/NITRATO_PLATA_SOL.png"
-  },
-
-  {
-    id: "nitrato-ferrico-100-g",
-    name: "NITRATO FÉRRICO × 100 G",
-    type: "Reactivos",
-    description: "Nitrato férrico (Fe(NO₃)₃) de alta pureza en presentación de 100 g, utilizado como reactivo oxidante en síntesis orgánica e inorgánica, grabado de metales y como catalizador en diversas reacciones químicas. En análisis cualitativo es empleado para la detección de tiocianatos, con los que forma un complejo rojo sangre característico, y en la identificación de fenoles y compuestos aromáticos. Debe almacenarse en recipiente hermético en lugar fresco, seco y alejado de reductores y materiales orgánicos. Ideal para laboratorios analíticos, académicos e industriales.",
-    price: 1.2,
-    image: "/images/laboratorio/REACTIVOS/NITRATO_FERRICO.png"
-  },
-  {
-    id: "indicador-azul-de-timol",
-    name: "INDICADOR AZUL DE TIMOL",
-    type: "Reactivos",
-    description: "Azul de timol (timolsulfonftaleína), indicador de doble viraje utilizado en volumetrías ácido-base. Presenta viraje de rojo a amarillo en el rango pH 1.2–2.8 y de amarillo a azul en el rango pH 8.0–9.6, siendo especialmente útil en titulaciones en medios semiacuosos y determinaciones potenciométricas. Disponible en estado sólido para preparación de soluciones a la concentración requerida y en solución lista para usar. Ideal para laboratorios analíticos, académicos y de investigación.",
-    image: "/images/laboratorio/REACTIVOS/AZUL_TIMO_CARD.png",
-
-    attributeOrder: ["forma"],
-
-    attributes: [
-      {
-        id: "forma",
-        label: "Presentación",
-        type: "single",
-        values: [
-          { id: "solido-10g", label: "Sólido × 10 g" },
-          { id: "solucion-50ml", label: "Solución × 50 ml" }
-        ]
-      }
-    ],
-
-    variants: [
-      {
-        sku: "azul-timol-solido-10g",
-        attrs: { forma: "solido-10g" },
-        name: "SÓLIDO × 10 G",
-        description: "Azul de timol en estado sólido (polvo) para preparación de soluciones indicadoras a la concentración requerida en volumetrías ácido-base y análisis potenciométricos. || **Estado:** Sólido | **Presentación:** 10 g | **Rango pH:** 1.2–2.8 y 8.0–9.6.",
-        price: 1.2,
-        image: "/images/laboratorio/REACTIVOS/AZUL_TIMO_SOLIDO.png"
-      },
-      {
-        sku: "azul-timol-solucion-50ml",
-        attrs: { forma: "solucion-50ml" },
-        name: "SOLUCIÓN × 50 ML",
-        description: "Azul de timol en solución lista para usar como indicador de pH en volumetrías ácido-base y titulaciones en medios semiacuosos. || **Estado:** Solución | **Presentación:** 50 ml | **Rango pH:** 1.2–2.8 y 8.0–9.6.",
-        price: 5,
-        image: "/images/laboratorio/REACTIVOS/AZUL_TIMO_SOL.png"
-      }
-    ]
-  },
-
-  {
-    id: "indicador-naranja-de-metilo",
-    name: "INDICADOR NARANJA DE METILO",
-    type: "Reactivos",
-    description: "Naranja de metilo, indicador de pH ampliamente utilizado en volumetrías ácido-base para señalar el punto de viraje en el rango pH 3.1–4.4, pasando de rojo a naranja-amarillo. Especialmente adecuado para titulaciones de ácidos fuertes con bases fuertes y determinación de acidez en muestras de agua, alimentos y productos industriales. Disponible en estado sólido para preparación de soluciones y en solución lista para usar. Ideal para laboratorios analíticos, académicos e industriales.",
-    image: "/images/laboratorio/REACTIVOS/NARANJA_METILO_CARD.png",
-
-    attributeOrder: ["forma"],
-
-    attributes: [
-      {
-        id: "forma",
-        label: "Presentación",
-        type: "single",
-        values: [
-          { id: "solido-10g", label: "Sólido × 10 g" },
-          { id: "solucion-100ml", label: "Solución × 100 ml" }
-        ]
-      }
-    ],
-
-    variants: [
-      {
-        sku: "naranja-metilo-solido-10g",
-        attrs: { forma: "solido-10g" },
-        name: "SÓLIDO × 10 G",
-        description: "Naranja de metilo en estado sólido (polvo) para preparación de soluciones indicadoras a la concentración requerida en volumetrías ácido-base. || **Estado:** Sólido | **Presentación:** 10 g | **Rango pH:** 3.1–4.4.",
-        price: 84,
-        image: "/images/laboratorio/REACTIVOS/NARANJA_METILO_SOLIDO.png"
-      },
-      {
-        sku: "naranja-metilo-solucion-100ml",
-        attrs: { forma: "solucion-100ml" },
-        name: "SOLUCIÓN × 100 ML",
-        description: "Naranja de metilo en solución lista para usar como indicador de pH en volumetrías ácido-base y determinación de acidez en muestras de agua, alimentos y productos industriales. || **Estado:** Solución | **Presentación:** 100 ml | **Rango pH:** 3.1–4.4.",
-        price: 5,
-        image: "/images/laboratorio/REACTIVOS/NARANJA_METILO_SOL.png"
-      }
-    ]
-  },
-
-  {
-    id: "indicador-rojo-de-cresol",
-    name: "INDICADOR ROJO DE CRESOL",
-    type: "Reactivos",
-    description: "Rojo de cresol, indicador de pH de doble viraje utilizado en volumetrías ácido-base. Presenta viraje de rojo a amarillo en el rango pH 0.2–1.8 y de amarillo a rojo-púrpura en el rango pH 7.0–8.8, siendo útil para titulaciones en medios ácidos y ligeramente alcalinos. Disponible en estado sólido para preparación de soluciones y en solución lista para usar. Ampliamente empleado en análisis de acidez de muestras biológicas, aguas y productos farmacéuticos. Ideal para laboratorios analíticos, clínicos y académicos.",
-    image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL_CARD.png",
-
-    attributeOrder: ["forma"],
-
-    attributes: [
-      {
-        id: "forma",
-        label: "Presentación",
-        type: "single",
-        values: [
-          { id: "solido-10g", label: "Sólido × 10 g" },
-          { id: "solucion-50ml", label: "Solución × 50 ml" }
-        ]
-      }
-    ],
-
-    variants: [
-      {
-        sku: "rojo-cresol-solido-10g",
-        attrs: { forma: "solido-10g" },
-        name: "SÓLIDO × 10 G",
-        description: "Rojo de cresol en estado sólido (polvo) para preparación de soluciones indicadoras a la concentración requerida en volumetrías ácido-base. || **Estado:** Sólido | **Presentación:** 10 g | **Rango pH:** 0.2–1.8 y 7.0–8.8.",
-        price: 1.2,
-        image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL_SOLIDO.png"
-      },
-      {
-        sku: "rojo-cresol-solucion-50ml",
-        attrs: { forma: "solucion-50ml" },
-        name: "SOLUCIÓN × 50 ML",
-        description: "Rojo de cresol en solución lista para usar como indicador de pH en volumetrías ácido-base y análisis de acidez en muestras biológicas y farmacéuticas. || **Estado:** Solución | **Presentación:** 50 ml | **Rango pH:** 0.2–1.8 y 7.0–8.8.",
-        price: 5,
-        image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL_SOL.png"
-      }
-    ]
-  },
-
-  {
-    id: "indicador-verde-de-bromocresol",
-    name: "VERDE DE BROMOCRESOL PPR",
-    type: "Reactivos",
-    description: "Verde de bromocresol de grado PPR, indicador de pH con rango de viraje entre pH 3.8 y 5.4, pasando de amarillo a azul-verde. Ampliamente utilizado en volumetrías ácido-base, determinación de acidez en muestras biológicas y alimentarias, y como colorante de seguimiento en electroforesis de proteínas y ácidos nucleicos. Disponible en estado sólido y en solución lista para usar. Su grado de pureza PPR garantiza alta reproducibilidad y fiabilidad en los resultados analíticos. Ideal para laboratorios analíticos, bioquímicos y académicos.",
-    image: "/images/laboratorio/REACTIVOS/VERDE_BROMOCRESOL_CARD.png",
-
-    attributeOrder: ["forma"],
-
-    attributes: [
-      {
-        id: "forma",
-        label: "Presentación",
-        type: "single",
-        values: [
-          { id: "solido-100g", label: "Sólido × 100 g" },
-          { id: "solucion-100ml", label: "Solución × 100 ml" }
-        ]
-      }
-    ],
-
-    variants: [
-      {
-        sku: "verde-bromocresol-solido-100g",
-        attrs: { forma: "solido-100g" },
-        name: "SÓLIDO × 100 G",
-        description: "Verde de bromocresol PPR en estado sólido (polvo) para preparación de soluciones indicadoras en volumetrías ácido-base y electroforesis de proteínas y ácidos nucleicos. || **Estado:** Sólido | **Grado:** PPR | **Presentación:** 100 g | **Rango pH:** 3.8–5.4.",
-        price: 288,
-        image: "/images/laboratorio/REACTIVOS/VERDE_BROMOCRESOL_SOLIDO.png"
-      },
-      {
-        sku: "verde-bromocresol-solucion-100ml",
-        attrs: { forma: "solucion-100ml" },
-        name: "SOLUCIÓN × 100 ML",
-        description: "Verde de bromocresol PPR en solución lista para usar como indicador de pH en volumetrías ácido-base y seguimiento de migración en electroforesis. || **Estado:** Solución | **Grado:** PPR | **Presentación:** 100 ml | **Rango pH:** 3.8–5.4.",
-        price: 5,
-        image: "/images/laboratorio/REACTIVOS/VERDE_BROMOCRESOL_SOL.png"
-      }
-    ]
-  },
-  {
-    id: "barra-de-zinc",
-    name: "BARRA DE ZINC",
-    type: "Utensilios",
-    description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales.",
-    image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png",
-
-    attributeOrder: ["tamaño"],
-
-    attributes: [
-      {
-        id: "tamaño",
-        label: "Tamaño",
-        type: "single",
-        values: [
-          { id: "10x300", label: "10 x 300 mm" },
-          { id: "12x300", label: "12 x 300 mm" },
-          { id: "15x300", label: "15 x 300 mm" },
-          { id: "16x300", label: "16 x 300 mm" },
-          { id: "18x300", label: "18 x 300 mm" },
-          { id: "20x300", label: "20 x 300 mm" }
-        ]
-      }
-    ],
-
-    variants: [
-      {
-        sku: "barra-zinc-10x300",
-        attrs: { tamaño: "10x300" },
-        name: "10 x 300 mm",
-        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 10 x 300 mm.",
-        price: 120,
-        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
-      },
-      {
-        sku: "barra-zinc-12x300",
-        attrs: { tamaño: "12x300" },
-        name: "12 x 300 mm",
-        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 12 x 300 mm.",
-        price: 160,
-        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
-      },
-      {
-        sku: "barra-zinc-15x300",
-        attrs: { tamaño: "15x300" },
-        name: "15 x 300 mm",
-        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 15 x 300 mm.",
-        price: 220,
-        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
-      },
-      {
-        sku: "barra-zinc-16x300",
-        attrs: { tamaño: "16x300" },
-        name: "16 x 300 mm",
-        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 16 x 300 mm.",
-        price: 250,
-        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
-      },
-      {
-        sku: "barra-zinc-18x300",
-        attrs: { tamaño: "18x300" },
-        name: "18 x 300 mm",
-        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 18 x 300 mm.",
-        price: 290,
-        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
-      },
-      {
-        sku: "barra-zinc-20x300",
-        attrs: { tamaño: "20x300" },
-        name: "20 x 300 mm",
-        description: "Versátil y eficiente, esta varilla de zinc es ideal para aplicaciones en construcción, fontanería y fabricación, ofreciendo un material fácil de manipular que puede cortarse con precisión según los requerimientos de cada proyecto. Proporciona soporte estructural y un rendimiento confiable en tareas de ingeniería, mientras que su naturaleza ligera facilita su uso tanto en entornos profesionales como en trabajos de bricolaje. Fabricada bajo estándares exigentes de calidad, garantiza durabilidad, eficiencia y adaptabilidad en diversas aplicaciones técnicas e industriales. || **Dimensiones:** 20 x 300 mm.",
-        price: 340,
-        image: "/images/laboratorio/UTENSILIOS/BARRA_ZINC.png"
-      }
-    ]
-  },
-
-  {
-    id: "viruta-de-hierro-100-gramos",
-    name: "VIRUTA DE HIERRO × 100 G",
-    type: "Reactivos",
-    description: "Viruta de hierro metálico en presentación de 100 g, utilizada como agente reductor en reacciones de reducción química, determinación de nitratos por el método de la columna de cadmio-cobre y experimentos de corrosión y electroquímica en laboratorio. Su forma de viruta maximiza la superficie de contacto, favoreciendo reacciones más rápidas y eficientes. Debe almacenarse en recipiente hermético y lugar seco para evitar su oxidación. Ideal para laboratorios analíticos, académicos e industriales.",
-    price: 1.2,
-    image: "/images/laboratorio/REACTIVOS/VIRUTA_HIERRO.png"
-  },
-
-  {
-    id: "tira-de-ph-x100-generica",
-    name: "TIRAS DE pH × 100 UND – GENÉRICA",
-    type: "Utensilios",
-    description: "Tiras indicadoras de pH genéricas en presentación de 100 unidades, diseñadas para la determinación rápida y sencilla del pH en soluciones acuosas, reactivos, alimentos, aguas y muestras biológicas. Su sistema colorimétrico permite una lectura inmediata sin necesidad de equipos adicionales, siendo una alternativa económica y práctica para laboratorios con alto volumen de determinaciones de rutina. Ideales para laboratorios clínicos, académicos e industriales donde no se requiere la precisión de marcas certificadas.",
-    price: 21.6,
-    image: "/images/laboratorio/UTENSILIOS/TIRAS_PH_GENERICA.png"
-  },
-  {
-    id: "tira-de-ph-x100-merck",
-    name: "TIRAS DE pH × 100 UND – MERCK",
-    type: "Utensilios",
-    description: "Tiras indicadoras de pH marca Merck en presentación de 100 unidades, diseñadas para la determinación rápida y sencilla del pH en soluciones acuosas, reactivos, alimentos, aguas y muestras biológicas. Su sistema de múltiples zonas indicadoras permite una lectura colorimétrica precisa en un amplio rango de pH, sin necesidad de equipos adicionales. La calidad Merck garantiza alta reproducibilidad, sensibilidad y confiabilidad en cada medición. Ideales para uso en laboratorios clínicos, académicos, industriales y control de calidad.",
-    price: 180,
-    image: "/images/laboratorio/UTENSILIOS/TIRAS_PH_MERCK.png"
-  },
-  {
-    id: "bomba-de-vac-o-pobel-r300-exenta-de-aceite-c-nula",
-    name: "BOMBA DE VACÍO POBEL R300 EXENTA DE ACEITE + CÁNULA",
-    description: "BOMBA DE VACÍO POBEL R300 EXENTA DE ACEITE + CÁNULA",
-    price: 4560,
-    image: "/images/laboratorio/placeholder.png"
-  },
-  {
-    id: "medidor-de-ph-p-piscina-marca-hanna-instruments-modelo-hi98103",
-    name: "MEDIDOR DE PH P/PISCINA MARCA: HANNA INSTRUMENTS MODELO: HI98103",
-    description: "MEDIDOR DE PH P/PISCINA MARCA: HANNA INSTRUMENTS MODELO: HI98103",
-    price: 389.4,
-    image: "/images/laboratorio/placeholder.png"
-  },
-  {
-    id: "criostato-de-pie-modelo-cm-1860-uv-marca-fresenius-medical",
-    name: "CRIOSTATO DE PIE MODELO CM 1860 UV MARCA: FRESENIUS MEDICAL",
-    description: "CRIOSTATO DE PIE MODELO CM 1860 UV MARCA: FRESENIUS MEDICAL",
-    price: 1.2,
-    image: "/images/laboratorio/placeholder.png"
-  },
-  {
-    id: "colorimetro-digital-modelo-checker-hi-701-reactivo-dpd-hi93701-100-test",
-    name: "COLORIMETRO DIGITAL MODELO: CHECKER HI 701 + REACTIVO DPD HI93701 100 TEST",
-    description: "COLORIMETRO DIGITAL MODELO: CHECKER HI 701 + REACTIVO DPD HI93701 100 TEST",
-    price: 814.2,
-    image: "/images/laboratorio/placeholder.png"
-  },
-
-  {
-    id: "ut33b-multimetro-digital-prueba-de-baterias-rango-hasta-600-v",
-    name: "UT33B+ MULTIMETRO DIGITAL, PRUEBA DE BATERIAS, RANGO HASTA 600 V",
-    description: "UT33B+ MULTIMETRO DIGITAL, PRUEBA DE BATERIAS, RANGO HASTA 600 V",
-    price: 1.2,
-    image: "/images/laboratorio/placeholder.png"
-  },
-  {
-    id: "filtro-de-membrana-0-45um-47mm-syvet",
-    name: "FILTRO DE MEMBRANA 0.45 µm × 47 mm – SYVET × 200 UND",
-    type: "Utensilios",
-    description: "Filtro de membrana de 0.45 µm de tamaño de poro y 47 mm de diámetro, marca Syvet, en presentación de caja por 200 unidades. Diseñado para la filtración estéril de soluciones, retención de bacterias y partículas en análisis microbiológicos, preparación de medios de cultivo y control de calidad de agua. Su membrana de baja adsorción de proteínas garantiza alta eficiencia de filtración sin comprometer la integridad de la muestra. Compatible con portafiltros estándar de 47 mm. Ideal para laboratorios clínicos, microbiológicos, farmacéuticos y de análisis de aguas.",
-    price: 420,
-    image: "/images/laboratorio/UTENSILIOS/FILTRO_MEMBRANA_045_SYVET.png"
-  },
 
 ];
 

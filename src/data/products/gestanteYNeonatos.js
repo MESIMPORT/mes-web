@@ -37,19 +37,6 @@ export const gestanteYNeonatosProducts = [
     image: "/images/gestante/pelota-terapeutica.png"
   },
 
-  {
-    id: "lentes-fototerapia-prematuro",
-    name: "LENTES DE FOTOTERAPIA NEONATAL PREMATURO",
-    description: "Lentes de protección para fototerapia en neonatos prematuros.",
-    price: 1.2,
-    image: "/images/gestante/lentes-fototerapia-prematuro.png"
-  },
 
-  {
-    id: "lentes-fototerapia-regular",
-    name: "LENTES DE FOTOTERAPIA NEONATAL REGULAR",
-    description: "Lentes de protección para fototerapia en neonatos de peso regular.",
-    price: 1.2,
-    image: "/images/gestante/lentes-fototerapia-regular.png"
-  }
 ];
+
