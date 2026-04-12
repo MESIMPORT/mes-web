@@ -867,15 +867,14 @@ export const soporteRespiratorioProducts = [
   // ══════════════════════════════════════════════════════════════════
   // 4. ACCESORIOS DE ADMINISTRACIÓN DE OXÍGENO
   // ══════════════════════════════════════════════════════════════════
-
   {
     id: "accesorios-administracion-oxigeno-western",
-    name: "ACCESORIOS DE ADMINISTRACIÓN DE OXÍGENO – WESTERN MEDICAL",
+    name: "ACCESORIOS DE ADMINISTRACIÓN DE OXÍGENO",
     type: "Accesorios-respiratorio",
-    description: "Accesorios para la administración de oxígeno al paciente y conexión entre equipos. Incluye frasco humidificador, cánula nasal de doble lumen, mascarillas de oxígeno adulto y pediátrica, junta tórica para yugo, y adaptador tuerca-espiga para conversión de conexiones.",
-    image: "/images/respiratorio/ACCESORIOS_O2_CARD.png",
+    description: "Accesorios para la administración de oxígeno al paciente y conexión entre equipos. Incluye frasco humidificador, cánulas nasales simples, mascarillas de oxígeno, junta tórica para yugo y adaptadores tuerca-espiga para conversión de conexiones.",
+    image: "/images/respiratorio/ACCESORIOS/CARD.png",
 
-    attributeOrder: ["accesorio"],
+    attributeOrder: ["accesorio", "variante"],
 
     attributes: [
       {
@@ -884,63 +883,218 @@ export const soporteRespiratorioProducts = [
         type: "single",
         values: [
           { id: "humidificador", label: "Frasco humidificador" },
-          { id: "canula-dual", label: "Cánula nasal doble lumen – 1.5 m" },
-          { id: "mascarilla-adulto", label: "Mascarilla de oxígeno adulto" },
-          { id: "mascarilla-ped", label: "Mascarilla de oxígeno pediátrica" },
-          { id: "junta-yugo", label: "Junta tórica latón/Viton para yugo CGA-870 – Mod. 2544-2" },
-          { id: "adaptador-barb", label: "Adaptador tuerca DISS a espiga cónica (verde) – CGA-870" }
+          { id: "canula", label: "Cánula nasal simple" },
+          { id: "adaptador", label: "Adaptador DISS a espiga" },
+          { id: "junta-yugo", label: "Washer" }
+        ]
+      },
+      {
+        id: "variante",
+        label: "Variante",
+        type: "single",
+        values: [
+          { id: "500ml", label: "500 ml" },
+          { id: "adulto", label: "Adulto" },
+          { id: "pediatrico", label: "Pediátrico" },
+          { id: "neonatal", label: "Neonatal" },
+          { id: "plastico", label: "Plástico ABS" },
+          { id: "acero", label: "Acero inoxidable" }
         ]
       }
     ],
 
+    attributeRules: {
+      "humidificador": { variante: ["500ml"] },
+      "canula": { variante: ["adulto", "pediatrico", "neonatal"] },
+      "adaptador": { variante: ["plastico", "acero"] },
+      "junta-yugo": { variante: [] }
+    },
+
     variants: [
+
+      // ─── FRASCO HUMIDIFICADOR ─────────────────────────────────────────────────
       {
-        sku: "western-humidificador",
-        attrs: { accesorio: "humidificador" },
-        name: "FRASCO HUMIDIFICADOR",
-        description: "Frasco humidificador para oxígeno medicinal, compatible con salida DISS 1240 de reguladores OPL y flujómetros FM/FMA/FME. Burbujea el oxígeno a través de agua destilada para humidificarlo antes de llegar al paciente, reduciendo la sequedad de mucosas en oxigenoterapia prolongada. || Conexión: DISS 1240 | Uso: Oxigenoterapia con humidificación.",
+        sku: "western-humidificador-500ml",
+        attrs: { accesorio: "humidificador", variante: "500ml" },
+        name: "FRASCO HUMIDIFICADOR 500 ML",
+        description: "Compatible con salida DISS de reguladores OPL y flujómetros FM/FMA/FME. Burbujea el oxígeno a través de agua destilada para humidificarlo antes de llegar al paciente, reduciendo la sequedad de mucosas en oxigenoterapia prolongada. || Conexión: DISS 1240 | Capacidad: 500 ml | Uso: Oxigenoterapia con humidificación.",
         price: 5,
-        image: "/images/respiratorio/HUMIDIFICADOR.png"
+        image: "/images/respiratorio/ACCESORIOS/HUMIFICADOR.png"
+      },
+
+      // ─── CÁNULA NASAL SIMPLE ──────────────────────────────────────────────────
+      {
+        sku: "western-canula-adulto",
+        attrs: { accesorio: "canula", variante: "adulto" },
+        name: "CÁNULA NASAL SIMPLE ADULTO",
+        description: "Fabricada en PVC grado médico, con puntas nasales suaves y anatómicas, minimizando la irritación durante usos prolongados. Compatible con flujómetros, reguladores y sistemas de oxigenoterapia en entornos hospitalarios y domiciliarios. || **Tipo: Flujo 1–6 LPM** | Conexión: Universal | Uso: Oxigenoterapia continua.",
+        price: 5,
+        image: "/images/respiratorio/ACCESORIOS/CANULA.png"
       },
       {
-        sku: "western-canula-dual",
-        attrs: { accesorio: "canula-dual" },
-        name: "CÁNULA NASAL DOBLE LUMEN – 1.5 M",
-        description: "Cánula nasal de doble lumen Western de 1.5 m (5 pies) para administración de oxígeno suplementario a bajos flujos. Puntas nasales suaves de silicona para mayor confort en uso prolongado. Compatible con salida barb de reguladores OPA, OPL y flujómetros. || Longitud: 1.5 m | Material: PVC/Silicona | Uso: Oxigenoterapia domiciliaria y clínica.",
+        sku: "western-canula-pediatrica",
+        attrs: { accesorio: "canula", variante: "pediatrico" },
+        name: "CÁNULA NASAL SIMPLE PEDIÁTRICA",
+        description: "Fabricada en PVC grado médico, con puntas nasales de menor diámetro y diseño anatómico adaptado a vías respiratorias pediátricas, reduciendo el riesgo de irritación o desplazamiento. Compatible con flujómetros y reguladores estándar en aplicaciones hospitalarias y domiciliarias. || **Tipo: Flujo 1–4 LPM** | Conexión: Universal | Uso: Oxigenoterapia pediátrica.",
         price: 5,
-        image: "/images/respiratorio/CANULA_DUAL.png"
+        image: "/images/respiratorio/ACCESORIOS/CANULA.png"
       },
       {
-        sku: "western-mascarilla-adulto",
-        attrs: { accesorio: "mascarilla-adulto" },
-        name: "MASCARILLA DE OXÍGENO ADULTO",
-        description: "Mascarilla simple de oxígeno para adulto con tubo corrugado de 1.5 m y conector universal para salida barb de reguladores y flujómetros. Cuerpo de PVC transparente con aletas nasales moldeables para sellado facial. || Talla: Adulto | Tubo: 1.5 m | Conector: Universal barb | Uso: Oxigenoterapia clínica y emergencias.",
+        sku: "western-canula-neonatal",
+        attrs: { accesorio: "canula", variante: "neonatal" },
+        name: "CÁNULA NASAL SIMPLE NEONATAL",
+        description: "Fabricada en PVC grado médico ultra suave, con puntas nasales de pequeño calibre y diseño anatómico que se adapta a las delicadas vías respiratorias del neonato. Compatible con flujómetros y sistemas de oxigenoterapia estándar. || **Tipo: Flujo 0.5–2 LPM** | Conexión: Universal | Uso: Oxigenoterapia neonatal.",
         price: 5,
-        image: "/images/respiratorio/MASCARILLA_ADULTO.png"
+        image: "/images/respiratorio/ACCESORIOS/CANULA.png"
+      },
+
+
+      // ─── ADAPTADOR DISS A ESPIGA ──────────────────────────────────────────────
+      {
+        sku: "western-adaptador-barb",
+        attrs: { accesorio: "adaptador", variante: "plastico" },
+        name: "ADAPTADOR DISS A ESPIGA",
+        description: "En plástico ABS color verde con tuerca DISS y espiga cónica (barb) para oxígeno. Permite conectar accesorios con terminación barb a salidas DISS de reguladores, flujómetros o tomas de pared. Las aletas laterales facilitan el ajuste a mano sin herramienta. || Material: Plástico ABS | Color: Verde (oxígeno) | Entrada: Tuerca DISS | Salida: Espiga cónica barb.",
+        price: 5,
+        image: "/images/respiratorio/ACCESORIOS/NIPLE_PLASTICO.png"
       },
       {
-        sku: "western-mascarilla-pediatrica",
-        attrs: { accesorio: "mascarilla-ped" },
-        name: "MASCARILLA DE OXÍGENO PEDIÁTRICA",
-        description: "Mascarilla simple de oxígeno pediátrica con tubo corrugado de 1.5 m y conector universal para salida barb. Cuerpo de PVC transparente de menor tamaño adaptado al rostro pediátrico con aletas nasales moldeables. || Talla: Pediátrica | Tubo: 1.5 m | Conector: Universal barb | Uso: Oxigenoterapia pediátrica.",
+        sku: "western-adaptador-barb-acero",
+        attrs: { accesorio: "adaptador", variante: "acero" },
+        name: "ADAPTADOR DISS A ESPIGA",
+        description: "De acero inoxidable con tuerca hexagonal DISS y espiga barb para oxígeno. Construcción metálica de mayor durabilidad y resistencia frente al adaptador plástico, indicada para instalaciones de uso intensivo, entornos hospitalarios exigentes o conexiones permanentes. Requiere llave para el ajuste. || Material: Acero inoxidable | Entrada: Tuerca DISS | Salida: Espiga barb.",
         price: 5,
-        image: "/images/respiratorio/MASCARILLA_PEDIATRICA.png"
+        image: "/images/respiratorio/ACCESORIOS/NIPLE_METAL.png"
       },
+
+      // ─── WASHER – PRODUCTO ÚNICO ──────────────────────────────────────────────
       {
         sku: "western-junta-yugo",
         attrs: { accesorio: "junta-yugo" },
-        name: "JUNTA TÓRICA LATÓN/VITON PARA YUGO – MOD. 2544-2",
-        description: "Junta tórica de sellado Western modelo 2544-2 en latón con sello de Viton para yugo CGA-870. Garantiza el sellado hermético entre el regulador de yugo y la válvula del cilindro. Repuesto esencial — se recomienda reemplazar en cada cambio de cilindro. || Modelo: 2544-2 | Material: Latón + Viton | Compatible: CGA-870 yugo | Uso: Repuesto de sellado.",
+        name: "WASHER / SELLO PARA YUGO CGA-870",
+        description: "Junta tórica de sellado en latón con sello de Viton para yugo CGA-870. Garantiza el sellado hermético entre el regulador de yugo y la válvula del cilindro. Repuesto esencial — se recomienda reemplazar en cada cambio de cilindro. || Modelo: 2544-2 | Material: Latón + Viton | Compatible: CGA-870 yugo | Uso: Repuesto de sellado.",
         price: 5,
-        image: "/images/respiratorio/JUNTA_YUGO.png"
+        image: "/images/respiratorio/ACCESORIOS/JUNTA_YUGO.png"
+      }
+    ]
+  },
+
+  {
+    id: "mascarillas-oxigeno",
+    name: "MASCARILLAS DE OXÍGENO",
+    type: "Accesorios-respiratorio",
+    description: "Mascarillas de oxígeno para administración de oxígeno medicinal en tres tipos: mascarilla simple para oxigenoterapia de bajo a moderado flujo, mascarilla de no reinhalación (NRB) con bolsa reservorio y válvulas unidireccionales para altas concentraciones en situaciones críticas, y mascarilla Venturi con adaptadores codificados por color para administración controlada de concentraciones precisas. Disponibles en tallas adulto, pediátrica y neonatal. Todas fabricadas en PVC grado médico con conector universal tipo barb compatible con reguladores y flujómetros.",
+    image: "/images/respiratorio/MASCARILLAS/CARD.png",
+
+    attributeOrder: ["tipo", "talla"],
+
+    attributes: [
+      {
+        id: "tipo",
+        label: "Tipo",
+        type: "single",
+        values: [
+          { id: "simple", label: "Mascarilla simple" },
+          { id: "nrb", label: "Mascarilla no reinhalación (NRB)" },
+          { id: "venturi", label: "Mascarilla Venturi" }
+        ]
       },
       {
-        sku: "western-adaptador-barb",
-        attrs: { accesorio: "adaptador-barb" },
-        name: "ADAPTADOR TUERCA DISS A ESPIGA CÓNICA (VERDE)",
-        description: "Adaptador Western de tuerca DISS a espiga cónica (barb) color verde para oxígeno. Permite conectar accesorios con terminación barb a salidas DISS de reguladores, flujómetros o tomas de pared. || Color: Verde (oxígeno) | Entrada: Tuerca DISS | Salida: Espiga cónica barb | Uso: Adaptación de conexiones.",
+        id: "talla",
+        label: "Talla",
+        type: "single",
+        values: [
+          { id: "adulto", label: "Adulto" },
+          { id: "pediatrico", label: "Pediátrico" },
+          { id: "neonatal", label: "Neonatal" }
+        ]
+      }
+    ],
+
+    attributeRules: {
+      "simple": { talla: ["adulto", "pediatrico", "neonatal"] },
+      "nrb": { talla: ["adulto", "pediatrico", "neonatal"] },
+      "venturi": { talla: ["adulto", "pediatrico", "neonatal"] }
+    },
+
+    variants: [
+
+      // ─── MASCARILLA SIMPLE ────────────────────────────────────────────────────
+      {
+        sku: "mascarilla-simple-adulto",
+        attrs: { tipo: "simple", talla: "adulto" },
+        name: "MASCARILLA SIMPLE ADULTO",
+        description: "Mascarilla simple de oxígeno para adulto con tubo estándar y conector universal tipo barb compatible con reguladores y flujómetros. Cuerpo de PVC transparente con clip nasal moldeable para mejor ajuste facial. || Talla: Adulto | Tubo: Estándar | Conector: Universal barb | Uso: Oxigenoterapia de bajo a moderado flujo.",
         price: 5,
-        image: "/images/respiratorio/ADAPTADOR_BARB.png"
+        image: "/images/respiratorio/MASCARILLAS/MASCARILLA_SIMPLE.png"
+      },
+      {
+        sku: "mascarilla-simple-pediatrico",
+        attrs: { tipo: "simple", talla: "pediatrico" },
+        name: "MASCARILLA SIMPLE PEDIÁTRICA",
+        description: "Mascarilla simple de oxígeno para paciente pediátrico con tubo estándar y conector universal tipo barb compatible con reguladores y flujómetros. Cuerpo de PVC transparente con diseño anatómico y clip nasal para ajuste seguro. || Talla: Pediátrico | Tubo: Estándar | Conector: Universal barb | Uso: Oxigenoterapia pediátrica.",
+        price: 5,
+        image: "/images/respiratorio/MASCARILLAS/MASCARILLA_SIMPLE.png"
+      },
+      {
+        sku: "mascarilla-simple-neonatal",
+        attrs: { tipo: "simple", talla: "neonatal" },
+        name: "MASCARILLA SIMPLE NEONATAL",
+        description: "Mascarilla simple de oxígeno para paciente neonatal con tubo estándar y conector universal tipo barb compatible con reguladores y flujómetros. Fabricada en PVC suave con diseño anatómico de bajo volumen para mayor seguridad y confort. || Talla: Neonatal | Tubo: Estándar | Conector: Universal barb | Uso: Oxigenoterapia neonatal.",
+        price: 5,
+        image: "/images/respiratorio/MASCARILLAS/MASCARILLA_SIMPLE.png"
+      },
+
+      // ─── MASCARILLA NO REINHALACIÓN (NRB) ─────────────────────────────────────
+      {
+        sku: "mascarilla-nrb-adulto",
+        attrs: { tipo: "nrb", talla: "adulto" },
+        name: "MASCARILLA NRB ADULTO",
+        description: "Mascarilla de oxígeno de no reinhalación para adulto con bolsa reservorio, válvulas unidireccionales y tubo estándar con conector universal tipo barb. Permite la administración de altas concentraciones de oxígeno en situaciones críticas. || Talla: Adulto | Tubo: Estándar | Con reservorio: Sí | Conector: Universal barb | Uso: Alto flujo / emergencias.",
+        price: 5,
+        image: "/images/respiratorio/MASCARILLAS/MASCARILLA_NRB.png"
+      },
+      {
+        sku: "mascarilla-nrb-pediatrico",
+        attrs: { tipo: "nrb", talla: "pediatrico" },
+        name: "MASCARILLA NRB PEDIÁTRICA",
+        description: "Mascarilla de oxígeno de no reinhalación para paciente pediátrico con bolsa reservorio, válvulas unidireccionales y tubo estándar con conector universal tipo barb. Diseñada para administrar altas concentraciones de oxígeno en condiciones clínicas exigentes. || Talla: Pediátrico | Tubo: Estándar | Con reservorio: Sí | Conector: Universal barb | Uso: Alto flujo pediátrico.",
+        price: 5,
+        image: "/images/respiratorio/MASCARILLAS/MASCARILLA_NRB.png"
+      },
+      {
+        sku: "mascarilla-nrb-neonatal",
+        attrs: { tipo: "nrb", talla: "neonatal" },
+        name: "MASCARILLA NRB NEONATAL",
+        description: "Mascarilla de oxígeno de no reinhalación para paciente neonatal con bolsa reservorio, válvulas unidireccionales y tubo estándar con conector universal tipo barb. Fabricada en PVC suave para administración segura de oxígeno en neonatología. || Talla: Neonatal | Tubo: Estándar | Con reservorio: Sí | Conector: Universal barb | Uso: Alto flujo neonatal.",
+        price: 5,
+        image: "/images/respiratorio/MASCARILLAS/MASCARILLA_NRB.png"
+      },
+
+      // ─── MASCARILLA VENTURI ───────────────────────────────────────────────────
+      {
+        sku: "mascarilla-venturi-adulto",
+        attrs: { tipo: "venturi", talla: "adulto" },
+        name: "MASCARILLA VENTURI ADULTO",
+        description: "Mascarilla de oxígeno tipo Venturi para adulto con sistema de adaptadores codificados por color que permiten una entrega precisa de concentraciones de oxígeno. Incluye tubo estándar con conector universal tipo barb compatible con reguladores y flujómetros. || Talla: Adulto | Sistema: Venturi | Conector: Universal barb | Uso: Oxigenoterapia controlada.",
+        price: 5,
+        image: "/images/respiratorio/MASCARILLAS/MASCARILLA_VENTURI.png"
+      },
+      {
+        sku: "mascarilla-venturi-pediatrico",
+        attrs: { tipo: "venturi", talla: "pediatrico" },
+        name: "MASCARILLA VENTURI PEDIÁTRICA",
+        description: "Mascarilla de oxígeno tipo Venturi para paciente pediátrico con sistema de adaptadores de concentración controlada y tubo estándar con conector universal tipo barb. Permite una administración precisa de oxígeno en terapia respiratoria. || Talla: Pediátrico | Sistema: Venturi | Conector: Universal barb | Uso: Oxigenoterapia controlada pediátrica.",
+        price: 5,
+        image: "/images/respiratorio/MASCARILLAS/MASCARILLA_VENTURI.png"
+      },
+      {
+        sku: "mascarilla-venturi-neonatal",
+        attrs: { tipo: "venturi", talla: "neonatal" },
+        name: "MASCARILLA VENTURI NEONATAL",
+        description: "Mascarilla de oxígeno tipo Venturi para paciente neonatal con sistema de control de concentración mediante adaptadores y tubo estándar con conector universal tipo barb. Diseñada para administración precisa en entornos neonatales. || Talla: Neonatal | Sistema: Venturi | Conector: Universal barb | Uso: Oxigenoterapia controlada neonatal.",
+        price: 5,
+        image: "/images/respiratorio/MASCARILLAS/MASCARILLA_VENTURI.png"
       }
     ]
   },
@@ -951,10 +1105,10 @@ export const soporteRespiratorioProducts = [
 
   {
     id: "conectores-manometros-repuesto-western",
-    name: "CONECTORES Y MANÓMETROS DE REPUESTO – WESTERN MEDICAL",
+    name: "CONECTORES Y MANÓMETROS",
     type: "Accesorios-respiratorio",
     description: "Conectores Y de oxígeno para derivación de flujo y manómetros de repuesto Western Medical para reguladores de la serie M1. Los conectores Y permiten alimentar dos equipos o pacientes desde una sola toma. Los manómetros son repuestos directos para reguladores M1 con rosca de entrada 1/8\" NPT y diámetro de carátula de 3.8 cm.",
-    image: "/images/respiratorio/CONECTORES_MANOMETROS_CARD.png",
+    image: "/images/respiratorio/CONECTORES/CARD.png",
 
     attributeOrder: ["tipo", "modelo"],
 
@@ -973,69 +1127,60 @@ export const soporteRespiratorioProducts = [
         label: "Modelo",
         type: "single",
         values: [
-          { id: "my-1", label: "MY-1 – Entrada DISS hembra / 2 salidas DISS macho" },
-          { id: "my-2s", label: "MY-2S – Entrada DISS hembra / 2 salidas DISS con válvula de cierre" },
-          { id: "mg-c1", label: "MG-C1 – 0 a 4,000 PSI (presión de cilindro)" },
-          { id: "mg-c3", label: "MG-C3 – 0 a 100 PSI (presión de salida)" },
-          { id: "mg-c5-barb", label: "MG-C5 – 0 a 15 LPM con buje espiga" },
-          { id: "mg-c5-diss", label: "MG-C5 – 0 a 15 LPM con buje DISS" }
+          { id: "my-1", label: "MY-1" },
+          { id: "my-2s", label: "MY-2S" },
+          { id: "mg-c1", label: "MG-C1" },
+          { id: "mg-c3", label: "MG-C3" },
+          { id: "mg-c5", label: "MG-C5" }
         ]
       }
     ],
 
     attributeRules: {
       "conector-y": { modelo: ["my-1", "my-2s"] },
-      "manometro": { modelo: ["mg-c1", "mg-c3", "mg-c5-barb", "mg-c5-diss"] }
+      "manometro": { modelo: ["mg-c1", "mg-c3", "mg-c5"] }
     },
 
     variants: [
       {
         sku: "western-my-1",
         attrs: { tipo: "conector-y", modelo: "my-1" },
-        name: "MY-1 – CONECTOR Y DISS",
+        name: "DISS hembra / 2 salidas DISS macho",
         description: "Conector Y de oxígeno Western MY-1 con entrada DISS hembra y dos salidas DISS macho. Permite alimentar dos flujómetros o equipos desde una sola toma de pared o regulador. Sin válvulas de cierre individual. || Modelo: MY-1 | Entrada: DISS hembra | Salidas: 2× DISS macho | Uso: Derivación de flujo.",
         price: 5,
-        image: "/images/respiratorio/MY_1.png"
+        image: "/images/respiratorio/CONECTORES/MY_1.png"
       },
       {
         sku: "western-my-2s",
         attrs: { tipo: "conector-y", modelo: "my-2s" },
-        name: "MY-2S – CONECTOR Y DISS CON VÁLVULAS DE CIERRE",
+        name: "DISS hembra / 2 salidas DISS con válvula de cierre",
         description: "Conector Y de oxígeno Western MY-2S con entrada DISS hembra y dos salidas DISS macho, cada una con válvula de cierre independiente. Permite controlar el flujo a cada equipo o paciente de forma individual sin desconectar la fuente. || Modelo: MY-2S | Entrada: DISS hembra | Salidas: 2× DISS macho con válvula | Uso: Derivación con control independiente.",
         price: 5,
-        image: "/images/respiratorio/MY_2S.png"
+        image: "/images/respiratorio/CONECTORES/MY_2S.png"
       },
       {
         sku: "western-mg-c1",
         attrs: { tipo: "manometro", modelo: "mg-c1" },
-        name: "MG-C1 – MANÓMETRO 0–4,000 PSI",
+        name: "MANÓMETRO 0–4,000 PSI",
         description: "Manómetro de repuesto Western MG-C1 para presión de cilindro en reguladores serie M1. Rango 0–4,000 PSI, rosca de entrada 1/8\" NPT, carátula de 3.8 cm de diámetro. || Modelo: MG-C1 | Rango: 0–4,000 PSI | Rosca: 1/8\" NPT | Carátula: 3.8 cm | Uso: Repuesto manómetro de cilindro.",
         price: 5,
-        image: "/images/respiratorio/MG_C1.png"
+        image: "/images/respiratorio/CONECTORES/MG_C1.png"
       },
       {
         sku: "western-mg-c3",
         attrs: { tipo: "manometro", modelo: "mg-c3" },
-        name: "MG-C3 – MANÓMETRO 0–100 PSI",
+        name: "MANÓMETRO 0–100 PSI",
         description: "Manómetro de repuesto Western MG-C3 para presión de salida en reguladores serie M1. Rango 0–100 PSI, rosca de entrada 1/8\" NPT, carátula de 3.8 cm de diámetro. || Modelo: MG-C3 | Rango: 0–100 PSI | Rosca: 1/8\" NPT | Carátula: 3.8 cm | Uso: Repuesto manómetro de salida.",
         price: 5,
-        image: "/images/respiratorio/MG_C3.png"
+        image: "/images/respiratorio/CONECTORES/MG_C3.png"
       },
       {
-        sku: "western-mg-c5-barb",
-        attrs: { tipo: "manometro", modelo: "mg-c5-barb" },
-        name: "MG-C5 – MANÓMETRO 0–15 LPM CON BUJE ESPIGA",
-        description: "Manómetro de flujo de repuesto Western MG-C5 con buje espiga (barb) para reguladores serie M1. Rango 0–15 LPM, rosca de entrada 1/8\" NPT, carátula de 3.8 cm. || Modelo: MG-C5 | Rango: 0–15 LPM | Buje: Espiga | Rosca: 1/8\" NPT | Uso: Repuesto manómetro de flujo.",
+        sku: "western-mg-c5",
+        attrs: { tipo: "manometro", modelo: "mg-c5" },
+        name: "MANÓMETRO 0–15 LPM ",
+        description: "Manómetro de flujo de repuesto MG-C5 para reguladores serie M1. Rango 0–15 LPM, rosca de entrada 1/8\" NPT, carátula de 3.8 cm. || Modelo: MG-C5 | Rango: 0–15 LPM | Rosca: 1/8\" NPT | Uso: Repuesto manómetro de flujo.",
         price: 5,
-        image: "/images/respiratorio/MG_C5_BARB.png"
-      },
-      {
-        sku: "western-mg-c5-diss",
-        attrs: { tipo: "manometro", modelo: "mg-c5-diss" },
-        name: "MG-C5 – MANÓMETRO 0–15 LPM CON BUJE DISS",
-        description: "Manómetro de flujo de repuesto Western MG-C5 con buje DISS para reguladores serie M1. Rango 0–15 LPM, rosca de entrada 1/8\" NPT, carátula de 3.8 cm. || Modelo: MG-C5 | Rango: 0–15 LPM | Buje: DISS | Rosca: 1/8\" NPT | Uso: Repuesto manómetro de flujo.",
-        price: 5,
-        image: "/images/respiratorio/MG_C5_DISS.png"
+        image: "/images/respiratorio/CONECTORES/MG_C5.png"
       }
     ]
   },
@@ -1046,10 +1191,10 @@ export const soporteRespiratorioProducts = [
 
   {
     id: "pigtails-mangueras-alta-presion-western",
-    name: "PIGTAILS Y MANGUERAS DE ALTA PRESIÓN – WESTERN MEDICAL",
+    name: "PIGTAILS Y MANGUERAS DE ALTA PRESIÓN",
     type: "Accesorios-respiratorio",
     description: "Pigtails rígidos y mangueras flexibles de alta presión Western Medical para conexión de cilindros de oxígeno CGA-540 a manifolds, reguladores o centrales de gas. Presión máxima de trabajo 3,000 PSI (207 bar). Los pigtails rígidos son de tubo cromado y los flexibles tienen núcleo de PTFE con recubrimiento de acero inoxidable trenzado tipo 304. Disponibles con y sin válvula check (antirretorno) y en cuatro longitudes.",
-    image: "/images/respiratorio/PIGTAILS_CARD.png",
+    image: "/images/respiratorio/MANGUERAS/CARD.png",
 
     attributeOrder: ["tipo", "longitud", "valvula"],
 
@@ -1059,9 +1204,9 @@ export const soporteRespiratorioProducts = [
         label: "Tipo",
         type: "single",
         values: [
-          { id: "rigido", label: "Pigtail rígido – Tubo cromado CGA-540" },
-          { id: "flexible", label: "Manguera flexible – PTFE + acero inox. trenzado CGA-540" },
-          { id: "flexible-ht", label: "Manguera flexible Handtight – PTFE + acero inox. trenzado CGA-540" }
+          { id: "rigido", label: "Pigtail rígido" },
+          { id: "flexible", label: "Flexible" },
+          { id: "flexible-ht", label: "Flexible C/Handtight" }
         ]
       },
       {
@@ -1069,11 +1214,11 @@ export const soporteRespiratorioProducts = [
         label: "Longitud",
         type: "single",
         values: [
-          { id: "45cm", label: "45 cm (18\")" },
-          { id: "61cm", label: "61 cm (24\")" },
-          { id: "69cm", label: "69 cm (27\") – Solo pigtail rígido" },
-          { id: "91cm", label: "91 cm (36\")" },
-          { id: "122cm", label: "122 cm (48\")" }
+          { id: "45cm", label: "45 cm" },
+          { id: "61cm", label: "61 cm" },
+          { id: "69cm", label: "69 cm" },
+          { id: "91cm", label: "91 cm" },
+          { id: "122cm", label: "122 cm" }
         ]
       },
       {
@@ -1082,7 +1227,7 @@ export const soporteRespiratorioProducts = [
         type: "single",
         values: [
           { id: "sin-check", label: "Sin válvula check" },
-          { id: "con-check", label: "Con válvula check (antirretorno)" }
+          { id: "con-check", label: "Con válvula check" }
         ]
       }
     ],
@@ -1098,316 +1243,39 @@ export const soporteRespiratorioProducts = [
       {
         sku: "western-m54-18",
         attrs: { tipo: "rigido", longitud: "69cm", valvula: "sin-check" },
-        name: "M54-18 – PIGTAIL RÍGIDO 69 CM – SIN CHECK",
+        name: "PIGTAIL RÍGIDO 69 CM SIN CHECK",
         description: "Pigtail rígido de alta presión Western M54-18 para oxígeno CGA-540. Tubo cromado de 69 cm (27\") con conexión estándar en ambos extremos. Presión máxima 3,000 PSI (207 bar). Para conexión de cilindros a manifolds y reguladores. || Modelo: M54-18 | Tipo: Rígido cromado | Longitud: 69 cm | Conexión: CGA-540 | Presión máx.: 3,000 PSI.",
         price: 5,
-        image: "/images/respiratorio/M54_18.png"
+        image: "/images/respiratorio/MANGUERAS/PIGGY_RIGIDO.png"
       },
       {
         sku: "western-m54-19",
         attrs: { tipo: "rigido", longitud: "69cm", valvula: "con-check" },
-        name: "M54-19 – PIGTAIL RÍGIDO 69 CM – CON CHECK",
+        name: "PIGTAIL RÍGIDO 69 CM CON CHECK",
         description: "Pigtail rígido de alta presión Western M54-19 para oxígeno CGA-540. Tubo cromado de 69 cm (27\") con válvula check (antirretorno) integrada para prevenir el reflujo de gas. Presión máxima 3,000 PSI (207 bar). || Modelo: M54-19 | Tipo: Rígido cromado | Longitud: 69 cm | Válvula: Check antirretorno | Conexión: CGA-540 | Presión máx.: 3,000 PSI.",
         price: 5,
-        image: "/images/respiratorio/M54_19.png"
+        image: "/images/respiratorio/MANGUERAS/PIGGY_RIGIDO.png"
       },
 
       // ─── MANGUERAS FLEXIBLES MPF-540 ──────────────────────────────
-      { sku: "western-mpf-540-45-sin", attrs: { tipo: "flexible", longitud: "45cm", valvula: "sin-check" }, name: "MPF-540 – 45 CM – SIN CHECK", description: "Manguera flexible Western MPF-540 CGA-540, 45 cm, núcleo PTFE + acero inox. trenzado, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 45 cm | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540_45.png" },
-      { sku: "western-mpf-540-45-con", attrs: { tipo: "flexible", longitud: "45cm", valvula: "con-check" }, name: "MPF-540 – 45 CM – CON CHECK", description: "Manguera flexible Western MPF-540 CGA-540, 45 cm, núcleo PTFE + acero inox. trenzado, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 45 cm | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540_45_CV.png" },
-      { sku: "western-mpf-540-61-sin", attrs: { tipo: "flexible", longitud: "61cm", valvula: "sin-check" }, name: "MPF-540 – 61 CM – SIN CHECK", description: "Manguera flexible Western MPF-540 CGA-540, 61 cm, núcleo PTFE + acero inox. trenzado, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 61 cm | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540_61.png" },
-      { sku: "western-mpf-540-61-con", attrs: { tipo: "flexible", longitud: "61cm", valvula: "con-check" }, name: "MPF-540 – 61 CM – CON CHECK", description: "Manguera flexible Western MPF-540 CGA-540, 61 cm, núcleo PTFE + acero inox. trenzado, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 61 cm | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540_61_CV.png" },
-      { sku: "western-mpf-540-91-sin", attrs: { tipo: "flexible", longitud: "91cm", valvula: "sin-check" }, name: "MPF-540 – 91 CM – SIN CHECK", description: "Manguera flexible Western MPF-540 CGA-540, 91 cm, núcleo PTFE + acero inox. trenzado, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 91 cm | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540_91.png" },
-      { sku: "western-mpf-540-91-con", attrs: { tipo: "flexible", longitud: "91cm", valvula: "con-check" }, name: "MPF-540 – 91 CM – CON CHECK", description: "Manguera flexible Western MPF-540 CGA-540, 91 cm, núcleo PTFE + acero inox. trenzado, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 91 cm | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540_91_CV.png" },
-      { sku: "western-mpf-540-122-sin", attrs: { tipo: "flexible", longitud: "122cm", valvula: "sin-check" }, name: "MPF-540 – 122 CM – SIN CHECK", description: "Manguera flexible Western MPF-540 CGA-540, 122 cm, núcleo PTFE + acero inox. trenzado, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 122 cm | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540_122.png" },
-      { sku: "western-mpf-540-122-con", attrs: { tipo: "flexible", longitud: "122cm", valvula: "con-check" }, name: "MPF-540 – 122 CM – CON CHECK", description: "Manguera flexible Western MPF-540 CGA-540, 122 cm, núcleo PTFE + acero inox. trenzado, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 122 cm | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540_122_CV.png" },
+      { sku: "western-mpf-540-45-sin", attrs: { tipo: "flexible", longitud: "45cm", valvula: "sin-check" }, name: "MANGUERA FLEXIBLE DE ALTA PRESION", description: "Manguera flexible Western MPF-540 CGA-540, 45 cm, núcleo PTFE + acero inox. trenzado, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 45 cm | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540-45-con", attrs: { tipo: "flexible", longitud: "45cm", valvula: "con-check" }, name: "MANGUERA FLEXIBLE DE ALTA PRESION", description: "Manguera flexible Western MPF-540 CGA-540, 45 cm, núcleo PTFE + acero inox. trenzado, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 45 cm | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540-61-sin", attrs: { tipo: "flexible", longitud: "61cm", valvula: "sin-check" }, name: "MANGUERA FLEXIBLE DE ALTA PRESION", description: "Manguera flexible Western MPF-540 CGA-540, 61 cm, núcleo PTFE + acero inox. trenzado, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 61 cm | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540-61-con", attrs: { tipo: "flexible", longitud: "61cm", valvula: "con-check" }, name: "MANGUERA FLEXIBLE DE ALTA PRESION", description: "Manguera flexible Western MPF-540 CGA-540, 61 cm, núcleo PTFE + acero inox. trenzado, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 61 cm | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540-91-sin", attrs: { tipo: "flexible", longitud: "91cm", valvula: "sin-check" }, name: "MANGUERA FLEXIBLE DE ALTA PRESION", description: "Manguera flexible Western MPF-540 CGA-540, 91 cm, núcleo PTFE + acero inox. trenzado, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 91 cm | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540-91-con", attrs: { tipo: "flexible", longitud: "91cm", valvula: "con-check" }, name: "MANGUERA FLEXIBLE DE ALTA PRESION", description: "Manguera flexible Western MPF-540 CGA-540, 91 cm, núcleo PTFE + acero inox. trenzado, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 91 cm | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540-122-sin", attrs: { tipo: "flexible", longitud: "122cm", valvula: "sin-check" }, name: "MANGUERA FLEXIBLE DE ALTA PRESION", description: "Manguera flexible Western MPF-540 CGA-540, 122 cm, núcleo PTFE + acero inox. trenzado, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 122 cm | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540-122-con", attrs: { tipo: "flexible", longitud: "122cm", valvula: "con-check" }, name: "MANGUERA FLEXIBLE DE ALTA PRESION", description: "Manguera flexible Western MPF-540 CGA-540, 122 cm, núcleo PTFE + acero inox. trenzado, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 122 cm | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
 
       // ─── MANGUERAS FLEXIBLES MPF-540HT (HANDTIGHT) ───────────────
-      { sku: "western-mpf-540ht-45-sin", attrs: { tipo: "flexible-ht", longitud: "45cm", valvula: "sin-check" }, name: "MPF-540HT – 45 CM – SIN CHECK", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 45 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 45 cm | Handtight | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540HT_45.png" },
-      { sku: "western-mpf-540ht-45-con", attrs: { tipo: "flexible-ht", longitud: "45cm", valvula: "con-check" }, name: "MPF-540HT – 45 CM – CON CHECK", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 45 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 45 cm | Handtight | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540HT_45_CV.png" },
-      { sku: "western-mpf-540ht-61-sin", attrs: { tipo: "flexible-ht", longitud: "61cm", valvula: "sin-check" }, name: "MPF-540HT – 61 CM – SIN CHECK", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 61 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 61 cm | Handtight | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540HT_61.png" },
-      { sku: "western-mpf-540ht-61-con", attrs: { tipo: "flexible-ht", longitud: "61cm", valvula: "con-check" }, name: "MPF-540HT – 61 CM – CON CHECK", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 61 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 61 cm | Handtight | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540HT_61_CV.png" },
-      { sku: "western-mpf-540ht-91-sin", attrs: { tipo: "flexible-ht", longitud: "91cm", valvula: "sin-check" }, name: "MPF-540HT – 91 CM – SIN CHECK", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 91 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 91 cm | Handtight | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540HT_91.png" },
-      { sku: "western-mpf-540ht-91-con", attrs: { tipo: "flexible-ht", longitud: "91cm", valvula: "con-check" }, name: "MPF-540HT – 91 CM – CON CHECK", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 91 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 91 cm | Handtight | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540HT_91_CV.png" },
-      { sku: "western-mpf-540ht-122-sin", attrs: { tipo: "flexible-ht", longitud: "122cm", valvula: "sin-check" }, name: "MPF-540HT – 122 CM – SIN CHECK", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 122 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 122 cm | Handtight | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540HT_122.png" },
-      { sku: "western-mpf-540ht-122-con", attrs: { tipo: "flexible-ht", longitud: "122cm", valvula: "con-check" }, name: "MPF-540HT – 122 CM – CON CHECK", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 122 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 122 cm | Handtight | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MPF_540HT_122_CV.png" }
-    ]
-  },
-
-  {
-    id: "administracion-oxigeno-paciente",
-    name: "ADMINISTRACIÓN DE OXÍGENO AL PACIENTE",
-    type: "Respiratorio",
-    description: "Dispositivos para la administración de oxígeno medicinal directamente al paciente. Incluye cánulas nasales (neonatal, pediátrico y adulto), mascarillas de oxígeno en tres modalidades (simple, Venturi con FiO₂ fija y reservorio de alto flujo) y tubing de extensión y nebulización. Disponibles en versiones desechables para uso único y reutilizables para uso clínico continuo.",
-    image: "/images/respiratorio/placeholder.png",
-
-    attributeOrder: ["dispositivo", "paciente", "tipo"],
-
-    attributes: [
-      {
-        id: "dispositivo",
-        label: "Dispositivo",
-        type: "single",
-        values: [
-          { id: "canula", label: "Cánula nasal" },
-          { id: "mascarilla-simple", label: "Mascarilla simple" },
-          { id: "mascarilla-venturi", label: "Mascarilla Venturi" },
-          { id: "mascarilla-reservorio", label: "Mascarilla con reservorio" },
-          { id: "tubing", label: "Tubing / Extensión" }
-        ]
-      },
-      {
-        id: "paciente",
-        label: "Paciente",
-        type: "single",
-        values: [
-          { id: "neonatal", label: "Neonatal" },
-          { id: "pediatrico", label: "Pediátrico" },
-          { id: "adulto", label: "Adulto" },
-          { id: "universal", label: "Universal" }
-        ]
-      },
-      {
-        id: "tipo",
-        label: "Tipo",
-        type: "single",
-        values: [
-          { id: "desechable", label: "Desechable" },
-          { id: "reutilizable", label: "Reutilizable" },
-          // Venturi FiO₂
-          { id: "fio2-24", label: "FiO₂ 24%" },
-          { id: "fio2-28", label: "FiO₂ 28%" },
-          { id: "fio2-31", label: "FiO₂ 31%" },
-          { id: "fio2-35", label: "FiO₂ 35%" },
-          { id: "fio2-40", label: "FiO₂ 40%" },
-          { id: "fio2-60", label: "FiO₂ 60%" },
-          // Tubing longitudes
-          { id: "tubing-nebulizacion", label: "Nebulización" },
-          { id: "tubing-1-8m", label: "Extensión 1,8 m" },
-          { id: "tubing-3m", label: "Extensión 3 m" },
-          { id: "tubing-7m", label: "Extensión 7 m" },
-          { id: "tubing-15m", label: "Extensión 15 m" }
-        ]
-      }
-    ],
-
-    attributeRules: {
-      // Dispositivo → Paciente
-      "canula": { paciente: ["neonatal", "pediatrico", "adulto"] },
-      "mascarilla-simple": { paciente: ["pediatrico", "adulto"] },
-      "mascarilla-venturi": { paciente: ["adulto"] },
-      "mascarilla-reservorio": { paciente: ["adulto"] },
-      "tubing": { paciente: ["universal"] },
-
-      // Dispositivo → Tipo
-      "canula": { tipo: ["desechable", "reutilizable"] },
-      "mascarilla-simple": { tipo: ["desechable", "reutilizable"] },
-      "mascarilla-venturi": { tipo: ["fio2-24", "fio2-28", "fio2-31", "fio2-35", "fio2-40", "fio2-60"] },
-      "mascarilla-reservorio": { tipo: ["desechable", "reutilizable"] },
-      "tubing": { tipo: ["tubing-nebulizacion", "tubing-1-8m", "tubing-3m", "tubing-7m", "tubing-15m"] }
-    },
-
-    variants: [
-
-      // ─── CÁNULA NASAL – NEONATAL ──────────────────────────────────────────────
-      {
-        sku: "canula-neonatal-desechable",
-        attrs: { dispositivo: "canula", paciente: "neonatal", tipo: "desechable" },
-        name: "CÁNULA NASAL NEONATAL – DESECHABLE",
-        description: "Cánula nasal de bajo flujo para administración de oxígeno en neonatos. Puntas nasales de diámetro mínimo adaptadas a la anatomía neonatal con tubo flexible de PVC suave. Diseño de uso único para control de infecciones en unidades de neonatología y UCI neonatal. || Paciente: Neonatal | Flujo recomendado: 0,1–1 LPM | Material: PVC suave | Uso: Único desechable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "canula-neonatal-reutilizable",
-        attrs: { dispositivo: "canula", paciente: "neonatal", tipo: "reutilizable" },
-        name: "CÁNULA NASAL NEONATAL – REUTILIZABLE",
-        description: "Cánula nasal de bajo flujo reutilizable para administración de oxígeno en neonatos. Puntas nasales de silicona suave de diámetro mínimo adaptadas a la anatomía neonatal. Resistente a la desinfección y esterilización para uso clínico continuo en neonatología. || Paciente: Neonatal | Flujo recomendado: 0,1–1 LPM | Material: Silicona | Uso: Reutilizable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-
-      // ─── CÁNULA NASAL – PEDIÁTRICO ────────────────────────────────────────────
-      {
-        sku: "canula-pediatrica-desechable",
-        attrs: { dispositivo: "canula", paciente: "pediatrico", tipo: "desechable" },
-        name: "CÁNULA NASAL PEDIÁTRICA – DESECHABLE",
-        description: "Cánula nasal de bajo flujo para administración de oxígeno en niños. Puntas nasales de PVC suave de diámetro reducido adaptadas a la anatomía pediátrica. Diseño de uso único para control de infecciones en consultorios y hospitalización pediátrica. || Paciente: Pediátrico | Flujo recomendado: 0,5–3 LPM | Material: PVC suave | Uso: Único desechable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "canula-pediatrica-reutilizable",
-        attrs: { dispositivo: "canula", paciente: "pediatrico", tipo: "reutilizable" },
-        name: "CÁNULA NASAL PEDIÁTRICA – REUTILIZABLE",
-        description: "Cánula nasal de bajo flujo reutilizable para administración de oxígeno en niños. Puntas nasales de silicona suave de diámetro reducido adaptadas a la anatomía pediátrica. Resistente a la desinfección para uso clínico continuo. || Paciente: Pediátrico | Flujo recomendado: 0,5–3 LPM | Material: Silicona | Uso: Reutilizable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-
-      // ─── CÁNULA NASAL – ADULTO ────────────────────────────────────────────────
-      {
-        sku: "canula-adulto-desechable",
-        attrs: { dispositivo: "canula", paciente: "adulto", tipo: "desechable" },
-        name: "CÁNULA NASAL ADULTO – DESECHABLE",
-        description: "Cánula nasal de bajo flujo para administración de oxígeno en adultos. Puntas nasales de PVC suave con tubo flexible de 2,1 m para conexión directa al flujómetro o regulador. Diseño de uso único para control de infecciones en hospitalización y domicilio. || Paciente: Adulto | Flujo recomendado: 1–6 LPM | Material: PVC suave | Longitud: 2,1 m | Uso: Único desechable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "canula-adulto-reutilizable",
-        attrs: { dispositivo: "canula", paciente: "adulto", tipo: "reutilizable" },
-        name: "CÁNULA NASAL ADULTO – REUTILIZABLE",
-        description: "Cánula nasal de bajo flujo reutilizable para administración de oxígeno en adultos. Puntas nasales de silicona suave con tubo flexible para conexión al flujómetro o regulador. Resistente a la desinfección y esterilización para uso clínico continuo y domiciliario de largo plazo. || Paciente: Adulto | Flujo recomendado: 1–6 LPM | Material: Silicona | Uso: Reutilizable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-
-      // ─── MASCARILLA SIMPLE – PEDIÁTRICO ──────────────────────────────────────
-      {
-        sku: "mascarilla-simple-pediatrica-desechable",
-        attrs: { dispositivo: "mascarilla-simple", paciente: "pediatrico", tipo: "desechable" },
-        name: "MASCARILLA SIMPLE PEDIÁTRICA – DESECHABLE",
-        description: "Mascarilla de oxígeno simple pediátrica de uso único para administración de oxígeno a flujo libre en niños. Cuerpo de PVC transparente con clips nasal ajustable y elástico de sujeción. Suministra FiO₂ de 35–50% a flujos de 5–8 LPM. Compatible con tubing estándar de oxígeno. || Paciente: Pediátrico | FiO₂ aprox.: 35–50% | Flujo: 5–8 LPM | Material: PVC transparente | Uso: Único desechable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "mascarilla-simple-pediatrica-reutilizable",
-        attrs: { dispositivo: "mascarilla-simple", paciente: "pediatrico", tipo: "reutilizable" },
-        name: "MASCARILLA SIMPLE PEDIÁTRICA – REUTILIZABLE",
-        description: "Mascarilla de oxígeno simple pediátrica reutilizable para administración de oxígeno a flujo libre en niños. Cuerpo de silicona transparente con clips nasal ajustable. Resistente a la desinfección y esterilización para uso clínico continuo. Compatible con tubing estándar de oxígeno. || Paciente: Pediátrico | FiO₂ aprox.: 35–50% | Flujo: 5–8 LPM | Material: Silicona | Uso: Reutilizable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-
-      // ─── MASCARILLA SIMPLE – ADULTO ───────────────────────────────────────────
-      {
-        sku: "mascarilla-simple-adulto-desechable",
-        attrs: { dispositivo: "mascarilla-simple", paciente: "adulto", tipo: "desechable" },
-        name: "MASCARILLA SIMPLE ADULTO – DESECHABLE",
-        description: "Mascarilla de oxígeno simple adulto de uso único para administración de oxígeno a flujo libre. Cuerpo de PVC transparente con clips nasal ajustable y elástico de sujeción. Suministra FiO₂ de 35–50% a flujos de 5–10 LPM. Compatible con tubing estándar de oxígeno. || Paciente: Adulto | FiO₂ aprox.: 35–50% | Flujo: 5–10 LPM | Material: PVC transparente | Uso: Único desechable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "mascarilla-simple-adulto-reutilizable",
-        attrs: { dispositivo: "mascarilla-simple", paciente: "adulto", tipo: "reutilizable" },
-        name: "MASCARILLA SIMPLE ADULTO – REUTILIZABLE",
-        description: "Mascarilla de oxígeno simple adulto reutilizable para administración de oxígeno a flujo libre. Cuerpo de silicona transparente con clips nasal ajustable y elástico regulable. Resistente a la desinfección y esterilización para uso clínico continuo. || Paciente: Adulto | FiO₂ aprox.: 35–50% | Flujo: 5–10 LPM | Material: Silicona | Uso: Reutilizable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-
-      // ─── MASCARILLA VENTURI ───────────────────────────────────────────────────
-      {
-        sku: "mascarilla-venturi-24",
-        attrs: { dispositivo: "mascarilla-venturi", paciente: "adulto", tipo: "fio2-24" },
-        name: "MASCARILLA VENTURI – FiO₂ 24%",
-        description: "Mascarilla Venturi adulto con dilutador fijo al 24% de FiO₂ para administración de oxígeno controlado en pacientes con EPOC e insuficiencia respiratoria crónica donde se requiere concentración precisa y baja de oxígeno. Cuerpo de PVC transparente con puerto Venturi codificado por color. || FiO₂: 24% fija | Flujo recomendado: 2 LPM | Paciente: Adulto | Uso: Único desechable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "mascarilla-venturi-28",
-        attrs: { dispositivo: "mascarilla-venturi", paciente: "adulto", tipo: "fio2-28" },
-        name: "MASCARILLA VENTURI – FiO₂ 28%",
-        description: "Mascarilla Venturi adulto con dilutador fijo al 28% de FiO₂ para administración de oxígeno controlado. Puerto Venturi codificado por color. Indicada para pacientes con requerimiento leve-moderado de oxígeno suplementario con concentración precisa. || FiO₂: 28% fija | Flujo recomendado: 4 LPM | Paciente: Adulto | Uso: Único desechable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "mascarilla-venturi-31",
-        attrs: { dispositivo: "mascarilla-venturi", paciente: "adulto", tipo: "fio2-31" },
-        name: "MASCARILLA VENTURI – FiO₂ 31%",
-        description: "Mascarilla Venturi adulto con dilutador fijo al 31% de FiO₂. Puerto Venturi codificado por color. Indicada para pacientes con requerimiento moderado de oxígeno suplementario con concentración controlada. || FiO₂: 31% fija | Flujo recomendado: 6 LPM | Paciente: Adulto | Uso: Único desechable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "mascarilla-venturi-35",
-        attrs: { dispositivo: "mascarilla-venturi", paciente: "adulto", tipo: "fio2-35" },
-        name: "MASCARILLA VENTURI – FiO₂ 35%",
-        description: "Mascarilla Venturi adulto con dilutador fijo al 35% de FiO₂. Puerto Venturi codificado por color. Indicada para pacientes con requerimiento moderado-alto de oxígeno suplementario con concentración precisa. || FiO₂: 35% fija | Flujo recomendado: 8 LPM | Paciente: Adulto | Uso: Único desechable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "mascarilla-venturi-40",
-        attrs: { dispositivo: "mascarilla-venturi", paciente: "adulto", tipo: "fio2-40" },
-        name: "MASCARILLA VENTURI – FiO₂ 40%",
-        description: "Mascarilla Venturi adulto con dilutador fijo al 40% de FiO₂. Puerto Venturi codificado por color. Indicada para pacientes con hipoxemia moderada que requieren concentración controlada y elevada de oxígeno. || FiO₂: 40% fija | Flujo recomendado: 8–10 LPM | Paciente: Adulto | Uso: Único desechable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "mascarilla-venturi-60",
-        attrs: { dispositivo: "mascarilla-venturi", paciente: "adulto", tipo: "fio2-60" },
-        name: "MASCARILLA VENTURI – FiO₂ 60%",
-        description: "Mascarilla Venturi adulto con dilutador fijo al 60% de FiO₂ para administración de alta concentración controlada de oxígeno. Puerto Venturi codificado por color. Indicada para pacientes con hipoxemia severa en entornos de urgencias y UCI. || FiO₂: 60% fija | Flujo recomendado: 12–15 LPM | Paciente: Adulto | Uso: Único desechable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-
-      // ─── MASCARILLA RESERVORIO ────────────────────────────────────────────────
-      {
-        sku: "mascarilla-reservorio-desechable",
-        attrs: { dispositivo: "mascarilla-reservorio", paciente: "adulto", tipo: "desechable" },
-        name: "MASCARILLA CON RESERVORIO – DESECHABLE",
-        description: "Mascarilla de oxígeno con bolsa reservorio de uso único para administración de alta concentración de oxígeno (FiO₂ 90–95%) en emergencias y UCI. La bolsa reservorio acumula oxígeno puro durante la espiración para suministrar alta concentración en cada inspiración. Incluye válvulas unidireccionales para evitar reinhalación de CO₂. || FiO₂ aprox.: 90–95% | Flujo: 10–15 LPM | Paciente: Adulto | Uso: Único desechable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "mascarilla-reservorio-reutilizable",
-        attrs: { dispositivo: "mascarilla-reservorio", paciente: "adulto", tipo: "reutilizable" },
-        name: "MASCARILLA CON RESERVORIO – REUTILIZABLE",
-        description: "Mascarilla de oxígeno con bolsa reservorio reutilizable para administración de alta concentración de oxígeno en entornos clínicos de uso continuo. Cuerpo y bolsa de silicona médica resistente a la desinfección y esterilización. Válvulas unidireccionales para evitar reinhalación de CO₂. || FiO₂ aprox.: 90–95% | Flujo: 10–15 LPM | Paciente: Adulto | Material: Silicona médica | Uso: Reutilizable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-
-      // ─── TUBING ───────────────────────────────────────────────────────────────
-      {
-        sku: "tubing-nebulizacion",
-        attrs: { dispositivo: "tubing", paciente: "universal", tipo: "tubing-nebulizacion" },
-        name: "TUBING DE NEBULIZACIÓN",
-        description: "Tubo conector de PVC para nebulización, compatible con equipos de nebulización por compresor y nebulizadores de malla. Conecta el vaso nebulizador a la mascarilla o boquilla de administración. De uso único para control de infecciones. || Uso: Nebulización | Material: PVC | Tipo: Desechable.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "tubing-extension-1-8m",
-        attrs: { dispositivo: "tubing", paciente: "universal", tipo: "tubing-1-8m" },
-        name: "TUBING EXTENSIÓN OXÍGENO – 1,8 M",
-        description: "Tubo de extensión de oxígeno de 1,8 metros para aumentar la distancia entre el flujómetro o regulador y el dispositivo de administración al paciente. PVC médico flexible compatible con cánulas, mascarillas y nebulizadores. || Longitud: 1,8 m | Material: PVC médico | Uso: Extensión de oxígeno.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "tubing-extension-3m",
-        attrs: { dispositivo: "tubing", paciente: "universal", tipo: "tubing-3m" },
-        name: "TUBING EXTENSIÓN OXÍGENO – 3 M",
-        description: "Tubo de extensión de oxígeno de 3 metros para mayor libertad de movimiento del paciente respecto al punto de suministro. PVC médico flexible compatible con cánulas, mascarillas y nebulizadores. || Longitud: 3 m | Material: PVC médico | Uso: Extensión de oxígeno.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "tubing-extension-7m",
-        attrs: { dispositivo: "tubing", paciente: "universal", tipo: "tubing-7m" },
-        name: "TUBING EXTENSIÓN OXÍGENO – 7 M",
-        description: "Tubo de extensión de oxígeno de 7 metros para uso domiciliario que permite al paciente moverse libremente entre habitaciones mientras recibe oxigenoterapia continua. PVC médico flexible. || Longitud: 7 m | Material: PVC médico | Uso: Extensión domiciliaria.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "tubing-extension-15m",
-        attrs: { dispositivo: "tubing", paciente: "universal", tipo: "tubing-15m" },
-        name: "TUBING EXTENSIÓN OXÍGENO – 15 M",
-        description: "Tubo de extensión de oxígeno de 15 metros de máxima longitud para uso domiciliario de alto alcance. Permite al paciente circular libremente por el hogar durante oxigenoterapia continua con concentrador o balón. PVC médico flexible. || Longitud: 15 m | Material: PVC médico | Uso: Extensión domiciliaria máximo alcance.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      }
+      { sku: "western-mpf-540ht-45-sin", attrs: { tipo: "flexible-ht", longitud: "45cm", valvula: "sin-check" }, name: "MANGUERA DE ALTA PRESION CON HANDTIGHT", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 45 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 45 cm | Handtight | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540ht-45-con", attrs: { tipo: "flexible-ht", longitud: "45cm", valvula: "con-check" }, name: "MANGUERA DE ALTA PRESION CON HANDTIGHT", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 45 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 45 cm | Handtight | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540ht-61-sin", attrs: { tipo: "flexible-ht", longitud: "61cm", valvula: "sin-check" }, name: "MANGUERA DE ALTA PRESION CON HANDTIGHT", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 61 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 61 cm | Handtight | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540ht-61-con", attrs: { tipo: "flexible-ht", longitud: "61cm", valvula: "con-check" }, name: "MANGUERA DE ALTA PRESION CON HANDTIGHT", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 61 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 61 cm | Handtight | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540ht-91-sin", attrs: { tipo: "flexible-ht", longitud: "91cm", valvula: "sin-check" }, name: "MANGUERA DE ALTA PRESION CON HANDTIGHT", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 91 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 91 cm | Handtight | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540ht-91-con", attrs: { tipo: "flexible-ht", longitud: "91cm", valvula: "con-check" }, name: "MANGUERA DE ALTA PRESION CON HANDTIGHT", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 91 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 91 cm | Handtight | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540ht-122-sin", attrs: { tipo: "flexible-ht", longitud: "122cm", valvula: "sin-check" }, name: "MANGUERA DE ALTA PRESION CON HANDTIGHT", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 122 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, sin válvula check. Presión trabajo 3,000 PSI. || Longitud: 122 cm | Handtight | Sin check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" },
+      { sku: "western-mpf-540ht-122-con", attrs: { tipo: "flexible-ht", longitud: "122cm", valvula: "con-check" }, name: "MANGUERA DE ALTA PRESION CON HANDTIGHT", description: "Manguera flexible Western MPF-540HT CGA-540 handtight, 122 cm, núcleo PTFE + acero inox. trenzado, tuercas manuales sin llave, con válvula check antirretorno. Presión trabajo 3,000 PSI. || Longitud: 122 cm | Handtight | Con check | Presión máx.: 3,000 PSI.", price: 5, image: "/images/respiratorio/MANGUERAS/FLEXIBLE.png" }
     ]
   },
 
@@ -1416,7 +1284,7 @@ export const soporteRespiratorioProducts = [
     name: "NEBULIZADORES",
     type: "Respiratorio",
     description: "Nebulizadores para la administración de medicamentos líquidos en forma de aerosol fino directamente a las vías respiratorias. Indicados para el tratamiento de asma, bronquitis, EPOC, sinusitis y otras afecciones respiratorias. Disponibles en tecnología de compresor de pistón (mayor flujo y estabilidad, ideales para uso domiciliario y clínico) y malla ultrasónica portátil (silenciosos, compactos y sin medicamento residual). Marcas: Omron, Beurer, Citizen y Yuwell.",
-    image: "/images/respiratorio/placeholder.png",
+    image: "/images/respiratorio/NEBULIZADORES/CARD.png",
 
     attributeOrder: ["tecnologia", "marca", "modelo"],
 
@@ -1477,7 +1345,7 @@ export const soporteRespiratorioProducts = [
         name: "OMRON NE-C801",
         description: "Nebulizador de compresor Omron NE-C801 con tecnología Virtual Valve Technology (V.V.T.) que reduce el desperdicio de medicamento y el tiempo de administración a 0,3 ml/min. El más silencioso de su categoría con solo 46 dB, compacto y liviano con 270 g para fácil transporte. Apto para niños y adultos. Incluye mascarilla adulto, mascarilla pediátrica, boquilla, tubo de aire 100 cm, filtros de repuesto y estuche de almacenamiento. || Tecnología: V.V.T. compresor | Partículas: 3 µm MMAD | Tasa nebulización: 0,3 ml/min | Capacidad vaso: 7 ml | Ruido: 46 dB | Peso: 270 g | Operación: 20 min intermitente.",
         price: 5,
-        image: "/images/respiratorio/placeholder.png"
+        image: "/images/respiratorio/NEBULIZADORES/NE-C801.png"
       },
       {
         sku: "omron-ne-c803",
@@ -1485,17 +1353,17 @@ export const soporteRespiratorioProducts = [
         name: "OMRON NE-C803",
         description: "Nebulizador de compresor Omron NE-C803 con tecnología V.V.T. mejorada — el más silencioso de la línea Omron con menos de 45 dB. Mayor autonomía y rendimiento respecto al NE-C801 para tratamientos más prolongados. Apto para niños y adultos. Incluye mascarilla adulto, mascarilla pediátrica, boquilla, tubo de aire, filtros de repuesto y estuche de transporte. || Tecnología: V.V.T. compresor | Partículas: 3 µm MMAD | Ruido: < 45 dB | Capacidad vaso: 7 ml | Operación: Uso continuo mejorado.",
         price: 5,
-        image: "/images/respiratorio/placeholder.png"
+        image: "/images/respiratorio/NEBULIZADORES/NE-C803.png"
       },
 
       // ─── OMRON – MALLA ULTRASÓNICA ────────────────────────────────────────────
       {
         sku: "omron-malla-portatil",
         attrs: { tecnologia: "malla", marca: "omron", modelo: "malla-portatil" },
-        name: "OMRON – NEBULIZADOR DE MALLA PORTÁTIL",
+        name: "Omron MicroAir NE-U100",
         description: "Nebulizador de malla ultrasónica portátil Omron para uso en cualquier posición — acostado, sentado o de pie — sin derrame de medicamento. Silencioso y compacto para uso domiciliario y en viajes. Batería recargable con autonomía para múltiples sesiones. Partículas ultrafinas de 3 µm para penetración profunda en vías respiratorias bajas. Apto para niños y adultos. || Tecnología: Malla ultrasónica | Posición de uso: Cualquiera | Alimentación: Batería recargable | Partículas: 3 µm | Ruido: Mínimo.",
         price: 5,
-        image: "/images/respiratorio/placeholder.png"
+        image: "/images/respiratorio/NEBULIZADORES/NE-U100.png"
       },
 
       // ─── BEURER – COMPRESOR ───────────────────────────────────────────────────
@@ -1505,7 +1373,7 @@ export const soporteRespiratorioProducts = [
         name: "BEURER IH-21",
         description: "Nebulizador de compresor Beurer IH-21 con tecnología de aire comprimido que produce partículas de 3,07 µm para penetración profunda en vías respiratorias. Tasa de nebulización de 0,3 ml/min con bajo desperdicio de medicamento. Compartimento integrado para guardar accesorios. Incluye mascarilla adulto, mascarilla pediátrica, boquilla nasal, boquilla bucal, tubo de aire extralargo y filtro. || Tecnología: Compresor CA | Partículas: 3,07 µm MMAD | Tasa nebulización: 0,3 ml/min | Peso: 1,65 kg | Dimensiones: 30×18×10 cm | Alimentación: 230V 50Hz.",
         price: 259,
-        image: "/images/respiratorio/placeholder.png"
+        image: "/images/respiratorio/NEBULIZADORES/IH-21.png"
       },
 
       // ─── CITIZEN – COMPRESOR ──────────────────────────────────────────────────
@@ -1515,7 +1383,7 @@ export const soporteRespiratorioProducts = [
         name: "CITIZEN GC806",
         description: "Nebulizador de compresor pistón Citizen GC806 de procedencia japonesa, compacto y liviano para uso domiciliario y clínico. Apto para niños y adultos con partículas de 3,07 µm MMAD para tratamiento eficaz de vías respiratorias superiores e inferiores. Válvula de alta eficiencia sin lubricación diaria. Vida útil esperada de 1,000 horas. Incluye boquilla, tubo de aire, mascarilla adulto, mascarilla pediátrica, pieza nasal y filtros de repuesto. || Tecnología: Compresor pistón | Partículas: 3,07 µm MMAD | Tasa nebulización: 0,35 ml/min | Presión máx.: 2,2 bar | Capacidad vaso: 8 ml | Ruido: 52 dB | Vida útil: 1,000 h.",
         price: 220,
-        image: "/images/respiratorio/placeholder.png"
+        image: "/images/respiratorio/NEBULIZADORES/GC806.png"
       },
 
       // ─── YUWELL – COMPRESOR ───────────────────────────────────────────────────
@@ -1525,7 +1393,7 @@ export const soporteRespiratorioProducts = [
         name: "YUWELL 403D",
         description: "Nebulizador de compresor Yuwell 403D para uso domiciliario y clínico. Sin aceite y sin lubricación diaria gracias a su válvula de alta eficiencia. Mayor flujo de bomba (≥10 L/min) y presión de salida (≥21 PSI) que los modelos estándar, lo que garantiza mayor estabilidad en el tratamiento. Bajo nivel de ruido (≤65 dB). Apto para todo tipo de pacientes. || Tecnología: Compresor pistón | Partículas: 3,9 µm | Tasa nebulización: 0,1 ml/min | Flujo bomba: ≥10 L/min | Presión: ≥21 PSI | Capacidad vaso: 7 ml | Ruido: ≤65 dB | Peso: ≤1,5 kg.",
         price: 5,
-        image: "/images/respiratorio/placeholder.png"
+        image: "/images/respiratorio/NEBULIZADORES/403D.png"
       }
     ]
   },

@@ -495,25 +495,33 @@ export default function ProductConfigurator({ product, onAddToCart }) {
     if (attr?.type === "single") {
       setSelAttrs((prev) => {
         const curr = prev[attrId];
+
+        // 🔄 Deselección: limpiar este atributo Y todos los downstream
         if (Array.isArray(curr) && curr[0] === valId) {
           const next = { ...prev };
           delete next[attrId];
+
+          // Limpiar cascadas posteriores también
+          const attrOrder = safeProduct.attributeOrder || [];
+          const currentIndex = attrOrder.indexOf(attrId);
+          if (currentIndex !== -1) {
+            for (let i = currentIndex + 1; i < attrOrder.length; i++) {
+              delete next[attrOrder[i]];
+            }
+          }
+
           return next;
         }
 
-        // 🔄 Si este atributo es parte de una cascada, limpiar cascadas posteriores
+        // 🔄 Selección nueva: limpiar cascadas posteriores
         const attrOrder = safeProduct.attributeOrder || [];
         const currentIndex = attrOrder.indexOf(attrId);
 
         if (currentIndex !== -1) {
-          // Crear nuevo objeto sin los atributos de cascadas posteriores
           const next = { ...prev, [attrId]: [valId] };
-
-          // Eliminar todos los atributos que vienen después en el orden
           for (let i = currentIndex + 1; i < attrOrder.length; i++) {
             delete next[attrOrder[i]];
           }
-
           return next;
         }
 
@@ -973,10 +981,10 @@ export default function ProductConfigurator({ product, onAddToCart }) {
             <button
               type="button"
               onClick={handleAdd}
-              disabled={buttonLocked}
-              className={`w-full py-3 rounded-xl font-semibold !text-white
-    ${buttonLocked
-                  ? "bg-gray-300 cursor-not-allowed"
+              disabled={!canAdd || buttonLocked}
+              className={`w-full py-3 rounded-xl font-semibold !text-white transition-all duration-200
+    ${!canAdd || buttonLocked
+                  ? "bg-gray-300 dark:bg-slate-600 cursor-not-allowed opacity-60"
                   : "bg-[#208790] hover:brightness-110 cursor-pointer"
                 }`}
             >
