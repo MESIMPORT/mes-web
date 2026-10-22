@@ -174,8 +174,8 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     name: "AGUA DESIONIZADA 4 LT",
     type: "Reactivos",
     description: "Agua desionizada en presentación de 4 litros, obtenida mediante proceso de intercambio iónico que elimina prácticamente la totalidad de sales minerales, iones y contaminantes disueltos, garantizando una conductividad eléctrica mínima. A diferencia del agua destilada, el proceso de desionización preserva las propiedades físicas del agua eliminando selectivamente los iones cargados, siendo ideal para preparación de soluciones de alta pureza, diluciones críticas, calibración de equipos, enjuague de material analítico y aplicaciones donde la presencia de iones podría interferir con los resultados. Ideal para laboratorios clínicos, analíticos, académicos e industriales.",
-    price: 22.8,
-    image: "/images/laboratorio/REACTIVOS/DESIONIZADA_4LT.png"
+    image: "/images/laboratorio/REACTIVOS/DESIONIZADA_4LT.png",
+    price: 36.72
   },
   {
     id: "agua-destilada",
@@ -231,88 +231,44 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     id: "alcohol-laboratorio",
     name: "ALCOHOLES Y ANTISÉPTICOS",
     type: "Reactivos",
-    description: "Línea completa de alcoholes para uso en laboratorio, disponibles en distintos tipos y concentraciones según la aplicación requerida. Incluye alcohol yodado, en gel, puro, medicinal e isopropílico, ideales para desinfección, antisepsia, limpieza de material y aplicaciones técnicas en laboratorios clínicos, académicos e industriales.",
+    description: "Alcoholes y antisépticos para uso en laboratorio, consultorio y primeros auxilios: alcohol medicinal de 70°, alcohol puro de 96°, alcohol isopropílico (común y grado analítico), agua oxigenada y yodopovidona al 10%. Disponibles en distintas presentaciones según el uso.",
     image: "/images/laboratorio/REACTIVOS/ALCOHOLESCARD.png",
 
-    attributeOrder: ["tipo", "capacidad"],
+    attributeOrder: ["presentacion"],
 
     attributes: [
       {
-        id: "tipo",
-        label: "Tipo",
+        id: "presentacion",
+        label: "Producto",
         type: "single",
         values: [
-          { id: "yodado", label: "Alcohol Yodado" },
-          { id: "gel-70", label: "Alcohol en Gel 70°" },
-          { id: "puro-96", label: "Alcohol Puro 96°" },
-          { id: "medicinal-70", label: "Alcohol Medicinal 70°" },
-          { id: "isopropilico", label: "Alcohol Isopropílico" }
-        ]
-      },
-      {
-        id: "capacidad",
-        label: "Capacidad",
-        type: "single",
-        values: [
-          { id: "30-ml", label: "30 ml" },
-          { id: "60-ml", label: "60 ml" },
-          { id: "120-ml", label: "120 ml" },
-          { id: "150-ml", label: "150 ml" },
-          { id: "250-ml", label: "250 ml" },
-          { id: "360-ml", label: "360 ml" },
-          { id: "500-ml", label: "500 ml" },
-          { id: "650-ml", label: "650 ml" },
-          { id: "1-lt", label: "1 lt" },
-          { id: "3800-ml", label: "3800 ml" },
-          { id: "4-lt", label: "4 lt" },
-          { id: "20-lt", label: "20 lt" }
+          { id: "alcohol-medicinal-70-120-ml", label: "Alcohol medicinal 70° – 120 ml" },
+          { id: "alcohol-medicinal-70-1-l", label: "Alcohol medicinal 70° – 1 L" },
+          { id: "alcohol-medicinal-70-4-l", label: "Alcohol medicinal 70° – 4 L" },
+          { id: "alcohol-puro-96-1-l", label: "Alcohol puro 96° – 1 L" },
+          { id: "alcohol-puro-96-4-l", label: "Alcohol puro 96° – 4 L" },
+          { id: "alcohol-isopropilico-1-l", label: "Alcohol isopropílico – 1 L" },
+          { id: "alcohol-isopropilico-analitico-1-l", label: "Alcohol isopropílico analítico – 1 L" },
+          { id: "alcohol-isopropilico-analitico-4-l", label: "Alcohol isopropílico analítico – 4 L" },
+          { id: "agua-oxigenada-120-ml", label: "Agua oxigenada – 120 ml" },
+          { id: "agua-oxigenada-1-l", label: "Agua oxigenada – 1 L" },
+          { id: "yodopovidona-10-120-ml", label: "Yodopovidona 10% – 120 ml" }
         ]
       }
     ],
 
-    attributeRules: {
-      "yodado": { capacidad: ["30-ml", "60-ml", "120-ml", "500-ml", "1-lt"] },
-      "gel-70": { capacidad: ["150-ml", "360-ml", "500-ml", "1-lt", "4-lt"] },
-      "puro-96": { capacidad: ["120-ml", "250-ml", "500-ml", "1-lt", "4-lt", "20-lt"] },
-      "medicinal-70": { capacidad: ["120-ml", "250-ml", "500-ml", "1-lt", "4-lt", "20-lt"] },
-      "isopropilico": { capacidad: ["650-ml", "3800-ml"] }
-    },
-
     variants: [
-
-      // ─── ALCOHOL YODADO ───────────────────────────────────────
-      { sku: "alcohol-yodado-30ml", attrs: { tipo: "yodado", capacidad: "30-ml" }, name: "YODADO 30 ML", description: "Alcohol yodado para antisepsia y desinfección de heridas y superficies en laboratorio y uso clínico. || **Tipo:** Yodado | **Capacidad:** 30 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_YOD_30.png" },
-      { sku: "alcohol-yodado-60ml", attrs: { tipo: "yodado", capacidad: "60-ml" }, name: "YODADO 60 ML", description: "Alcohol yodado para antisepsia y desinfección de heridas y superficies en laboratorio y uso clínico. || **Tipo:** Yodado | **Capacidad:** 60 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_YOD_60.png" },
-      { sku: "alcohol-yodado-120ml", attrs: { tipo: "yodado", capacidad: "120-ml" }, name: "YODADO 120 ML", description: "Alcohol yodado para antisepsia y desinfección de heridas y superficies en laboratorio y uso clínico. || **Tipo:** Yodado | **Capacidad:** 120 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_YOD_120.png" },
-      { sku: "alcohol-yodado-500ml", attrs: { tipo: "yodado", capacidad: "500-ml" }, name: "YODADO 500 ML", description: "Alcohol yodado para antisepsia y desinfección de heridas y superficies en laboratorio y uso clínico. || **Tipo:** Yodado | **Capacidad:** 500 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_YOD_500.png" },
-      { sku: "alcohol-yodado-1lt", attrs: { tipo: "yodado", capacidad: "1-lt" }, name: "YODADO 1 LT", description: "Alcohol yodado para antisepsia y desinfección de heridas y superficies en laboratorio y uso clínico. || **Tipo:** Yodado | **Capacidad:** 1 lt.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_YOD_1000.png" },
-
-      // ─── ALCOHOL EN GEL 70° ───────────────────────────────────
-      { sku: "alcohol-gel70-150ml", attrs: { tipo: "gel-70", capacidad: "150-ml" }, name: "GEL 70° 150 ML", description: "Alcohol en gel al 70° para desinfección de manos y superficies, con fórmula de acción rápida y secado sin residuos. || **Tipo:** Gel 70° | **Capacidad:** 150 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_GEL_150.png" },
-      { sku: "alcohol-gel70-360ml", attrs: { tipo: "gel-70", capacidad: "360-ml" }, name: "GEL 70° 360 ML", description: "Alcohol en gel al 70° para desinfección de manos y superficies, con fórmula de acción rápida y secado sin residuos. || **Tipo:** Gel 70° | **Capacidad:** 360 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_GEL_360.png" },
-      { sku: "alcohol-gel70-500ml", attrs: { tipo: "gel-70", capacidad: "500-ml" }, name: "GEL 70° 500 ML", description: "Alcohol en gel al 70° para desinfección de manos y superficies, con fórmula de acción rápida y secado sin residuos. || **Tipo:** Gel 70° | **Capacidad:** 500 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_GEL_500.png" },
-      { sku: "alcohol-gel70-1lt", attrs: { tipo: "gel-70", capacidad: "1-lt" }, name: "GEL 70° 1 LT", description: "Alcohol en gel al 70° para desinfección de manos y superficies, con fórmula de acción rápida y secado sin residuos. || **Tipo:** Gel 70° | **Capacidad:** 1 lt.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_GEL_1000.png" },
-      { sku: "alcohol-gel70-4lt", attrs: { tipo: "gel-70", capacidad: "4-lt" }, name: "GEL 70° 4 LT", description: "Alcohol en gel al 70° para desinfección de manos y superficies, con fórmula de acción rápida y secado sin residuos. || **Tipo:** Gel 70° | **Capacidad:** 4 lt.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_GEL_4000.png" },
-
-      // ─── ALCOHOL PURO 96° ─────────────────────────────────────
-      { sku: "alcohol-puro96-120ml", attrs: { tipo: "puro-96", capacidad: "120-ml" }, name: "PURO 96° 120 ML", description: "Alcohol puro al 96° de alta concentración para uso técnico, limpieza de instrumental y preparación de soluciones en laboratorio. || **Tipo:** Puro 96° | **Capacidad:** 120 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_96_120.png" },
-      { sku: "alcohol-puro96-250ml", attrs: { tipo: "puro-96", capacidad: "250-ml" }, name: "PURO 96° 250 ML", description: "Alcohol puro al 96° de alta concentración para uso técnico, limpieza de instrumental y preparación de soluciones en laboratorio. || **Tipo:** Puro 96° | **Capacidad:** 250 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_96_250.png" },
-      { sku: "alcohol-puro96-500ml", attrs: { tipo: "puro-96", capacidad: "500-ml" }, name: "PURO 96° 500 ML", description: "Alcohol puro al 96° de alta concentración para uso técnico, limpieza de instrumental y preparación de soluciones en laboratorio. || **Tipo:** Puro 96° | **Capacidad:** 500 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_96_500.png" },
-      { sku: "alcohol-puro96-1lt", attrs: { tipo: "puro-96", capacidad: "1-lt" }, name: "PURO 96° 1 LT", description: "Alcohol puro al 96° de alta concentración para uso técnico, limpieza de instrumental y preparación de soluciones en laboratorio. || **Tipo:** Puro 96° | **Capacidad:** 1 lt.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_96_1000.png" },
-      { sku: "alcohol-puro96-4lt", attrs: { tipo: "puro-96", capacidad: "4-lt" }, name: "PURO 96° 4 LT", description: "Alcohol puro al 96° de alta concentración para uso técnico, limpieza de instrumental y preparación de soluciones en laboratorio. || **Tipo:** Puro 96° | **Capacidad:** 4 lt.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_96_4000.png" },
-      { sku: "alcohol-puro96-20lt", attrs: { tipo: "puro-96", capacidad: "20-lt" }, name: "PURO 96° 20 LT", description: "Alcohol puro al 96° de alta concentración para uso técnico, limpieza de instrumental y preparación de soluciones en laboratorio. || **Tipo:** Puro 96° | **Capacidad:** 20 lt.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_96_20000.png" },
-
-      // ─── ALCOHOL MEDICINAL 70° ────────────────────────────────
-      { sku: "alcohol-medicinal70-120ml", attrs: { tipo: "medicinal-70", capacidad: "120-ml" }, name: "MEDICINAL 70° 120 ML", description: "Alcohol medicinal al 70° para desinfección de piel, heridas y superficies en laboratorio y uso clínico. || **Tipo:** Medicinal 70° | **Capacidad:** 120 ml.", price: 9.6, image: "/images/laboratorio/REACTIVOS/ALCOHOL_70_120.png" },
-      { sku: "alcohol-medicinal70-250ml", attrs: { tipo: "medicinal-70", capacidad: "250-ml" }, name: "MEDICINAL 70° 250 ML", description: "Alcohol medicinal al 70° para desinfección de piel, heridas y superficies en laboratorio y uso clínico. || **Tipo:** Medicinal 70° | **Capacidad:** 250 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_70_250.png" },
-      { sku: "alcohol-medicinal70-500ml", attrs: { tipo: "medicinal-70", capacidad: "500-ml" }, name: "MEDICINAL 70° 500 ML", description: "Alcohol medicinal al 70° para desinfección de piel, heridas y superficies en laboratorio y uso clínico. || **Tipo:** Medicinal 70° | **Capacidad:** 500 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_70_500.png" },
-      { sku: "alcohol-medicinal70-1lt", attrs: { tipo: "medicinal-70", capacidad: "1-lt" }, name: "MEDICINAL 70° 1 LT", description: "Alcohol medicinal al 70° para desinfección de piel, heridas y superficies en laboratorio y uso clínico. || **Tipo:** Medicinal 70° | **Capacidad:** 1 lt.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_70_1000.png" },
-      { sku: "alcohol-medicinal70-4lt", attrs: { tipo: "medicinal-70", capacidad: "4-lt" }, name: "MEDICINAL 70° 4 LT", description: "Alcohol medicinal al 70° para desinfección de piel, heridas y superficies en laboratorio y uso clínico. || **Tipo:** Medicinal 70° | **Capacidad:** 4 lt.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_70_4000.png" },
-      { sku: "alcohol-medicinal70-20lt", attrs: { tipo: "medicinal-70", capacidad: "20-lt" }, name: "MEDICINAL 70° 20 LT", description: "Alcohol medicinal al 70° para desinfección de piel, heridas y superficies en laboratorio y uso clínico. || **Tipo:** Medicinal 70° | **Capacidad:** 20 lt.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_70_20000.png" },
-
-      // ─── ALCOHOL ISOPROPÍLICO ─────────────────────────────────
-      { sku: "alcohol-isopropilico-650ml", attrs: { tipo: "isopropilico", capacidad: "650-ml" }, name: "ISOPROPÍLICO 650 ML", description: "Alcohol isopropílico para limpieza de superficies, instrumental óptico y electrónico, y uso técnico en laboratorio. || **Tipo:** Isopropílico | **Capacidad:** 650 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_ISOP_650.png" },
-      { sku: "alcohol-isopropilico-3800ml", attrs: { tipo: "isopropilico", capacidad: "3800-ml" }, name: "ISOPROPÍLICO 3800 ML", description: "Alcohol isopropílico para limpieza de superficies, instrumental óptico y electrónico, y uso técnico en laboratorio. || **Tipo:** Isopropílico | **Capacidad:** 3800 ml.", price: 5, image: "/images/laboratorio/REACTIVOS/ALCOHOL_ISOP_4000.png" }
+      { sku: "alcohol-medicinal70-120ml", attrs: { presentacion: "alcohol-medicinal-70-120-ml" }, name: "ALCOHOL MEDICINAL 70° × 120 ML", description: "Alcohol medicinal al 70° para desinfección de piel, heridas y superficies en laboratorio y uso clínico. || **Tipo:** Medicinal 70° | **Capacidad:** 120 ml.", price: 2.45, image: "/images/laboratorio/REACTIVOS/ALCOHOL_70_120.png" },
+      { sku: "alcohol-medicinal70-1lt", attrs: { presentacion: "alcohol-medicinal-70-1-l" }, name: "ALCOHOL MEDICINAL 70° × 1 L", description: "Alcohol medicinal al 70° para desinfección de piel, heridas y superficies en laboratorio y uso clínico. || **Tipo:** Medicinal 70° | **Capacidad:** 1 lt.", price: 12.24, image: "/images/laboratorio/REACTIVOS/ALCOHOL_70_1000.png" },
+      { sku: "alcohol-medicinal70-4lt", attrs: { presentacion: "alcohol-medicinal-70-4-l" }, name: "ALCOHOL MEDICINAL 70° × 4 L", description: "Alcohol medicinal al 70° para desinfección de piel, heridas y superficies en laboratorio y uso clínico. || **Tipo:** Medicinal 70° | **Capacidad:** 4 lt.", price: 45.9, image: "/images/laboratorio/REACTIVOS/ALCOHOL_70_4000.png" },
+      { sku: "alcohol-puro96-1lt", attrs: { presentacion: "alcohol-puro-96-1-l" }, name: "ALCOHOL PURO 96° × 1 L", description: "Alcohol puro al 96° de alta concentración para uso técnico, limpieza de instrumental y preparación de soluciones en laboratorio. || **Tipo:** Puro 96° | **Capacidad:** 1 lt.", price: 12.24, image: "/images/laboratorio/REACTIVOS/ALCOHOL_96_1000.png" },
+      { sku: "alcohol-puro96-4lt", attrs: { presentacion: "alcohol-puro-96-4-l" }, name: "ALCOHOL PURO 96° × 4 L", description: "Alcohol puro al 96° de alta concentración para uso técnico, limpieza de instrumental y preparación de soluciones en laboratorio. || **Tipo:** Puro 96° | **Capacidad:** 4 lt.", price: 47.43, image: "/images/laboratorio/REACTIVOS/ALCOHOL_96_4000.png" },
+      { sku: "alcohol-isopropilico-1lt", attrs: { presentacion: "alcohol-isopropilico-1-l" }, name: "ALCOHOL ISOPROPÍLICO × 1 L", description: "Alcoholes y antisépticos para uso en laboratorio, consultorio y primeros auxilios: alcohol medicinal de 70°, alcohol puro de 96°, alcohol isopropílico (común y grado analítico), agua oxigenada y yodopovidona al 10%. Disponibles en distintas presentaciones según el uso.", price: 30.6, image: "/images/laboratorio/REACTIVOS/ALCOHOLESCARD.png" },
+      { sku: "alcohol-isopropilico-analitico-1lt", attrs: { presentacion: "alcohol-isopropilico-analitico-1-l" }, name: "ALCOHOL ISOPROPÍLICO GRADO ANALÍTICO × 1 L", description: "Alcoholes y antisépticos para uso en laboratorio, consultorio y primeros auxilios: alcohol medicinal de 70°, alcohol puro de 96°, alcohol isopropílico (común y grado analítico), agua oxigenada y yodopovidona al 10%. Disponibles en distintas presentaciones según el uso.", price: 45.9, image: "/images/laboratorio/REACTIVOS/ALCOHOLESCARD.png" },
+      { sku: "alcohol-isopropilico-analitico-4lt", attrs: { presentacion: "alcohol-isopropilico-analitico-4-l" }, name: "ALCOHOL ISOPROPÍLICO GRADO ANALÍTICO × 4 L", description: "Alcoholes y antisépticos para uso en laboratorio, consultorio y primeros auxilios: alcohol medicinal de 70°, alcohol puro de 96°, alcohol isopropílico (común y grado analítico), agua oxigenada y yodopovidona al 10%. Disponibles en distintas presentaciones según el uso.", price: 122.4, image: "/images/laboratorio/REACTIVOS/ALCOHOLESCARD.png" },
+      { sku: "agua-oxigenada-120ml", attrs: { presentacion: "agua-oxigenada-120-ml" }, name: "AGUA OXIGENADA × 120 ML", description: "Alcoholes y antisépticos para uso en laboratorio, consultorio y primeros auxilios: alcohol medicinal de 70°, alcohol puro de 96°, alcohol isopropílico (común y grado analítico), agua oxigenada y yodopovidona al 10%. Disponibles en distintas presentaciones según el uso.", price: 1.84, image: "/images/laboratorio/REACTIVOS/ALCOHOLESCARD.png" },
+      { sku: "agua-oxigenada-1lt", attrs: { presentacion: "agua-oxigenada-1-l" }, name: "AGUA OXIGENADA × 1 L", description: "Alcoholes y antisépticos para uso en laboratorio, consultorio y primeros auxilios: alcohol medicinal de 70°, alcohol puro de 96°, alcohol isopropílico (común y grado analítico), agua oxigenada y yodopovidona al 10%. Disponibles en distintas presentaciones según el uso.", price: 5.36, image: "/images/laboratorio/REACTIVOS/ALCOHOLESCARD.png" },
+      { sku: "yodopovidona-10-120ml", attrs: { presentacion: "yodopovidona-10-120-ml" }, name: "YODOPOVIDONA 10% × 120 ML", description: "Alcoholes y antisépticos para uso en laboratorio, consultorio y primeros auxilios: alcohol medicinal de 70°, alcohol puro de 96°, alcohol isopropílico (común y grado analítico), agua oxigenada y yodopovidona al 10%. Disponibles en distintas presentaciones según el uso.", price: 9.95, image: "/images/laboratorio/REACTIVOS/ALCOHOLESCARD.png" }
     ]
   },
 
@@ -413,38 +369,13 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Presentación",
         type: "single",
         values: [
-          { id: "250-g", label: "250 g" },
-          { id: "500-g", label: "500 g" },
-          { id: "1-kg", label: "1 kg" }
+          { id: "1-kg", label: "1 KG" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "cloruro-sodio-250g",
-        attrs: { presentacion: "250-g" },
-        name: "250 G",
-        description: "Cloruro de sodio sólido de alta pureza ≥99% para preparación de soluciones fisiológicas, estándares y reactivos en laboratorio. || **Pureza:** ≥99% NaCl | **Forma:** Sólido | **Presentación:** 250 g.",
-        price: 7.2,
-        image: "/images/laboratorio/REACTIVOS/CLORURO250.png"
-      },
-      {
-        sku: "cloruro-sodio-500g",
-        attrs: { presentacion: "500-g" },
-        name: "500 G",
-        description: "Cloruro de sodio sólido de alta pureza ≥99% para preparación de soluciones fisiológicas, estándares y reactivos en laboratorio. || **Pureza:** ≥99% NaCl | **Forma:** Sólido | **Presentación:** 500 g.",
-        price: 42,
-        image: "/images/laboratorio/REACTIVOS/CLORURO500.png"
-      },
-      {
-        sku: "cloruro-sodio-1kg",
-        attrs: { presentacion: "1-kg" },
-        name: "1 KG",
-        description: "Cloruro de sodio sólido de alta pureza ≥99% para preparación de soluciones fisiológicas, estándares y reactivos en laboratorio. || **Pureza:** ≥99% NaCl | **Forma:** Sólido | **Presentación:** 1 kg.",
-        price: 48,
-        image: "/images/laboratorio/REACTIVOS/CLORURO1000.png"
-      }
+      { sku: "cloruro-sodio-1kg", attrs: { presentacion: "1-kg" }, name: "CLORURO DE SODIO – 1 KG", description: "Cloruro de sodio sólido de alta pureza ≥99% para preparación de soluciones fisiológicas, estándares y reactivos en laboratorio. || **Pureza:** ≥99% NaCl | **Forma:** Sólido | **Presentación:** 1 kg.", price: 68.85, image: "/images/laboratorio/REACTIVOS/CLORURO1000.png" }
     ]
   },
   {
@@ -493,7 +424,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     id: "azul-de-metileno",
     name: "AZUL DE METILENO",
     type: "Reactivos",
-    description: "Azul de metileno en estado sólido (polvo), colorante básico de amplio uso en técnicas de tinción histológica y microbiológica para la identificación de bacterias, núcleos celulares y estructuras tisulares. Su presentación en polvo permite preparar soluciones a la concentración requerida según cada aplicación. Empleado en la coloración de frotis sanguíneos, tinción de bacterias gram negativas y como indicador redox en análisis químicos. Su versatilidad lo hace también útil en pruebas de viabilidad celular y como antídoto en intoxicaciones por metahemoglobinemia en entornos clínicos. Ideal para laboratorios de microbiología, histología, clínicos y de investigación.",
+    description: "Azul de metileno en solución para tinciones en microbiología, hematología y parasitología. Utilizado como colorante de contraste y en tinciones simples para la observación de bacterias, levaduras y estructuras celulares al microscopio.",
     image: "/images/laboratorio/REACTIVOS/AZUL_METILENO_CARD.png",
 
     attributeOrder: ["presentacion"],
@@ -504,40 +435,24 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Presentación",
         type: "single",
         values: [
-          { id: "100-g", label: "100 g" },
-          { id: "250-g", label: "250 g" }
+          { id: "solucion-1-l", label: "Solución × 1 L" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "azul-metileno-100g",
-        attrs: { presentacion: "100-g" },
-        name: "100 G",
-        description: "Azul de metileno en polvo para preparación de soluciones de tinción histológica, microbiológica y uso como indicador redox en laboratorio. || **Estado:** Sólido | **Presentación:** 100 g.",
-        price: 12,
-        image: "/images/laboratorio/REACTIVOS/AZUL_METILENO_100G.png"
-      },
-      {
-        sku: "azul-metileno-250g",
-        attrs: { presentacion: "250-g" },
-        name: "250 G",
-        description: "Azul de metileno en polvo para preparación de soluciones de tinción histológica, microbiológica y uso como indicador redox en laboratorio. || **Estado:** Sólido | **Presentación:** 250 g.",
-        price: 5,
-        image: "/images/laboratorio/REACTIVOS/AZUL_METILENO_250G.png"
-      }
+      { sku: "azul-metileno-1lt", attrs: { presentacion: "solucion-1-l" }, name: "AZUL DE METILENO SOLUCIÓN × 1 L", description: "Azul de metileno en solución para tinciones en microbiología, hematología y parasitología. Utilizado como colorante de contraste y en tinciones simples para la observación de bacterias, levaduras y estructuras celulares al microscopio.", price: 84.15, image: "/images/laboratorio/REACTIVOS/AZUL_METILENO_CARD.png" }
     ]
   },
 
 
   {
     id: "granallas-de-zinc-por-500-gr",
-    name: "GRANALLAS DE ZINC 500 GR",
+    name: "GRANALLAS DE ZINC × 100 G",
     type: "Utensilios",
-    description: "Granallas de zinc de alta pureza en presentación de 500 g, utilizadas como material reductor en análisis químicos cuantitativos, determinaciones de metales pesados y reacciones de reducción en laboratorio. Su forma granular facilita el dosificado preciso y una reacción controlada, siendo ampliamente empleadas en técnicas analíticas como la determinación de nitratos, sulfatos y otros compuestos por vía húmeda. Ideales para laboratorios clínicos, académicos e industriales.",
-    price: 198,
-    image: "/images/laboratorio/REACTIVOS/GRANALLA_ZINC.png"
+    description: "Granallas de zinc metálico para prácticas de química general e inorgánica, como la obtención de hidrógeno por reacción con ácidos y reacciones de desplazamiento y óxido-reducción. Presentación de 100 g.",
+    image: "/images/laboratorio/REACTIVOS/GRANALLA_ZINC.png",
+    price: 145.35
   },
 
   {
@@ -545,8 +460,8 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     name: "HIDRÓXIDO DE MAGNESIO 500 GRS",
     type: "Reactivos",
     description: "Hidróxido de magnesio de alta pureza en presentación de 500 g, utilizado como reactivo base en análisis químicos, neutralización de ácidos y preparación de soluciones tamponadas. Sus propiedades antiácidas y su baja solubilidad en agua lo hacen ideal para aplicaciones en síntesis química, tratamiento de efluentes y procesos industriales. Ampliamente empleado en laboratorios clínicos, académicos e industriales donde se requiere un agente alcalinizante de acción controlada.",
-    price: 144,
-    image: "/images/laboratorio/REACTIVOS/HIDROXIDO_MAGNESIO.png"
+    image: "/images/laboratorio/REACTIVOS/HIDROXIDO_MAGNESIO.png",
+    price: 237.15
   },
 
   {
@@ -608,29 +523,13 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Capacidad",
         type: "single",
         values: [
-          { id: "100-ml", label: "100 ml" },
-          { id: "1000-ml", label: "1000 ml" }
+          { id: "100-ml", label: "100 ML" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "lugol-1pct-100ml",
-        attrs: { capacidad: "100-ml" },
-        name: "100 ML",
-        description: "Solución de Lugol al 1% para identificación de almidones, coloración microbiológica y análisis de laboratorio. || **Concentración:** 1% | **Capacidad:** 100 ml.",
-        price: 46.8,
-        image: "/images/laboratorio/REACTIVOS/LUGOL_100.png"
-      },
-      {
-        sku: "lugol-1pct-1000ml",
-        attrs: { capacidad: "1000-ml" },
-        name: "1000 ML",
-        description: "Solución de Lugol al 1% para identificación de almidones, coloración microbiológica y análisis de laboratorio. || **Concentración:** 1% | **Capacidad:** 1000 ml.",
-        price: 144,
-        image: "/images/laboratorio/REACTIVOS/LUGOL_1000.png"
-      }
+      { sku: "lugol-1pct-100ml", attrs: { capacidad: "100-ml" }, name: "LUGOL AL 1% – 100 ML", description: "Solución de Lugol al 1% para identificación de almidones, coloración microbiológica y análisis de laboratorio. || **Concentración:** 1% | **Capacidad:** 100 ml.", price: 58.14, image: "/images/laboratorio/REACTIVOS/LUGOL_100.png" }
     ]
   },
 
@@ -658,29 +557,17 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Solución",
         type: "single",
         values: [
-          { id: "fehling-a", label: "Fehling A" },
-          { id: "fehling-b", label: "Fehling B" }
+          { id: "fehling-a-100-ml", label: "FEHLING A × 100 ML" },
+          { id: "fehling-b-100-ml", label: "FEHLING B × 100 ML" },
+          { id: "kit-fehling-a-b-100-ml-c-u", label: "KIT FEHLING A + B (100 ML C/U)" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "reactivo-fehling-a-100ml",
-        attrs: { solucion: "fehling-a" },
-        name: "FEHLING A × 100 ML",
-        description: "Solución A del reactivo de Fehling (sulfato de cobre en solución acuosa), utilizada junto con la solución B para la detección de azúcares reductores en muestras biológicas y alimentarias. || **Solución:** Fehling A | **Capacidad:** 100 ml.",
-        price: 18,
-        image: "/images/laboratorio/REACTIVOS/FEHLING_A.png"
-      },
-      {
-        sku: "reactivo-fehling-b-100ml",
-        attrs: { solucion: "fehling-b" },
-        name: "FEHLING B × 100 ML",
-        description: "Solución B del reactivo de Fehling (tartrato de sodio y potasio en hidróxido de sodio), utilizada junto con la solución A para la detección de azúcares reductores en muestras biológicas y alimentarias. || **Solución:** Fehling B | **Capacidad:** 100 ml.",
-        price: 19.2,
-        image: "/images/laboratorio/REACTIVOS/FEHLING_B.png"
-      }
+      { sku: "reactivo-fehling-a-100ml", attrs: { solucion: "fehling-a-100-ml" }, name: "REACTIVO DE FEHLING – FEHLING A × 100 ML", description: "Solución A del reactivo de Fehling (sulfato de cobre en solución acuosa), utilizada junto con la solución B para la detección de azúcares reductores en muestras biológicas y alimentarias. || **Solución:** Fehling A | **Capacidad:** 100 ml.", price: 21.42, image: "/images/laboratorio/REACTIVOS/FEHLING_A.png" },
+      { sku: "reactivo-fehling-b-100ml", attrs: { solucion: "fehling-b-100-ml" }, name: "REACTIVO DE FEHLING – FEHLING B × 100 ML", description: "Solución B del reactivo de Fehling (tartrato de sodio y potasio en hidróxido de sodio), utilizada junto con la solución A para la detección de azúcares reductores en muestras biológicas y alimentarias. || **Solución:** Fehling B | **Capacidad:** 100 ml.", price: 21.42, image: "/images/laboratorio/REACTIVOS/FEHLING_B.png" },
+      { sku: "reactivo-fehling-kit-a-b-100ml", attrs: { solucion: "kit-fehling-a-b-100-ml-c-u" }, name: "REACTIVO DE FEHLING KIT A + B × 100 ML C/U", description: "Reactivo de Fehling para la detección e identificación de azúcares reductores en muestras biológicas, alimentos y soluciones químicas. Se compone de dos soluciones (A y B) que se mezclan en partes iguales antes de su uso, produciendo un precipitado rojo ladrillo en presencia de glucosa y otros monosacáridos reductores. Ampliamente utilizado en análisis clínicos, control de calidad alimentario y prácticas de bioquímica en laboratorios académicos e industriales.", price: 45.9, image: "/images/laboratorio/REACTIVOS/FEHLING_CARD.png" }
     ]
   },
 
@@ -718,38 +605,15 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Presentación",
         type: "single",
         values: [
-          { id: "solucion-100ml", label: "Solución × 100 ml" },
-          { id: "pentahidratado-500g", label: "Pentahidratado 500 g" },
-          { id: "pentahidratado-1kg", label: "Pentahidratado 1 kg" }
+          { id: "pentahidratado-500-g", label: "PENTAHIDRATADO 500 G" },
+          { id: "pentahidratado-1-kg", label: "PENTAHIDRATADO 1 KG" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "sulfato-cobre-solucion-100ml",
-        attrs: { presentacion: "solucion-100ml" },
-        name: "SOLUCIÓN × 100 ML",
-        description: "Solución de sulfato de cobre lista para usar en reacción de Biuret, preparación de reactivo de Fehling y análisis microbiológicos en laboratorio. || **Forma:** Solución | **Capacidad:** 100 ml.",
-        price: 24,
-        image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_SOL.png"
-      },
-      {
-        sku: "sulfato-cobre-pentahidratado-500g",
-        attrs: { presentacion: "pentahidratado-500g" },
-        name: "PENTAHIDRATADO 500 G",
-        description: "Sulfato de cobre pentahidratado (CuSO₄·5H₂O) de alta pureza al 99% para uso analítico, síntesis química y preparación de soluciones en laboratorio. || **Forma:** Sólido pentahidratado | **Presentación:** 500 g.",
-        price: 84,
-        image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_500G.png"
-      },
-      {
-        sku: "sulfato-cobre-pentahidratado-1kg",
-        attrs: { presentacion: "pentahidratado-1kg" },
-        name: "PENTAHIDRATADO 1 KG",
-        description: "Sulfato de cobre pentahidratado (CuSO₄·5H₂O) de alta pureza al 99% para uso analítico, síntesis química y preparación de soluciones en laboratorio. || **Forma:** Sólido pentahidratado | **Presentación:** 1 kg.",
-        price: 96,
-        image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_1KG.png"
-      }
+      { sku: "sulfato-cobre-pentahidratado-500g", attrs: { presentacion: "pentahidratado-500-g" }, name: "SULFATO DE COBRE – PENTAHIDRATADO 500 G", description: "Sulfato de cobre pentahidratado (CuSO₄·5H₂O) de alta pureza al 99% para uso analítico, síntesis química y preparación de soluciones en laboratorio. || **Forma:** Sólido pentahidratado | **Presentación:** 500 g.", price: 122.4, image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_500G.png" },
+      { sku: "sulfato-cobre-pentahidratado-1kg", attrs: { presentacion: "pentahidratado-1-kg" }, name: "SULFATO DE COBRE – PENTAHIDRATADO 1 KG", description: "Sulfato de cobre pentahidratado (CuSO₄·5H₂O) de alta pureza al 99% para uso analítico, síntesis química y preparación de soluciones en laboratorio. || **Forma:** Sólido pentahidratado | **Presentación:** 1 kg.", price: 76.5, image: "/images/laboratorio/REACTIVOS/SULFATO_COBRE_1KG.png" }
     ]
   },
   {
@@ -784,8 +648,8 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     name: "TETRACLORURO DE CARBONO × 200 ML",
     type: "Reactivos",
     description: "Tetracloruro de carbono de alta pureza en presentación de 200 ml, solvente orgánico no polar ampliamente utilizado en extracción de lípidos, grasas y compuestos apolares, así como en espectroscopía infrarroja y análisis cromatográfico. Por su alta densidad y baja miscibilidad con agua es empleado en extracciones líquido-líquido en química analítica. Debido a su toxicidad hepática, potencial cancerígeno y efecto sobre la capa de ozono, debe manipularse estrictamente en campana extractora con equipos de protección personal adecuados y descartarse según normativa de residuos peligrosos. Ideal para laboratorios analíticos y de investigación.",
-    price: 192,
-    image: "/images/laboratorio/REACTIVOS/TETRACLORURO_CARBONO.png"
+    image: "/images/laboratorio/REACTIVOS/TETRACLORURO_CARBONO.png",
+    price: 221.85
   },
 
   {
@@ -840,29 +704,15 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Presentación",
         type: "single",
         values: [
-          { id: "500-g", label: "500 g" },
-          { id: "1-kg", label: "1 kg" }
+          { id: "500-g", label: "500 G" },
+          { id: "1-kg", label: "1 KG" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "glucosa-anhidra-500g",
-        attrs: { presentacion: "500-g" },
-        name: "500 G",
-        description: "Glucosa anhidra de alta pureza para preparación de soluciones estándar y determinación de glucosa en muestras biológicas. || **Presentación:** 500 g.",
-        price: 45.6,
-        image: "/images/laboratorio/REACTIVOS/GLUCOSA_ANHIDRA500.png"
-      },
-      {
-        sku: "glucosa-anhidra-1kg",
-        attrs: { presentacion: "1-kg" },
-        name: "1 KG",
-        description: "Glucosa anhidra de alta pureza para preparación de soluciones estándar y determinación de glucosa en muestras biológicas. || **Presentación:** 1 kg.",
-        price: 72,
-        image: "/images/laboratorio/REACTIVOS/GLUCOSA_ANHIDRA1000.png"
-      }
+      { sku: "glucosa-anhidra-500g", attrs: { presentacion: "500-g" }, name: "GLUCOSA ANHIDRA – 500 G", description: "Glucosa anhidra de alta pureza para preparación de soluciones estándar y determinación de glucosa en muestras biológicas. || **Presentación:** 500 g.", price: 91.8, image: "/images/laboratorio/REACTIVOS/GLUCOSA_ANHIDRA500.png" },
+      { sku: "glucosa-anhidra-1kg", attrs: { presentacion: "1-kg" }, name: "GLUCOSA ANHIDRA – 1 KG", description: "Glucosa anhidra de alta pureza para preparación de soluciones estándar y determinación de glucosa en muestras biológicas. || **Presentación:** 1 kg.", price: 168.3, image: "/images/laboratorio/REACTIVOS/GLUCOSA_ANHIDRA1000.png" }
     ]
   },
 
@@ -886,11 +736,11 @@ export const equipamientoYLaboratorioYReactivosProducts = [
 
   {
     id: "nitrato-de-plata-solucion-agno3-al-3-100-ml",
-    name: "NITRATO DE PLATA SOLUCIÓN (AgNO₃) AL 3% × 100 ML",
+    name: "NITRATO DE PLATA SOLUCIÓN (AgNO₃) AL 3% × 1 L",
     type: "Reactivos",
-    description: "Solución de nitrato de plata al 3% (AgNO₃) en presentación de 100 ml, ampliamente utilizada en volumetrías de precipitación para la determinación de cloruros por el método de Mohr y Volhard, así como en la detección de halogenuros en muestras clínicas, aguas y alimentos. Su acción bactericida la hace también útil en aplicaciones microbiológicas y dermatológicas. Por su sensibilidad a la luz, debe almacenarse en frasco ámbar, en lugar oscuro y fresco. Requiere manipulación con guantes ya que mancha la piel de forma persistente. Ideal para laboratorios analíticos, clínicos y académicos.",
-    price: 204,
-    image: "/images/laboratorio/REACTIVOS/NITRATO_PLATA_SOL.png"
+    description: "Solución de nitrato de plata al 3% (AgNO₃) en presentación de 1 litro, utilizada en volumetrías de precipitación para la determinación de cloruros (métodos de Mohr y Volhard) y en la detección de halogenuros en muestras de laboratorio. Conservar en frasco ámbar, protegido de la luz.",
+    image: "/images/laboratorio/REACTIVOS/NITRATO_PLATA_SOL.png",
+    price: 826.2
   },
 
   {
@@ -990,37 +840,21 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     description: "Rojo de cresol, indicador de pH de doble viraje utilizado en volumetrías ácido-base. Presenta viraje de rojo a amarillo en el rango pH 0.2–1.8 y de amarillo a rojo-púrpura en el rango pH 7.0–8.8, siendo útil para titulaciones en medios ácidos y ligeramente alcalinos. Disponible en estado sólido para preparación de soluciones y en solución lista para usar. Ampliamente empleado en análisis de acidez de muestras biológicas, aguas y productos farmacéuticos. Ideal para laboratorios analíticos, clínicos y académicos.",
     image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL_CARD.png",
 
-    attributeOrder: ["forma"],
+    attributeOrder: ["presentacion"],
 
     attributes: [
       {
-        id: "forma",
+        id: "presentacion",
         label: "Presentación",
         type: "single",
         values: [
-          { id: "solido-10g", label: "Sólido × 10 g" },
-          { id: "solucion-50ml", label: "Solución × 50 ml" }
+          { id: "solido-10-g", label: "SÓLIDO × 10 G" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "rojo-cresol-solido-10g",
-        attrs: { forma: "solido-10g" },
-        name: "SÓLIDO × 10 G",
-        description: "Rojo de cresol en estado sólido (polvo) para preparación de soluciones indicadoras a la concentración requerida en volumetrías ácido-base. || **Estado:** Sólido | **Presentación:** 10 g | **Rango pH:** 0.2–1.8 y 7.0–8.8.",
-        price: 1.2,
-        image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL_SOLIDO.png"
-      },
-      {
-        sku: "rojo-cresol-solucion-50ml",
-        attrs: { forma: "solucion-50ml" },
-        name: "SOLUCIÓN × 50 ML",
-        description: "Rojo de cresol en solución lista para usar como indicador de pH en volumetrías ácido-base y análisis de acidez en muestras biológicas y farmacéuticas. || **Estado:** Solución | **Presentación:** 50 ml | **Rango pH:** 0.2–1.8 y 7.0–8.8.",
-        price: 5,
-        image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL_SOL.png"
-      }
+      { sku: "rojo-cresol-solido-10g", attrs: { presentacion: "solido-10-g" }, name: "INDICADOR ROJO DE CRESOL – SÓLIDO × 10 G", description: "Rojo de cresol en estado sólido (polvo) para preparación de soluciones indicadoras a la concentración requerida en volumetrías ácido-base. || **Estado:** Sólido | **Presentación:** 10 g | **Rango pH:** 0.2–1.8 y 7.0–8.8.", price: 137.7, image: "/images/laboratorio/REACTIVOS/ROJO_CRESOL_SOLIDO.png" }
     ]
   },
 
@@ -1220,56 +1054,15 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Tamaño",
         type: "single",
         values: [
-          { id: "60mm", label: "60 mm" },
-          { id: "80mm", label: "80 mm" },
-          { id: "100mm", label: "100 mm" },
-          { id: "130mm", label: "130 mm" },
-          { id: "160mm", label: "160 mm" }
+          { id: "100-mm", label: "100 mm" },
+          { id: "130-mm", label: "130 mm" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "mortero-60mm",
-        attrs: { tamano: "60mm" },
-        name: "60 mm",
-        description: "Mortero y pilón de porcelana – 60 mm de diámetro.",
-        price: 30,
-        image: "/images/laboratorio/MORTERO.png"
-      },
-      {
-        sku: "mortero-80mm",
-        attrs: { tamano: "80mm" },
-        name: "80 mm",
-        description: "Mortero y pilón de porcelana – 80 mm de diámetro.",
-        price: 35,
-        image: "/images/laboratorio/MORTERO.png"
-      },
-      {
-        sku: "mortero-100mm",
-        attrs: { tamano: "100mm" },
-        name: "100 mm",
-        description: "Mortero y pilón de porcelana – 100 mm de diámetro.",
-        price: 40,
-        image: "/images/laboratorio/MORTERO.png"
-      },
-      {
-        sku: "mortero-130mm",
-        attrs: { tamano: "130mm" },
-        name: "130 mm",
-        description: "Mortero y pilón de porcelana – 130 mm de diámetro.",
-        price: 45,
-        image: "/images/laboratorio/MORTERO.png"
-      },
-      {
-        sku: "mortero-160mm",
-        attrs: { tamano: "160mm" },
-        name: "160 mm",
-        description: "Mortero y pilón de porcelana – 160 mm de diámetro.",
-        price: 50,
-        image: "/images/laboratorio/MORTERO.png"
-      }
+      { sku: "mortero-100mm", attrs: { tamano: "100-mm" }, name: "MORTERO Y PILÓN DE PORCELANA – 100 mm", description: "Mortero y pilón de porcelana – 100 mm de diámetro.", price: 29.07, image: "/images/laboratorio/MORTERO.png" },
+      { sku: "mortero-130mm", attrs: { tamano: "130-mm" }, name: "MORTERO Y PILÓN DE PORCELANA – 130 mm", description: "Mortero y pilón de porcelana – 130 mm de diámetro.", price: 49.79, image: "/images/laboratorio/MORTERO.png" }
     ]
   },
 
@@ -1288,38 +1081,15 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Capacidad",
         type: "single",
         values: [
-          { id: "30-ml", label: "30 ml / Ø 65 mm" },
-          { id: "50-ml", label: "50 ml / Ø 120 mm" },
-          { id: "75-ml", label: "75 ml / Ø 150 mm" }
+          { id: "50-ml-120-mm", label: "50 ML (Ø 120 MM)" },
+          { id: "75-ml-150-mm", label: "75 ML (Ø 150 MM)" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "embudo-30ml",
-        attrs: { capacidad: "30-ml" },
-        name: "CAPACIDAD 30 ML",
-        description: "Embudo de vidrio de borosilicato para filtración y trasvase de líquidos en laboratorio, con alta resistencia química y térmica. || **Capacidad:** 30 ml | **Diámetro:** 65 mm.",
-        price: 1.2,
-        image: "/images/laboratorio/UTENSILIOS/EMBUDO30.png"
-      },
-      {
-        sku: "embudo-50ml",
-        attrs: { capacidad: "50-ml" },
-        name: "CAPACIDAD 50 ML",
-        description: "Embudo de vidrio de borosilicato para uso en laboratorio, ideal para filtración y manejo de soluciones con excelente resistencia química. || **Capacidad:** 50 ml | **Diámetro:** 120 mm.",
-        price: 1.2,
-        image: "/images/laboratorio/UTENSILIOS/EMBUDO50.png"
-      },
-      {
-        sku: "embudo-75ml",
-        attrs: { capacidad: "75-ml" },
-        name: "CAPACIDAD 75 ML",
-        description: "Embudo de vidrio de borosilicato de mayor capacidad, diseñado para trasvase y filtración de volúmenes medios en laboratorio. || **Capacidad:** 75 ml | **Diámetro:** 150 mm.",
-        price: 1.2,
-        image: "/images/laboratorio/UTENSILIOS/EMBUDO75.png"
-      }
+      { sku: "embudo-50ml", attrs: { capacidad: "50-ml-120-mm" }, name: "EMBUDOS DE VIDRIO DE BOROSILICATO – 50 ML (Ø 120 MM)", description: "Embudo de vidrio de borosilicato para uso en laboratorio, ideal para filtración y manejo de soluciones con excelente resistencia química. || **Capacidad:** 50 ml | **Diámetro:** 120 mm.", price: 48.96, image: "/images/laboratorio/UTENSILIOS/EMBUDO50.png" },
+      { sku: "embudo-75ml", attrs: { capacidad: "75-ml-150-mm" }, name: "EMBUDOS DE VIDRIO DE BOROSILICATO – 75 ML (Ø 150 MM)", description: "Embudo de vidrio de borosilicato de mayor capacidad, diseñado para trasvase y filtración de volúmenes medios en laboratorio. || **Capacidad:** 75 ml | **Diámetro:** 150 mm.", price: 42.84, image: "/images/laboratorio/UTENSILIOS/EMBUDO75.png" }
     ]
   },
   {
@@ -1329,7 +1099,7 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     description: "Bagueta fabricada en vidrio de borosilicato (Boro 3.3), diseñada para agitación y mezcla de soluciones en laboratorio. Su alta resistencia química y térmica la hace ideal para uso en laboratorios clínicos, universitarios y de investigación.",
     image: "/images/laboratorio/UTENSILIOS/BAGUETASCARD.png",
 
-    attributeOrder: ["longitud", "diametro"],
+    attributeOrder: ["longitud"],
 
     attributes: [
       {
@@ -1338,81 +1108,14 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         type: "single",
         values: [
           { id: "20-cm", label: "20 cm" },
-          { id: "25-cm", label: "25 cm" },
-          { id: "30-cm", label: "30 cm" },
-          { id: "40-cm", label: "40 cm" },
-          { id: "50-cm", label: "50 cm" }
-        ]
-      },
-      {
-        id: "diametro",
-        label: "Diámetro",
-        type: "single",
-        values: [
-          { id: "5-mm", label: "5 mm" },
-          { id: "6-mm", label: "6 mm" },
-          { id: "8-mm", label: "8 mm" }
+          { id: "30-cm", label: "30 cm" }
         ]
       }
     ],
 
-    attributeRules: {
-      "20-cm": { diametro: ["6-mm"] },
-      "25-cm": { diametro: ["5-mm", "6-mm"] },
-      "30-cm": { diametro: ["8-mm"] },
-      "40-cm": { diametro: ["8-mm"] },
-      "50-cm": { diametro: ["8-mm"] }
-    },
-
     variants: [
-      {
-        sku: "bagueta-6mm-20cm",
-        attrs: { longitud: "20-cm", diametro: "6-mm" },
-        name: "20 cm – Ø6 mm",
-        description: "Bagueta de vidrio de borosilicato para agitación y mezcla de soluciones en laboratorio. || **Longitud:** 20 cm | **Diámetro:** 6 mm.",
-        price: 6,
-        image: "/images/laboratorio/UTENSILIOS/BAGUETA30.png"
-      },
-      {
-        sku: "bagueta-5mm-25cm",
-        attrs: { longitud: "25-cm", diametro: "5-mm" },
-        name: "25 cm – Ø5 mm",
-        description: "Bagueta de vidrio de borosilicato para agitación y mezcla de soluciones en laboratorio. || **Longitud:** 25 cm | **Diámetro:** 5 mm.",
-        price: 6,
-        image: "/images/laboratorio/UTENSILIOS/BAGUETA30.png"
-      },
-      {
-        sku: "bagueta-6mm-25cm",
-        attrs: { longitud: "25-cm", diametro: "6-mm" },
-        name: "25 cm – Ø6 mm",
-        description: "Bagueta de vidrio de borosilicato para agitación y mezcla de soluciones en laboratorio. || **Longitud:** 25 cm | **Diámetro:** 6 mm.",
-        price: 6,
-        image: "/images/laboratorio/UTENSILIOS/BAGUETA30.png"
-      },
-      {
-        sku: "bagueta-8mm-30cm",
-        attrs: { longitud: "30-cm", diametro: "8-mm" },
-        name: "30 cm – Ø8 mm",
-        description: "Bagueta de vidrio de borosilicato para agitación y mezcla de soluciones en laboratorio. || **Longitud:** 30 cm | **Diámetro:** 8 mm.",
-        price: 6,
-        image: "/images/laboratorio/UTENSILIOS/BAGUETA30.png"
-      },
-      {
-        sku: "bagueta-8mm-40cm",
-        attrs: { longitud: "40-cm", diametro: "8-mm" },
-        name: "40 cm – Ø8 mm",
-        description: "Bagueta de vidrio de borosilicato para agitación y mezcla de soluciones en laboratorio. || **Longitud:** 40 cm | **Diámetro:** 8 mm.",
-        price: 6,
-        image: "/images/laboratorio/UTENSILIOS/BAGUETA30.png"
-      },
-      {
-        sku: "bagueta-8mm-50cm",
-        attrs: { longitud: "50-cm", diametro: "8-mm" },
-        name: "50 cm – Ø8 mm",
-        description: "Bagueta de vidrio de borosilicato para agitación y mezcla de soluciones en laboratorio. || **Longitud:** 50 cm | **Diámetro:** 8 mm.",
-        price: 6,
-        image: "/images/laboratorio/UTENSILIOS/BAGUETA30.png"
-      }
+      { sku: "bagueta-6mm-20cm", attrs: { longitud: "20-cm" }, name: "BAGUETA DE VIDRIO 20 CM", description: "Bagueta de vidrio de borosilicato para agitación y mezcla de soluciones en laboratorio. || **Longitud:** 20 cm | **Diámetro:** 6 mm.", price: 6.12, image: "/images/laboratorio/UTENSILIOS/BAGUETA30.png" },
+      { sku: "bagueta-8mm-30cm", attrs: { longitud: "30-cm" }, name: "BAGUETA DE VIDRIO 30 CM", description: "Bagueta de vidrio de borosilicato para agitación y mezcla de soluciones en laboratorio. || **Longitud:** 30 cm | **Diámetro:** 8 mm.", price: 6.89, image: "/images/laboratorio/UTENSILIOS/BAGUETA30.png" }
     ]
   },
 
@@ -1423,124 +1126,25 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     description: "Beaker de vidrio borosilicato graduado, diseñado para medición, mezcla, calentamiento y preparación de soluciones en entornos de laboratorio. Fabricado en vidrio borosilicato de alta resistencia térmica y química, con graduación visible para una lectura práctica y pico vertedor para un vaciado controlado. Disponible con o sin certificado de calidad, y en múltiples capacidades para adaptarse a diferentes procedimientos de laboratorio.",
     image: "/images/laboratorio/UTENSILIOS/BEAKERCARD.png",
 
-    attributeOrder: ["certificado", "capacidad"],
+    attributeOrder: ["capacidad"],
 
     attributes: [
-      {
-        id: "certificado",
-        label: "Certificado",
-        type: "single",
-        values: [
-          { id: "sin-certificado", label: "Sin certificado" },
-          { id: "con-certificado", label: "Con certificado" }
-        ]
-      },
       {
         id: "capacidad",
         label: "Capacidad",
         type: "single",
         values: [
-          { id: "50-ml", label: "50 ml" },
-          { id: "100-ml", label: "100 ml" },
-          { id: "250-ml", label: "250 ml" },
-          { id: "500-ml", label: "500 ml" },
-          { id: "600-ml", label: "600 ml" },
-          { id: "1000-ml", label: "1000 ml" }
+          { id: "10-ml", label: "10 ML" },
+          { id: "50-ml", label: "50 ML" },
+          { id: "250-ml", label: "250 ML" }
         ]
       }
     ],
 
-    // 50 ml solo existe sin certificado / 600 ml solo existe sin certificado
-    attributeRules: {
-      "sin-certificado": { capacidad: ["50-ml", "100-ml", "250-ml", "500-ml", "600-ml", "1000-ml"] },
-      "con-certificado": { capacidad: ["100-ml", "250-ml", "500-ml", "1000-ml"] }
-    },
-
     variants: [
-
-      // ─── SIN CERTIFICADO ──────────────────────────────────────
-      {
-        sku: "beaker-sc-50ml",
-        attrs: { certificado: "sin-certificado", capacidad: "50-ml" },
-        name: "50 ML – SIN CERTIFICADO",
-        description: "Beaker de vidrio borosilicato graduado para medición, mezcla y calentamiento de soluciones en laboratorio, con pico vertedor para vaciado controlado. || **Capacidad:** 50 ml | **Certificado:** No.",
-        price: 6,
-        image: "/images/laboratorio/UTENSILIOS/BEAKER50.png"
-      },
-      {
-        sku: "beaker-sc-100ml",
-        attrs: { certificado: "sin-certificado", capacidad: "100-ml" },
-        name: "100 ML – SIN CERTIFICADO",
-        description: "Beaker de vidrio borosilicato graduado para preparación, mezcla y calentamiento de soluciones en laboratorio, con pico vertedor que facilita el trasvase del contenido. || **Capacidad:** 100 ml | **Certificado:** No.",
-        price: 7.2,
-        image: "/images/laboratorio/UTENSILIOS/BEAKER100.png"
-      },
-      {
-        sku: "beaker-sc-250ml",
-        attrs: { certificado: "sin-certificado", capacidad: "250-ml" },
-        name: "250 ML – SIN CERTIFICADO",
-        description: "Beaker de vidrio borosilicato graduado para medición, mezcla y preparación de reactivos en laboratorio, con pico vertedor para un vertido seguro. || **Capacidad:** 250 ml | **Certificado:** No.",
-        price: 8.4,
-        image: "/images/laboratorio/UTENSILIOS/BEAKER250.png"
-      },
-      {
-        sku: "beaker-sc-500ml",
-        attrs: { certificado: "sin-certificado", capacidad: "500-ml" },
-        name: "500 ML – SIN CERTIFICADO",
-        description: "Beaker de vidrio borosilicato graduado para preparación, mezcla y calentamiento de volúmenes medios en laboratorio, con pico vertedor para vaciado controlado. || **Capacidad:** 500 ml | **Certificado:** No.",
-        price: 14.4,
-        image: "/images/laboratorio/UTENSILIOS/BEAKER500.png"
-      },
-      {
-        sku: "beaker-sc-600ml",
-        attrs: { certificado: "sin-certificado", capacidad: "600-ml" },
-        name: "600 ML – SIN CERTIFICADO",
-        description: "Beaker de vidrio borosilicato graduado para preparación, mezcla y calentamiento de volúmenes intermedios en laboratorio, con pico vertedor para vaciado controlado. || **Capacidad:** 600 ml | **Certificado:** No.",
-        price: 60,
-        image: "/images/laboratorio/UTENSILIOS/BEAKER600.png"
-      },
-      {
-        sku: "beaker-sc-1000ml",
-        attrs: { certificado: "sin-certificado", capacidad: "1000-ml" },
-        name: "1000 ML – SIN CERTIFICADO",
-        description: "Beaker de vidrio borosilicato graduado para mezcla, calentamiento y preparación de soluciones de mayor volumen en laboratorio, con pico vertedor que facilita el manejo del contenido. || **Capacidad:** 1000 ml | **Certificado:** No.",
-        price: 21.6,
-        image: "/images/laboratorio/UTENSILIOS/BEAKER1000.png"
-      },
-
-      // ─── CON CERTIFICADO ──────────────────────────────────────
-      {
-        sku: "beaker-cc-100ml",
-        attrs: { certificado: "con-certificado", capacidad: "100-ml" },
-        name: "100 ML – CON CERTIFICADO",
-        description: "Beaker de vidrio borosilicato graduado con certificado de calidad, para preparación, mezcla y calentamiento de soluciones en laboratorio donde se requiere trazabilidad metrológica. || **Capacidad:** 100 ml | **Certificado:** Sí.",
-        price: 16.8,
-        image: "/images/laboratorio/UTENSILIOS/BEAKER100.png"
-      },
-      {
-        sku: "beaker-cc-250ml",
-        attrs: { certificado: "con-certificado", capacidad: "250-ml" },
-        name: "250 ML – CON CERTIFICADO",
-        description: "Beaker de vidrio borosilicato graduado con certificado de calidad, para medición, mezcla y preparación de reactivos en laboratorio donde se requiere trazabilidad metrológica. || **Capacidad:** 250 ml | **Certificado:** Sí.",
-        price: 28.8,
-        image: "/images/laboratorio/UTENSILIOS/BEAKER250.png"
-      },
-      {
-        sku: "beaker-cc-500ml",
-        attrs: { certificado: "con-certificado", capacidad: "500-ml" },
-        name: "500 ML – CON CERTIFICADO",
-        description: "Beaker de vidrio borosilicato graduado con certificado de calidad, para preparación, mezcla y calentamiento de volúmenes medios en laboratorio donde se requiere trazabilidad metrológica. || **Capacidad:** 500 ml | **Certificado:** Sí.",
-        price: 42,
-        image: "/images/laboratorio/UTENSILIOS/BEAKER500.png"
-      },
-      {
-        sku: "beaker-cc-1000ml",
-        attrs: { certificado: "con-certificado", capacidad: "1000-ml" },
-        name: "1000 ML – CON CERTIFICADO",
-        description: "Beaker de vidrio borosilicato graduado con certificado de calidad, para mezcla, calentamiento y preparación de soluciones de mayor volumen en laboratorio donde se requiere trazabilidad metrológica. || **Capacidad:** 1000 ml | **Certificado:** Sí.",
-        price: 54,
-        image: "/images/laboratorio/UTENSILIOS/BEAKER1000.png"
-      }
+      { sku: "beaker-10ml", attrs: { capacidad: "10-ml" }, name: "BEAKER DE VIDRIO 10 ML", description: "Beaker de vidrio borosilicato graduado, diseñado para medición, mezcla, calentamiento y preparación de soluciones en entornos de laboratorio. Fabricado en vidrio borosilicato de alta resistencia térmica y química, con graduación visible para una lectura práctica y pico vertedor para un vaciado controlado. Disponible con o sin certificado de calidad, y en múltiples capacidades para adaptarse a diferentes procedimientos de laboratorio.", price: 6.12, image: "/images/laboratorio/UTENSILIOS/BEAKERCARD.png" },
+      { sku: "beaker-sc-50ml", attrs: { capacidad: "50-ml" }, name: "BEAKER DE VIDRIO 50 ML", description: "Beaker de vidrio borosilicato graduado para medición, mezcla y calentamiento de soluciones en laboratorio, con pico vertedor para vaciado controlado. || **Capacidad:** 50 ml | **Certificado:** No.", price: 7.65, image: "/images/laboratorio/UTENSILIOS/BEAKER50.png" },
+      { sku: "beaker-sc-250ml", attrs: { capacidad: "250-ml" }, name: "BEAKER DE VIDRIO 250 ML", description: "Beaker de vidrio borosilicato graduado para medición, mezcla y preparación de reactivos en laboratorio, con pico vertedor para un vertido seguro. || **Capacidad:** 250 ml | **Certificado:** No.", price: 10.71, image: "/images/laboratorio/UTENSILIOS/BEAKER250.png" }
     ]
   },
 
@@ -1846,12 +1450,12 @@ export const equipamientoYLaboratorioYReactivosProducts = [
 
   {
     id: "frascos-vidrio",
-    name: "FRASCOS DE VIDRIO",
+    name: "FRASCOS DE VIDRIO PARA SOLUCIONES",
     type: "Utensilios",
-    description: "Frascos de vidrio para laboratorio y farmacia con múltiples variantes combinables. Disponibles en distintos colores, capacidades, tipos de tapa y colores de tapa, ideales para almacenamiento, dispensación y manejo de soluciones en laboratorios clínicos, universitarios y de investigación.",
+    description: "Frascos de vidrio para laboratorio, ideales para el almacenamiento y dispensación de soluciones y reactivos en laboratorios clínicos, universitarios y de investigación. El vidrio ámbar protege de la luz a las soluciones fotosensibles; el transparente permite ver el contenido. Disponibles con tapa sifón para dispensar sin destapar el frasco, o con tapa y contratapa para un cierre hermético.",
     image: "/images/laboratorio/UTENSILIOS/FRASCOS.png",
 
-    attributeOrder: ["colorFrasco", "capacidad", "tipTapa", "colorTapa"],
+    attributeOrder: ["colorFrasco", "capacidad", "tipoTapa"],
 
     attributes: [
       {
@@ -1859,12 +1463,8 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Color de frasco",
         type: "single",
         values: [
-          { id: "transparente", label: "Transparente" },
-          { id: "pavonada", label: "Pavonada" },
-          { id: "negra", label: "Negra" },
-          { id: "verde", label: "Verde" },
-          { id: "azul", label: "Azul" },
-          { id: "ambar", label: "Ámbar" }
+          { id: "ambar", label: "Ámbar" },
+          { id: "transparente", label: "Transparente" }
         ]
       },
       {
@@ -1872,16 +1472,9 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Capacidad",
         type: "single",
         values: [
-          { id: "5ml", label: "5 ml" },
-          { id: "10ml", label: "10 ml" },
-          { id: "15ml", label: "15 ml" },
-          { id: "20ml", label: "20 ml" },
-          { id: "30ml", label: "30 ml" },
-          { id: "50ml", label: "50 ml" },
-          { id: "100ml", label: "100 ml" },
+          { id: "120ml", label: "120 ml" },
           { id: "250ml", label: "250 ml" },
-          { id: "500ml", label: "500 ml" },
-          { id: "1000ml", label: "1000 ml" }
+          { id: "500ml", label: "500 ml" }
         ]
       },
       {
@@ -1889,325 +1482,18 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Tipo de tapa",
         type: "single",
         values: [
-          { id: "tapa-tapon", label: "Tapa y tapón" },
-          { id: "spray", label: "Spray" },
-          { id: "gotero", label: "Gotero" },
-          { id: "esmerilada", label: "Esmerilada" },
-          { id: "pistola", label: "Pistola" },
-          { id: "sifon", label: "Sifón" },
-          { id: "tapa-plastica", label: "Tapa plástica" }
-        ]
-      },
-      {
-        id: "colorTapa",
-        label: "Color de tapa",
-        type: "single",
-        values: [
-          { id: "blanco", label: "Blanco" },
-          { id: "negro", label: "Negro" }
+          { id: "sifon", label: "Tapa sifón" },
+          { id: "tapa-contratapa", label: "Tapa y contratapa" }
         ]
       }
     ],
 
     variants: [
-
-      // ─── 5 ml ─────────────────────────────────────────────────
-      { sku: "FR-CL-5-TTP-BK", attrs: { colorFrasco: "transparente", capacidad: "5ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-5-TTP-BK", attrs: { colorFrasco: "verde", capacidad: "5ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-5-TTP-BK", attrs: { colorFrasco: "azul", capacidad: "5ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-5-TTP-BK", attrs: { colorFrasco: "ambar", capacidad: "5ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-5-TTP-WH", attrs: { colorFrasco: "transparente", capacidad: "5ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-5-TTP-WH", attrs: { colorFrasco: "verde", capacidad: "5ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-5-TTP-WH", attrs: { colorFrasco: "azul", capacidad: "5ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-5-TTP-WH", attrs: { colorFrasco: "ambar", capacidad: "5ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-5-SPR-BK", attrs: { colorFrasco: "transparente", capacidad: "5ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-5-SPR-BK", attrs: { colorFrasco: "verde", capacidad: "5ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-5-SPR-BK", attrs: { colorFrasco: "azul", capacidad: "5ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-5-SPR-BK", attrs: { colorFrasco: "ambar", capacidad: "5ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-5-SPR-WH", attrs: { colorFrasco: "transparente", capacidad: "5ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-5-SPR-WH", attrs: { colorFrasco: "verde", capacidad: "5ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-5-SPR-WH", attrs: { colorFrasco: "azul", capacidad: "5ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-5-SPR-WH", attrs: { colorFrasco: "ambar", capacidad: "5ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-5-GOT-BK", attrs: { colorFrasco: "transparente", capacidad: "5ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-5-GOT-BK", attrs: { colorFrasco: "verde", capacidad: "5ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-5-GOT-BK", attrs: { colorFrasco: "azul", capacidad: "5ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-5-GOT-BK", attrs: { colorFrasco: "ambar", capacidad: "5ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-5-GOT-WH", attrs: { colorFrasco: "transparente", capacidad: "5ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-5-GOT-WH", attrs: { colorFrasco: "verde", capacidad: "5ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-5-GOT-WH", attrs: { colorFrasco: "azul", capacidad: "5ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-5-GOT-WH", attrs: { colorFrasco: "ambar", capacidad: "5ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-
-      // ─── 10 ml ────────────────────────────────────────────────
-      { sku: "FR-CL-10-TTP-BK", attrs: { colorFrasco: "transparente", capacidad: "10ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-PV-10-TTP-BK", attrs: { colorFrasco: "pavonada", capacidad: "10ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BK-10-TTP-BK", attrs: { colorFrasco: "negra", capacidad: "10ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-10-TTP-BK", attrs: { colorFrasco: "verde", capacidad: "10ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-10-TTP-BK", attrs: { colorFrasco: "azul", capacidad: "10ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-10-TTP-BK", attrs: { colorFrasco: "ambar", capacidad: "10ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-10-TTP-WH", attrs: { colorFrasco: "transparente", capacidad: "10ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-PV-10-TTP-WH", attrs: { colorFrasco: "pavonada", capacidad: "10ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BK-10-TTP-WH", attrs: { colorFrasco: "negra", capacidad: "10ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-10-TTP-WH", attrs: { colorFrasco: "verde", capacidad: "10ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-10-TTP-WH", attrs: { colorFrasco: "azul", capacidad: "10ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-10-TTP-WH", attrs: { colorFrasco: "ambar", capacidad: "10ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-10-SPR-BK", attrs: { colorFrasco: "transparente", capacidad: "10ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-PV-10-SPR-BK", attrs: { colorFrasco: "pavonada", capacidad: "10ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BK-10-SPR-BK", attrs: { colorFrasco: "negra", capacidad: "10ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-10-SPR-BK", attrs: { colorFrasco: "verde", capacidad: "10ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-10-SPR-BK", attrs: { colorFrasco: "azul", capacidad: "10ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-10-SPR-BK", attrs: { colorFrasco: "ambar", capacidad: "10ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-10-SPR-WH", attrs: { colorFrasco: "transparente", capacidad: "10ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-PV-10-SPR-WH", attrs: { colorFrasco: "pavonada", capacidad: "10ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BK-10-SPR-WH", attrs: { colorFrasco: "negra", capacidad: "10ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-10-SPR-WH", attrs: { colorFrasco: "verde", capacidad: "10ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-10-SPR-WH", attrs: { colorFrasco: "azul", capacidad: "10ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-10-SPR-WH", attrs: { colorFrasco: "ambar", capacidad: "10ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-10-GOT-BK", attrs: { colorFrasco: "transparente", capacidad: "10ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-PV-10-GOT-BK", attrs: { colorFrasco: "pavonada", capacidad: "10ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BK-10-GOT-BK", attrs: { colorFrasco: "negra", capacidad: "10ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-10-GOT-BK", attrs: { colorFrasco: "verde", capacidad: "10ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-10-GOT-BK", attrs: { colorFrasco: "azul", capacidad: "10ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-10-GOT-BK", attrs: { colorFrasco: "ambar", capacidad: "10ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-10-GOT-WH", attrs: { colorFrasco: "transparente", capacidad: "10ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-PV-10-GOT-WH", attrs: { colorFrasco: "pavonada", capacidad: "10ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BK-10-GOT-WH", attrs: { colorFrasco: "negra", capacidad: "10ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-10-GOT-WH", attrs: { colorFrasco: "verde", capacidad: "10ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-10-GOT-WH", attrs: { colorFrasco: "azul", capacidad: "10ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-10-GOT-WH", attrs: { colorFrasco: "ambar", capacidad: "10ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-
-      // ─── 15 ml ────────────────────────────────────────────────
-      { sku: "FR-CL-15-TTP-BK", attrs: { colorFrasco: "transparente", capacidad: "15ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-15-TTP-BK", attrs: { colorFrasco: "verde", capacidad: "15ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-15-TTP-BK", attrs: { colorFrasco: "azul", capacidad: "15ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-15-TTP-BK", attrs: { colorFrasco: "ambar", capacidad: "15ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-15-TTP-WH", attrs: { colorFrasco: "transparente", capacidad: "15ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-15-TTP-WH", attrs: { colorFrasco: "verde", capacidad: "15ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-15-TTP-WH", attrs: { colorFrasco: "azul", capacidad: "15ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-15-TTP-WH", attrs: { colorFrasco: "ambar", capacidad: "15ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-15-SPR-BK", attrs: { colorFrasco: "transparente", capacidad: "15ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-15-SPR-BK", attrs: { colorFrasco: "verde", capacidad: "15ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-15-SPR-BK", attrs: { colorFrasco: "azul", capacidad: "15ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-15-SPR-BK", attrs: { colorFrasco: "ambar", capacidad: "15ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-15-SPR-WH", attrs: { colorFrasco: "transparente", capacidad: "15ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-15-SPR-WH", attrs: { colorFrasco: "verde", capacidad: "15ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-15-SPR-WH", attrs: { colorFrasco: "azul", capacidad: "15ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-15-SPR-WH", attrs: { colorFrasco: "ambar", capacidad: "15ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-15-GOT-BK", attrs: { colorFrasco: "transparente", capacidad: "15ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-15-GOT-BK", attrs: { colorFrasco: "verde", capacidad: "15ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-15-GOT-BK", attrs: { colorFrasco: "azul", capacidad: "15ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-15-GOT-BK", attrs: { colorFrasco: "ambar", capacidad: "15ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-15-GOT-WH", attrs: { colorFrasco: "transparente", capacidad: "15ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-15-GOT-WH", attrs: { colorFrasco: "verde", capacidad: "15ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-15-GOT-WH", attrs: { colorFrasco: "azul", capacidad: "15ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-15-GOT-WH", attrs: { colorFrasco: "ambar", capacidad: "15ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-
-      // ─── 20 ml ────────────────────────────────────────────────
-      { sku: "FR-CL-20-TTP-BK", attrs: { colorFrasco: "transparente", capacidad: "20ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-20-TTP-BK", attrs: { colorFrasco: "verde", capacidad: "20ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-20-TTP-BK", attrs: { colorFrasco: "azul", capacidad: "20ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-20-TTP-BK", attrs: { colorFrasco: "ambar", capacidad: "20ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-20-TTP-WH", attrs: { colorFrasco: "transparente", capacidad: "20ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-20-TTP-WH", attrs: { colorFrasco: "verde", capacidad: "20ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-20-TTP-WH", attrs: { colorFrasco: "azul", capacidad: "20ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-20-TTP-WH", attrs: { colorFrasco: "ambar", capacidad: "20ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-20-SPR-BK", attrs: { colorFrasco: "transparente", capacidad: "20ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-20-SPR-BK", attrs: { colorFrasco: "verde", capacidad: "20ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-20-SPR-BK", attrs: { colorFrasco: "azul", capacidad: "20ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-20-SPR-BK", attrs: { colorFrasco: "ambar", capacidad: "20ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-20-SPR-WH", attrs: { colorFrasco: "transparente", capacidad: "20ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-20-SPR-WH", attrs: { colorFrasco: "verde", capacidad: "20ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-20-SPR-WH", attrs: { colorFrasco: "azul", capacidad: "20ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-20-SPR-WH", attrs: { colorFrasco: "ambar", capacidad: "20ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-20-GOT-BK", attrs: { colorFrasco: "transparente", capacidad: "20ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-20-GOT-BK", attrs: { colorFrasco: "verde", capacidad: "20ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-20-GOT-BK", attrs: { colorFrasco: "azul", capacidad: "20ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-20-GOT-BK", attrs: { colorFrasco: "ambar", capacidad: "20ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-20-GOT-WH", attrs: { colorFrasco: "transparente", capacidad: "20ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-20-GOT-WH", attrs: { colorFrasco: "verde", capacidad: "20ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-20-GOT-WH", attrs: { colorFrasco: "azul", capacidad: "20ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-20-GOT-WH", attrs: { colorFrasco: "ambar", capacidad: "20ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-
-      // ─── 30 ml ────────────────────────────────────────────────
-      { sku: "FR-CL-30-TTP-BK", attrs: { colorFrasco: "transparente", capacidad: "30ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-PV-30-TTP-BK", attrs: { colorFrasco: "pavonada", capacidad: "30ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BK-30-TTP-BK", attrs: { colorFrasco: "negra", capacidad: "30ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-30-TTP-BK", attrs: { colorFrasco: "verde", capacidad: "30ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-30-TTP-BK", attrs: { colorFrasco: "azul", capacidad: "30ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-30-TTP-BK", attrs: { colorFrasco: "ambar", capacidad: "30ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-30-TTP-WH", attrs: { colorFrasco: "transparente", capacidad: "30ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-PV-30-TTP-WH", attrs: { colorFrasco: "pavonada", capacidad: "30ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BK-30-TTP-WH", attrs: { colorFrasco: "negra", capacidad: "30ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-30-TTP-WH", attrs: { colorFrasco: "verde", capacidad: "30ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-30-TTP-WH", attrs: { colorFrasco: "azul", capacidad: "30ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-30-TTP-WH", attrs: { colorFrasco: "ambar", capacidad: "30ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-30-SPR-BK", attrs: { colorFrasco: "transparente", capacidad: "30ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-PV-30-SPR-BK", attrs: { colorFrasco: "pavonada", capacidad: "30ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BK-30-SPR-BK", attrs: { colorFrasco: "negra", capacidad: "30ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-30-SPR-BK", attrs: { colorFrasco: "verde", capacidad: "30ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-30-SPR-BK", attrs: { colorFrasco: "azul", capacidad: "30ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-30-SPR-BK", attrs: { colorFrasco: "ambar", capacidad: "30ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-30-SPR-WH", attrs: { colorFrasco: "transparente", capacidad: "30ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-PV-30-SPR-WH", attrs: { colorFrasco: "pavonada", capacidad: "30ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BK-30-SPR-WH", attrs: { colorFrasco: "negra", capacidad: "30ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-30-SPR-WH", attrs: { colorFrasco: "verde", capacidad: "30ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-30-SPR-WH", attrs: { colorFrasco: "azul", capacidad: "30ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-30-SPR-WH", attrs: { colorFrasco: "ambar", capacidad: "30ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-30-GOT-BK", attrs: { colorFrasco: "transparente", capacidad: "30ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-PV-30-GOT-BK", attrs: { colorFrasco: "pavonada", capacidad: "30ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BK-30-GOT-BK", attrs: { colorFrasco: "negra", capacidad: "30ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-30-GOT-BK", attrs: { colorFrasco: "verde", capacidad: "30ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-30-GOT-BK", attrs: { colorFrasco: "azul", capacidad: "30ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-30-GOT-BK", attrs: { colorFrasco: "ambar", capacidad: "30ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-30-GOT-WH", attrs: { colorFrasco: "transparente", capacidad: "30ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-PV-30-GOT-WH", attrs: { colorFrasco: "pavonada", capacidad: "30ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BK-30-GOT-WH", attrs: { colorFrasco: "negra", capacidad: "30ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-30-GOT-WH", attrs: { colorFrasco: "verde", capacidad: "30ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-30-GOT-WH", attrs: { colorFrasco: "azul", capacidad: "30ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-30-GOT-WH", attrs: { colorFrasco: "ambar", capacidad: "30ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-
-      // ─── 50 ml ────────────────────────────────────────────────
-      { sku: "FR-CL-50-TTP-BK", attrs: { colorFrasco: "transparente", capacidad: "50ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-50-TTP-BK", attrs: { colorFrasco: "verde", capacidad: "50ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-50-TTP-BK", attrs: { colorFrasco: "azul", capacidad: "50ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-50-TTP-BK", attrs: { colorFrasco: "ambar", capacidad: "50ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-50-TTP-WH", attrs: { colorFrasco: "transparente", capacidad: "50ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-50-TTP-WH", attrs: { colorFrasco: "verde", capacidad: "50ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-50-TTP-WH", attrs: { colorFrasco: "azul", capacidad: "50ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-50-TTP-WH", attrs: { colorFrasco: "ambar", capacidad: "50ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-50-SPR-BK", attrs: { colorFrasco: "transparente", capacidad: "50ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-50-SPR-BK", attrs: { colorFrasco: "verde", capacidad: "50ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-50-SPR-BK", attrs: { colorFrasco: "azul", capacidad: "50ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-50-SPR-BK", attrs: { colorFrasco: "ambar", capacidad: "50ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-50-SPR-WH", attrs: { colorFrasco: "transparente", capacidad: "50ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-50-SPR-WH", attrs: { colorFrasco: "verde", capacidad: "50ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-50-SPR-WH", attrs: { colorFrasco: "azul", capacidad: "50ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-50-SPR-WH", attrs: { colorFrasco: "ambar", capacidad: "50ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-50-GOT-BK", attrs: { colorFrasco: "transparente", capacidad: "50ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-50-GOT-BK", attrs: { colorFrasco: "verde", capacidad: "50ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-50-GOT-BK", attrs: { colorFrasco: "azul", capacidad: "50ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-50-GOT-BK", attrs: { colorFrasco: "ambar", capacidad: "50ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-50-GOT-WH", attrs: { colorFrasco: "transparente", capacidad: "50ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-50-GOT-WH", attrs: { colorFrasco: "verde", capacidad: "50ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-50-GOT-WH", attrs: { colorFrasco: "azul", capacidad: "50ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-50-GOT-WH", attrs: { colorFrasco: "ambar", capacidad: "50ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-
-      // ─── 100 ml ───────────────────────────────────────────────
-      { sku: "FR-CL-100-TTP-BK", attrs: { colorFrasco: "transparente", capacidad: "100ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-100-TTP-BK", attrs: { colorFrasco: "verde", capacidad: "100ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-100-TTP-BK", attrs: { colorFrasco: "azul", capacidad: "100ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-100-TTP-BK", attrs: { colorFrasco: "ambar", capacidad: "100ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-100-TTP-WH", attrs: { colorFrasco: "transparente", capacidad: "100ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-100-TTP-WH", attrs: { colorFrasco: "verde", capacidad: "100ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-100-TTP-WH", attrs: { colorFrasco: "azul", capacidad: "100ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-100-TTP-WH", attrs: { colorFrasco: "ambar", capacidad: "100ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-100-SPR-BK", attrs: { colorFrasco: "transparente", capacidad: "100ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-100-SPR-BK", attrs: { colorFrasco: "verde", capacidad: "100ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-100-SPR-BK", attrs: { colorFrasco: "azul", capacidad: "100ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-100-SPR-BK", attrs: { colorFrasco: "ambar", capacidad: "100ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-100-SPR-WH", attrs: { colorFrasco: "transparente", capacidad: "100ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-100-SPR-WH", attrs: { colorFrasco: "verde", capacidad: "100ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-100-SPR-WH", attrs: { colorFrasco: "azul", capacidad: "100ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-100-SPR-WH", attrs: { colorFrasco: "ambar", capacidad: "100ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-100-GOT-BK", attrs: { colorFrasco: "transparente", capacidad: "100ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-100-GOT-BK", attrs: { colorFrasco: "verde", capacidad: "100ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-100-GOT-BK", attrs: { colorFrasco: "azul", capacidad: "100ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-100-GOT-BK", attrs: { colorFrasco: "ambar", capacidad: "100ml", tipoTapa: "gotero", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-100-GOT-WH", attrs: { colorFrasco: "transparente", capacidad: "100ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-100-GOT-WH", attrs: { colorFrasco: "verde", capacidad: "100ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-100-GOT-WH", attrs: { colorFrasco: "azul", capacidad: "100ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-100-GOT-WH", attrs: { colorFrasco: "ambar", capacidad: "100ml", tipoTapa: "gotero", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-100-ESM-BK", attrs: { colorFrasco: "ambar", capacidad: "100ml", tipoTapa: "esmerilada", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-100-ESM-WH", attrs: { colorFrasco: "ambar", capacidad: "100ml", tipoTapa: "esmerilada", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-100-PIS-BK", attrs: { colorFrasco: "ambar", capacidad: "100ml", tipoTapa: "pistola", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-100-PIS-WH", attrs: { colorFrasco: "ambar", capacidad: "100ml", tipoTapa: "pistola", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-100-SIF-BK", attrs: { colorFrasco: "ambar", capacidad: "100ml", tipoTapa: "sifon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-100-SIF-WH", attrs: { colorFrasco: "ambar", capacidad: "100ml", tipoTapa: "sifon", colorTapa: "blanco" }, price: 2.5 },
-
-      // ─── 250 ml ───────────────────────────────────────────────
-      { sku: "FR-CL-250-TPL-BK", attrs: { colorFrasco: "transparente", capacidad: "250ml", tipoTapa: "tapa-plastica", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-250-TPL-WH", attrs: { colorFrasco: "transparente", capacidad: "250ml", tipoTapa: "tapa-plastica", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-250-TTP-BK", attrs: { colorFrasco: "transparente", capacidad: "250ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-250-TTP-BK", attrs: { colorFrasco: "verde", capacidad: "250ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-250-TTP-BK", attrs: { colorFrasco: "azul", capacidad: "250ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-250-TTP-BK", attrs: { colorFrasco: "ambar", capacidad: "250ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-250-TTP-WH", attrs: { colorFrasco: "transparente", capacidad: "250ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-250-TTP-WH", attrs: { colorFrasco: "verde", capacidad: "250ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-250-TTP-WH", attrs: { colorFrasco: "azul", capacidad: "250ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-250-TTP-WH", attrs: { colorFrasco: "ambar", capacidad: "250ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-250-SPR-BK", attrs: { colorFrasco: "transparente", capacidad: "250ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-250-SPR-BK", attrs: { colorFrasco: "verde", capacidad: "250ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-250-SPR-BK", attrs: { colorFrasco: "azul", capacidad: "250ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-250-SPR-BK", attrs: { colorFrasco: "ambar", capacidad: "250ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-250-SPR-WH", attrs: { colorFrasco: "transparente", capacidad: "250ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-250-SPR-WH", attrs: { colorFrasco: "verde", capacidad: "250ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-250-SPR-WH", attrs: { colorFrasco: "azul", capacidad: "250ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-250-SPR-WH", attrs: { colorFrasco: "ambar", capacidad: "250ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-250-ESM-BK", attrs: { colorFrasco: "ambar", capacidad: "250ml", tipoTapa: "esmerilada", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-250-ESM-WH", attrs: { colorFrasco: "ambar", capacidad: "250ml", tipoTapa: "esmerilada", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-250-PIS-BK", attrs: { colorFrasco: "transparente", capacidad: "250ml", tipoTapa: "pistola", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-250-PIS-BK", attrs: { colorFrasco: "verde", capacidad: "250ml", tipoTapa: "pistola", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-250-PIS-BK", attrs: { colorFrasco: "azul", capacidad: "250ml", tipoTapa: "pistola", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-250-PIS-BK", attrs: { colorFrasco: "ambar", capacidad: "250ml", tipoTapa: "pistola", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-250-PIS-WH", attrs: { colorFrasco: "transparente", capacidad: "250ml", tipoTapa: "pistola", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-250-PIS-WH", attrs: { colorFrasco: "verde", capacidad: "250ml", tipoTapa: "pistola", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-250-PIS-WH", attrs: { colorFrasco: "azul", capacidad: "250ml", tipoTapa: "pistola", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-250-PIS-WH", attrs: { colorFrasco: "ambar", capacidad: "250ml", tipoTapa: "pistola", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-250-SIF-BK", attrs: { colorFrasco: "transparente", capacidad: "250ml", tipoTapa: "sifon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-GR-250-SIF-BK", attrs: { colorFrasco: "verde", capacidad: "250ml", tipoTapa: "sifon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-250-SIF-BK", attrs: { colorFrasco: "azul", capacidad: "250ml", tipoTapa: "sifon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-250-SIF-BK", attrs: { colorFrasco: "ambar", capacidad: "250ml", tipoTapa: "sifon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-250-SIF-WH", attrs: { colorFrasco: "transparente", capacidad: "250ml", tipoTapa: "sifon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-GR-250-SIF-WH", attrs: { colorFrasco: "verde", capacidad: "250ml", tipoTapa: "sifon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-250-SIF-WH", attrs: { colorFrasco: "azul", capacidad: "250ml", tipoTapa: "sifon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-250-SIF-WH", attrs: { colorFrasco: "ambar", capacidad: "250ml", tipoTapa: "sifon", colorTapa: "blanco" }, price: 2.5 },
-
-      // ─── 500 ml ───────────────────────────────────────────────
-      { sku: "FR-CL-500-TPL-BK", attrs: { colorFrasco: "transparente", capacidad: "500ml", tipoTapa: "tapa-plastica", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-500-TPL-WH", attrs: { colorFrasco: "transparente", capacidad: "500ml", tipoTapa: "tapa-plastica", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-500-TTP-BK", attrs: { colorFrasco: "azul", capacidad: "500ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-500-TTP-BK", attrs: { colorFrasco: "ambar", capacidad: "500ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-500-TTP-WH", attrs: { colorFrasco: "azul", capacidad: "500ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-500-TTP-WH", attrs: { colorFrasco: "ambar", capacidad: "500ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-500-SPR-BK", attrs: { colorFrasco: "transparente", capacidad: "500ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-500-SPR-BK", attrs: { colorFrasco: "azul", capacidad: "500ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-500-SPR-BK", attrs: { colorFrasco: "ambar", capacidad: "500ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-500-SPR-WH", attrs: { colorFrasco: "transparente", capacidad: "500ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-500-SPR-WH", attrs: { colorFrasco: "azul", capacidad: "500ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-500-SPR-WH", attrs: { colorFrasco: "ambar", capacidad: "500ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-500-ESM-BK", attrs: { colorFrasco: "ambar", capacidad: "500ml", tipoTapa: "esmerilada", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-500-ESM-WH", attrs: { colorFrasco: "ambar", capacidad: "500ml", tipoTapa: "esmerilada", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-500-PIS-BK", attrs: { colorFrasco: "transparente", capacidad: "500ml", tipoTapa: "pistola", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-500-PIS-BK", attrs: { colorFrasco: "azul", capacidad: "500ml", tipoTapa: "pistola", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-500-PIS-BK", attrs: { colorFrasco: "ambar", capacidad: "500ml", tipoTapa: "pistola", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-500-PIS-WH", attrs: { colorFrasco: "transparente", capacidad: "500ml", tipoTapa: "pistola", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-500-PIS-WH", attrs: { colorFrasco: "azul", capacidad: "500ml", tipoTapa: "pistola", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-500-PIS-WH", attrs: { colorFrasco: "ambar", capacidad: "500ml", tipoTapa: "pistola", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-500-SIF-BK", attrs: { colorFrasco: "transparente", capacidad: "500ml", tipoTapa: "sifon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-BL-500-SIF-BK", attrs: { colorFrasco: "azul", capacidad: "500ml", tipoTapa: "sifon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-500-SIF-BK", attrs: { colorFrasco: "ambar", capacidad: "500ml", tipoTapa: "sifon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-500-SIF-WH", attrs: { colorFrasco: "transparente", capacidad: "500ml", tipoTapa: "sifon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-BL-500-SIF-WH", attrs: { colorFrasco: "azul", capacidad: "500ml", tipoTapa: "sifon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-500-SIF-WH", attrs: { colorFrasco: "ambar", capacidad: "500ml", tipoTapa: "sifon", colorTapa: "blanco" }, price: 2.5 },
-
-      // ─── 1000 ml ──────────────────────────────────────────────
-      { sku: "FR-CL-1000-TPL-BK", attrs: { colorFrasco: "transparente", capacidad: "1000ml", tipoTapa: "tapa-plastica", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-1000-TPL-WH", attrs: { colorFrasco: "transparente", capacidad: "1000ml", tipoTapa: "tapa-plastica", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-1000-TTP-BK", attrs: { colorFrasco: "ambar", capacidad: "1000ml", tipoTapa: "tapa-tapon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-1000-TTP-WH", attrs: { colorFrasco: "ambar", capacidad: "1000ml", tipoTapa: "tapa-tapon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-1000-SPR-BK", attrs: { colorFrasco: "transparente", capacidad: "1000ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-1000-SPR-BK", attrs: { colorFrasco: "ambar", capacidad: "1000ml", tipoTapa: "spray", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-1000-SPR-WH", attrs: { colorFrasco: "transparente", capacidad: "1000ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-1000-SPR-WH", attrs: { colorFrasco: "ambar", capacidad: "1000ml", tipoTapa: "spray", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-1000-ESM-BK", attrs: { colorFrasco: "ambar", capacidad: "1000ml", tipoTapa: "esmerilada", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-1000-ESM-WH", attrs: { colorFrasco: "ambar", capacidad: "1000ml", tipoTapa: "esmerilada", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-1000-PIS-BK", attrs: { colorFrasco: "transparente", capacidad: "1000ml", tipoTapa: "pistola", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-1000-PIS-BK", attrs: { colorFrasco: "ambar", capacidad: "1000ml", tipoTapa: "pistola", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-1000-PIS-WH", attrs: { colorFrasco: "transparente", capacidad: "1000ml", tipoTapa: "pistola", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-1000-PIS-WH", attrs: { colorFrasco: "ambar", capacidad: "1000ml", tipoTapa: "pistola", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-CL-1000-SIF-BK", attrs: { colorFrasco: "transparente", capacidad: "1000ml", tipoTapa: "sifon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-AM-1000-SIF-BK", attrs: { colorFrasco: "ambar", capacidad: "1000ml", tipoTapa: "sifon", colorTapa: "negro" }, price: 2.5 },
-      { sku: "FR-CL-1000-SIF-WH", attrs: { colorFrasco: "transparente", capacidad: "1000ml", tipoTapa: "sifon", colorTapa: "blanco" }, price: 2.5 },
-      { sku: "FR-AM-1000-SIF-WH", attrs: { colorFrasco: "ambar", capacidad: "1000ml", tipoTapa: "sifon", colorTapa: "blanco" }, price: 2.5 }
+      { sku: "FR-AM-120-TCT", attrs: { colorFrasco: "ambar", capacidad: "120ml", tipoTapa: "tapa-contratapa" }, name: "FRASCO DE VIDRIO ÁMBAR 120 ML C/TAPA Y CONTRATAPA", price: 1.84 },
+      { sku: "FR-AM-250-SIF", attrs: { colorFrasco: "ambar", capacidad: "250ml", tipoTapa: "sifon" }, name: "FRASCO DE VIDRIO ÁMBAR P/SOLUCIONES 250 ML C/TAPA SIFÓN", price: 4.9 },
+      { sku: "FR-AM-500-SIF", attrs: { colorFrasco: "ambar", capacidad: "500ml", tipoTapa: "sifon" }, name: "FRASCO DE VIDRIO ÁMBAR P/SOLUCIONES 500 ML C/TAPA SIFÓN", price: 5.5 },
+      { sku: "FR-CL-250-SIF", attrs: { colorFrasco: "transparente", capacidad: "250ml", tipoTapa: "sifon" }, name: "FRASCO DE VIDRIO TRANSPARENTE P/SOLUCIONES 250 ML C/TAPA SIFÓN", price: 4.9 },
+      { sku: "FR-CL-500-SIF", attrs: { colorFrasco: "transparente", capacidad: "500ml", tipoTapa: "sifon" }, name: "FRASCO DE VIDRIO TRANSPARENTE P/SOLUCIONES 500 ML C/TAPA SIFÓN", price: 5.5 }
     ]
   },
   {
@@ -2625,56 +1911,13 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Diámetro",
         type: "single",
         values: [
-          { id: "45-mm", label: "45 mm" },
-          { id: "50-mm", label: "50 mm" },
-          { id: "60-mm", label: "60 mm" },
-          { id: "70-mm", label: "70 mm" },
-          { id: "80-mm", label: "80 mm" }
+          { id: "75-mm", label: "75 MM" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "luna-reloj-45mm",
-        attrs: { diametro: "45-mm" },
-        name: "45 MM",
-        description: "Luna de reloj de vidrio de borosilicato para evaporación, cubierta y pesado de reactivos en laboratorio. || **Diámetro:** 45 mm.",
-        price: 12,
-        image: "/images/laboratorio/UTENSILIOS/LUNA_RELOJ.png"
-      },
-      {
-        sku: "luna-reloj-50mm",
-        attrs: { diametro: "50-mm" },
-        name: "50 MM",
-        description: "Luna de reloj de vidrio de borosilicato para evaporación, cubierta y pesado de reactivos en laboratorio. || **Diámetro:** 50 mm.",
-        price: 12,
-        image: "/images/laboratorio/UTENSILIOS/LUNA_RELOJ.png"
-      },
-      {
-        sku: "luna-reloj-60mm",
-        attrs: { diametro: "60-mm" },
-        name: "60 MM",
-        description: "Luna de reloj de vidrio de borosilicato para evaporación, cubierta y pesado de reactivos en laboratorio. || **Diámetro:** 60 mm.",
-        price: 12,
-        image: "/images/laboratorio/UTENSILIOS/LUNA_RELOJ.png"
-      },
-      {
-        sku: "luna-reloj-70mm",
-        attrs: { diametro: "70-mm" },
-        name: "70 MM",
-        description: "Luna de reloj de vidrio de borosilicato para evaporación, cubierta y pesado de reactivos en laboratorio. || **Diámetro:** 70 mm.",
-        price: 12,
-        image: "/images/laboratorio/UTENSILIOS/LUNA_RELOJ.png"
-      },
-      {
-        sku: "luna-reloj-80mm",
-        attrs: { diametro: "80-mm" },
-        name: "80 MM",
-        description: "Luna de reloj de vidrio de borosilicato para evaporación, cubierta y pesado de reactivos en laboratorio. || **Diámetro:** 80 mm.",
-        price: 12,
-        image: "/images/laboratorio/UTENSILIOS/LUNA_RELOJ.png"
-      }
+      { sku: "luna-reloj-75mm", attrs: { diametro: "75-mm" }, name: "LUNA DE RELOJ VIDRIO DE BOROSILICATO – 75 MM", description: "Luna de reloj fabricada en vidrio de borosilicato (Boro 3.3), utilizada como superficie de evaporación, cubierta de vasos de precipitados durante calentamiento, soporte para pesado de pequeñas cantidades de reactivos y como recipiente auxiliar en diversas técnicas de laboratorio. Su forma cóncava canaliza los líquidos hacia el centro, facilitando la recolección de muestras y minimizando pérdidas. Su alta resistencia química y térmica la hace compatible con la mayoría de reactivos y fuentes de calor. Ideal para laboratorios clínicos, académicos e industriales.", price: 11.48, image: "/images/laboratorio/UTENSILIOS/LUNA_RELOJ_CARD.png" }
     ]
   },
   {
@@ -2718,8 +1961,8 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     name: "MECHERO DE ALCOHOL CON TAPA",
     type: "Utensilios",
     description: "Mechero de alcohol con tapa metálica de seguridad, diseñado para calentamiento, esterilización y combustión controlada en laboratorio. Su depósito de vidrio resistente al calor permite visualizar el nivel de combustible, mientras que la mecha de algodón garantiza una llama estable y uniforme. La tapa metálica apaga la llama de forma segura al cortar el suministro de oxígeno, evitando riesgos de accidente. De fácil recarga con alcohol etílico o isopropílico, su diseño compacto y robusto lo hace ideal para uso en laboratorios clínicos, académicos e industriales.",
-    price: 10.8,
-    image: "/images/laboratorio/UTENSILIOS/MECHERO_ALCOHOL.png"
+    image: "/images/laboratorio/UTENSILIOS/MECHERO_ALCOHOL.png",
+    price: 21.42
   },
 
 
@@ -2771,59 +2014,23 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     description: "Pipeta fabricada en vidrio de borosilicato (Boro 3.3), diseñada para la medición y transferencia precisa de volúmenes de líquidos en laboratorio. Disponible en tipo Mohr (graduación que no llega al extremo inferior), Serológica (graduación hasta la punta) y Volumétrica (aforo único de máxima precisión). Sus graduaciones claramente marcadas permiten una lectura exacta del volumen, mientras que su alta resistencia química y térmica la hace compatible con la mayoría de reactivos y solventes. Ideal para laboratorios clínicos, académicos e industriales.",
     image: "/images/laboratorio/UTENSILIOS/PIPETACARD.png",
 
-    attributeOrder: ["tipo", "capacidad"],
+    attributeOrder: ["capacidad"],
 
     attributes: [
-      {
-        id: "tipo",
-        label: "Tipo",
-        type: "single",
-        values: [
-          { id: "mohr", label: "Mohr" },
-          { id: "serologica", label: "Serológica" },
-          { id: "volumetrica", label: "Volumétrica" }
-        ]
-      },
       {
         id: "capacidad",
         label: "Capacidad",
         type: "single",
         values: [
-          { id: "1-ml", label: "1 ml" },
-          { id: "2-ml", label: "2 ml" },
-          { id: "5-ml", label: "5 ml" },
-          { id: "10-ml", label: "10 ml" },
-          { id: "25-ml", label: "25 ml" }
+          { id: "5-ml", label: "5 ML" },
+          { id: "10-ml", label: "10 ML" }
         ]
       }
     ],
 
-    attributeRules: {
-      "mohr": { capacidad: ["1-ml", "2-ml", "5-ml", "10-ml"] },
-      "serologica": { capacidad: ["1-ml", "2-ml", "5-ml", "10-ml"] },
-      "volumetrica": { capacidad: ["1-ml", "2-ml", "5-ml", "10-ml", "25-ml"] }
-    },
-
     variants: [
-
-      // ─── MOHR ─────────────────────────────────────────────────
-      { sku: "pipeta-mohr-1ml", attrs: { tipo: "mohr", capacidad: "1-ml" }, name: "MOHR 1 ML", description: "Pipeta tipo Mohr de vidrio borosilicato con graduación que no alcanza el extremo inferior, para medición y transferencia precisa de líquidos. || **Tipo:** Mohr | **Capacidad:** 1 ml.", price: 8, image: "/images/laboratorio/UTENSILIOS/PIPETA_MOHR_1ML.png" },
-      { sku: "pipeta-mohr-2ml", attrs: { tipo: "mohr", capacidad: "2-ml" }, name: "MOHR 2 ML", description: "Pipeta tipo Mohr de vidrio borosilicato con graduación que no alcanza el extremo inferior, para medición y transferencia precisa de líquidos. || **Tipo:** Mohr | **Capacidad:** 2 ml.", price: 9, image: "/images/laboratorio/UTENSILIOS/PIPETA_MOHR_2ML.png" },
-      { sku: "pipeta-mohr-5ml", attrs: { tipo: "mohr", capacidad: "5-ml" }, name: "MOHR 5 ML", description: "Pipeta tipo Mohr de vidrio borosilicato con graduación que no alcanza el extremo inferior, para medición y transferencia precisa de líquidos. || **Tipo:** Mohr | **Capacidad:** 5 ml.", price: 10, image: "/images/laboratorio/UTENSILIOS/PIPETA_MOHR_5ML.png" },
-      { sku: "pipeta-mohr-10ml", attrs: { tipo: "mohr", capacidad: "10-ml" }, name: "MOHR 10 ML", description: "Pipeta tipo Mohr de vidrio borosilicato con graduación que no alcanza el extremo inferior, para medición y transferencia precisa de líquidos. || **Tipo:** Mohr | **Capacidad:** 10 ml.", price: 12, image: "/images/laboratorio/UTENSILIOS/PIPETA_MOHR_10ML.png" },
-
-      // ─── SEROLÓGICA ───────────────────────────────────────────
-      { sku: "pipeta-sero-1ml", attrs: { tipo: "serologica", capacidad: "1-ml" }, name: "SEROLÓGICA 1 ML", description: "Pipeta tipo Serológica de vidrio borosilicato con graduación hasta la punta para dispensar el volumen total. || **Tipo:** Serológica | **Capacidad:** 1 ml.", price: 8, image: "/images/laboratorio/UTENSILIOS/PIPETA_SERO_1ML.png" },
-      { sku: "pipeta-sero-2ml", attrs: { tipo: "serologica", capacidad: "2-ml" }, name: "SEROLÓGICA 2 ML", description: "Pipeta tipo Serológica de vidrio borosilicato con graduación hasta la punta para dispensar el volumen total. || **Tipo:** Serológica | **Capacidad:** 2 ml.", price: 9, image: "/images/laboratorio/UTENSILIOS/PIPETA_SERO_2ML.png" },
-      { sku: "pipeta-sero-5ml", attrs: { tipo: "serologica", capacidad: "5-ml" }, name: "SEROLÓGICA 5 ML", description: "Pipeta tipo Serológica de vidrio borosilicato con graduación hasta la punta para dispensar el volumen total. || **Tipo:** Serológica | **Capacidad:** 5 ml.", price: 10, image: "/images/laboratorio/UTENSILIOS/PIPETA_SERO_5ML.png" },
-      { sku: "pipeta-sero-10ml", attrs: { tipo: "serologica", capacidad: "10-ml" }, name: "SEROLÓGICA 10 ML", description: "Pipeta tipo Serológica de vidrio borosilicato con graduación hasta la punta para dispensar el volumen total. || **Tipo:** Serológica | **Capacidad:** 10 ml.", price: 12, image: "/images/laboratorio/UTENSILIOS/PIPETA_SERO_10ML.png" },
-
-      // ─── VOLUMÉTRICA ──────────────────────────────────────────
-      { sku: "pipeta-vol-1ml", attrs: { tipo: "volumetrica", capacidad: "1-ml" }, name: "VOLUMÉTRICA 1 ML", description: "Pipeta volumétrica de vidrio borosilicato con aforo único para transferencia de un volumen exacto con máxima precisión, indispensable en análisis volumétricos y preparación de soluciones patrón. || **Tipo:** Volumétrica | **Capacidad:** 1 ml.", price: 5, image: "/images/laboratorio/UTENSILIOS/PIPETA_VOL_1ML.png" },
-      { sku: "pipeta-vol-2ml", attrs: { tipo: "volumetrica", capacidad: "2-ml" }, name: "VOLUMÉTRICA 2 ML", description: "Pipeta volumétrica de vidrio borosilicato con aforo único para transferencia de un volumen exacto con máxima precisión, indispensable en análisis volumétricos y preparación de soluciones patrón. || **Tipo:** Volumétrica | **Capacidad:** 2 ml.", price: 5, image: "/images/laboratorio/UTENSILIOS/PIPETA_VOL_2ML.png" },
-      { sku: "pipeta-vol-5ml", attrs: { tipo: "volumetrica", capacidad: "5-ml" }, name: "VOLUMÉTRICA 5 ML", description: "Pipeta volumétrica de vidrio borosilicato con aforo único para transferencia de un volumen exacto con máxima precisión, indispensable en análisis volumétricos y preparación de soluciones patrón. || **Tipo:** Volumétrica | **Capacidad:** 5 ml.", price: 5, image: "/images/laboratorio/UTENSILIOS/PIPETA_VOL_5ML.png" },
-      { sku: "pipeta-vol-10ml", attrs: { tipo: "volumetrica", capacidad: "10-ml" }, name: "VOLUMÉTRICA 10 ML", description: "Pipeta volumétrica de vidrio borosilicato con aforo único para transferencia de un volumen exacto con máxima precisión, indispensable en análisis volumétricos y preparación de soluciones patrón. || **Tipo:** Volumétrica | **Capacidad:** 10 ml.", price: 5, image: "/images/laboratorio/UTENSILIOS/PIPETA_VOL_10ML.png" },
-      { sku: "pipeta-vol-25ml", attrs: { tipo: "volumetrica", capacidad: "25-ml" }, name: "VOLUMÉTRICA 25 ML", description: "Pipeta volumétrica de vidrio borosilicato con aforo único para transferencia de un volumen exacto con máxima precisión, indispensable en análisis volumétricos y preparación de soluciones patrón. || **Tipo:** Volumétrica | **Capacidad:** 25 ml.", price: 5, image: "/images/laboratorio/UTENSILIOS/PIPETA_VOL_25ML.png" }
+      { sku: "pipeta-graduada-5ml", attrs: { capacidad: "5-ml" }, name: "PIPETA GRADUADA DE VIDRIO 5 ML", description: "Pipeta tipo Mohr de vidrio borosilicato con graduación que no alcanza el extremo inferior, para medición y transferencia precisa de líquidos. || **Tipo:** Mohr | **Capacidad:** 5 ml.", price: 7.65, image: "/images/laboratorio/UTENSILIOS/PIPETA_MOHR_5ML.png" },
+      { sku: "pipeta-graduada-10ml", attrs: { capacidad: "10-ml" }, name: "PIPETA GRADUADA DE VIDRIO 10 ML", description: "Pipeta tipo Mohr de vidrio borosilicato con graduación que no alcanza el extremo inferior, para medición y transferencia precisa de líquidos. || **Tipo:** Mohr | **Capacidad:** 10 ml.", price: 9.18, image: "/images/laboratorio/UTENSILIOS/PIPETA_MOHR_10ML.png" }
     ]
   },
 
@@ -2842,38 +2049,15 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Capacidad",
         type: "single",
         values: [
-          { id: "250-ml", label: "250 ml" },
-          { id: "500-ml", label: "500 ml" },
-          { id: "1000-ml", label: "1000 ml" }
+          { id: "250-ml", label: "250 ML" },
+          { id: "500-ml", label: "500 ML" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "piseta-250ml",
-        attrs: { capacidad: "250-ml" },
-        name: "250 ML",
-        description: "Piseta de polietileno flexible para dispensación controlada de líquidos y lavado de material en laboratorio. || **Capacidad:** 250 ml.",
-        price: 8.4,
-        image: "/images/laboratorio/UTENSILIOS/PISETA_250ML.png"
-      },
-      {
-        sku: "piseta-500ml",
-        attrs: { capacidad: "500-ml" },
-        name: "500 ML",
-        description: "Piseta de polietileno flexible para dispensación controlada de líquidos y lavado de material en laboratorio. || **Capacidad:** 500 ml.",
-        price: 10.8,
-        image: "/images/laboratorio/UTENSILIOS/PISETA_500ML.png"
-      },
-      {
-        sku: "piseta-1000ml",
-        attrs: { capacidad: "1000-ml" },
-        name: "1000 ML",
-        description: "Piseta de polietileno flexible para dispensación controlada de líquidos y lavado de material en laboratorio. || **Capacidad:** 1000 ml.",
-        price: 12.6,
-        image: "/images/laboratorio/UTENSILIOS/PISETA_1000ML.png"
-      }
+      { sku: "piseta-250ml", attrs: { capacidad: "250-ml" }, name: "PISETA – 250 ML", description: "Piseta de polietileno flexible para dispensación controlada de líquidos y lavado de material en laboratorio. || **Capacidad:** 250 ml.", price: 10.71, image: "/images/laboratorio/UTENSILIOS/PISETA_250ML.png" },
+      { sku: "piseta-500ml", attrs: { capacidad: "500-ml" }, name: "PISETA – 500 ML", description: "Piseta de polietileno flexible para dispensación controlada de líquidos y lavado de material en laboratorio. || **Capacidad:** 500 ml.", price: 12.24, image: "/images/laboratorio/UTENSILIOS/PISETA_500ML.png" }
     ]
   },
 
@@ -3010,8 +2194,8 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     name: "TRÍPODE METÁLICO PARA CALENTAMIENTO CON MECHERO BUNSEN",
     type: "Utensilios",
     description: "Trípode metálico de tres patas fabricado en hierro de alta resistencia, diseñado para sostener vasos de precipitados, matraces, crisoles y otros recipientes de laboratorio durante procesos de calentamiento con mechero Bunsen o de alcohol. Su estructura estable y robusta garantiza una base segura y uniforme para el recipiente, permitiendo una distribución homogénea del calor desde la fuente inferior. Generalmente se usa en combinación con una malla de asbesto o cerámica para proteger el material de vidrio de los cambios bruscos de temperatura. Ideal para laboratorios clínicos, académicos e industriales.",
-    price: 24,
-    image: "/images/laboratorio/UTENSILIOS/TRIPODE_BUNSEN.png"
+    image: "/images/laboratorio/UTENSILIOS/TRIPODE_BUNSEN.png",
+    price: 22.95
   },
   {
     id: "crisol-de-porcelana",
@@ -3056,7 +2240,6 @@ export const equipamientoYLaboratorioYReactivosProducts = [
   {
     id: "placas-petri-vidrio-borosilicato",
     name: "PLACAS PETRI – VIDRIO BOROSILICATO",
-    Type: "Utensilios ",
     description: "Placas Petri fabricadas en vidrio de borosilicato (Boro 3.3), diseñadas para el cultivo y aislamiento de microorganismos en laboratorio. Su superficie lisa y uniforme permite una distribución homogénea del medio de cultivo, mientras que su alta resistencia térmica facilita la esterilización en autoclave. Disponibles en versión lisa y con divisiones internas que permiten el cultivo simultáneo de múltiples muestras en una misma placa. Ideales para laboratorios clínicos, microbiológicos, académicos e industriales.",
     image: "/images/laboratorio/UTENSILIOS/PETRICARD.png",
 
@@ -3068,47 +2251,13 @@ export const equipamientoYLaboratorioYReactivosProducts = [
         label: "Formato",
         type: "single",
         values: [
-          { id: "sin-divisiones", label: "90 × 15 mm – Sin divisiones" },
-          { id: "2-divisiones", label: "90 × 15 mm – 2 divisiones" },
-          { id: "3-divisiones", label: "90 × 15 mm – 3 divisiones" },
-          { id: "4-divisiones", label: "90 × 15 mm – 4 divisiones" }
+          { id: "90-15-mm", label: "90 × 15 MM" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "placa-petri-90x15-sin-div",
-        attrs: { formato: "sin-divisiones" },
-        name: "90 × 15 MM – SIN DIVISIONES",
-        description: "Placa Petri de vidrio de borosilicato lisa para cultivo de microorganismos en una sola área de siembra, autoclavable y de fácil limpieza. || **Medida:** 90 × 15 mm | **Divisiones:** Sin divisiones.",
-        price: 288,
-        image: "/images/laboratorio/UTENSILIOS/PETRI_SIN.png"
-      },
-      {
-        sku: "placa-petri-90x15-2-div",
-        attrs: { formato: "2-divisiones" },
-        name: "90 × 15 MM – 2 DIVISIONES",
-        description: "Placa Petri de vidrio de borosilicato con 2 divisiones internas que permiten el cultivo simultáneo de dos muestras distintas en una misma placa, autoclavable y de fácil limpieza. || **Medida:** 90 × 15 mm | **Divisiones:** 2.",
-        price: 5,
-        image: "/images/laboratorio/UTENSILIOS/PETRI_2.png"
-      },
-      {
-        sku: "placa-petri-90x15-3-div",
-        attrs: { formato: "3-divisiones" },
-        name: "90 × 15 MM – 3 DIVISIONES",
-        description: "Placa Petri de vidrio de borosilicato con 3 divisiones internas que permiten el cultivo simultáneo de tres muestras distintas en una misma placa, autoclavable y de fácil limpieza. || **Medida:** 90 × 15 mm | **Divisiones:** 3.",
-        price: 5,
-        image: "/images/laboratorio/UTENSILIOS/PETRI_3.png"
-      },
-      {
-        sku: "placa-petri-90x15-4-div",
-        attrs: { formato: "4-divisiones" },
-        name: "90 × 15 MM – 4 DIVISIONES",
-        description: "Placa Petri de vidrio de borosilicato con 4 divisiones internas que permiten el cultivo simultáneo de cuatro muestras distintas en una misma placa, autoclavable y de fácil limpieza. || **Medida:** 90 × 15 mm | **Divisiones:** 4.",
-        price: 5,
-        image: "/images/laboratorio/UTENSILIOS/PETRI_4.png"
-      }
+      { sku: "placa-petri-90x15-sin-div", attrs: { formato: "90-15-mm" }, name: "PLACAS PETRI – VIDRIO BOROSILICATO – 90 × 15 MM", description: "Placa Petri de vidrio de borosilicato lisa para cultivo de microorganismos en una sola área de siembra, autoclavable y de fácil limpieza. || **Medida:** 90 × 15 mm | **Divisiones:** Sin divisiones.", price: 10.71, image: "/images/laboratorio/UTENSILIOS/PETRI_SIN.png" }
     ]
   },
   {
@@ -4021,134 +3170,21 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     description: "Tubos de ensayo fabricados en vidrio de borosilicato, diseñados para la realización de reacciones químicas, cultivos, mezclas y ensayos en laboratorio. Su alta resistencia térmica y química los hace compatibles con la mayoría de reactivos y fuentes de calor. Disponibles en distintas dimensiones y con opción de tapa rosca para mayor hermeticidad. Ideales para laboratorios clínicos, microbiológicos, académicos e industriales.",
     image: "/images/laboratorio/UTENSILIOS/TUBOSCARD.png",
 
-    attributeOrder: ["tipo", "medida"],
+    attributeOrder: ["medida"],
 
     attributes: [
       {
-        id: "tipo",
-        label: "Tipo",
-        type: "single",
-        values: [
-          { id: "abierto", label: "Sin tapa" },
-          { id: "tapa-rosca", label: "Con tapa" }
-        ]
-      },
-      {
         id: "medida",
-        label: "Medida (Ø × largo)",
+        label: "Medida",
         type: "single",
         values: [
-          { id: "10x75", label: "10 × 75 mm" },
-          { id: "12x75", label: "12 × 75 mm" },
-          { id: "13x100", label: "13 × 100 mm" },
-          { id: "13x150", label: "13 × 150 mm" },
-          { id: "16x150", label: "16 × 150 mm" },
-          { id: "18x180", label: "18 × 180 mm" },
-          { id: "20x200", label: "20 × 200 mm" },
-          { id: "16x125", label: "16 × 125 mm" },
-          { id: "18x150", label: "18 × 150 mm" }
+          { id: "13-100-mm-caja-100", label: "13 × 100 mm – CAJA × 100" }
         ]
       }
     ],
 
-    attributeRules: {
-      "abierto": { medida: ["10x75", "12x75", "13x100", "13x150", "16x150", "18x180", "20x200"] },
-      "tapa-rosca": { medida: ["13x100", "16x125", "18x150", "20x200"] }
-    },
-
     variants: [
-
-      // ─── ABIERTO ──────────────────────────────────────────────
-      {
-        sku: "tubo-ensayo-abierto-10x75",
-        attrs: { tipo: "abierto", medida: "10x75" },
-        name: "ABIERTO 10 × 75 mm",
-        description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 10 × 75 mm.",
-        price: 1.2,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
-      },
-      {
-        sku: "tubo-ensayo-abierto-12x75",
-        attrs: { tipo: "abierto", medida: "12x75" },
-        name: "ABIERTO 12 × 75 mm",
-        description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 12 × 75 mm.",
-        price: 0.84,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
-      },
-      {
-        sku: "tubo-ensayo-abierto-13x100",
-        attrs: { tipo: "abierto", medida: "13x100" },
-        name: "ABIERTO 13 × 100 mm",
-        description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 13 × 100 mm.",
-        price: 1.2,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
-      },
-      {
-        sku: "tubo-ensayo-abierto-13x150",
-        attrs: { tipo: "abierto", medida: "13x150" },
-        name: "ABIERTO 13 × 150 mm",
-        description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 13 × 150 mm.",
-        price: 0.84,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
-      },
-      {
-        sku: "tubo-ensayo-abierto-16x150",
-        attrs: { tipo: "abierto", medida: "16x150" },
-        name: "ABIERTO 16 × 150 mm",
-        description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 16 × 150 mm.",
-        price: 5,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
-      },
-      {
-        sku: "tubo-ensayo-abierto-18x180",
-        attrs: { tipo: "abierto", medida: "18x180" },
-        name: "ABIERTO 18 × 180 mm",
-        description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 18 × 180 mm.",
-        price: 5,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
-      },
-      {
-        sku: "tubo-ensayo-abierto-20x200",
-        attrs: { tipo: "abierto", medida: "20x200" },
-        name: "ABIERTO 20 × 200 mm",
-        description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 20 × 200 mm.",
-        price: 5,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png"
-      },
-
-      // ─── CON TAPA ROSCA ───────────────────────────────────────
-      {
-        sku: "tubo-ensayo-rosca-13x100",
-        attrs: { tipo: "tapa-rosca", medida: "13x100" },
-        name: "TAPA ROSCA 13 × 100 mm × 100 UND",
-        description: "Tubo de ensayo de vidrio borosilicato con tapa rosca para mayor hermeticidad en almacenamiento y transporte de muestras. || **Tipo:** Con tapa rosca | **Medida:** 13 × 100 mm | **Presentación:** Caja × 100 und.",
-        price: 348,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ROSCA.png"
-      },
-      {
-        sku: "tubo-ensayo-rosca-16x125",
-        attrs: { tipo: "tapa-rosca", medida: "16x125" },
-        name: "TAPA ROSCA 16 × 125 mm",
-        description: "Tubo de ensayo de vidrio borosilicato con tapa rosca para mayor hermeticidad en almacenamiento y transporte de muestras. || **Tipo:** Con tapa rosca | **Medida:** 16 × 125 mm.",
-        price: 5,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ROSCA.png"
-      },
-      {
-        sku: "tubo-ensayo-rosca-18x150",
-        attrs: { tipo: "tapa-rosca", medida: "18x150" },
-        name: "TAPA ROSCA 18 × 150 mm",
-        description: "Tubo de ensayo de vidrio borosilicato con tapa rosca para mayor hermeticidad en almacenamiento y transporte de muestras. || **Tipo:** Con tapa rosca | **Medida:** 18 × 150 mm.",
-        price: 5,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ROSCA.png"
-      },
-      {
-        sku: "tubo-ensayo-rosca-20x200",
-        attrs: { tipo: "tapa-rosca", medida: "20x200" },
-        name: "TAPA ROSCA 20 × 200 mm",
-        description: "Tubo de ensayo de vidrio borosilicato con tapa rosca para mayor hermeticidad en almacenamiento y transporte de muestras. || **Tipo:** Con tapa rosca | **Medida:** 20 × 200 mm.",
-        price: 5,
-        image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ROSCA.png"
-      }
+      { sku: "tubo-ensayo-13x100-x100", attrs: { medida: "13-100-mm-caja-100" }, name: "TUBOS DE ENSAYO DE VIDRIO 13 × 100 MM × 100 UND", description: "Tubo de ensayo de vidrio borosilicato para reacciones y ensayos en laboratorio. || **Tipo:** Abierto | **Medida:** 13 × 100 mm.", price: 122.4, image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_ST.png" }
     ]
   },
 
@@ -4203,7 +3239,629 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     ]
   },
 
+  // ─── PRUEBAS DIAGNÓSTICAS (ELISA / PRUEBAS RÁPIDAS) ───────────────────────
+  {
+    id: "elisa-toxoplasma-igm-96",
+    name: "ELISA TOXOPLASMA IgM × 96 DET",
+    type: "Reactivos",
+    description: "Kit ELISA para la detección cualitativa de anticuerpos IgM contra Toxoplasma gondii en suero o plasma humano. La IgM es marcador de infección reciente o aguda, por lo que se utiliza en el tamizaje prenatal y en el diagnóstico de toxoplasmosis. Formato de microplaca de 96 determinaciones, compatible con lectores ELISA estándar. Para uso diagnóstico in vitro. || Técnica: ELISA | Analito: Anticuerpos IgM anti-Toxoplasma gondii | Presentación: 96 determinaciones.",
+    price: 1836.0,
+    image: "/images/laboratorio/REACTIVOS/ELISA_TOXO_IGM.png"
+  },
 
+  {
+    id: "elisa-anti-hiv-3g-96",
+    name: "ANTICUERPOS HIV ELISA 3ra GENERACIÓN × 96 DET",
+    type: "Reactivos",
+    description: "Kit ELISA de tercera generación para la detección cualitativa de anticuerpos contra el VIH-1 y VIH-2 en suero o plasma humano. Utilizado en el tamizaje de infección por VIH en laboratorios clínicos y bancos de sangre. Formato de microplaca de 96 determinaciones, compatible con lectores ELISA estándar. Para uso diagnóstico in vitro. || Técnica: ELISA 3ra generación | Analito: Anticuerpos anti-VIH-1/2 | Presentación: 96 determinaciones.",
+    price: 1836.0,
+    image: "/images/laboratorio/REACTIVOS/ELISA_HIV_3G.png"
+  },
+
+  {
+    id: "prueba-rapida-covid-antigeno-20",
+    name: "PRUEBA RÁPIDA COVID-19 ANTÍGENO × 20 TEST",
+    type: "Reactivos",
+    description: "Prueba rápida inmunocromatográfica para la detección cualitativa de antígeno de SARS-CoV-2 en muestras de hisopado respiratorio, según el inserto del fabricante. Resultado visual en pocos minutos, sin necesidad de equipos, útil para la detección de infección activa por COVID-19. Para uso diagnóstico in vitro. || Técnica: Inmunocromatografía | Analito: Antígeno de SARS-CoV-2 | Presentación: 20 pruebas.",
+    price: 183.6,
+    image: "/images/laboratorio/REACTIVOS/COVID_ANTIGENO.png"
+  },
+
+  {
+    id: "elisa-hbsag-96",
+    name: "ELISA HBsAg × 96 DET",
+    type: "Reactivos",
+    description: "Kit ELISA para la detección cualitativa del antígeno de superficie del virus de la hepatitis B (HBsAg) en suero o plasma humano. Es el principal marcador para el tamizaje de infección por hepatitis B en laboratorios clínicos y bancos de sangre. Formato de microplaca de 96 determinaciones, compatible con lectores ELISA estándar. Para uso diagnóstico in vitro. || Técnica: ELISA | Analito: HBsAg | Presentación: 96 determinaciones.",
+    price: 1300.5,
+    image: "/images/laboratorio/REACTIVOS/ELISA_HBSAG.png"
+  },
+
+  {
+    id: "elisa-anti-hbs-96",
+    name: "ELISA ANTI-HBs × 96 DET",
+    type: "Reactivos",
+    description: "Kit ELISA para la detección de anticuerpos contra el antígeno de superficie de la hepatitis B (anti-HBs) en suero o plasma humano. Se utiliza para evaluar la inmunidad frente a la hepatitis B, ya sea por vacunación o por infección resuelta. Formato de microplaca de 96 determinaciones, compatible con lectores ELISA estándar. Para uso diagnóstico in vitro. || Técnica: ELISA | Analito: Anticuerpos anti-HBs | Presentación: 96 determinaciones.",
+    price: 1836.0,
+    image: "/images/laboratorio/REACTIVOS/ELISA_ANTI_HBS.png"
+  },
+
+  {
+    id: "elisa-hbeag-96",
+    name: "ELISA HBeAg × 96 DET",
+    type: "Reactivos",
+    description: "Kit ELISA para la detección cualitativa del antígeno e del virus de la hepatitis B (HBeAg) en suero o plasma humano. El HBeAg es marcador de replicación viral activa y de mayor infectividad, útil en el seguimiento de pacientes con hepatitis B. Formato de microplaca de 96 determinaciones, compatible con lectores ELISA estándar. Para uso diagnóstico in vitro. || Técnica: ELISA | Analito: HBeAg | Presentación: 96 determinaciones.",
+    price: 1836.0,
+    image: "/images/laboratorio/REACTIVOS/ELISA_HBEAG.png"
+  },
+
+  // ─── PRODUCTOS VENDIDOS (cargados desde backoffice) ───
+  {
+    id: "almidon-soluble",
+    name: "ALMIDÓN SOLUBLE",
+    type: "Reactivos",
+    description: "Almidón soluble para análisis, utilizado como indicador en yodometrías y en prácticas de bioquímica para la identificación de polisacáridos y la evaluación de la actividad de amilasas.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "500-g", label: "500 G" },
+          { id: "1-kg", label: "1 KG" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "almidon-soluble-500g", attrs: { presentacion: "500-g" }, name: "ALMIDÓN SOLUBLE – 500 G", description: "Almidón soluble para análisis, utilizado como indicador en yodometrías y en prácticas de bioquímica para la identificación de polisacáridos y la evaluación de la actividad de amilasas.", price: 91.8, image: "/images/logo.png" },
+      { sku: "almidon-soluble-1kg", attrs: { presentacion: "1-kg" }, name: "ALMIDÓN SOLUBLE – 1 KG", description: "Almidón soluble para análisis, utilizado como indicador en yodometrías y en prácticas de bioquímica para la identificación de polisacáridos y la evaluación de la actividad de amilasas.", price: 91.8, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "aluminio-en-polvo-100g",
+    name: "ALUMINIO EN POLVO × 100 G",
+    type: "Reactivos",
+    description: "Aluminio metálico en polvo para prácticas de química general e inorgánica, reacciones de óxido-reducción y obtención de hidrógeno. Presentación de 100 g.",
+    image: "/images/logo.png",
+    price: 137.7
+  },
+
+  {
+    id: "amilasa-pancreatica-250g",
+    name: "AMILASA PANCREÁTICA × 250 G",
+    type: "Reactivos",
+    description: "Enzima amilasa pancreática para prácticas de bioquímica y fisiología digestiva, utilizada en ensayos de hidrólisis del almidón y estudios de cinética enzimática. Presentación de 250 g.",
+    image: "/images/logo.png",
+    price: 367.2
+  },
+
+  {
+    id: "anaranjado-de-metilo-500ml",
+    name: "ANARANJADO DE METILO × 500 ML",
+    type: "Reactivos",
+    description: "Indicador ácido-base anaranjado de metilo en solución, con viraje de rojo a amarillo en el rango de pH 3.1–4.4. Utilizado en titulaciones de ácidos fuertes y bases débiles. Presentación de 500 ml.",
+    image: "/images/logo.png",
+    price: 168.3
+  },
+
+  {
+    id: "azufre-en-polvo-500g",
+    name: "AZUFRE EN POLVO × 500 G",
+    type: "Reactivos",
+    description: "Azufre en polvo para prácticas de química general e inorgánica, síntesis de sulfuros y estudio de propiedades de los no metales. Presentación de 500 g.",
+    image: "/images/logo.png",
+    price: 61.2
+  },
+
+  {
+    id: "azul-de-bromotimol-001-1l",
+    name: "AZUL DE BROMOTIMOL AL 0.01% × 1 L",
+    type: "Reactivos",
+    description: "Indicador ácido-base azul de bromotimol al 0.01% en solución, con viraje de amarillo a azul en el rango de pH 6.0–7.6. Utilizado en titulaciones, medición de pH y prácticas de fotosíntesis y respiración. Presentación de 1 litro.",
+    image: "/images/logo.png",
+    price: 191.25
+  },
+
+  {
+    id: "bicarbonato-de-sodio-500g",
+    name: "BICARBONATO DE SODIO × 500 G",
+    type: "Reactivos",
+    description: "Bicarbonato de sodio (NaHCO₃) para prácticas de laboratorio, preparación de soluciones amortiguadoras y reacciones ácido-base. Presentación de 500 g.",
+    image: "/images/logo.png",
+    price: 30.6
+  },
+
+  {
+    id: "ciclohexano-100ml",
+    name: "CICLOHEXANO × 100 ML",
+    type: "Reactivos",
+    description: "Ciclohexano, solvente orgánico no polar utilizado en extracciones, prácticas de química orgánica y como medio de reacción. Presentación de 100 ml.",
+    image: "/images/logo.png",
+    price: 76.5
+  },
+
+  {
+    id: "cloroformo-analitico-1l",
+    name: "CLOROFORMO GRADO ANALÍTICO 99.5% × 1 L",
+    type: "Reactivos",
+    description: "Cloroformo (CHCl₃) grado analítico al 99.5%, estabilizado con etanol. Solvente para extracciones de lípidos y compuestos orgánicos en laboratorios de química y bioquímica. Presentación de 1 litro.",
+    image: "/images/logo.png",
+    price: 137.7
+  },
+
+  {
+    id: "cloruro-de-potasio-500g",
+    name: "CLORURO DE POTASIO × 500 G",
+    type: "Reactivos",
+    description: "Cloruro de potasio (KCl) para preparación de soluciones, electrolitos y prácticas de química analítica y fisiología. Presentación de 500 g.",
+    image: "/images/logo.png",
+    price: 130.05
+  },
+
+  {
+    id: "colorante-sudan-iii-1l",
+    name: "COLORANTE SUDÁN III × 1 L",
+    type: "Reactivos",
+    description: "Colorante Sudán III en solución para la tinción de lípidos y grasas neutras en cortes histológicos, heces y muestras biológicas. Presentación de 1 litro.",
+    image: "/images/logo.png",
+    price: 122.4
+  },
+
+  {
+    id: "colorante-de-wright-1l",
+    name: "COLORANTE DE WRIGHT × 1 L",
+    type: "Reactivos",
+    description: "Colorante de Wright para tinción de frotis de sangre periférica y médula ósea, que permite la diferenciación de leucocitos, eritrocitos y plaquetas en hematología. Presentación de 1 litro.",
+    image: "/images/logo.png",
+    price: 130.05
+  },
+
+  {
+    id: "fenolftaleina-solucion",
+    name: "FENOLFTALEÍNA EN SOLUCIÓN",
+    type: "Reactivos",
+    description: "Indicador ácido-base fenolftaleína en solución, incolora en medio ácido y rosada a partir de pH 8.2. Utilizada en titulaciones ácido-base en laboratorios de química.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "500-ml", label: "500 ML" },
+          { id: "al-1-1-l", label: "AL 1% × 1 L" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "fenolftaleina-sol-500ml", attrs: { presentacion: "500-ml" }, name: "FENOLFTALEÍNA EN SOLUCIÓN – 500 ML", description: "Indicador ácido-base fenolftaleína en solución, incolora en medio ácido y rosada a partir de pH 8.2. Utilizada en titulaciones ácido-base en laboratorios de química.", price: 68.85, image: "/images/logo.png" },
+      { sku: "fenolftaleina-sol-1pct-1l", attrs: { presentacion: "al-1-1-l" }, name: "FENOLFTALEÍNA EN SOLUCIÓN – AL 1% × 1 L", description: "Indicador ácido-base fenolftaleína en solución, incolora en medio ácido y rosada a partir de pH 8.2. Utilizada en titulaciones ácido-base en laboratorios de química.", price: 137.7, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "galactosa-1kg",
+    name: "GALACTOSA × 1 KG",
+    type: "Reactivos",
+    description: "Galactosa, monosacárido para prácticas de bioquímica, identificación de carbohidratos y preparación de medios de cultivo. Presentación de 1 kg.",
+    image: "/images/logo.png",
+    price: 290.7
+  },
+
+  {
+    id: "hexano-98-1l",
+    name: "HEXANO AL 98% × 1 L",
+    type: "Reactivos",
+    description: "Hexano al 98%, solvente orgánico no polar para extracción de aceites y lípidos, cromatografía y prácticas de química orgánica. Presentación de 1 litro.",
+    image: "/images/logo.png",
+    price: 321.3
+  },
+
+  {
+    id: "hidroxido-de-potasio-500g",
+    name: "HIDRÓXIDO DE POTASIO × 500 G",
+    type: "Reactivos",
+    description: "Hidróxido de potasio (KOH) para preparación de soluciones alcalinas, titulaciones, saponificación y prácticas de química. Presentación de 500 g.",
+    image: "/images/logo.png",
+    price: 290.7
+  },
+
+  {
+    id: "limadura-de-hierro-100g",
+    name: "LIMADURA DE HIERRO × 100 G",
+    type: "Reactivos",
+    description: "Limadura de hierro para prácticas de química y física, como reacciones de óxido-reducción, separación de mezclas y demostraciones de magnetismo. Presentación de 100 g.",
+    image: "/images/logo.png",
+    price: 237.15
+  },
+
+  {
+    id: "maltosa-1kg",
+    name: "MALTOSA × 1 KG",
+    type: "Reactivos",
+    description: "Maltosa, disacárido reductor para prácticas de bioquímica, identificación de carbohidratos y preparación de medios de cultivo. Presentación de 1 kg.",
+    image: "/images/logo.png",
+    price: 244.8
+  },
+
+  {
+    id: "nitrito-de-sodio-250g",
+    name: "NITRITO DE SODIO × 250 G",
+    type: "Reactivos",
+    description: "Nitrito de sodio (NaNO₂) para prácticas de química analítica y orgánica, como reacciones de diazotación. Presentación de 250 g.",
+    image: "/images/logo.png",
+    price: 247.86
+  },
+
+  {
+    id: "orceina-acetica",
+    name: "ORCEÍNA ACÉTICA",
+    type: "Reactivos",
+    description: "Orceína acética para la tinción de cromosomas en preparaciones de mitosis y meiosis, utilizada en prácticas de biología celular y genética. Disponible en soluciones individuales y en kit.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "orceina-acetica-10-ml", label: "ORCEÍNA ACÉTICA × 10 ML" },
+          { id: "orceina-acetica-a-10-ml", label: "ORCEÍNA ACÉTICA A × 10 ML" },
+          { id: "orceina-acetica-b-10-ml", label: "ORCEÍNA ACÉTICA B × 10 ML" },
+          { id: "kit-orceina-a-b", label: "KIT ORCEÍNA A + B" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "orceina-acetica-10ml", attrs: { presentacion: "orceina-acetica-10-ml" }, name: "ORCEÍNA ACÉTICA – ORCEÍNA ACÉTICA × 10 ML", description: "Orceína acética para la tinción de cromosomas en preparaciones de mitosis y meiosis, utilizada en prácticas de biología celular y genética. Disponible en soluciones individuales y en kit.", price: 27.54, image: "/images/logo.png" },
+      { sku: "orceina-acetica-a-10ml", attrs: { presentacion: "orceina-acetica-a-10-ml" }, name: "ORCEÍNA ACÉTICA – ORCEÍNA ACÉTICA A × 10 ML", description: "Orceína acética para la tinción de cromosomas en preparaciones de mitosis y meiosis, utilizada en prácticas de biología celular y genética. Disponible en soluciones individuales y en kit.", price: 27.54, image: "/images/logo.png" },
+      { sku: "orceina-acetica-b-10ml", attrs: { presentacion: "orceina-acetica-b-10-ml" }, name: "ORCEÍNA ACÉTICA – ORCEÍNA ACÉTICA B × 10 ML", description: "Orceína acética para la tinción de cromosomas en preparaciones de mitosis y meiosis, utilizada en prácticas de biología celular y genética. Disponible en soluciones individuales y en kit.", price: 27.54, image: "/images/logo.png" },
+      { sku: "kit-orceina-a-b", attrs: { presentacion: "kit-orceina-a-b" }, name: "ORCEÍNA ACÉTICA – KIT ORCEÍNA A + B", description: "Orceína acética para la tinción de cromosomas en preparaciones de mitosis y meiosis, utilizada en prácticas de biología celular y genética. Disponible en soluciones individuales y en kit.", price: 275.4, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "pepsina-250g",
+    name: "PEPSINA × 250 G",
+    type: "Reactivos",
+    description: "Enzima pepsina para prácticas de bioquímica y fisiología digestiva, utilizada en ensayos de digestión de proteínas. Presentación de 250 g.",
+    image: "/images/logo.png",
+    price: 260.1
+  },
+
+  {
+    id: "pancreatina-250g",
+    name: "PANCREATINA × 250 G",
+    type: "Reactivos",
+    description: "Pancreatina, mezcla de enzimas pancreáticas (amilasa, lipasa y proteasas) para prácticas de bioquímica y fisiología digestiva. Presentación de 250 g.",
+    image: "/images/logo.png",
+    price: 351.9
+  },
+
+  {
+    id: "reactivo-de-benedict-1l",
+    name: "REACTIVO DE BENEDICT × 1 L",
+    type: "Reactivos",
+    description: "Reactivo de Benedict para la detección de azúcares reductores en prácticas de bioquímica y análisis de orina. Presentación de 1 litro.",
+    image: "/images/logo.png",
+    price: 130.05
+  },
+
+  {
+    id: "reactivo-de-biuret-1l",
+    name: "REACTIVO DE BIURET × 1 L",
+    type: "Reactivos",
+    description: "Reactivo de Biuret para la detección y cuantificación de proteínas mediante la formación de un complejo de color violeta. Presentación de 1 litro.",
+    image: "/images/logo.png",
+    price: 137.7
+  },
+
+  {
+    id: "reactivo-de-seliwanoff-1l",
+    name: "REACTIVO DE SELIWANOFF × 1 L",
+    type: "Reactivos",
+    description: "Reactivo de Seliwanoff para diferenciar cetosas de aldosas en prácticas de bioquímica de carbohidratos. Presentación de 1 litro.",
+    image: "/images/logo.png",
+    price: 497.25
+  },
+
+  {
+    id: "sacarosa-1kg",
+    name: "SACAROSA × 1 KG",
+    type: "Reactivos",
+    description: "Sacarosa grado laboratorio para prácticas de bioquímica, preparación de soluciones y medios de cultivo. Presentación de 1 kg.",
+    image: "/images/logo.png",
+    price: 137.7
+  },
+
+  {
+    id: "safranina-1l",
+    name: "SAFRANINA × 1 L",
+    type: "Reactivos",
+    description: "Safranina en solución, colorante de contraste en la tinción de Gram y en tinciones histológicas. Presentación de 1 litro.",
+    image: "/images/logo.png",
+    price: 122.4
+  },
+
+  {
+    id: "acetato-de-plomo-01m-1l",
+    name: "SOLUCIÓN DE ACETATO DE PLOMO 0.1 M × 1 L",
+    type: "Reactivos",
+    description: "Solución de acetato de plomo 0.1 M para la detección de sulfuros y prácticas de química analítica. Presentación de 1 litro.",
+    image: "/images/logo.png",
+    price: 260.1
+  },
+
+  {
+    id: "sulfato-de-sodio-anhidro-500g",
+    name: "SULFATO DE SODIO ANHIDRO × 500 G",
+    type: "Reactivos",
+    description: "Sulfato de sodio anhidro, agente desecante para eliminar trazas de agua en extracciones orgánicas y reactivo de química analítica. Presentación de 500 g.",
+    image: "/images/logo.png",
+    price: 229.5
+  },
+
+  {
+    id: "verde-de-janus-5g",
+    name: "VERDE DE JANUS × 5 G",
+    type: "Reactivos",
+    description: "Verde de Janus B, colorante vital para la tinción de mitocondrias en células vivas en prácticas de biología celular. Presentación de 5 g.",
+    image: "/images/logo.png",
+    price: 137.7
+  },
+
+  {
+    id: "yoduro-de-potasio-500g",
+    name: "YODURO DE POTASIO × 500 G",
+    type: "Reactivos",
+    description: "Yoduro de potasio (KI) para preparación de lugol, yodometrías y prácticas de química analítica. Presentación de 500 g.",
+    image: "/images/logo.png",
+    price: 642.6
+  },
+
+  {
+    id: "acido-clorobenzoico-99-500ml",
+    name: "ÁCIDO CLOROBENZOICO AL 99% × 500 ML",
+    type: "Reactivos",
+    description: "Ácido clorobenzoico al 99% para prácticas de química orgánica y síntesis. Presentación de 500 ml.",
+    image: "/images/logo.png",
+    price: 306
+  },
+
+  {
+    id: "kit-tipificacion-grupo-sanguineo",
+    name: "KIT DE TIPIFICACIÓN DE GRUPO SANGUÍNEO",
+    type: "Reactivos",
+    description: "Kit de reactivos para la determinación del grupo sanguíneo ABO y factor Rh en lámina, para prácticas de laboratorio clínico y hematología. Para uso diagnóstico in vitro.",
+    image: "/images/logo.png",
+    price: 107.1
+  },
+
+  {
+    id: "reactivos-bioquimica-diasys",
+    name: "REACTIVOS DE BIOQUÍMICA CLÍNICA DIASYS",
+    type: "Reactivos",
+    description: "Reactivos líquidos listos para usar de DiaSys Diagnostic para la determinación de analitos de bioquímica clínica en analizadores y espectrofotómetros. Conservar entre 2 °C y 8 °C. Para uso diagnóstico in vitro.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["analito"],
+
+    attributes: [
+      {
+        id: "analito",
+        label: "Analito",
+        type: "single",
+        values: [
+          { id: "albumina-fs-150-ml", label: "Albúmina FS – 150 ml" },
+          { id: "colesterol-fs-150-ml", label: "Colesterol FS – 150 ml" },
+          { id: "glucosa-god-fs-150-ml", label: "Glucosa GOD FS – 150 ml" },
+          { id: "trigliceridos-fs-150-ml", label: "Triglicéridos FS – 150 ml" },
+          { id: "proteinas-totales-fs-125-ml", label: "Proteínas totales FS – 125 ml" },
+          { id: "transaminasa-got-fs-125-ml", label: "Transaminasa GOT FS – 125 ml" },
+          { id: "transaminasa-gpt-fs-125-ml", label: "Transaminasa GPT FS – 125 ml" },
+          { id: "urea-fs-125-ml", label: "Urea FS – 125 ml" },
+          { id: "control-normal-trulab-n-5-ml", label: "Control normal TruLab N – 5 ml" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "diasys-albumina-150ml", attrs: { analito: "albumina-fs-150-ml" }, name: "ALBÚMINA FS × 150 ML (6 × 25 ML + STD 1 × 3 ML)", description: "Reactivos líquidos listos para usar de DiaSys Diagnostic para la determinación de analitos de bioquímica clínica en analizadores y espectrofotómetros. Conservar entre 2 °C y 8 °C. Para uso diagnóstico in vitro.", price: 229.5, image: "/images/logo.png" },
+      { sku: "diasys-colesterol-150ml", attrs: { analito: "colesterol-fs-150-ml" }, name: "COLESTEROL FS × 150 ML (6 × 25 ML + STD 1 × 3 ML)", description: "Reactivos líquidos listos para usar de DiaSys Diagnostic para la determinación de analitos de bioquímica clínica en analizadores y espectrofotómetros. Conservar entre 2 °C y 8 °C. Para uso diagnóstico in vitro.", price: 283.05, image: "/images/logo.png" },
+      { sku: "diasys-glucosa-god-150ml", attrs: { analito: "glucosa-god-fs-150-ml" }, name: "GLUCOSA GOD FS × 150 ML (6 × 25 ML + STD 1 × 3 ML)", description: "Reactivos líquidos listos para usar de DiaSys Diagnostic para la determinación de analitos de bioquímica clínica en analizadores y espectrofotómetros. Conservar entre 2 °C y 8 °C. Para uso diagnóstico in vitro.", price: 198.9, image: "/images/logo.png" },
+      { sku: "diasys-trigliceridos-150ml", attrs: { analito: "trigliceridos-fs-150-ml" }, name: "TRIGLICÉRIDOS FS × 150 ML (6 × 25 ML + STD 1 × 3 ML)", description: "Reactivos líquidos listos para usar de DiaSys Diagnostic para la determinación de analitos de bioquímica clínica en analizadores y espectrofotómetros. Conservar entre 2 °C y 8 °C. Para uso diagnóstico in vitro.", price: 351.92, image: "/images/logo.png" },
+      { sku: "diasys-proteinas-totales-125ml", attrs: { analito: "proteinas-totales-fs-125-ml" }, name: "PROTEÍNAS TOTALES FS × 125 ML", description: "Reactivos líquidos listos para usar de DiaSys Diagnostic para la determinación de analitos de bioquímica clínica en analizadores y espectrofotómetros. Conservar entre 2 °C y 8 °C. Para uso diagnóstico in vitro.", price: 214.2, image: "/images/logo.png" },
+      { sku: "diasys-got-125ml", attrs: { analito: "transaminasa-got-fs-125-ml" }, name: "TRANSAMINASA GOT (AST) FS × 125 ML (5 × 20 ML)", description: "Reactivos líquidos listos para usar de DiaSys Diagnostic para la determinación de analitos de bioquímica clínica en analizadores y espectrofotómetros. Conservar entre 2 °C y 8 °C. Para uso diagnóstico in vitro.", price: 244.8, image: "/images/logo.png" },
+      { sku: "diasys-gpt-125ml", attrs: { analito: "transaminasa-gpt-fs-125-ml" }, name: "TRANSAMINASA GPT (ALT) FS × 125 ML (5 × 20 ML)", description: "Reactivos líquidos listos para usar de DiaSys Diagnostic para la determinación de analitos de bioquímica clínica en analizadores y espectrofotómetros. Conservar entre 2 °C y 8 °C. Para uso diagnóstico in vitro.", price: 244.8, image: "/images/logo.png" },
+      { sku: "diasys-urea-125ml", attrs: { analito: "urea-fs-125-ml" }, name: "UREA FS × 125 ML", description: "Reactivos líquidos listos para usar de DiaSys Diagnostic para la determinación de analitos de bioquímica clínica en analizadores y espectrofotómetros. Conservar entre 2 °C y 8 °C. Para uso diagnóstico in vitro.", price: 206.55, image: "/images/logo.png" },
+      { sku: "diasys-trulab-n-5ml", attrs: { analito: "control-normal-trulab-n-5-ml" }, name: "CONTROL NORMAL TRULAB N × 5 ML", description: "Reactivos líquidos listos para usar de DiaSys Diagnostic para la determinación de analitos de bioquímica clínica en analizadores y espectrofotómetros. Conservar entre 2 °C y 8 °C. Para uso diagnóstico in vitro.", price: 153, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "mecha-para-mechero",
+    name: "MECHA PARA MECHERO DE ALCOHOL (POR METRO)",
+    type: "Utensilios",
+    description: "Mecha de algodón de repuesto para mecheros de alcohol, vendida por metro.",
+    image: "/images/logo.png",
+    price: 4.59
+  },
+
+  {
+    id: "placas-petri-plastico-90x15-x10",
+    name: "PLACAS PETRI DE PLÁSTICO 90 × 15 MM × 10 UND",
+    type: "Utensilios",
+    description: "Placas Petri descartables de plástico de 90 × 15 mm para siembra y cultivo de microorganismos en laboratorios de microbiología. Paquete de 10 unidades.",
+    image: "/images/logo.png",
+    price: 137.7
+  },
+
+  {
+    id: "laminas-portaobjetos-cubreobjetos",
+    name: "LÁMINAS PORTAOBJETOS Y CUBREOBJETOS",
+    type: "Utensilios",
+    description: "Láminas de vidrio para microscopía: portaobjetos para el montaje de muestras y cubreobjetos para su protección y observación.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["tipo"],
+
+    attributes: [
+      {
+        id: "tipo",
+        label: "Tipo",
+        type: "single",
+        values: [
+          { id: "portaobjetos-50-und", label: "PORTAOBJETOS × 50 UND" },
+          { id: "cubreobjetos-100-und", label: "CUBREOBJETOS × 100 UND" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "portaobjetos-x50", attrs: { tipo: "portaobjetos-50-und" }, name: "LÁMINAS PORTAOBJETOS Y CUBREOBJETOS – PORTAOBJETOS × 50 UND", description: "Láminas de vidrio para microscopía: portaobjetos para el montaje de muestras y cubreobjetos para su protección y observación.", price: 7.65, image: "/images/logo.png" },
+      { sku: "cubreobjetos-x100", attrs: { tipo: "cubreobjetos-100-und" }, name: "LÁMINAS PORTAOBJETOS Y CUBREOBJETOS – CUBREOBJETOS × 100 UND", description: "Láminas de vidrio para microscopía: portaobjetos para el montaje de muestras y cubreobjetos para su protección y observación.", price: 6.12, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "gradilla-metal-plastificada-12",
+    name: "GRADILLA DE METAL PLASTIFICADA 12 TUBOS",
+    type: "Utensilios",
+    description: "Gradilla de metal con recubrimiento plastificado para 12 tubos de ensayo, resistente a la corrosión y fácil de limpiar.",
+    image: "/images/logo.png",
+    price: 13.77
+  },
+
+  {
+    id: "estuche-portalaminas-25",
+    name: "ESTUCHE PORTALÁMINAS DE POLIPROPILENO × 25",
+    type: "Utensilios",
+    description: "Estuche de polipropileno con capacidad para 25 láminas portaobjetos, para el almacenamiento y transporte seguro de preparaciones.",
+    image: "/images/logo.png",
+    price: 12.24
+  },
+
+  {
+    id: "papel-indicador-ph",
+    name: "PAPEL INDICADOR DE pH",
+    type: "Utensilios",
+    description: "Papeles indicadores para la determinación rápida de pH y del carácter ácido o básico de una solución.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["tipo"],
+
+    attributes: [
+      {
+        id: "tipo",
+        label: "Tipo",
+        type: "single",
+        values: [
+          { id: "universal-100-tiras", label: "UNIVERSAL × 100 TIRAS" },
+          { id: "tornasol-azul", label: "TORNASOL AZUL" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "papel-indicador-universal-x100", attrs: { tipo: "universal-100-tiras" }, name: "PAPEL INDICADOR DE pH – UNIVERSAL × 100 TIRAS", description: "Papeles indicadores para la determinación rápida de pH y del carácter ácido o básico de una solución.", price: 30.6, image: "/images/logo.png" },
+      { sku: "papel-tornasol-azul", attrs: { tipo: "tornasol-azul" }, name: "PAPEL INDICADOR DE pH – TORNASOL AZUL", description: "Papeles indicadores para la determinación rápida de pH y del carácter ácido o básico de una solución.", price: 18.36, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "papel-filtro-40-caja",
+    name: "PAPEL FILTRO N° 40 (CAJA)",
+    type: "Utensilios",
+    description: "Papel filtro N° 40 de filtración media para análisis cuantitativo y separación de precipitados en el laboratorio. Presentación en caja.",
+    image: "/images/logo.png",
+    price: 53.55
+  },
+
+  {
+    id: "asa-siembra-nicromo-10ul-x100",
+    name: "ASA DE SIEMBRA DE NICROMO 10 µL × 100 UND",
+    type: "Utensilios",
+    description: "Asas de siembra calibradas de nicromo de 10 µL para siembra y aislamiento de microorganismos en microbiología. Presentación de 100 unidades.",
+    image: "/images/logo.png",
+    price: 53.55
+  },
+
+  {
+    id: "mango-kohler-asa-siembra",
+    name: "MANGO DE KOHLER CON ASA DE SIEMBRA",
+    type: "Utensilios",
+    description: "Mango de Kohler con asa de siembra metálica, para la toma, transferencia y siembra de muestras microbiológicas.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["punta"],
+
+    attributes: [
+      {
+        id: "punta",
+        label: "Punta",
+        type: "single",
+        values: [
+          { id: "en-punta", label: "EN PUNTA" },
+          { id: "redonda", label: "REDONDA" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "mango-kohler-punta", attrs: { punta: "en-punta" }, name: "MANGO DE KOHLER CON ASA DE SIEMBRA – EN PUNTA", description: "Mango de Kohler con asa de siembra metálica, para la toma, transferencia y siembra de muestras microbiológicas.", price: 22.19, image: "/images/logo.png" },
+      { sku: "mango-kohler-redonda", attrs: { punta: "redonda" }, name: "MANGO DE KOHLER CON ASA DE SIEMBRA – REDONDA", description: "Mango de Kohler con asa de siembra metálica, para la toma, transferencia y siembra de muestras microbiológicas.", price: 22.19, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "tips-micropipeta",
+    name: "TIPS PARA MICROPIPETA",
+    type: "Utensilios",
+    description: "Puntas descartables para micropipeta en caja: tips amarillos, tips azules y tips estériles con filtro para trabajos que requieren evitar la contaminación cruzada.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["tipo"],
+
+    attributes: [
+      {
+        id: "tipo",
+        label: "Tipo",
+        type: "single",
+        values: [
+          { id: "punta-amarilla-caja", label: "PUNTA AMARILLA – CAJA" },
+          { id: "punta-azul-caja", label: "PUNTA AZUL – CAJA" },
+          { id: "esteriles-con-filtro-1-10-ul-96", label: "ESTÉRILES CON FILTRO 1–10 µL × 96" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "tips-amarillos-caja", attrs: { tipo: "punta-amarilla-caja" }, name: "TIPS PARA MICROPIPETA – PUNTA AMARILLA – CAJA", description: "Puntas descartables para micropipeta en caja: tips amarillos, tips azules y tips estériles con filtro para trabajos que requieren evitar la contaminación cruzada.", price: 18.36, image: "/images/logo.png" },
+      { sku: "tips-azules-caja", attrs: { tipo: "punta-azul-caja" }, name: "TIPS PARA MICROPIPETA – PUNTA AZUL – CAJA", description: "Puntas descartables para micropipeta en caja: tips amarillos, tips azules y tips estériles con filtro para trabajos que requieren evitar la contaminación cruzada.", price: 19.89, image: "/images/logo.png" },
+      { sku: "tips-filtro-1-10ul-x96", attrs: { tipo: "esteriles-con-filtro-1-10-ul-96" }, name: "TIPS PARA MICROPIPETA – ESTÉRILES CON FILTRO 1–10 µL × 96", description: "Puntas descartables para micropipeta en caja: tips amarillos, tips azules y tips estériles con filtro para trabajos que requieren evitar la contaminación cruzada.", price: 68.85, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "termometro-digital-sonda-hanna-hi98509",
+    name: "TERMÓMETRO DIGITAL CON SONDA HANNA HI98509",
+    type: "Utensilios",
+    description: "Termómetro digital Hanna Instruments HI98509 con sonda de acero inoxidable para mediciones rápidas de temperatura en laboratorio, alimentos y procesos. || Marca: Hanna Instruments | Modelo: HI98509.",
+    image: "/images/logo.png",
+    price: 459
+  },
 
 ];
-

@@ -37,6 +37,57 @@ export const gestanteYNeonatosProducts = [
     image: "/images/gestante/pelota-terapeutica.png"
   },
 
+  // ─── PRODUCTOS VENDIDOS (cargados desde backoffice) ───
+  {
+    id: "lentes-fototerapia-eyemax2",
+    name: "LENTES DE FOTOTERAPIA EYEMAX2",
+    description: "Protectores oculares EyeMax2 para recién nacidos en fototerapia, que protegen los ojos de la luz azul durante el tratamiento.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["talla"],
+
+    attributes: [
+      {
+        id: "talla",
+        label: "Talla",
+        type: "single",
+        values: [
+          { id: "prematuro", label: "PREMATURO" },
+          { id: "regular", label: "REGULAR" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "eyemax2-prematuro", attrs: { talla: "prematuro" }, name: "LENTES DE FOTOTERAPIA EYEMAX2 – PREMATURO", description: "Protectores oculares EyeMax2 para recién nacidos en fototerapia, que protegen los ojos de la luz azul durante el tratamiento.", price: 161, image: "/images/logo.png" },
+      { sku: "eyemax2-regular", attrs: { talla: "regular" }, name: "LENTES DE FOTOTERAPIA EYEMAX2 – REGULAR", description: "Protectores oculares EyeMax2 para recién nacidos en fototerapia, que protegen los ojos de la luz azul durante el tratamiento.", price: 173.2, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "escobillas-biberon",
+    name: "ESCOBILLAS PARA BIBERÓN",
+    description: "Escobillas para la limpieza de biberones y tetinas.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["modelo"],
+
+    attributes: [
+      {
+        id: "modelo",
+        label: "Modelo",
+        type: "single",
+        values: [
+          { id: "con-mango-ergonomico", label: "CON MANGO ERGONÓMICO" },
+          { id: "avent", label: "AVENT" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "escobilla-biberon-mango-ergonomico", attrs: { modelo: "con-mango-ergonomico" }, name: "ESCOBILLAS PARA BIBERÓN – CON MANGO ERGONÓMICO", description: "Escobillas para la limpieza de biberones y tetinas.", price: 47.43, image: "/images/logo.png" },
+      { sku: "escobilla-biberon-avent", attrs: { modelo: "avent" }, name: "ESCOBILLAS PARA BIBERÓN – AVENT", description: "Escobillas para la limpieza de biberones y tetinas.", price: 40.55, image: "/images/logo.png" }
+    ]
+  },
 
 ];
-

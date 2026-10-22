@@ -1333,11 +1333,11 @@ export const mobiliarioYComfortProducts = [
   },
   {
     id: "colchon-antiescaras",
-    name: "COLCHÓN ANTIESCARAS",
+    name: "COLCHÓN NEUMÁTICO ANTIESCARAS CON MOTOR",
     type: "Mobiliario",
     description: "Colchón antiescaras con motor compresor de aire de trabajo continuo 24 horas. Alimentación: 220V / 60Hz. Salida de aire ≥ 5 L/min. Consumo: 7W. Color beige. Incluye kit de reparación. Dimensiones del colchón: 298 × 92 × 6.5 cm. Dimensiones del motor: 23.5 × 11.2 × 10.8 cm. Peso motor: 1 kg.",
-    price: 240,
-    image: "/images/mobiliario/COLCHON_ANTIESCARAS.png"
+    image: "/images/mobiliario/COLCHON_ANTIESCARAS.png",
+    price: 267.75
   },
 
   {

@@ -1554,5 +1554,14 @@ export const soporteRespiratorioProducts = [
     ]
   },
 
-];
+  // ─── PRODUCTOS VENDIDOS (cargados desde backoffice) ───
+  {
+    id: "niple-tuerca-nebulizar",
+    name: "NIPLE Y TUERCA DE METAL PARA NEBULIZAR",
+    type: "Accesorios-respiratorio",
+    description: "Niple y tuerca metálicos para la conexión del nebulizador a la fuente de oxígeno.",
+    image: "/images/logo.png",
+    price: 18.36
+  },
 
+];

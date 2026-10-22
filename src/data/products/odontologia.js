@@ -489,8 +489,8 @@ export const odontologiaProducts = [
     id: "escobilla-para-profilaxis",
     name: "ESCOBILLA PARA PROFILAXIS",
     description: "ESCOBILLA PARA PROFILAXIS",
-    price: 1.2,
-    image: "/images/odontologia/placeholder.png"
+    image: "/images/odontologia/placeholder.png",
+    price: 38.25
   },
   {
     id: "escobilla-para-profilaxis-caja-144u",
@@ -940,5 +940,128 @@ export const odontologiaProducts = [
     price: 27.6,
     image: "/images/odontologia/placeholder.png"
   },
-];
 
+  // ─── PRODUCTOS VENDIDOS (cargados desde backoffice) ───
+  {
+    id: "acido-grabador-resinas",
+    name: "ÁCIDO GRABADOR PARA RESINAS",
+    description: "Gel de ácido grabador para el acondicionamiento de esmalte y dentina antes de la aplicación de adhesivos y resinas.",
+    image: "/images/logo.png",
+    price: 15.3
+  },
+
+  {
+    id: "alginato-450g",
+    name: "ALGINATO × 450 G",
+    description: "Alginato para la toma de impresiones dentales. Presentación de 450 g.",
+    image: "/images/logo.png",
+    price: 27.54
+  },
+
+  {
+    id: "curetas-periodontales-hu-friedy",
+    name: "CURETAS PERIODONTALES HU-FRIEDY",
+    description: "Curetas periodontales Hu-Friedy para raspado y alisado radicular. || Marca: Hu-Friedy.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["numero"],
+
+    attributes: [
+      {
+        id: "numero",
+        label: "Número",
+        type: "single",
+        values: [
+          { id: "n-1-2", label: "N° 1/2" },
+          { id: "n-5-6", label: "N° 5/6" },
+          { id: "n-11-12", label: "N° 11/12" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "cureta-hu-friedy-1-2", attrs: { numero: "n-1-2" }, name: "CURETAS PERIODONTALES HU-FRIEDY – N° 1/2", description: "Curetas periodontales Hu-Friedy para raspado y alisado radicular. || Marca: Hu-Friedy.", price: 214.2, image: "/images/logo.png" },
+      { sku: "cureta-hu-friedy-5-6", attrs: { numero: "n-5-6" }, name: "CURETAS PERIODONTALES HU-FRIEDY – N° 5/6", description: "Curetas periodontales Hu-Friedy para raspado y alisado radicular. || Marca: Hu-Friedy.", price: 214.2, image: "/images/logo.png" },
+      { sku: "cureta-hu-friedy-11-12", attrs: { numero: "n-11-12" }, name: "CURETAS PERIODONTALES HU-FRIEDY – N° 11/12", description: "Curetas periodontales Hu-Friedy para raspado y alisado radicular. || Marca: Hu-Friedy.", price: 214.2, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "microbrush-pequeno",
+    name: "MICROBRUSH TAMAÑO PEQUEÑO",
+    description: "Microaplicadores descartables tamaño pequeño para la aplicación precisa de adhesivos, barnices y materiales dentales.",
+    image: "/images/logo.png",
+    price: 9.18
+  },
+
+  {
+    id: "silicona-speedex-medium",
+    name: "SILICONA SPEEDEX MEDIUM",
+    description: "Silicona de condensación Speedex de consistencia media para impresiones dentales de precisión. || Marca: Speedex.",
+    image: "/images/logo.png",
+    price: 114.75
+  },
+
+  {
+    id: "pasta-profilactica-profiles-90g",
+    name: "PASTA PROFILÁCTICA PROFILES × 90 G",
+    description: "Pasta profiláctica para limpieza y pulido dental. Tubo de 90 g. || Marca: Profiles.",
+    image: "/images/logo.png",
+    price: 16.83
+  },
+
+  {
+    id: "fresas-redondas-carburo-x5",
+    name: "FRESAS REDONDAS DE CARBURO × 5 UND",
+    description: "Fresas redondas de carburo de tungsteno para remoción de caries y preparación de cavidades. Set de 5 unidades.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["numero"],
+
+    attributes: [
+      {
+        id: "numero",
+        label: "Número",
+        type: "single",
+        values: [
+          { id: "n-4", label: "N° 4" },
+          { id: "n-6", label: "N° 6" },
+          { id: "n-8", label: "N° 8" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "fresa-carburo-redonda-4", attrs: { numero: "n-4" }, name: "FRESAS REDONDAS DE CARBURO × 5 UND – N° 4", description: "Fresas redondas de carburo de tungsteno para remoción de caries y preparación de cavidades. Set de 5 unidades.", price: 107.1, image: "/images/logo.png" },
+      { sku: "fresa-carburo-redonda-6", attrs: { numero: "n-6" }, name: "FRESAS REDONDAS DE CARBURO × 5 UND – N° 6", description: "Fresas redondas de carburo de tungsteno para remoción de caries y preparación de cavidades. Set de 5 unidades.", price: 107.1, image: "/images/logo.png" },
+      { sku: "fresa-carburo-redonda-8", attrs: { numero: "n-8" }, name: "FRESAS REDONDAS DE CARBURO × 5 UND – N° 8", description: "Fresas redondas de carburo de tungsteno para remoción de caries y preparación de cavidades. Set de 5 unidades.", price: 107.1, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "liquidos-revelado-radiografico",
+    name: "LÍQUIDOS PARA REVELADO RADIOGRÁFICO MANUAL × GALÓN",
+    description: "Líquidos para el procesado manual de películas radiográficas.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["tipo"],
+
+    attributes: [
+      {
+        id: "tipo",
+        label: "Tipo",
+        type: "single",
+        values: [
+          { id: "revelador-galon", label: "REVELADOR × GALÓN" },
+          { id: "fijador-galon", label: "FIJADOR × GALÓN" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "liquido-revelador-gal", attrs: { tipo: "revelador-galon" }, name: "LÍQUIDOS PARA REVELADO RADIOGRÁFICO MANUAL × GALÓN – REVELADOR × GALÓN", description: "Líquidos para el procesado manual de películas radiográficas.", price: 145.35, image: "/images/logo.png" },
+      { sku: "liquido-fijador-gal", attrs: { tipo: "fijador-galon" }, name: "LÍQUIDOS PARA REVELADO RADIOGRÁFICO MANUAL × GALÓN – FIJADOR × GALÓN", description: "Líquidos para el procesado manual de películas radiográficas.", price: 145.35, image: "/images/logo.png" }
+    ]
+  },
+
+];

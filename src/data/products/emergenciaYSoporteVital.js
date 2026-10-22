@@ -64,11 +64,8 @@ export const emergenciaYSoporteVitalProducts = [
     name: "MALETIN DE EMERGENCIA PLASTICO C/DIVISIONES FLAMBEAU",
     type: "Maletines-y-mochilas",
     description: "Sistema de almacenamiento Flambeau con diseño de 7 bandejas plegables, configurable hasta en 61 compartimentos divisibles, ideal para organización eficiente de insumos médicos, instrumental, material de curación y pequeños dispositivos. Capacidad XL para suministros adicionales en el espacio interior, áreas específicas para herramientas y 2 portavasos moldeados en la tapa para soluciones o frascos de uso frecuente. || Dimensiones: 50.8 × 30.5 × 27.3 cm.",
-    price: 350,
-    images: [
-      "/images/emergencia/FLAMBEAU/F1.png",
-      "/images/emergencia/FLAMBEAU/F2.png"
-    ]
+    image: "/images/logo.png",
+    price: 436.05
   },
 
   // ─── 4. MOCHILA DE EMERGENCIA PRIMACARE ──────────────────────────────────────
@@ -116,38 +113,13 @@ export const emergenciaYSoporteVitalProducts = [
         label: "Tipo",
         type: "single",
         values: [
-          { id: "adulto", label: "Adulto" },
-          { id: "pediatrico", label: "Pediátrico" },
-          { id: "neonatal", label: "Neonatal" }
+          { id: "neonatal-besmed-re-25346", label: "NEONATAL BESMED RE-25346" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "resucitador-besmed-re-25186-adulto",
-        attrs: { tipo: "adulto" },
-        name: "ADULTO BESMED RE-25186",
-        description: "Resucitador manual Besmed para adulto, silicona 100% grado médico, libre de látex, esterilizable en autoclave hasta 134 °C. Incluye resucitador con asa 1600 ml, mascarilla silicona N° 5, bolsa oxígeno 2.5 L, tubo oxígeno desechable 2 m, válvula PEEP 5–20 cmH2O (azul) y estuche de almacenamiento. || Modelo: RE-25186 | Volumen: 1600 ml | Mascarilla: N° 5 | Válvula PEEP: 5–20 cmH2O | Esterilización: Autoclave 134 °C.",
-        price: 290,
-        image: "/images/emergencia/BESMED/ADULTO.png"
-      },
-      {
-        sku: "resucitador-besmed-re-25246-pediatrico",
-        attrs: { tipo: "pediatrico" },
-        name: "PEDIÁTRICO BESMED RE-25246",
-        description: "Resucitador manual Besmed para pacientes pediátricos, silicona 100% grado médico, libre de látex, esterilizable en autoclave hasta 134 °C. Incluye resucitador con asa 500 ml, mascarilla silicona N° 3, bolsa oxígeno 2.5 L, tubo oxígeno desechable 2 m, válvula PEEP 2–10 cmH2O (naranja) y estuche de almacenamiento. || Modelo: RE-25246 | Volumen: 500 ml | Mascarilla: N° 3 | Válvula PEEP: 2–10 cmH2O | Esterilización: Autoclave 134 °C.",
-        price: 290,
-        image: "/images/emergencia/BESMED/PEDIATRICO.png"
-      },
-      {
-        sku: "resucitador-besmed-re-25346-neonatal",
-        attrs: { tipo: "neonatal" },
-        name: "NEONATAL BESMED RE-25346",
-        description: "Resucitador manual Besmed para neonatos menores de 7 kg, silicona 100% grado médico, libre de látex, esterilizable en autoclave hasta 134 °C. Incluye resucitador con asa 280 ml, mascarilla silicona N° 1, bolsa oxígeno 1.0 L, tubo oxígeno desechable 2 m, válvula PEEP 2–10 cmH2O (naranja) y estuche de almacenamiento. || Modelo: RE-25346 | Volumen: 280 ml | Mascarilla: N° 1 | Válvula PEEP: 2–10 cmH2O | Esterilización: Autoclave 134 °C.",
-        price: 290,
-        image: "/images/emergencia/BESMED/NEONATAL.png"
-      }
+      { sku: "resucitador-besmed-re-25346-neonatal", attrs: { tipo: "neonatal-besmed-re-25346" }, name: "RESUCITADORES BESMED – NEONATAL BESMED RE-25346", description: "Resucitador manual Besmed para neonatos menores de 7 kg, silicona 100% grado médico, libre de látex, esterilizable en autoclave hasta 134 °C. Incluye resucitador con asa 280 ml, mascarilla silicona N° 1, bolsa oxígeno 1.0 L, tubo oxígeno desechable 2 m, válvula PEEP 2–10 cmH2O (naranja) y estuche de almacenamiento. || Modelo: RE-25346 | Volumen: 280 ml | Mascarilla: N° 1 | Válvula PEEP: 2–10 cmH2O | Esterilización: Autoclave 134 °C.", price: 351.9, image: "/images/emergencia/BESMED/NEONATAL.png" }
     ]
   },
 
@@ -167,65 +139,17 @@ export const emergenciaYSoporteVitalProducts = [
         label: "Talla",
         type: "single",
         values: [
-          { id: "talla-00", label: "Talla 00 – Neonatal" },
-          { id: "talla-0", label: "Talla 0 – Neonatal / Lactante" },
-          { id: "talla-02", label: "Talla 02 – Pediátrica pequeña" },
-          { id: "talla-03", label: "Talla 03 – Pediátrica mediana" },
-          { id: "talla-04", label: "Talla 04 – Adulto pequeño" },
-          { id: "talla-05", label: "Talla 05 – Adulto estándar" }
+          { id: "n-00", label: "N° 00" },
+          { id: "n-0", label: "N° 0" },
+          { id: "n-01", label: "N° 01" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "mascarilla-besmed-talla-00",
-        attrs: { talla: "talla-00" },
-        name: "TALLA 00 – NEONATAL",
-        description: "Mascarilla de silicona grado médico para resucitador Besmed, talla 00. Indicada para neonatos prematuros y de muy bajo peso. Esterilizable en autoclave. || Talla: 00 | Uso: Neonatal prematuro | Material: Silicona grado médico.",
-        price: 39.6,
-        image: "/images/emergencia/BESMED/MENORES.jpg"
-      },
-      {
-        sku: "mascarilla-besmed-talla-0",
-        attrs: { talla: "talla-0" },
-        name: "TALLA 0 – NEONATAL / LACTANTE",
-        description: "Mascarilla de silicona grado médico para resucitador Besmed, talla 0. Indicada para neonatos a término y lactantes pequeños. Esterilizable en autoclave. || Talla: 0 | Uso: Neonatal / lactante | Material: Silicona grado médico.",
-        price: 42,
-        image: "/images/emergencia/BESMED/MENORES.jpg"
-      },
-      {
-        sku: "mascarilla-besmed-talla-02",
-        attrs: { talla: "talla-02" },
-        name: "TALLA 02 – PEDIÁTRICA PEQUEÑA",
-        description: "Mascarilla de silicona grado médico para resucitador Besmed, talla 02. Indicada para pacientes pediátricos de menor tamaño. Esterilizable en autoclave. || Talla: 02 | Uso: Pediátrico pequeño | Material: Silicona grado médico.",
-        price: 45.6,
-        image: "/images/emergencia/BESMED/MENORES.jpg"
-      },
-      {
-        sku: "mascarilla-besmed-talla-03",
-        attrs: { talla: "talla-03" },
-        name: "TALLA 03 – PEDIÁTRICA MEDIANA",
-        description: "Mascarilla de silicona grado médico para resucitador Besmed, talla 03. Indicada para pacientes pediátricos de tamaño mediano. Esterilizable en autoclave. || Talla: 03 | Uso: Pediátrico mediano | Material: Silicona grado médico.",
-        price: 50.4,
-        image: "/images/emergencia/BESMED/ADULTOS.jpg"
-      },
-      {
-        sku: "mascarilla-besmed-talla-04",
-        attrs: { talla: "talla-04" },
-        name: "TALLA 04 – ADULTO PEQUEÑO",
-        description: "Mascarilla de silicona grado médico para resucitador Besmed, talla 04. Indicada para adultos de complexión pequeña o adultos mayores con estructuras faciales reducidas. Esterilizable en autoclave. || Talla: 04 | Uso: Adulto pequeño | Material: Silicona grado médico.",
-        price: 54,
-        image: "/images/emergencia/BESMED/ADULTOS.jpg"
-      },
-      {
-        sku: "mascarilla-besmed-talla-05",
-        attrs: { talla: "talla-05" },
-        name: "TALLA 05 – ADULTO ESTÁNDAR",
-        description: "Mascarilla de silicona grado médico para resucitador Besmed, talla 05. Talla estándar para adultos. Esterilizable en autoclave. || Talla: 05 | Uso: Adulto estándar | Material: Silicona grado médico.",
-        price: 54,
-        image: "/images/emergencia/BESMED/ADULTOS.jpg"
-      }
+      { sku: "mascarilla-besmed-talla-00", attrs: { talla: "n-00" }, name: "MASCARILLA DE SILICONA PARA RESUCITADOR BESMED – N° 00", description: "Mascarilla de silicona grado médico para resucitador Besmed, talla 00. Indicada para neonatos prematuros y de muy bajo peso. Esterilizable en autoclave. || Talla: 00 | Uso: Neonatal prematuro | Material: Silicona grado médico.", price: 53.55, image: "/images/emergencia/BESMED/MENORES.jpg" },
+      { sku: "mascarilla-besmed-talla-0", attrs: { talla: "n-0" }, name: "MASCARILLA DE SILICONA PARA RESUCITADOR BESMED – N° 0", description: "Mascarilla de silicona grado médico para resucitador Besmed, talla 0. Indicada para neonatos a término y lactantes pequeños. Esterilizable en autoclave. || Talla: 0 | Uso: Neonatal / lactante | Material: Silicona grado médico.", price: 53.55, image: "/images/emergencia/BESMED/MENORES.jpg" },
+      { sku: "mascarilla-besmed-talla-01", attrs: { talla: "n-01" }, name: "MASCARILLA DE SILICONA PARA RESUCITADOR BESMED – N° 01", description: "Mascarillas de silicona reutilizables de repuesto para resucitador Besmed. Disponibles en tallas 00 a 05 para cobertura completa desde neonatos hasta adultos. Silicona grado médico, esterilizables en autoclave, con sello facial anatómico para sellado hermético durante la ventilación.", price: 53.55, image: "/images/emergencia/CARD/ADULTOS.jpg" }
     ]
   },
 
@@ -617,6 +541,121 @@ export const emergenciaYSoporteVitalProducts = [
         image: "/images/emergencia/COLLARINES/TALL_FIJO.png"
       }
     ]
+  },
+
+  // ─── PRODUCTOS VENDIDOS (cargados desde backoffice) ───
+  {
+    id: "balon-oxigeno-10m3-kit",
+    name: "BALÓN DE OXÍGENO 10 M³ KIT COMPLETO",
+    description: "Balón de oxígeno medicinal de 10 m³ en kit completo, para oxigenoterapia en establecimientos de salud, ambulancias y atención domiciliaria.",
+    image: "/images/logo.png",
+    price: 1346.4
+  },
+
+  {
+    id: "bolsa-reservorio-besmed-adulto",
+    name: "BOLSA RESERVORIO BESMED ADULTO",
+    type: "Resucitadores",
+    description: "Bolsa reservorio de oxígeno Besmed para resucitador manual adulto, que permite administrar concentraciones elevadas de oxígeno durante la ventilación. || Marca: Besmed.",
+    image: "/images/logo.png",
+    price: 27.54
+  },
+
+  {
+    id: "botiquines-primeros-auxilios",
+    name: "BOTIQUINES DE PRIMEROS AUXILIOS",
+    type: "Maletines-y-mochilas",
+    description: "Botiquines para primeros auxilios en oficinas, colegios, vehículos y establecimientos de salud.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["tipo"],
+
+    attributes: [
+      {
+        id: "tipo",
+        label: "Tipo",
+        type: "single",
+        values: [
+          { id: "botiquin-de-primeros-auxilios", label: "BOTIQUÍN DE PRIMEROS AUXILIOS" },
+          { id: "botiquin-de-madera-30-40-cm", label: "BOTIQUÍN DE MADERA 30 × 40 CM" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "botiquin-primeros-auxilios", attrs: { tipo: "botiquin-de-primeros-auxilios" }, name: "BOTIQUINES DE PRIMEROS AUXILIOS – BOTIQUÍN DE PRIMEROS AUXILIOS", description: "Botiquines para primeros auxilios en oficinas, colegios, vehículos y establecimientos de salud.", price: 29.07, image: "/images/logo.png" },
+      { sku: "botiquin-madera-30x40", attrs: { tipo: "botiquin-de-madera-30-40-cm" }, name: "BOTIQUINES DE PRIMEROS AUXILIOS – BOTIQUÍN DE MADERA 30 × 40 CM", description: "Botiquines para primeros auxilios en oficinas, colegios, vehículos y establecimientos de salud.", price: 53.55, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "flujometro-oxigeno-0-15",
+    name: "FLUJÓMETRO DE OXÍGENO 0–15 LPM",
+    description: "Flujómetro de oxígeno de 0 a 15 litros por minuto para la regulación del flujo en oxigenoterapia, compatible con balones y redes de oxígeno.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["marca"],
+
+    attributes: [
+      {
+        id: "marca",
+        label: "Marca",
+        type: "single",
+        values: [
+          { id: "amico", label: "AMICO" },
+          { id: "oxygen", label: "OXYGEN" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "flujometro-amico", attrs: { marca: "amico" }, name: "FLUJÓMETRO DE OXÍGENO 0–15 LPM – AMICO", description: "Flujómetro de oxígeno de 0 a 15 litros por minuto para la regulación del flujo en oxigenoterapia, compatible con balones y redes de oxígeno.", price: 260.1, image: "/images/logo.png" },
+      { sku: "flujometro-oxygen", attrs: { marca: "oxygen" }, name: "FLUJÓMETRO DE OXÍGENO 0–15 LPM – OXYGEN", description: "Flujómetro de oxígeno de 0 a 15 litros por minuto para la regulación del flujo en oxigenoterapia, compatible con balones y redes de oxígeno.", price: 168.3, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "laringoscopios-led",
+    name: "LARINGOSCOPIOS LED",
+    description: "Laringoscopios con iluminación LED para intubación endotraqueal en emergencias, quirófano y cuidados intensivos.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["tipo"],
+
+    attributes: [
+      {
+        id: "tipo",
+        label: "Tipo",
+        type: "single",
+        values: [
+          { id: "adulto-led-riester", label: "ADULTO LED RIESTER" },
+          { id: "pediatrico-led-estandar", label: "PEDIÁTRICO LED ESTÁNDAR" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "laringoscopio-adulto-led-riester", attrs: { tipo: "adulto-led-riester" }, name: "LARINGOSCOPIOS LED – ADULTO LED RIESTER", description: "Laringoscopios con iluminación LED para intubación endotraqueal en emergencias, quirófano y cuidados intensivos.", price: 2310.3, image: "/images/logo.png" },
+      { sku: "laringoscopio-pediatrico-led", attrs: { tipo: "pediatrico-led-estandar" }, name: "LARINGOSCOPIOS LED – PEDIÁTRICO LED ESTÁNDAR", description: "Laringoscopios con iluminación LED para intubación endotraqueal en emergencias, quirófano y cuidados intensivos.", price: 1147.5, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "mochila-de-emergencia",
+    name: "MOCHILA DE EMERGENCIA 48 × 15 × 43 CM",
+    type: "Maletines-y-mochilas",
+    description: "Mochila de emergencia con compartimentos para el transporte organizado de insumos y equipos de primeros auxilios. Medidas aproximadas: 48.3 × 15.2 × 43.2 cm.",
+    image: "/images/logo.png",
+    price: 130.05
+  },
+
+  {
+    id: "inmovilizador-lateral",
+    name: "INMOVILIZADOR LATERAL DE CABEZA",
+    type: "Inmovilizacion",
+    description: "Inmovilizador lateral de cabeza para la estabilización cervical de pacientes en tabla rígida durante el traslado.",
+    image: "/images/logo.png",
+    price: 260.1
   },
 
 ];

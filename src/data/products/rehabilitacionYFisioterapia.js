@@ -1448,4 +1448,96 @@ export const rehabilitacionYFisioterapiaProducts = [
     image: "/images/rehab/HOLWAY/CINTA.png"
   },
 
+  // 24. PESAS TOBILLERAS GENÉRICAS
+  {
+    id: "pesas-tobilleras",
+    name: "PESAS TOBILLERAS",
+    type: "Rehabilitacion",
+    description: "Pesas tobilleras para ejercicios de fortalecimiento muscular, rehabilitación y fisioterapia. Se colocan en el tobillo o la muñeca para añadir resistencia a ejercicios de miembros inferiores y superiores, marcha y movilidad. Disponibles en 1, 3 y 5 kg para una progresión gradual de la carga.",
+    image: "/images/rehab/PESAS/PESAS_TOBILLERAS.png",
+
+    attributeOrder: ["peso"],
+
+    attributes: [
+      {
+        id: "peso",
+        label: "Peso",
+        type: "single",
+        values: [
+          { id: "1kg", label: "1 kg" },
+          { id: "3kg", label: "3 kg" },
+          { id: "5kg", label: "5 kg" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "PT-GEN-1KG", attrs: { peso: "1kg" }, name: "PESA TOBILLERA 1 KG", description: "Pesa tobillera de 1 kg para ejercicios de fortalecimiento, rehabilitación y fisioterapia. || Peso: 1 kg.", price: 22.95, image: "/images/rehab/PESAS/PESA_1KG.png" },
+      { sku: "PT-GEN-3KG", attrs: { peso: "3kg" }, name: "PESA TOBILLERA 3 KG", description: "Pesa tobillera de 3 kg para ejercicios de fortalecimiento, rehabilitación y fisioterapia. || Peso: 3 kg.", price: 38.25, image: "/images/rehab/PESAS/PESA_3KG.png" },
+      { sku: "PT-GEN-5KG", attrs: { peso: "5kg" }, name: "PESA TOBILLERA 5 KG", description: "Pesa tobillera de 5 kg para ejercicios de fortalecimiento, rehabilitación y fisioterapia. || Peso: 5 kg.", price: 61.2, image: "/images/rehab/PESAS/PESA_5KG.png" }
+    ]
+  },
+
+  // 25. PESAS TOBILLERAS THERABAND
+  {
+    id: "pesas-tobilleras-theraband",
+    name: "PESAS TOBILLERAS THERABAND",
+    type: "Rehabilitacion",
+    description: "Pesas tobilleras marca Theraband para fortalecimiento muscular, rehabilitación y fisioterapia. Codificadas por color según su peso para identificar rápidamente la carga: rojo (0.5 kg), verde (0.7 kg) y azul (1.1 kg). Se colocan en el tobillo o la muñeca para añadir resistencia de forma progresiva en ejercicios de miembros inferiores y superiores.",
+    image: "/images/rehab/PESAS/THERABAND_CARD.png",
+
+    attributeOrder: ["peso"],
+
+    attributes: [
+      {
+        id: "peso",
+        label: "Peso",
+        type: "single",
+        values: [
+          { id: "0-5kg", label: "0.5 kg – Rojo" },
+          { id: "0-7kg", label: "0.7 kg – Verde" },
+          { id: "1-1kg", label: "1.1 kg – Azul" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "PT-TB-0.5KG-ROJO", attrs: { peso: "0-5kg" }, name: "PESA TOBILLERA THERABAND 0.5 KG – ROJA", description: "Pesa tobillera Theraband de 0.5 kg, color rojo. Para fortalecimiento muscular, rehabilitación y fisioterapia. || Marca: Theraband | Peso: 0.5 kg | Color: Rojo.", price: 122.4, image: "/images/rehab/PESAS/THERABAND_0.5KG_ROJO.png" },
+      { sku: "PT-TB-0.7KG-VERDE", attrs: { peso: "0-7kg" }, name: "PESA TOBILLERA THERABAND 0.7 KG – VERDE", description: "Pesa tobillera Theraband de 0.7 kg, color verde. Para fortalecimiento muscular, rehabilitación y fisioterapia. || Marca: Theraband | Peso: 0.7 kg | Color: Verde.", price: 153, image: "/images/rehab/PESAS/THERABAND_0.7KG_VERDE.png" },
+      { sku: "PT-TB-1.1KG-AZUL", attrs: { peso: "1-1kg" }, name: "PESA TOBILLERA THERABAND 1.1 KG – AZUL", description: "Pesa tobillera Theraband de 1.1 kg, color azul. Para fortalecimiento muscular, rehabilitación y fisioterapia. || Marca: Theraband | Peso: 1.1 kg | Color: Azul.", price: 214.2, image: "/images/rehab/PESAS/THERABAND_1.1KG_AZUL.png" }
+    ]
+  },
+
+  // ─── PRODUCTOS VENDIDOS (cargados desde backoffice) ───
+  {
+    id: "bandas-elasticas-cando-rollo",
+    name: "BANDAS ELÁSTICAS CANDO (ROLLO)",
+    type: "Accesorios-rehab",
+    description: "Bandas elásticas de resistencia CanDo en rollo para fisioterapia, rehabilitación y entrenamiento progresivo, codificadas por color según su resistencia. || Marca: CanDo.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["color"],
+
+    attributes: [
+      {
+        id: "color",
+        label: "Color",
+        type: "single",
+        values: [
+          { id: "azul-50-yd", label: "AZUL – 50 YD" },
+          { id: "negro-50-yd", label: "NEGRO – 50 YD" },
+          { id: "plata-50-yd", label: "PLATA – 50 YD" },
+          { id: "dorada-25-yd", label: "DORADA – 25 YD" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "cando-azul-50yd", attrs: { color: "azul-50-yd" }, name: "BANDAS ELÁSTICAS CANDO (ROLLO) – AZUL – 50 YD", description: "Bandas elásticas de resistencia CanDo en rollo para fisioterapia, rehabilitación y entrenamiento progresivo, codificadas por color según su resistencia. || Marca: CanDo.", price: 876.48, image: "/images/logo.png" },
+      { sku: "cando-negro-50yd", attrs: { color: "negro-50-yd" }, name: "BANDAS ELÁSTICAS CANDO (ROLLO) – NEGRO – 50 YD", description: "Bandas elásticas de resistencia CanDo en rollo para fisioterapia, rehabilitación y entrenamiento progresivo, codificadas por color según su resistencia. || Marca: CanDo.", price: 1152.35, image: "/images/logo.png" },
+      { sku: "cando-plata-50yd", attrs: { color: "plata-50-yd" }, name: "BANDAS ELÁSTICAS CANDO (ROLLO) – PLATA – 50 YD", description: "Bandas elásticas de resistencia CanDo en rollo para fisioterapia, rehabilitación y entrenamiento progresivo, codificadas por color según su resistencia. || Marca: CanDo.", price: 806.19, image: "/images/logo.png" },
+      { sku: "cando-dorada-25yd", attrs: { color: "dorada-25-yd" }, name: "BANDAS ELÁSTICAS CANDO (ROLLO) – DORADA – 25 YD", description: "Bandas elásticas de resistencia CanDo en rollo para fisioterapia, rehabilitación y entrenamiento progresivo, codificadas por color según su resistencia. || Marca: CanDo.", price: 646.85, image: "/images/logo.png" }
+    ]
+  },
+
 ];

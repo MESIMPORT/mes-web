@@ -689,12 +689,7 @@
     description: "Tensiómetros aneroides Riester de referencia clínica mundial, disponibles en cuatro modelos según el nivel de uso y la instalación requerida. Exacta (portátil de entrada, ideal para consultorios), ri-Champion (portátil de alta precisión con válvula de acero inoxidable), Shock-n-Proof (resistente a impactos para trabajo de campo y urgencias) y Big Ben (gama estacionaria en versiones de mesa, pared y pedestal con manómetro redondo o cuadrado). Todos incluyen brazalete para el tamaño seleccionado y cumplen normas de precisión médica europeas.",
     image: "/images/diagnostico/CARDS/TENSIOMETROS.png",
 
-    priceRange: {
-      min: 250,
-      max: 1470
-    },
-
-    attributeOrder: ["modelo", "instalacion", "forma", "brazalete"],
+    attributeOrder: ["modelo"],
 
     attributes: [
       {
@@ -702,308 +697,15 @@
         label: "Modelo",
         type: "single",
         values: [
-          { id: "riester-1350", label: "EXACTA" },
-          { id: "ri-champion-1725", label: "RI-CHAMPION" },
-          { id: "shock-proof", label: "SHOCK-N-PROOF" },
-          { id: "big-ben", label: "BIG BEN" }
-        ]
-      },
-      {
-        id: "instalacion",
-        label: "Tipo de instalación",
-        type: "single",
-        values: [
-          { id: "portatil", label: "Portátil" },
-          { id: "mesa", label: "Mesa" },
-          { id: "pared", label: "Pared" },
-          { id: "pedestal", label: "Pedestal" }
-        ]
-      },
-      {
-        id: "forma",
-        label: "Forma del manómetro",
-        type: "single",
-        values: [
-          { id: "estandard", label: "Estándar" },
-          { id: "redondo", label: "Redondo" },
-          { id: "cuadrado", label: "Cuadrado" }
-        ]
-      },
-      {
-        id: "brazalete",
-        label: "Tamaño del brazalete",
-        type: "single",
-        values: [
-          { id: "recien-nacido", label: "Recién nacido" },
-          { id: "pediatrico", label: "Pediátrico" },
-          { id: "adulto", label: "Adulto" },
-          { id: "adulto-grande", label: "Adulto grande" }
+          { id: "big-ben-pared-redondo-adulto-1459", label: "BIG BEN – PARED REDONDO ADULTO (1459)" },
+          { id: "ri-champion-digital-adulto-1725-145", label: "RI-CHAMPION DIGITAL – ADULTO (1725-145)" }
         ]
       }
     ],
 
-    attributeRules: {
-      // Modelo → Instalación
-      "riester-1350": { instalacion: ["portatil"] },
-      "ri-champion-1725": { instalacion: ["portatil"] },
-      "shock-proof": { instalacion: ["portatil"] },
-      "big-ben": { instalacion: ["mesa", "pared", "pedestal"] },
-
-      // Instalación → Forma
-      "portatil": { forma: ["estandard"] },
-      "mesa": { forma: ["redondo", "cuadrado"] },
-      "pared": { forma: ["redondo", "cuadrado"] },
-      "pedestal": { forma: ["redondo", "cuadrado"] },
-
-      // Modelo → Brazalete
-      "riester-1350": { brazalete: ["pediatrico", "adulto", "adulto-grande"] },
-      "ri-champion-1725": { brazalete: ["pediatrico", "adulto", "adulto-grande"] },
-      "shock-proof": { brazalete: ["recien-nacido", "pediatrico", "adulto", "adulto-grande"] },
-      "big-ben": { brazalete: ["pediatrico", "adulto", "adulto-grande"] }
-    },
-
     variants: [
-
-      // ─── EXACTA 1350 ──────────────────────────────────────────────────────────
-      {
-        sku: "RIESTER-1350-ADULTO",
-        attrs: { modelo: "riester-1350", instalacion: "portatil", forma: "estandard", brazalete: "adulto" },
-        name: "EXACTA – PORTÁTIL ADULTO",
-        description: "Tensiómetro aneroide portátil Riester Exacta con brazalete estándar para adulto. Manómetro de alta precisión con escala de 0 a 300 mmHg, válvula de control de deflación suave y estuche de transporte incluido. Ideal para consultorios de medicina general y uso domiciliario profesional. || **Modelo:** Exacta | **Instalación:** Portátil | **Brazalete:** Adulto | **Ref.:** 1350.",
-        price: 350,
-        image: "/images/diagnostico/RIESTER 1350/riester1350.png"
-      },
-      {
-        sku: "RIESTER-1350-130",
-        attrs: { modelo: "riester-1350", instalacion: "portatil", forma: "estandard", brazalete: "pediatrico" },
-        name: "EXACTA – PORTÁTIL PEDIÁTRICO",
-        description: "Tensiómetro aneroide portátil Riester Exacta con brazalete pediátrico de menor longitud y anchura para medición precisa en niños. Manómetro de alta precisión con escala de 0 a 300 mmHg, válvula de control de deflación suave y estuche de transporte incluido. Ideal para pediatría ambulatoria y consultorios de medicina general. || **Modelo:** Exacta | **Instalación:** Portátil | **Brazalete:** Pediátrico | **Ref.:** 1350-130.",
-        price: 350,
-        image: "/images/diagnostico/RIESTER 1350/riester1350.png"
-      },
-      {
-        sku: "RIESTER-1350-123",
-        attrs: { modelo: "riester-1350", instalacion: "portatil", forma: "estandard", brazalete: "adulto-grande" },
-        name: "EXACTA – PORTÁTIL ADULTO GRANDE",
-        description: "Tensiómetro aneroide portátil Riester Exacta con brazalete de mayor longitud para adultos con circunferencia de brazo amplia. Manómetro de alta precisión con escala de 0 a 300 mmHg, válvula de control de deflación suave y estuche de transporte incluido. Indicado para pacientes con sobrepeso u obesidad en consultorios y trabajo de campo. || **Modelo:** Exacta | **Instalación:** Portátil | **Brazalete:** Adulto grande | **Ref.:** 1350-123.",
-        price: 350,
-        image: "/images/diagnostico/RIESTER 1350/riester1350.png"
-      },
-
-      // ─── RI-CHAMPION 1725 ─────────────────────────────────────────────────────
-      {
-        sku: "RIESTER-1725-ADULTO",
-        attrs: { modelo: "ri-champion-1725", instalacion: "portatil", forma: "estandard", brazalete: "adulto" },
-        name: "RI-CHAMPION – PORTÁTIL ADULTO",
-        description: "Tensiómetro aneroide portátil Riester ri-Champion de alta precisión con brazalete estándar para adulto. Válvula de acero inoxidable de larga duración, manómetro sellado antipolvo con escala de 0 a 300 mmHg y estuche de transporte de alta calidad. Mayor durabilidad y fiabilidad respecto al modelo Exacta. Referente en consultorios y clínicas de uso intensivo. || **Modelo:** ri-Champion | **Instalación:** Portátil | **Brazalete:** Adulto | **Ref.:** 1725-145.",
-        price: 450,
-        image: "/images/diagnostico/RI-CHAMPION/RI-CHAMPION.png"
-      },
-      {
-        sku: "RIESTER-1725-PEDIATRICO",
-        attrs: { modelo: "ri-champion-1725", instalacion: "portatil", forma: "estandard", brazalete: "pediatrico" },
-        name: "RI-CHAMPION – PORTÁTIL PEDIÁTRICO",
-        description: "Tensiómetro aneroide portátil Riester ri-Champion de alta precisión con brazalete pediátrico. Válvula de acero inoxidable de larga duración, manómetro sellado antipolvo con escala de 0 a 300 mmHg y estuche de transporte de alta calidad. Indicado para pediatría ambulatoria y consultorios de uso intensivo. || **Modelo:** ri-Champion | **Instalación:** Portátil | **Brazalete:** Pediátrico | **Ref.:** 1725.",
-        price: 450,
-        image: "/images/diagnostico/RI-CHAMPION/RI-CHAMPION.png"
-      },
-      {
-        sku: "RIESTER-1725-ADULTO-GRANDE",
-        attrs: { modelo: "ri-champion-1725", instalacion: "portatil", forma: "estandard", brazalete: "adulto-grande" },
-        name: "RI-CHAMPION – PORTÁTIL ADULTO GRANDE",
-        description: "Tensiómetro aneroide portátil Riester ri-Champion de alta precisión con brazalete de mayor longitud para adultos con circunferencia de brazo amplia. Válvula de acero inoxidable de larga duración, manómetro sellado antipolvo con escala de 0 a 300 mmHg y estuche de transporte de alta calidad. || **Modelo:** ri-Champion | **Instalación:** Portátil | **Brazalete:** Adulto grande | **Ref.:** 1725.",
-        price: 450,
-        image: "/images/diagnostico/RI-CHAMPION/RI-CHAMPION.png"
-      },
-
-      // ─── SHOCK-N-PROOF ────────────────────────────────────────────────────────
-      {
-        sku: "RIESTER-1364-RECIEN-NACIDO",
-        attrs: { modelo: "shock-proof", instalacion: "portatil", forma: "estandard", brazalete: "recien-nacido" },
-        name: "SHOCK-N-PROOF – PORTÁTIL RECIÉN NACIDO",
-        description: "Tensiómetro aneroide Riester Shock-n-Proof con brazalete para recién nacido, diseñado para resistir caídas e impactos en entornos de trabajo exigente. Carcasa de protección reforzada con manómetro de precisión sellado, escala de 0 a 300 mmHg y válvula de deflación controlada. Único modelo de la gama con brazalete neonatal. Ideal para neonatología, pediatría hospitalaria y trabajo de campo. || **Modelo:** Shock-n-Proof | **Brazalete:** Recién nacido | **Ref.:** 1364.",
-        price: 450,
-        image: "/images/diagnostico/SHOCK PROOF/1364.png"
-      },
-      {
-        sku: "RIESTER-1364-107",
-        attrs: { modelo: "shock-proof", instalacion: "portatil", forma: "estandard", brazalete: "adulto" },
-        name: "SHOCK-N-PROOF – PORTÁTIL ADULTO",
-        description: "Tensiómetro aneroide Riester Shock-n-Proof con brazalete estándar para adulto, diseñado para resistir caídas e impactos en entornos de trabajo exigente como urgencias, visitas domiciliarias y trabajo de campo. Carcasa de protección reforzada con manómetro de precisión sellado y escala de 0 a 300 mmHg. || **Modelo:** Shock-n-Proof | **Brazalete:** Adulto | **Ref.:** 1364-107.",
-        price: 450,
-        image: "/images/diagnostico/SHOCK PROOF/1364-107.png"
-      },
-      {
-        sku: "RIESTER-1364-122",
-        attrs: { modelo: "shock-proof", instalacion: "portatil", forma: "estandard", brazalete: "adulto-grande" },
-        name: "SHOCK-N-PROOF – PORTÁTIL ADULTO GRANDE",
-        description: "Tensiómetro aneroide Riester Shock-n-Proof con brazalete de mayor longitud para adultos con circunferencia de brazo amplia, diseñado para resistir caídas e impactos en entornos exigentes. Carcasa de protección reforzada con manómetro de precisión sellado y escala de 0 a 300 mmHg. || **Modelo:** Shock-n-Proof | **Brazalete:** Adulto grande | **Ref.:** 1364-122.",
-        price: 450,
-        image: "/images/diagnostico/SHOCK PROOF/1364-122.png"
-      },
-      {
-        sku: "RIESTER-1364-129",
-        attrs: { modelo: "shock-proof", instalacion: "portatil", forma: "estandard", brazalete: "pediatrico" },
-        name: "SHOCK-N-PROOF – PORTÁTIL PEDIÁTRICO",
-        description: "Tensiómetro aneroide Riester Shock-n-Proof con brazalete pediátrico, diseñado para resistir caídas e impactos en entornos de trabajo exigente. Carcasa de protección reforzada con manómetro de precisión sellado y escala de 0 a 300 mmHg. Ideal para pediatría en campo, urgencias pediátricas y visitas domiciliarias. || **Modelo:** Shock-n-Proof | **Brazalete:** Pediátrico | **Ref.:** 1364-129.",
-        price: 450,
-        image: "/images/diagnostico/SHOCK PROOF/1364-129.png"
-      },
-      // ─── BIG BEN – MESA REDONDO ───────────────────────────────────────────────
-      {
-        sku: "RIESTER-1453",
-        attrs: { modelo: "big-ben", instalacion: "mesa", forma: "redondo", brazalete: "adulto" },
-        name: "BIG BEN – MESA REDONDO ADULTO",
-        description: "Tensiómetro aneroide de mesa Riester Big Ben con manómetro redondo de gran formato y brazalete estándar para adulto. Base estable de mesa con soporte de brazalete integrado, válvula de alta precisión y escala de fácil lectura de 0 a 300 mmHg. Diseño clásico de alta visibilidad para consultorios y puestos de enfermería. || **Modelo:** Big Ben | **Instalación:** Mesa | **Manómetro:** Redondo | **Brazalete:** Adulto | **Ref.:** 1453.",
-        price: 750,
-        image: "/images/diagnostico/BIG BEN/1453-REDONDO-MESA.png"
-      },
-      {
-        sku: "RIESTER-1453-123",
-        attrs: { modelo: "big-ben", instalacion: "mesa", forma: "redondo", brazalete: "adulto-grande" },
-        name: "BIG BEN – MESA REDONDO ADULTO GRANDE",
-        description: "Tensiómetro aneroide de mesa Riester Big Ben con manómetro redondo de gran formato y brazalete de mayor longitud para adultos con circunferencia de brazo amplia. Base estable de mesa con soporte de brazalete integrado y válvula de alta precisión. || **Modelo:** Big Ben | **Instalación:** Mesa | **Manómetro:** Redondo | **Brazalete:** Adulto grande | **Ref.:** 1453-123.",
-        price: 750,
-        image: "/images/diagnostico/BIG BEN/1453-REDONDO-MESA.png"
-      },
-      {
-        sku: "RIESTER-1453-130",
-        attrs: { modelo: "big-ben", instalacion: "mesa", forma: "redondo", brazalete: "pediatrico" },
-        name: "BIG BEN – MESA REDONDO PEDIÁTRICO",
-        description: "Tensiómetro aneroide de mesa Riester Big Ben con manómetro redondo de gran formato y brazalete pediátrico. Base estable de mesa con soporte de brazalete integrado y válvula de alta precisión. Ideal para consultorios pediátricos y puestos de enfermería con atención mixta. || **Modelo:** Big Ben | **Instalación:** Mesa | **Manómetro:** Redondo | **Brazalete:** Pediátrico | **Ref.:** 1453-130.",
-        price: 750,
-        image: "/images/diagnostico/BIG BEN/1453-REDONDO-MESA.png"
-      },
-
-      // ─── BIG BEN – MESA CUADRADO ──────────────────────────────────────────────
-      {
-        sku: "RIESTER-1456",
-        attrs: { modelo: "big-ben", instalacion: "mesa", forma: "cuadrado", brazalete: "adulto" },
-        name: "BIG BEN – MESA CUADRADO ADULTO",
-        description: "Tensiómetro aneroide de mesa Riester Big Ben con manómetro cuadrado de diseño moderno y brazalete estándar para adulto. Base estable de mesa con soporte de brazalete integrado, válvula de alta precisión y escala de 0 a 300 mmHg. Estética contemporánea para consultorios de diseño moderno. || **Modelo:** Big Ben | **Instalación:** Mesa | **Manómetro:** Cuadrado | **Brazalete:** Adulto | **Ref.:** 1456.",
-        price: 750,
-        image: "/images/diagnostico/BIG BEN/1456-CUADRADO-MESA.png"
-      },
-      {
-        sku: "RIESTER-1456-123",
-        attrs: { modelo: "big-ben", instalacion: "mesa", forma: "cuadrado", brazalete: "adulto-grande" },
-        name: "BIG BEN – MESA CUADRADO ADULTO GRANDE",
-        description: "Tensiómetro aneroide de mesa Riester Big Ben con manómetro cuadrado de diseño moderno y brazalete de mayor longitud para adultos con circunferencia de brazo amplia. Base estable de mesa con soporte de brazalete integrado y válvula de alta precisión. || **Modelo:** Big Ben | **Instalación:** Mesa | **Manómetro:** Cuadrado | **Brazalete:** Adulto grande | **Ref.:** 1456-123.",
-        price: 750,
-        image: "/images/diagnostico/BIG BEN/1456-CUADRADO-MESA.png"
-      },
-      {
-        sku: "RIESTER-1456-130",
-        attrs: { modelo: "big-ben", instalacion: "mesa", forma: "cuadrado", brazalete: "pediatrico" },
-        name: "BIG BEN – MESA CUADRADO PEDIÁTRICO",
-        description: "Tensiómetro aneroide de mesa Riester Big Ben con manómetro cuadrado de diseño moderno y brazalete pediátrico. Base estable de mesa con soporte de brazalete integrado y válvula de alta precisión. Ideal para consultorios pediátricos de diseño contemporáneo. || **Modelo:** Big Ben | **Instalación:** Mesa | **Manómetro:** Cuadrado | **Brazalete:** Pediátrico | **Ref.:** 1456-130.",
-        price: 750,
-        image: "/images/diagnostico/BIG BEN/1456-CUADRADO-MESA.png"
-      },
-
-      // ─── BIG BEN – PARED REDONDO ──────────────────────────────────────────────
-      {
-        sku: "RIESTER-1459",
-        attrs: { modelo: "big-ben", instalacion: "pared", forma: "redondo", brazalete: "adulto" },
-        name: "BIG BEN – PARED REDONDO ADULTO",
-        description: "Tensiómetro aneroide de pared Riester Big Ben con manómetro redondo de gran formato y brazalete estándar para adulto. Soporte de montaje en pared incluido con riel portabrazalete y válvula de alta precisión. Instalación fija ideal para boxes de enfermería, urgencias y consultorios de alta rotación. || **Modelo:** Big Ben | **Instalación:** Pared | **Manómetro:** Redondo | **Brazalete:** Adulto | **Ref.:** 1459.",
-        price: 700,
-        image: "/images/diagnostico/BIG BEN/1459-REDONDO-PARED.png"
-      },
-      {
-        sku: "RIESTER-1459-123",
-        attrs: { modelo: "big-ben", instalacion: "pared", forma: "redondo", brazalete: "adulto-grande" },
-        name: "BIG BEN – PARED REDONDO ADULTO GRANDE",
-        description: "Tensiómetro aneroide de pared Riester Big Ben con manómetro redondo de gran formato y brazalete de mayor longitud para adultos con circunferencia de brazo amplia. Soporte de montaje en pared incluido con riel portabrazalete y válvula de alta precisión. || **Modelo:** Big Ben | **Instalación:** Pared | **Manómetro:** Redondo | **Brazalete:** Adulto grande | **Ref.:** 1459-123.",
-        price: 700,
-        image: "/images/diagnostico/BIG BEN/1459-REDONDO-PARED.png"
-      },
-      {
-        sku: "RIESTER-1459-130",
-        attrs: { modelo: "big-ben", instalacion: "pared", forma: "redondo", brazalete: "pediatrico" },
-        name: "BIG BEN – PARED REDONDO PEDIÁTRICO",
-        description: "Tensiómetro aneroide de pared Riester Big Ben con manómetro redondo de gran formato y brazalete pediátrico. Soporte de montaje en pared incluido con riel portabrazalete y válvula de alta precisión. Ideal para boxes de pediatría y consultorios pediátricos con instalación fija. || **Modelo:** Big Ben | **Instalación:** Pared | **Manómetro:** Redondo | **Brazalete:** Pediátrico | **Ref.:** 1459-130.",
-        price: 700,
-        image: "/images/diagnostico/BIG BEN/1459-REDONDO-PARED.png"
-      },
-
-      // ─── BIG BEN – PARED CUADRADO ─────────────────────────────────────────────
-      {
-        sku: "RIESTER-1465",
-        attrs: { modelo: "big-ben", instalacion: "pared", forma: "cuadrado", brazalete: "adulto" },
-        name: "BIG BEN – PARED CUADRADO ADULTO",
-        description: "Tensiómetro aneroide de pared Riester Big Ben con manómetro cuadrado de diseño moderno y brazalete estándar para adulto. Soporte de montaje en pared incluido con riel portabrazalete y válvula de alta precisión. Estética contemporánea para instalaciones hospitalarias y consultorios de diseño moderno. || **Modelo:** Big Ben | **Instalación:** Pared | **Manómetro:** Cuadrado | **Brazalete:** Adulto | **Ref.:** 1465.",
-        price: 700,
-        image: "/images/diagnostico/BIG BEN/1465-CUADRADO-PARED.png"
-      },
-      {
-        sku: "RIESTER-1465-123",
-        attrs: { modelo: "big-ben", instalacion: "pared", forma: "cuadrado", brazalete: "adulto-grande" },
-        name: "BIG BEN – PARED CUADRADO ADULTO GRANDE",
-        description: "Tensiómetro aneroide de pared Riester Big Ben con manómetro cuadrado de diseño moderno y brazalete de mayor longitud para adultos con circunferencia de brazo amplia. Soporte de montaje en pared incluido con riel portabrazalete y válvula de alta precisión. || **Modelo:** Big Ben | **Instalación:** Pared | **Manómetro:** Cuadrado | **Brazalete:** Adulto grande | **Ref.:** 1465-123.",
-        price: 700,
-        image: "/images/diagnostico/BIG BEN/1465-CUADRADO-PARED.png"
-      },
-      {
-        sku: "RIESTER-1465-130",
-        attrs: { modelo: "big-ben", instalacion: "pared", forma: "cuadrado", brazalete: "pediatrico" },
-        name: "BIG BEN – PARED CUADRADO PEDIÁTRICO",
-        description: "Tensiómetro aneroide de pared Riester Big Ben con manómetro cuadrado de diseño moderno y brazalete pediátrico. Soporte de montaje en pared incluido con riel portabrazalete y válvula de alta precisión. Ideal para boxes de pediatría con instalación fija y estética contemporánea. || **Modelo:** Big Ben | **Instalación:** Pared | **Manómetro:** Cuadrado | **Brazalete:** Pediátrico | **Ref.:** 1465-130.",
-        price: 700,
-        image: "/images/diagnostico/BIG BEN/1465-CUADRADO-PARED.png"
-      },
-
-      // ─── BIG BEN – PEDESTAL REDONDO ───────────────────────────────────────────
-      {
-        sku: "RIESTER-1468",
-        attrs: { modelo: "big-ben", instalacion: "pedestal", forma: "redondo", brazalete: "adulto" },
-        name: "BIG BEN – PEDESTAL REDONDO ADULTO",
-        description: "Tensiómetro aneroide Riester Big Ben sobre pedestal móvil con ruedas giratorias, manómetro redondo de gran formato y brazalete estándar para adulto. Pedestal de acero regulable en altura con base de cinco apoyos y ruedas con freno para posicionamiento preciso. Solución estacionaria móvil para salas de espera, pasillos hospitalarios y boxes de enfermería. || **Modelo:** Big Ben | **Instalación:** Pedestal móvil | **Manómetro:** Redondo | **Brazalete:** Adulto | **Ref.:** 1468.",
-        price: 1450,
-        image: "/images/diagnostico/BIG BEN/1468-REDONDO-PEDESTAL.png"
-      },
-      {
-        sku: "RIESTER-1468-123",
-        attrs: { modelo: "big-ben", instalacion: "pedestal", forma: "redondo", brazalete: "adulto-grande" },
-        name: "BIG BEN – PEDESTAL REDONDO ADULTO GRANDE",
-        description: "Tensiómetro aneroide Riester Big Ben sobre pedestal móvil con ruedas giratorias, manómetro redondo de gran formato y brazalete de mayor longitud para adultos con circunferencia de brazo amplia. Pedestal de acero regulable en altura con base de cinco apoyos y ruedas con freno. || **Modelo:** Big Ben | **Instalación:** Pedestal móvil | **Manómetro:** Redondo | **Brazalete:** Adulto grande | **Ref.:** 1468-123.",
-        price: 1450,
-        image: "/images/diagnostico/BIG BEN/1468-REDONDO-PEDESTAL.png"
-      },
-      {
-        sku: "RIESTER-1468-130",
-        attrs: { modelo: "big-ben", instalacion: "pedestal", forma: "redondo", brazalete: "pediatrico" },
-        name: "BIG BEN – PEDESTAL REDONDO PEDIÁTRICO",
-        description: "Tensiómetro aneroide Riester Big Ben sobre pedestal móvil con ruedas giratorias, manómetro redondo de gran formato y brazalete pediátrico. Pedestal de acero regulable en altura con base de cinco apoyos y ruedas con freno. Solución móvil ideal para pediatría hospitalaria y salas de espera pediátricas. || **Modelo:** Big Ben | **Instalación:** Pedestal móvil | **Manómetro:** Redondo | **Brazalete:** Pediátrico | **Ref.:** 1468-130.",
-        price: 1450,
-        image: "/images/diagnostico/BIG BEN/1468-REDONDO-PEDESTAL.png"
-      },
-
-      // ─── BIG BEN – PEDESTAL CUADRADO ──────────────────────────────────────────
-      {
-        sku: "RIESTER-1478",
-        attrs: { modelo: "big-ben", instalacion: "pedestal", forma: "cuadrado", brazalete: "adulto" },
-        name: "BIG BEN – PEDESTAL CUADRADO ADULTO",
-        description: "Tensiómetro aneroide Riester Big Ben sobre pedestal móvil con ruedas giratorias, manómetro cuadrado de diseño moderno y brazalete estándar para adulto. Pedestal de acero regulable en altura con base de cinco apoyos y ruedas con freno. Combinación de estética contemporánea y movilidad para entornos hospitalarios modernos. || **Modelo:** Big Ben | **Instalación:** Pedestal móvil | **Manómetro:** Cuadrado | **Brazalete:** Adulto | **Ref.:** 1478.",
-        price: 1450,
-        image: "/images/diagnostico/BIG BEN/1478-CUADRADO-PEDESTAL.png"
-      },
-      {
-        sku: "RIESTER-1478-123",
-        attrs: { modelo: "big-ben", instalacion: "pedestal", forma: "cuadrado", brazalete: "adulto-grande" },
-        name: "BIG BEN – PEDESTAL CUADRADO ADULTO GRANDE",
-        description: "Tensiómetro aneroide Riester Big Ben sobre pedestal móvil con ruedas giratorias, manómetro cuadrado de diseño moderno y brazalete de mayor longitud para adultos con circunferencia de brazo amplia. Pedestal de acero regulable en altura con base de cinco apoyos y ruedas con freno. || **Modelo:** Big Ben | **Instalación:** Pedestal móvil | **Manómetro:** Cuadrado | **Brazalete:** Adulto grande | **Ref.:** 1478-123.",
-        price: 1450,
-        image: "/images/diagnostico/BIG BEN/1478-CUADRADO-PEDESTAL.png"
-      },
-      {
-        sku: "RIESTER-1478-130",
-        attrs: { modelo: "big-ben", instalacion: "pedestal", forma: "cuadrado", brazalete: "pediatrico" },
-        name: "BIG BEN – PEDESTAL CUADRADO PEDIÁTRICO",
-        description: "Tensiómetro aneroide Riester Big Ben sobre pedestal móvil con ruedas giratorias, manómetro cuadrado de diseño moderno y brazalete pediátrico. Pedestal de acero regulable en altura con base de cinco apoyos y ruedas con freno. Solución móvil de diseño contemporáneo para pediatría hospitalaria. || **Modelo:** Big Ben | **Instalación:** Pedestal móvil | **Manómetro:** Cuadrado | **Brazalete:** Pediátrico | **Ref.:** 1478-130.",
-        price: 1450,
-        image: "/images/diagnostico/BIG BEN/1478-CUADRADO-PEDESTAL.png"
-      }
+      { sku: "RIESTER-1459", attrs: { modelo: "big-ben-pared-redondo-adulto-1459" }, name: "TENSIÓMETROS RIESTER – BIG BEN – PARED REDONDO ADULTO (1459)", description: "Tensiómetro aneroide de pared Riester Big Ben con manómetro redondo de gran formato y brazalete estándar para adulto. Soporte de montaje en pared incluido con riel portabrazalete y válvula de alta precisión. Instalación fija ideal para boxes de enfermería, urgencias y consultorios de alta rotación. || **Modelo:** Big Ben | **Instalación:** Pared | **Manómetro:** Redondo | **Brazalete:** Adulto | **Ref.:** 1459.", price: 770.4, image: "/images/diagnostico/BIG BEN/1459-REDONDO-PARED.png" },
+      { sku: "RIESTER-1725-ADULTO", attrs: { modelo: "ri-champion-digital-adulto-1725-145" }, name: "TENSIÓMETROS RIESTER – RI-CHAMPION DIGITAL – ADULTO (1725-145)", description: "Tensiómetro aneroide portátil Riester ri-Champion de alta precisión con brazalete estándar para adulto. Válvula de acero inoxidable de larga duración, manómetro sellado antipolvo con escala de 0 a 300 mmHg y estuche de transporte de alta calidad. Mayor durabilidad y fiabilidad respecto al modelo Exacta. Referente en consultorios y clínicas de uso intensivo. || **Modelo:** ri-Champion | **Instalación:** Portátil | **Brazalete:** Adulto | **Ref.:** 1725-145.", price: 504.9, image: "/images/diagnostico/RI-CHAMPION/RI-CHAMPION.png" }
     ]
   },
 
@@ -2400,5 +2102,59 @@
     ]
   },
 
+  // ─── PRODUCTOS VENDIDOS (cargados desde backoffice) ───
+  {
+    id: "balanza-digital-beurer-ps160",
+    name: "BALANZA DIGITAL BEURER PS 160",
+    type: "Balanzas",
+    description: "Balanza digital de baño Beurer PS 160 con plataforma de vidrio y pantalla LCD. || Marca: Beurer | Modelo: PS 160.",
+    image: "/images/logo.png",
+    price: 396.27
+  },
+
+  {
+    id: "kit-seca-374-233-400",
+    name: "BALANZA PEDIÁTRICA SECA 374 + INFANTÓMETRO SECA 233 + ADAPTADOR SECA 400",
+    type: "Balanzas",
+    description: "Kit pediátrico Seca compuesto por balanza para bebés Seca 374, infantómetro Seca 233 y adaptador de corriente Seca 400, para el control de peso y talla en recién nacidos y lactantes. || Marca: Seca.",
+    image: "/images/logo.png",
+    price: 4879.17
+  },
+
+  {
+    id: "frontoluz-aokace-ags102l",
+    name: "FRONTOLUZ AOKACE AGS102L",
+    type: "Exploración ORL y Visual",
+    description: "Frontoluz LED Aokace AGS102L para iluminación de campo en exámenes y procedimientos médicos y odontológicos. || Marca: Aokace | Modelo: AGS102L.",
+    image: "/images/logo.png",
+    price: 1040.4
+  },
+
+  {
+    id: "lancetas-glucometro",
+    name: "LANCETAS PARA GLUCÓMETRO × 100",
+    type: "Glucometría",
+    description: "Lancetas para punción capilar en la medición de glucosa. Caja de 100 unidades.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["tipo"],
+
+    attributes: [
+      {
+        id: "tipo",
+        label: "Tipo",
+        type: "single",
+        values: [
+          { id: "universales-100", label: "UNIVERSALES × 100" },
+          { id: "accu-chek-safe-t-pro-plus-100", label: "ACCU-CHEK SAFE-T-PRO PLUS × 100" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "lancetas-universales-x100", attrs: { tipo: "universales-100" }, name: "LANCETAS PARA GLUCÓMETRO × 100 – UNIVERSALES × 100", description: "Lancetas para punción capilar en la medición de glucosa. Caja de 100 unidades.", price: 22.95, image: "/images/logo.png" },
+      { sku: "lancetas-accu-chek-safe-t-pro-plus-x100", attrs: { tipo: "accu-chek-safe-t-pro-plus-100" }, name: "LANCETAS PARA GLUCÓMETRO × 100 – ACCU-CHEK SAFE-T-PRO PLUS × 100", description: "Lancetas para punción capilar en la medición de glucosa. Caja de 100 unidades.", price: 126.23, image: "/images/logo.png" }
+    ]
+  },
 
 ];

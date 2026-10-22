@@ -4,11 +4,10 @@ export const accesoriosYMiscelaneosProducts = [
   {
     id: "botiqu-n-de-tela-con-logo-35-20-25-cm-con-cinta-reflectiva",
     name: "BOTIQUÍN DE TELA CON LOGO Y CINTA REFLECTIVA",
-    description: "Medidas 35 × 20 × 25 cm",
     type: "Botiquin",
-    price: 72,
-    images: ["/images/accesorios/MALETIN/MALETIN.png",
-      "/images/accesorios/MALETIN/MALETIN2.png"]
+    description: "Medidas 35 × 20 × 25 cm",
+    image: "/images/logo.png",
+    price: 99.45
   },
 
   {
@@ -604,40 +603,10 @@ export const accesoriosYMiscelaneosProducts = [
   {
     id: "lampara-cuello-de-ganso-ks-q7",
     name: "LÁMPARA CUELLO DE GANSO KS-Q7",
-    description: "Lámpara de examen de alto rendimiento con tecnología LED y brazo flexible tipo cuello de ganso de 360°. Disponible en versión de pedestal rodante y montaje en pared.",
     type: "Lamparas-de-examen",
+    description: "Lámpara de examinación tipo cuello de ganso KS-Q7 con reflector LED, de brazo flexible para dirigir la luz al área de examen en consultorios y tópicos.",
     image: "/images/accesorios/CARDS/KSQ7.png",
-
-    attributes: [
-      {
-        id: "tipo",
-        label: "Tipo de montaje",
-        type: "single",
-        values: [
-          { id: "pedestal", label: "Pedestal rodante" },
-          { id: "pared", label: "Montaje en pared" }
-        ]
-      }
-    ],
-
-    variants: [
-      {
-        sku: "ks-q7-pedestal",
-        attrs: { tipo: "pedestal" },
-        name: "PEDESTAL RODANTE",
-        description: "Lámpara de examen sobre base móvil con brazo cuello de ganso de 360° de 76 cm. Ideal para UCI, cirugía menor, emergencias y ginecología. || **Potencia:** 10 W · 7× LED || **Intensidad:** 65 000 lx (D=50 cm) · 22 000 lx (D=100 cm) || **Temperatura de color:** 4 800–5 500 K · **CRI:** 90 Ra || **Vida útil LED:** 50 000 h || **Voltaje:** 110–260 V 50/60 Hz · **Base:** DM02 metal desmontable",
-        price: 500,
-        image: "/images/accesorios/KSQ7/RODANTE.png"
-      },
-      {
-        sku: "ks-q7-pared",
-        attrs: { tipo: "pared" },
-        name: "MONTAJE EN PARED",
-        description: "Lámpara de examen de pared con 7 LEDs sin IR, cabezal ancho y mango extendido para cirugía exigente. Brazo articulado de largo alcance sin ángulo muerto. Ideal para E.N.T., Oftalmología, Ginecología, cirugía menor y consultorios. || **Potencia:** 15 W · 7× LED || **Intensidad:** 100 000 lx (D=50 cm) · 22 000 lx (D=100 cm) || **Temperatura de color:** 3 500–5 000 K · **CRI:** 90 Ra || **Brazo:** Cuello de ganso 760 cm + poste acero inox. 74 cm || **Voltaje:** 100–260 V 50/60 Hz · **Enchufe:** AC/DC intercambiable (Q7E)",
-        price: 600,
-        image: "/images/accesorios/KSQ7/PARED.png"
-      }
-    ]
+    price: 2448
   },
   {
     id: "lampara-cuello-tipo-ganso-ks-q6",
@@ -747,5 +716,15 @@ export const accesoriosYMiscelaneosProducts = [
       }
     ]
   },
-];
 
+  // ─── PRODUCTOS VENDIDOS (cargados desde backoffice) ───
+  {
+    id: "lentes-seguridad-astrolite",
+    name: "LENTES DE SEGURIDAD TIPO ASTROLITE",
+    type: "Accesorios",
+    description: "Lentes de seguridad de policarbonato tipo Astrolite para protección ocular en laboratorio y áreas clínicas.",
+    image: "/images/logo.png",
+    price: 6.12
+  },
+
+];

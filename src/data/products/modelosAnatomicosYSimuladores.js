@@ -2701,7 +2701,15 @@ export const modelosAnatomicosYSimuladoresProducts = [
         image: "/images/maquetas/A41002.png"
       }
     ]
-  }
+  },
+
+  // ─── PRODUCTOS VENDIDOS (cargados desde backoffice) ───
+  {
+    id: "maqueta-adn-3212",
+    name: "MAQUETA DE ADN 3212",
+    description: "Modelo didáctico de la doble hélice de ADN para la enseñanza de biología molecular y genética.",
+    image: "/images/logo.png",
+    price: 183.6
+  },
 
 ];
-

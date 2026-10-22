@@ -686,44 +686,23 @@ export const materialDescartableMedicoProducts = [
     description: "Guantes descartables de látex natural sin polvo, caja × 100 unidades. Disponibles en tallas S, M y L.",
     image: "/images/descartable/GUANTES/LATEX.png",
 
+    attributeOrder: ["talla"],
+
     attributes: [
       {
         id: "talla",
         label: "Talla",
         type: "single",
         values: [
-          { id: "s", label: "S" },
-          { id: "m", label: "M" },
-          { id: "l", label: "L" }
+          { id: "talla-m-caja-100-und", label: "TALLA M – CAJA × 100 UND" },
+          { id: "talla-l-caja-100-und", label: "TALLA L – CAJA × 100 UND" }
         ]
       }
     ],
 
     variants: [
-      {
-        sku: "guantes-latex-s",
-        attrs: { talla: "s" },
-        name: "GUANTES DE LÁTEX – TALLA S (CAJA × 100U)",
-        description: "Guantes descartables de látex natural sin polvo, talla S. Caja × 100 unidades.",
-        price: 20,
-        image: "/images/descartable/GUANTES/LATEX.png"
-      },
-      {
-        sku: "guantes-latex-m",
-        attrs: { talla: "m" },
-        name: "GUANTES DE LÁTEX – TALLA M (CAJA × 100U)",
-        description: "Guantes descartables de látex natural sin polvo, talla M. Caja × 100 unidades.",
-        price: 20,
-        image: "/images/descartable/GUANTES/LATEX.png"
-      },
-      {
-        sku: "guantes-latex-l",
-        attrs: { talla: "l" },
-        name: "GUANTES DE LÁTEX – TALLA L (CAJA × 100U)",
-        description: "Guantes descartables de látex natural sin polvo, talla L. Caja × 100 unidades.",
-        price: 20,
-        image: "/images/descartable/GUANTES/LATEX.png"
-      }
+      { sku: "guantes-latex-m", attrs: { talla: "talla-m-caja-100-und" }, name: "GUANTES DE LÁTEX DESCARTABLES – TALLA M – CAJA × 100 UND", description: "Guantes descartables de látex natural sin polvo, talla M. Caja × 100 unidades.", price: 18.36, image: "/images/descartable/GUANTES/LATEX.png" },
+      { sku: "guantes-latex-l", attrs: { talla: "talla-l-caja-100-und" }, name: "GUANTES DE LÁTEX DESCARTABLES – TALLA L – CAJA × 100 UND", description: "Guantes descartables de látex natural sin polvo, talla L. Caja × 100 unidades.", price: 18.36, image: "/images/descartable/GUANTES/LATEX.png" }
     ]
   },
 
@@ -834,6 +813,199 @@ export const materialDescartableMedicoProducts = [
     image: "/images/descartable/MASCARILLAS/MASCARILLAS.png"
   },
 
+  // ─── PRODUCTOS VENDIDOS (cargados desde backoffice) ───
+  {
+    id: "agujas-vacutainer-x100",
+    name: "AGUJAS VACUTAINER × 100 UND",
+    description: "Agujas para extracción de sangre al vacío, compatibles con holder estándar, para toma de muestras múltiples. Caja de 100 unidades.",
+    image: "/images/logo.png",
+    price: 39.78
+  },
+
+  {
+    id: "tubo-tapa-amarilla-gel-5ml-x100",
+    name: "TUBOS AL VACÍO TAPA AMARILLA CON GEL 5 ML × 100",
+    description: "Tubos al vacío con activador de coágulo y gel separador, tapa amarilla, 13 × 100 mm y 5 ml, para obtención de suero en análisis de bioquímica y serología. Paquete de 100 unidades.",
+    image: "/images/logo.png",
+    price: 68.87
+  },
+
+  {
+    id: "algodon-hidrofilo",
+    name: "ALGODÓN HIDRÓFILO",
+    description: "Algodón hidrófilo de alta absorción para uso médico, curaciones, limpieza y aplicación de antisépticos.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "50-g", label: "50 G" },
+          { id: "500-g", label: "500 G" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "algodon-50g", attrs: { presentacion: "50-g" }, name: "ALGODÓN HIDRÓFILO – 50 G", description: "Algodón hidrófilo de alta absorción para uso médico, curaciones, limpieza y aplicación de antisépticos.", price: 3.83, image: "/images/logo.png" },
+      { sku: "algodon-500g", attrs: { presentacion: "500-g" }, name: "ALGODÓN HIDRÓFILO – 500 G", description: "Algodón hidrófilo de alta absorción para uso médico, curaciones, limpieza y aplicación de antisépticos.", price: 23.72, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "gasa-esteril-10x10",
+    name: "GASA ESTÉRIL 10 × 10 CM",
+    description: "Gasa estéril de 10 × 10 cm para curaciones, limpieza y cobertura de heridas.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["presentacion"],
+
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "aposito-de-gasa-esteril-10-10", label: "APÓSITO DE GASA ESTÉRIL 10 × 10" },
+          { id: "paquete-20-und", label: "PAQUETE × 20 UND" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "aposito-gasa-esteril-10x10", attrs: { presentacion: "aposito-de-gasa-esteril-10-10" }, name: "GASA ESTÉRIL 10 × 10 CM – APÓSITO DE GASA ESTÉRIL 10 × 10", description: "Gasa estéril de 10 × 10 cm para curaciones, limpieza y cobertura de heridas.", price: 22.95, image: "/images/logo.png" },
+      { sku: "gasa-esteril-10x10-x20", attrs: { presentacion: "paquete-20-und" }, name: "GASA ESTÉRIL 10 × 10 CM – PAQUETE × 20 UND", description: "Gasa estéril de 10 × 10 cm para curaciones, limpieza y cobertura de heridas.", price: 21.42, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "bajalenguas-madera-x100",
+    name: "BAJALENGUAS DE MADERA × 100 UND",
+    description: "Bajalenguas de madera para exploración de la cavidad oral y faringe. Caja de 100 unidades. || Marca: Alkhofar.",
+    image: "/images/logo.png",
+    price: 19.89
+  },
+
+  {
+    id: "bolsa-vomito-descartable",
+    name: "BOLSA PARA VÓMITO DESCARTABLE",
+    description: "Bolsa descartable para emesis con cierre, para uso en ambulancias, hospitales y traslados.",
+    image: "/images/logo.png",
+    price: 2.13
+  },
+
+  {
+    id: "caja-bioseguridad-7l",
+    name: "CAJA DE BIOSEGURIDAD 7 LT (ROJA)",
+    description: "Contenedor rígido de bioseguridad de 7 litros para el desecho seguro de punzocortantes, color rojo.",
+    image: "/images/logo.png",
+    price: 7.65
+  },
+
+  {
+    id: "curitas-x100",
+    name: "CURITAS × 100 UND",
+    description: "Banditas adhesivas para la protección de heridas pequeñas. Caja de 100 unidades.",
+    image: "/images/logo.png",
+    price: 5.36
+  },
+
+  {
+    id: "esparadrapo-3m-1pulg",
+    name: "ESPARADRAPO 3M 1\" × 10 YD",
+    description: "Esparadrapo 3M de 1 pulgada × 10 yardas para fijación de apósitos, gasas y dispositivos médicos. || Marca: 3M.",
+    image: "/images/logo.png",
+    price: 6.12
+  },
+
+  {
+    id: "especulo-vaginal-descartable",
+    name: "ESPÉCULO VAGINAL DESCARTABLE",
+    description: "Espéculo vaginal descartable de plástico para exploración ginecológica y toma de muestras.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["talla"],
+
+    attributes: [
+      {
+        id: "talla",
+        label: "Talla",
+        type: "single",
+        values: [
+          { id: "mediano-m", label: "MEDIANO (M)" },
+          { id: "virginal-s", label: "VIRGINAL (S)" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "especulo-vaginal-m", attrs: { talla: "mediano-m" }, name: "ESPÉCULO VAGINAL DESCARTABLE – MEDIANO (M)", description: "Espéculo vaginal descartable de plástico para exploración ginecológica y toma de muestras.", price: 2.3, image: "/images/logo.png" },
+      { sku: "especulo-vaginal-s-virginal", attrs: { talla: "virginal-s" }, name: "ESPÉCULO VAGINAL DESCARTABLE – VIRGINAL (S)", description: "Espéculo vaginal descartable de plástico para exploración ginecológica y toma de muestras.", price: 1.5, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "gorro-desechable-x100",
+    name: "GORRO DESECHABLE × 100 UND",
+    type: "Indumentaria-descartable",
+    description: "Gorro descartable tipo oruga para uso clínico, laboratorio y áreas de manipulación. Paquete de 100 unidades.",
+    image: "/images/logo.png",
+    price: 12.24
+  },
+
+  {
+    id: "guantes-esteriles-t7",
+    name: "GUANTES ESTÉRILES TALLA 7 (PAR)",
+    type: "Indumentaria-descartable",
+    description: "Guantes quirúrgicos estériles de látex, talla 7, para procedimientos que requieren técnica aséptica. Precio por par.",
+    image: "/images/logo.png",
+    price: 1.1
+  },
+
+  {
+    id: "hisopos-de-madera",
+    name: "HISOPOS DE MADERA",
+    description: "Hisopos con palillo de madera y punta de algodón para toma de muestras, limpieza y aplicación de soluciones.",
+    image: "/images/logo.png",
+    price: 6.12
+  },
+
+  {
+    id: "torunda-algodon-trenzado-x20",
+    name: "TORUNDA DE ALGODÓN TRENZADO × 20 UND",
+    description: "Torundas de algodón trenzado para limpieza y antisepsia. Paquete de 20 unidades.",
+    image: "/images/logo.png",
+    price: 48.96
+  },
+
+  {
+    id: "vendas-elasticas",
+    name: "VENDAS ELÁSTICAS",
+    description: "Vendas elásticas de 5 yardas para soporte, compresión e inmovilización de articulaciones y fijación de apósitos.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["ancho"],
+
+    attributes: [
+      {
+        id: "ancho",
+        label: "Ancho",
+        type: "single",
+        values: [
+          { id: "2-5-yd", label: "2\" × 5 YD" },
+          { id: "5-5-yd", label: "5\" × 5 YD" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "venda-elastica-2x5", attrs: { ancho: "2-5-yd" }, name: "VENDAS ELÁSTICAS – 2\" × 5 YD", description: "Vendas elásticas de 5 yardas para soporte, compresión e inmovilización de articulaciones y fijación de apósitos.", price: 1.53, image: "/images/logo.png" },
+      { sku: "venda-elastica-5x5", attrs: { ancho: "5-5-yd" }, name: "VENDAS ELÁSTICAS – 5\" × 5 YD", description: "Vendas elásticas de 5 yardas para soporte, compresión e inmovilización de articulaciones y fijación de apósitos.", price: 2.6, image: "/images/logo.png" }
+    ]
+  },
 
 ];
-

@@ -1281,4 +1281,44 @@ export const instrumentalYEquiposQuirurgicosProducts = [
     price: 200,
     image: "/images/instrumental/INSTRUMENTAL/CORTADOR_ANILLO.png"
   },
+
+  // ─── PRODUCTOS VENDIDOS (cargados desde backoffice) ───
+  {
+    id: "punch-biopsia-dermatologica",
+    name: "PUNCH PARA BIOPSIA DERMATOLÓGICA",
+    type: "Instrumental",
+    description: "Punch para biopsia dermatológica, para obtener muestras cilíndricas de piel de diámetro preciso.",
+    image: "/images/logo.png",
+
+    attributeOrder: ["numero"],
+
+    attributes: [
+      {
+        id: "numero",
+        label: "Número",
+        type: "single",
+        values: [
+          { id: "n-2", label: "N° 2" },
+          { id: "n-3", label: "N° 3" },
+          { id: "n-4", label: "N° 4" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "punch-biopsia-2", attrs: { numero: "n-2" }, name: "PUNCH PARA BIOPSIA DERMATOLÓGICA – N° 2", description: "Punch para biopsia dermatológica, para obtener muestras cilíndricas de piel de diámetro preciso.", price: 659.43, image: "/images/logo.png" },
+      { sku: "punch-biopsia-3", attrs: { numero: "n-3" }, name: "PUNCH PARA BIOPSIA DERMATOLÓGICA – N° 3", description: "Punch para biopsia dermatológica, para obtener muestras cilíndricas de piel de diámetro preciso.", price: 659.43, image: "/images/logo.png" },
+      { sku: "punch-biopsia-4", attrs: { numero: "n-4" }, name: "PUNCH PARA BIOPSIA DERMATOLÓGICA – N° 4", description: "Punch para biopsia dermatológica, para obtener muestras cilíndricas de piel de diámetro preciso.", price: 659.43, image: "/images/logo.png" }
+    ]
+  },
+
+  {
+    id: "recortadora-clipper-9681",
+    name: "RECORTADORA QUIRÚRGICA CLIPPER 9681",
+    type: "Instrumental",
+    description: "Recortadora quirúrgica de vello Clipper 9681 para la preparación de la piel antes de procedimientos, sin rasurar ni causar microcortes.",
+    image: "/images/logo.png",
+    price: 448.9
+  },
+
 ];
