@@ -19,12 +19,13 @@ import { equipamientoYLaboratorioYReactivosProducts } from "./equipamientoYLabor
 import { dermoesteticaYCuidadoPersonalProducts } from "./dermoesteticaYCuidadoPersonal";
 import { odontologiaProducts } from "./odontologia";
 import { laminasHistologicasProducts } from "./laminasHistologicas";
+import { PUBLISHED_IDS } from "./publicados";
 
 // ================================
 // LABELS BONITOS PARA UI
 // ================================
 
-export const CATEGORY_LABELS = {
+const ALL_CATEGORY_LABELS = {
   "diagnostico-y-medicion": "Diagnóstico y medición",
   "modelos-anatomicos-y-simuladores": "Modelos anatómicos y simuladores",
   "equipamiento-y-laboratorio-y-reactivos": "Equipamiento, laboratorio y reactivos",
@@ -49,7 +50,7 @@ export const CATEGORY_LABELS = {
 // MAPEO SLUG → LISTA DE PRODUCTOS
 // ================================
 
-export const PRODUCTS_BY_CATEGORY = {
+export const ALL_PRODUCTS_BY_CATEGORY = {
   "diagnostico-y-medicion": diagnosticoYMedicionProducts,
   "proteccion-radiologica": proteccionRadiologicaProducts,
   "modelos-anatomicos-y-simuladores": modelosAnatomicosYSimuladoresProducts,
@@ -70,6 +71,24 @@ export const PRODUCTS_BY_CATEGORY = {
   "laminas-histologicas": laminasHistologicasProducts,
 
 };
+
+// ================================
+// FILTRO DE PUBLICACIÓN
+// Solo se muestran en la web los productos cuyo id está en publicados.js.
+// Los demás se quedan guardados en sus archivos, ocultos.
+// ================================
+
+export const PRODUCTS_BY_CATEGORY = Object.fromEntries(
+  Object.entries(ALL_PRODUCTS_BY_CATEGORY)
+    .map(([slug, items]) => [slug, items.filter((p) => PUBLISHED_IDS.has(String(p.id)))])
+    .filter(([, items]) => items.length > 0)
+);
+
+export const CATEGORY_LABELS = Object.fromEntries(
+  Object.entries(ALL_CATEGORY_LABELS).filter(([slug]) => slug in PRODUCTS_BY_CATEGORY)
+);
+
+export const CATALOGO_VACIO = Object.keys(PRODUCTS_BY_CATEGORY).length === 0;
 
 // ================================
 // EXPORT POR DEFECTO

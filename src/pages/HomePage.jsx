@@ -6,7 +6,7 @@
 import React from "react";
 import Hero from "../components/layout/Hero";
 import { Link } from "react-router-dom";
-import PRODUCTS_BY_CATEGORY, { CATEGORY_LABELS } from "../data/products";
+import PRODUCTS_BY_CATEGORY, { CATEGORY_LABELS, CATALOGO_VACIO } from "../data/products";
 
 /* Iconos SVG inline por categoría */
 const CATEGORY_ICONS = {
@@ -113,6 +113,14 @@ export default function HomePage({ cartCount }) {
           Nuestras categorías
         </h2>
 
+        {CATALOGO_VACIO ? (
+          <div className="max-w-xl mx-auto rounded-2xl border border-[#208790]/30 bg-[#208790]/5 dark:bg-slate-800 p-8 text-center">
+            <p className="text-lg font-semibold text-[#245877] dark:text-slate-100">Catálogo en actualización</p>
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+              Estamos renovando nuestro catálogo de productos. Muy pronto podrás verlo aquí.
+            </p>
+          </div>
+        ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
           {categories.map((slug) => (
             <Link
@@ -130,6 +138,7 @@ export default function HomePage({ cartCount }) {
             </Link>
           ))}
         </div>
+        )}
       </section>
     </>
   );

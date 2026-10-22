@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import {
   CATEGORY_LABELS,
   PRODUCTS_BY_CATEGORY,
+  CATALOGO_VACIO,
 } from "../data/products";
 
 /* ================================
@@ -654,7 +655,14 @@ export default function CatalogPage({ cartCount = 0 }) {
               </select>
             </div>
 
-            {sortedProducts.length === 0 ? (
+            {CATALOGO_VACIO ? (
+              <div className="rounded-2xl border border-[#208790]/30 bg-[#208790]/5 dark:bg-slate-800 p-8 text-center">
+                <p className="text-lg font-semibold text-[#245877] dark:text-slate-100">Catálogo en actualización</p>
+                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                  Estamos renovando nuestro catálogo de productos. Muy pronto podrás verlo aquí.
+                </p>
+              </div>
+            ) : sortedProducts.length === 0 ? (
               <p className="text-slate-600 dark:text-slate-400">
                 No se encontraron productos
                 con estos filtros.

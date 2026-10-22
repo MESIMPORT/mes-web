@@ -1402,10 +1402,10 @@ export const soporteRespiratorioProducts = [
     id: "concentradores-oxigeno",
     name: "CONCENTRADORES DE OXÍGENO",
     type: "Respiratorio",
-    description: "Concentradores de oxígeno medicinal que extraen y concentran el oxígeno del aire ambiente mediante tecnología PSA (Pressure Swing Adsorption), suministrando oxígeno con pureza de 93% ±3% de forma continua sin necesidad de recargas. Disponibles en versión estacionaria domiciliaria (5 LPM), estacionaria de alto requerimiento (10 LPM) y portátil de flujo a pulso para pacientes activos. Indicados para EPOC, fibrosis pulmonar, insuficiencia respiratoria crónica y oxigenoterapia domiciliaria de largo plazo.",
-    image: "/images/respiratorio/placeholder.png",
+    description: "Concentradores de oxígeno medicinal que extraen y concentran el oxígeno del aire ambiente mediante tecnología PSA (Pressure Swing Adsorption), suministrando oxígeno con pureza de 93% ±3% de forma continua sin necesidad de recargas. Disponibles en versión estacionaria de alto requerimiento (10 LPM) y portátil de flujo a pulso para pacientes activos. Indicados para EPOC, fibrosis pulmonar, insuficiencia respiratoria crónica y oxigenoterapia domiciliaria de largo plazo.",
+    image: "/images/respiratorio/CONCENTRADORES/CARD.png",
 
-    attributeOrder: ["uso", "marca", "modelo"],
+    attributeOrder: ["uso", "modelo"],
 
     attributes: [
       {
@@ -1413,19 +1413,8 @@ export const soporteRespiratorioProducts = [
         label: "Uso",
         type: "single",
         values: [
-          { id: "estacionario-5", label: "Estacionario domiciliario (0,5–5 LPM)" },
-          { id: "estacionario-10", label: "Estacionario alto requerimiento (1–10 LPM)" },
+          { id: "estacionario-10", label: "Estacionario (1–10 LPM)" },
           { id: "portatil", label: "Portátil a pulso" }
-        ]
-      },
-      {
-        id: "marca",
-        label: "Marca",
-        type: "single",
-        values: [
-          { id: "philips", label: "Philips Respironics" },
-          { id: "varon", label: "Varon" },
-          { id: "inogen", label: "Inogen" }
         ]
       },
       {
@@ -1433,116 +1422,64 @@ export const soporteRespiratorioProducts = [
         label: "Modelo",
         type: "single",
         values: [
-          { id: "everflo", label: "EverFlo 5 LPM" },
-          { id: "everflo-10", label: "EverFlo 10 LPM" },
-          { id: "ae-10", label: "AE-10" },
-          { id: "nt-1", label: "NT-1" },
-          { id: "nt-02", label: "NT-02" },
-          { id: "inogen-g3", label: "One G3" },
-          { id: "inogen-g4", label: "One G4" }
+          { id: "philips-everflo-10", label: "Philips EverFlo 10 LPM" },
+          { id: "aerti-ae-10", label: "Aerti AE-10 – 10 LPM" },
+          { id: "varon-nt-1", label: "Varon NT-1" },
+          { id: "varon-nt-02", label: "Varon NT-02" }
         ]
       }
     ],
 
     attributeRules: {
-      // Uso → Marca
-      "estacionario-5": { marca: ["philips", "varon"] },
-      "estacionario-10": { marca: ["philips", "varon"] },
-      "portatil": { marca: ["inogen", "varon"] },
-
-      // Marca + Uso → Modelo
-      "philips": { modelo: ["everflo", "everflo-10"] },
-      "varon": { modelo: ["ae-10", "nt-1", "nt-02"] },
-      "inogen": { modelo: ["inogen-g3", "inogen-g4"] },
-
-      // Uso → Modelo refinamiento
-      "estacionario-5": { modelo: ["everflo", "ae-10"] },
-      "estacionario-10": { modelo: ["everflo-10", "ae-10"] },
-      "portatil": { modelo: ["nt-1", "nt-02", "inogen-g3", "inogen-g4"] }
+      "estacionario-10": { modelo: ["philips-everflo-10", "aerti-ae-10"] },
+      "portatil": { modelo: ["varon-nt-1", "varon-nt-02"] }
     },
 
     variants: [
 
-      // ─── ESTACIONARIO 5 LPM ───────────────────────────────────────────────────
-      {
-        sku: "philips-everflo-5",
-        attrs: { uso: "estacionario-5", marca: "philips", modelo: "everflo" },
-        name: "PHILIPS RESPIRONICS EVERFLO – 5 LPM",
-        description: "Concentrador de oxígeno estacionario Philips Respironics EverFlo, el más compacto y silencioso del mercado domiciliario con solo 43 dBA. Tecnología PSA de flujo continuo hasta 5 LPM con pureza de 93% ±3%. Diseño ergonómico de 14,5 kg con plataforma compatible con todos los estilos de humidificador. Sin filtros de mantenimiento para el paciente y salida de oxígeno metálica de alta durabilidad. Indicado para oxigenoterapia domiciliaria en EPOC, fibrosis pulmonar e insuficiencia respiratoria crónica. || Flujo: 0,5–5 LPM continuo | Pureza: 93% ±3% | Ruido: 43 dBA | Peso: 14,5 kg | Consumo: 230 W | Altitud máx.: 2,286 m | Alimentación: 220V 50Hz.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "varon-ae-10-5lpm",
-        attrs: { uso: "estacionario-5", marca: "varon", modelo: "ae-10" },
-        name: "VARON AE-10 – 5 LPM",
-        description: "Concentrador de oxígeno estacionario Varon AE-10 en configuración de 5 LPM. Tecnología PSA con pureza de 93% ±3%, filtro HEPA, alarmas de fallo de energía, temperatura y concentración baja de oxígeno. Diseñado para funcionamiento continuo de 24 horas con vida útil de 20,000 horas. Opción de excelente relación precio-valor para oxigenoterapia domiciliaria y clínica. || Flujo: 1–5 LPM continuo | Pureza: 93% ±3% | Ruido: ≤50 dBA | Filtro: HEPA | Funcionamiento: 24 h continuo | Vida útil: 20,000 h | Alarmas: Energía, temperatura, concentración.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-
       // ─── ESTACIONARIO 10 LPM ──────────────────────────────────────────────────
       {
         sku: "philips-everflo-10",
-        attrs: { uso: "estacionario-10", marca: "philips", modelo: "everflo-10" },
+        attrs: { uso: "estacionario-10", modelo: "philips-everflo-10" },
         name: "PHILIPS RESPIRONICS EVERFLO – 10 LPM",
         description: "Concentrador de oxígeno estacionario Philips Respironics EverFlo de alta capacidad para pacientes con requerimiento elevado de oxígeno. Flujo continuo hasta 10 LPM con pureza de 93% ±3%. Tecnología PSA con bajo mantenimiento, salida metálica de oxígeno y sistema de diagnóstico integrado. Indicado para pacientes con EPOC severo, fibrosis pulmonar avanzada y uso clínico de alto consumo. || Flujo: 1–10 LPM continuo | Pureza: 93% ±3% | Tecnología: PSA | Alimentación: 220V 50Hz.",
         price: 5,
-        image: "/images/respiratorio/placeholder.png"
+        image: "/images/respiratorio/CONCENTRADORES/EVER10.png"
       },
       {
-        sku: "varon-ae-10",
-        attrs: { uso: "estacionario-10", marca: "varon", modelo: "ae-10" },
-        name: "VARON AE-10 – 10 LPM",
-        description: "Concentrador de oxígeno estacionario Varon AE-10 de alta capacidad para pacientes con requerimiento elevado. Tecnología PSA con pureza 93% ±3%, filtro HEPA y alarmas múltiples de seguridad. Funcionamiento continuo de 24 horas con vida útil de 20,000 horas. Presión de salida 45 ±10% kPa. Opción de alto rendimiento a precio accesible para clínicas y uso domiciliario intensivo. || Flujo: 1–10 LPM continuo | Pureza: 93% ±3% | Ruido: ≤50 dBA | Consumo: 610 W | Peso: 24 kg | Dimensiones: 372×340×612 mm | Vida útil: 20,000 h.",
+        sku: "aerti-ae-10",
+        attrs: { uso: "estacionario-10", modelo: "aerti-ae-10" },
+        name: "AERTI AE-10 – 10 LPM",
+        description: "Concentrador de oxígeno estacionario AE-10. Equipo de alto rendimiento basado en tecnología PSA (adsorción por oscilación de presión), capaz de suministrar oxígeno con una pureza de 93% ±3%. Incorpora sistema de filtración con filtro HEPA, así como alarmas de seguridad por fallo de energía, sobretemperatura y baja concentración de oxígeno. Diseñado para operación continua 24/7, con una vida útil aproximada de 20,000 horas, siendo una solución confiable y eficiente para oxigenoterapia domiciliaria y entornos clínicos. || Pureza: 93% ±3% | Ruido: ≤50 dBA | Filtro: HEPA | Funcionamiento: continuo 24 h | Vida útil: 20,000 h | Alarmas: energía, temperatura, concentración.",
         price: 5,
-        image: "/images/respiratorio/placeholder.png"
+        image: "/images/respiratorio/CONCENTRADORES/AERTI10.png"
       },
 
-      // ─── PORTÁTIL – VARON ─────────────────────────────────────────────────────
+      // ─── PORTÁTIL ─────────────────────────────────────────────────────────────
       {
         sku: "varon-nt-1",
-        attrs: { uso: "portatil", marca: "varon", modelo: "nt-1" },
+        attrs: { uso: "portatil", modelo: "varon-nt-1" },
         name: "VARON NT-1 – PORTÁTIL PULSO",
         description: "Concentrador de oxígeno portátil Varon NT-1 con flujo a pulso de 6 niveles para pacientes activos que requieren oxigenoterapia fuera del hogar. Batería recargable integrada de 92 Wh para uso sin conexión a red. Tecnología PSA con pureza de 93% ±3%. Liviano y compacto con bolsa de transporte incluida. || Flujo: 6 niveles a pulso | Pureza: 93% ±3% | Batería: 92 Wh / 6,4 Ah | Peso: 2,9 kg | Ruido: ≤58 dBA | Alimentación: AC 100–240V 50/60 Hz | Potencia: 75 W.",
         price: 5,
-        image: "/images/respiratorio/placeholder.png"
+        image: "/images/respiratorio/CONCENTRADORES/VARON_NT1.png"
       },
       {
         sku: "varon-nt-02",
-        attrs: { uso: "portatil", marca: "varon", modelo: "nt-02" },
+        attrs: { uso: "portatil", modelo: "varon-nt-02" },
         name: "VARON NT-02 – PORTÁTIL PULSO",
-        description: "Concentrador de oxígeno portátil Varon NT-02 de segunda generación con flujo a pulso y batería removible de doble capacidad. Peso de 2,2 kg con bolsa multiuso para usar como mochila, bandolera o de mano. Temporizador programable de 1 a 240 min con apagado automático. Sistema de alerta inteligente para bajo nivel de batería, ausencia de respiración, baja concentración de oxígeno y temperatura elevada. Filtro PSA con tamiz molecular de alta calidad. || Flujo: 6 niveles a pulso | Pureza: 93% ±3% | Batería: 92 Wh (8 celdas) 3–4 h / (16 celdas) hasta 6 h | Peso: 2,2 kg | Temporizador: 1–240 min | Alertas: 4 condiciones monitoreadas.",
+        description: "Concentrador de oxígeno portátil Varon NT-02 de segunda generación con flujo a pulso y batería removible de doble capacidad. Peso de 2,2 kg con bolsa multiuso para usar como mochila, bandolera o de mano. Temporizador programable de 1 a 240 min con apagado automático. Sistema de alerta inteligente para bajo nivel de batería, ausencia de respiración, baja concentración de oxígeno y temperatura elevada. || Flujo: 6 niveles a pulso | Pureza: 93% ±3% | Batería: 92 Wh (8 celdas) 3–4 h / (16 celdas) hasta 6 h | Peso: 2,2 kg | Temporizador: 1–240 min | Alertas: 4 condiciones monitoreadas.",
         price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-
-      // ─── PORTÁTIL – INOGEN ────────────────────────────────────────────────────
-      {
-        sku: "inogen-one-g3",
-        attrs: { uso: "portatil", marca: "inogen", modelo: "inogen-g3" },
-        name: "INOGEN ONE G3 – PORTÁTIL PULSO",
-        description: "Concentrador de oxígeno portátil Inogen One G3 fabricado en EE.UU., referente mundial en oxigenoterapia portátil de alta pureza. Flujo a pulso con 6 niveles desde 1 hasta 6 LPM equivalentes. Pureza superior al 95% en todos sus niveles. Batería grande con hasta 13 horas de autonomía. Aprobado por la FAA para uso en aeronaves en todas las aerolíneas internacionales. Garantía completa del fabricante. || Flujo: 6 niveles a pulso | Pureza: >95% | Autonomía: Hasta 13 h (batería grande) | Peso: 2 kg | Origen: EE.UU. | Aprobación: FAA para vuelos.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
-      },
-      {
-        sku: "inogen-one-g4",
-        attrs: { uso: "portatil", marca: "inogen", modelo: "inogen-g4" },
-        name: "INOGEN ONE G4 – PORTÁTIL PULSO",
-        description: "Concentrador de oxígeno portátil Inogen One G4, el más compacto y ligero de la línea Inogen. Flujo a pulso hasta 3 LPM equivalentes con pureza superior al 95%. Diseño ultracompacto ideal para pacientes con requerimiento bajo a moderado que priorizan movilidad y discreción. Aprobado por la FAA para uso en aeronaves. Garantía completa del fabricante. || Flujo: Hasta 3 LPM a pulso | Pureza: >95% | Origen: EE.UU. | Aprobación: FAA para vuelos | Uso: Movilidad máxima.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
+        image: "/images/respiratorio/CONCENTRADORES/VARON_NT2.png"
       }
     ]
   },
-
   {
     id: "equipos-clinicos-especiales",
     name: "EQUIPOS CLÍNICOS ESPECIALES",
     type: "Respiratorio",
     description: "Equipos clínicos especializados para administración y mezcla controlada de gases medicinales en entornos de cuidados críticos. Incluye el casco cefálico FACEM para oxigenoterapia neonatal con FiO₂ controlada en neonatología y UCI neonatal, y el mezclador de gases Ohio Medical para la combinación precisa de aire medicinal y oxígeno en terapias respiratorias avanzadas, ventilación mecánica y soporte vital neonatal.",
-    image: "/images/respiratorio/placeholder.png",
+    image: "/images/respiratorio/ESPECIALES/CARD.png",
 
     attributeOrder: ["equipo", "variante"],
 
@@ -1566,15 +1503,14 @@ export const soporteRespiratorioProducts = [
           { id: "1000-3600", label: "Neonatos 1,000 g – 3,600 g" },
           { id: "mayor-3600", label: "Neonatos > 3,600 g" },
           // Mezclador Ohio
-          { id: "neo2-blend", label: "NEO2 Blend – NICU (0–15 + 0–3,5 LPM)" },
-          { id: "low-flow", label: "Low Flow – Propósito general (0–30 LPM)" }
+          { id: "neo2-blend", label: "NEO2 Blend – NICU (0–15 + 0–3,5 LPM)" }
         ]
       }
     ],
 
     attributeRules: {
       "casco-cefalico": { variante: ["menor-1000", "1000-3600", "mayor-3600"] },
-      "mezclador-ohio": { variante: ["neo2-blend", "low-flow"] }
+      "mezclador-ohio": { variante: ["neo2-blend"] }
     },
 
     variants: [
@@ -1586,7 +1522,7 @@ export const soporteRespiratorioProducts = [
         name: "CASCO CEFÁLICO FACEM – NEONATOS < 1,000 g",
         description: "Casco cefálico FACEM MOD 016 para neonatos de extremo bajo peso menor a 1,000 g. Estructura tipo campana de material transparente de grado médico que permite la observación continua del paciente durante la oxigenoterapia. Forma un microambiente sobre la cabeza del recién nacido donde se suministra oxígeno con FiO₂ regulada. Incorpora puertos de conexión para oxígeno y aberturas para circulación de aire y eliminación de CO₂. || Modelo: FACEM 016 | Talla: < 1,000 g | Material: Plástico transparente grado médico | FiO₂: Regulada externamente | Uso: Neonatología / UCI neonatal.",
         price: 560,
-        image: "/images/respiratorio/1000GR.png"
+        image: "/images/respiratorio/ESPECIALES/1.png"
       },
       {
         sku: "casco-facem-1000-3600",
@@ -1594,7 +1530,7 @@ export const soporteRespiratorioProducts = [
         name: "CASCO CEFÁLICO FACEM – NEONATOS 1,000 g – 3,600 g",
         description: "Casco cefálico FACEM MOD 016 para neonatos entre 1,000 g y 3,600 g. Estructura tipo campana de material transparente de grado médico que permite la observación continua durante la oxigenoterapia. Forma un microambiente controlado con suministro de oxígeno a FiO₂ regulada. Puertos de conexión para oxígeno y aberturas para circulación de aire y eliminación de CO₂. || Modelo: FACEM 016 | Talla: 1,000–3,600 g | Material: Plástico transparente grado médico | FiO₂: Regulada externamente | Uso: Neonatología / UCI neonatal.",
         price: 560,
-        image: "/images/respiratorio/1000GR_36000GR.png"
+        image: "/images/respiratorio/ESPECIALES/2.png"
       },
       {
         sku: "casco-facem-mayor-3600",
@@ -1602,7 +1538,7 @@ export const soporteRespiratorioProducts = [
         name: "CASCO CEFÁLICO FACEM – NEONATOS > 3,600 g",
         description: "Casco cefálico FACEM MOD 016 para neonatos de mayor peso superiores a 3,600 g. Estructura tipo campana de mayor diámetro en material transparente de grado médico para observación continua del paciente. Forma un microambiente controlado con oxígeno a FiO₂ regulada. Puertos de conexión para oxígeno y aberturas para circulación de aire y eliminación de CO₂. || Modelo: FACEM 016 | Talla: > 3,600 g | Material: Plástico transparente grado médico | FiO₂: Regulada externamente | Uso: Neonatología / UCI neonatal.",
         price: 560,
-        image: "/images/respiratorio/3600GR.png"
+        image: "/images/respiratorio/ESPECIALES/3.png"
       },
 
       // ─── MEZCLADOR OHIO – NEO2 BLEND ──────────────────────────────────────────
@@ -1612,18 +1548,9 @@ export const soporteRespiratorioProducts = [
         name: "MEZCLADOR OHIO MEDICAL – NEO2 BLEND NICU",
         description: "Mezclador de gases Ohio Medical NEO2 Blend diseñado específicamente para la Unidad de Cuidados Intensivos Neonatales (NICU). Combina aire medicinal comprimido y oxígeno para entregar gas mezclado con FiO₂ de 21% a 100% con alta precisión. Incorpora dos flujómetros integrados: izquierdo de 1–15 LPM para cánula nasal de alto flujo o CPAP, y derecho de 0,1–1 LPM para bajo flujo neonatal. Interruptor de purga ON/OFF exclusivo para conservar gas cuando no se requiere flujo de purga de 3 LPM. || Modelo: Ohio NEO2 Blend | FiO₂: 21%–100% | Flujómetro izq.: 1–15 LPM | Flujómetro der.: 0,1–1 LPM | Purga: 3 LPM con interruptor ON/OFF | Uso: NICU / UCI neonatal | Aplicaciones: CPAP, cánula nasal alto flujo, ventilación neonatal.",
         price: 10200,
-        image: "/images/respiratorio/MEZCLADOR_OHIO.png"
-      },
-
-      // ─── MEZCLADOR OHIO – LOW FLOW ────────────────────────────────────────────
-      {
-        sku: "ohio-low-flow",
-        attrs: { equipo: "mezclador-ohio", variante: "low-flow" },
-        name: "MEZCLADOR OHIO MEDICAL – LOW FLOW PROPÓSITO GENERAL",
-        description: "Mezclador de gases Ohio Medical de bajo flujo para propósito general hospitalario. Combina aire medicinal y oxígeno comprimido para suministrar mezcla gaseosa con FiO₂ de 21% a 100% ajustable por el usuario. Flujo total de 0 a 30 LPM indicado para terapia respiratoria de rutina, suministro de gas a ventiladores y procedimientos de soporte vital en adultos y pediatría. Incluye flujómetros integrados de bajo flujo y sistema interno de balanceo de presión para mezclas estables. || Modelo: Ohio Low Flow | FiO₂: 21%–100% | Flujo: 0–30 LPM | Aplicaciones: Ventiladores, cánulas nasales, terapia respiratoria adulto/pediátrico | Uso: UCI / hospitalización general.",
-        price: 5,
-        image: "/images/respiratorio/placeholder.png"
+        image: "/images/respiratorio/ESPECIALES/MEZCLADOR_OHIO.png"
       }
+
     ]
   },
 
