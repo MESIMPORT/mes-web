@@ -67,8 +67,25 @@ export const laminasHistologicasProducts = [
     name: "LÁMINA HISTOLÓGICA – FROTIS DE MÉDULA ÓSEA",
     type: "Láminas Hematológicas",
     description: "Lámina de frotis de médula ósea preparada para la identificación microscópica de las distintas series hematopoyéticas en sus diferentes estadios de maduración. Permite el reconocimiento de eritroblastos, mieloblastos, megacariocitos y células del estroma medular. Coloración May-Grünwald/Giemsa. Esencial para prácticas de hematología y diagnóstico de patologías medulares en programas universitarios de medicina.",
-    price: 60,
-    image: "/images/laminas/hematologia/IMG.png"
+    price: 90,
+    image: "/images/laminas/hematologia/MEDULA_OSEA_FROTIS.jpg"
+  },
+  {
+    id: "set-laminas-mitosis-raiz-cebolla",
+    name: "SET DE LÁMINAS DE MITOSIS – PUNTA DE RAÍZ DE CEBOLLA (5 PIEZAS)",
+    type: "Láminas Histológicas",
+    description: "Set de 5 láminas preparadas de corte longitudinal de punta de raíz de cebolla (Allium cepa), zona meristemática, con tinción nuclear que permite observar con claridad las fases de la división celular: interfase, profase, metafase, anafase y telofase. Ideal para prácticas de biología celular, genética y botánica en laboratorios universitarios y escolares. || Contenido: 5 láminas | Muestra: punta de raíz de Allium cepa, corte longitudinal | Observación: fases de la mitosis | Precio: por set",
+    price: 120,
+    image: "/images/laminas/histologia/MITOSIS_1.jpg",
+    images: ["/images/laminas/histologia/MITOSIS_1.jpg", "/images/laminas/histologia/MITOSIS_2.jpg", "/images/laminas/histologia/MITOSIS_3.jpg", "/images/laminas/histologia/MITOSIS_4.jpg", "/images/laminas/histologia/MITOSIS_5.jpg"]
+  },
+  {
+    id: "lamina-frotis-espermatozoides",
+    name: "LÁMINA HISTOLÓGICA – FROTIS DE ESPERMATOZOIDES",
+    type: "Láminas Histológicas",
+    description: "Lámina preparada de frotis de espermatozoides humanos, fijado y coloreado, que permite identificar al microscopio la morfología del espermatozoide: cabeza con acrosoma y núcleo, pieza intermedia y flagelo (cola). Recurso didáctico para prácticas de histología, embriología y biología de la reproducción. || Muestra: frotis de semen humano | Observación: morfología espermática | Precio: por unidad",
+    price: 50,
+    image: "/images/laminas/histologia/ESPERMATOZOIDES.jpg"
   },
 
   {
@@ -295,7 +312,7 @@ export const laminasHistologicasProducts = [
   { id: "lamina-cuerpos-nissl-medula-espinal", name: "LÁMINA HISTOLÓGICA – CUERPOS DE NISSL, MÉDULA ESPINAL", type: "Láminas Histológicas", description: "Lámina histológica de médula espinal con tinción específica para cuerpos de Nissl (retículo endoplasmático rugoso neuronal), que permite la identificación de motoneuronas anteriores y la distribución característica del material cromatínico neuronal. Recurso fundamental para el estudio de la morfología neuronal y la citología del sistema nervioso en prácticas universitarias de histología.", price: 35, image: "/images/laminas/histologia/IMG.png" },
   { id: "lamina-medula-espinal-he", name: "LÁMINA HISTOLÓGICA – MÉDULA ESPINAL (H&E)", type: "Láminas Histológicas", description: "Lámina histológica de médula espinal con coloración H&E, que permite la observación de la organización en sustancia gris (astas anteriores, posteriores y laterales) y sustancia blanca, así como la identificación de motoneuronas, interneuronas y células gliales. Recurso de referencia para prácticas de histología del sistema nervioso central en programas universitarios de medicina.", price: 25, image: "/images/laminas/histologia/IMG.png" },
   { id: "lamina-neurofibrillas-cerebelo", name: "LÁMINA HISTOLÓGICA – NEUROFIBRILLAS, CEREBELO", type: "Láminas Histológicas", description: "Lámina histológica de cerebelo con tinción de impregnación argéntica para neurofibrillas, que permite la visualización del citoesqueleto neuronal (neurofilamentos y microtúbulos) en las células de Purkinje y granulosas. Recurso para el estudio avanzado de la arquitectura interna neuronal y sus alteraciones en procesos degenerativos. Indicada para prácticas de histología neurológica.", price: 25, image: "/images/laminas/histologia/IMG.png" },
-  { id: "lamina-ganglio-linfatico", name: "LÁMINA HISTOLÓGICA – GANGLIO LINFÁTICO", type: "Láminas Histológicas", description: "Lámina histológica de ganglio linfático que permite la identificación microscópica de su arquitectura: cápsula, trabéculas, corteza con folículos linfoides primarios y secundarios (centros germinales), paracorteza y médula con cordones y sinusoides medulares. Coloración H&E. Recurso esencial para prácticas de histología del sistema inmunitario y linfoide en programas universitarios.", price: 25, image: "/images/laminas/histologia/IMG.png" },
+  { id: "lamina-ganglio-linfatico", name: "LÁMINA HISTOLÓGICA – GANGLIO LINFÁTICO", type: "Láminas Histológicas", description: "Lámina histológica de ganglio linfático que permite la identificación microscópica de su arquitectura: cápsula, trabéculas, corteza con folículos linfoides primarios y secundarios (centros germinales), paracorteza y médula con cordones y sinusoides medulares. Coloración H&E. Recurso esencial para prácticas de histología del sistema inmunitario y linfoide en programas universitarios.", price: 50, image: "/images/laminas/histologia/GANGLIO_LINFATICO.jpg" },
   { id: "lamina-ganglio-periferico", name: "LÁMINA HISTOLÓGICA – GANGLIO PERIFÉRICO", type: "Láminas Histológicas", description: "Lámina histológica de ganglio periférico (sensitivo o autónomo) que permite la identificación de neuronas ganglionares, células satélite periféricas y fibras nerviosas organizadas en fascículos. Coloración H&E. Recurso para el estudio de la organización del sistema nervioso periférico y sus componentes celulares en prácticas universitarias de histología y neuroanatomía.", price: 25, image: "/images/laminas/histologia/IMG.png" },
   { id: "lamina-paquete-vasculonervioso", name: "LÁMINA HISTOLÓGICA – PAQUETE VASCULONERVIOSO", type: "Láminas Histológicas", description: "Lámina histológica de paquete vasculonervioso que permite la observación simultánea de la organización de nervios periféricos (epineuro, perineuro, endoneuro), arterias y venas acompañantes en corte transversal. Coloración H&E. Recurso para el estudio comparativo de tejidos vasculares y nerviosos en su disposición anatómica natural. Indicada para prácticas de histología en programas universitarios.", price: 25, image: "/images/laminas/histologia/IMG.png" },
   { id: "lamina-paquete-vasculonervioso-mesenterio", name: "LÁMINA HISTOLÓGICA – PAQUETE VASCULONERVIOSO, MESENTERIO", type: "Láminas Histológicas", description: "Lámina histológica de mesenterio que permite la visualización del paquete vasculonervioso en su contexto de tejido adiposo mesentérico, con identificación de nervios, vasos sanguíneos y linfáticos, así como células adiposas uniloculares. Coloración H&E. Recurso para prácticas de histología del tejido conectivo y del sistema nervioso autónomo entérico en programas universitarios.", price: 25, image: "/images/laminas/histologia/IMG.png" },

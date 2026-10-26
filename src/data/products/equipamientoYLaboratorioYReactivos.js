@@ -3259,11 +3259,80 @@ export const equipamientoYLaboratorioYReactivosProducts = [
   },
 
   {
-    id: "prueba-rapida-covid-antigeno-20",
-    name: "PRUEBA RÁPIDA COVID-19 ANTÍGENO × 20 TEST",
+    id: "elisa-hiv-ag-ab-4g-96",
+    name: "ELISA HIV 1+2 Ag-Ab 4ta GENERACIÓN × 96 DET – CTK Biotech",
     type: "Reactivos",
-    description: "Prueba rápida inmunocromatográfica para la detección cualitativa de antígeno de SARS-CoV-2 en muestras de hisopado respiratorio, según el inserto del fabricante. Resultado visual en pocos minutos, sin necesidad de equipos, útil para la detección de infección activa por COVID-19. Para uso diagnóstico in vitro. || Técnica: Inmunocromatografía | Analito: Antígeno de SARS-CoV-2 | Presentación: 20 pruebas.",
-    price: 183.6,
+    description: "Kit ELISA de cuarta generación RecombiLISA de CTK Biotech para la detección cualitativa del antígeno VIH-1 p24 y de anticuerpos anti-VIH-1 (incluido subtipo O) y anti-VIH-2 (IgG, IgM e IgA) en suero o plasma humano. Al detectar antígeno y anticuerpos, permite identificar la infección en etapa más temprana que un ELISA de 3ra generación. Incluye controles, conjugado, sustrato TMB y solución de parada. Para uso diagnóstico in vitro. || Técnica: ELISA 4ta generación | Analito: Antígeno p24 + anticuerpos anti-VIH-1/2 | Presentación: 96 determinaciones | Almacenamiento: 2–8 °C | REF: E0420.",
+    price: 1700,
+    image: "/images/laboratorio/REACTIVOS/ELISA_HIV_4G.jpg"
+  },
+
+  {
+    id: "elisa-tsh-monobind-96",
+    name: "ELISA TSH CUANTITATIVO × 96 DET – Monobind AccuBind",
+    type: "Reactivos",
+    description: "Kit ELISA AccuBind de Monobind para la determinación cuantitativa de tirotropina (TSH) en suero humano mediante inmunoensayo enzimático en microplaca, con lectura colorimétrica. Es la prueba de primera línea para evaluar la función tiroidea y detectar hipotiroidismo e hipertiroidismo. Incluye calibradores (A–G), reactivo enzimático, sustrato, solución de parada, solución de lavado y microplaca de 96 pocillos. Para uso diagnóstico in vitro. || Marca: Monobind Inc. (USA) | Técnica: ELISA cuantitativo | Muestra: suero | Presentación: 96 pocillos | REF: 325-300A | Almacenamiento: 2–8 °C.",
+    price: 1600,
+    image: "/images/laboratorio/REACTIVOS/MONOBIND_TSH.jpg",
+    images: ["/images/laboratorio/REACTIVOS/MONOBIND_TSH.jpg", "/images/laboratorio/REACTIVOS/MONOBIND_CARA.jpg"]
+  },
+
+  {
+    id: "elisa-t4-libre-monobind-96",
+    name: "ELISA T4 LIBRE CUANTITATIVO × 96 DET – Monobind AccuBind",
+    type: "Reactivos",
+    description: "Kit ELISA AccuBind de Monobind para la determinación cuantitativa de tiroxina libre (T4 libre) en suero humano mediante inmunoensayo enzimático en microplaca. Complementa a la TSH en la evaluación de la función tiroidea y el seguimiento del tratamiento de trastornos tiroideos. Incluye calibradores (A–F), reactivo enzimático, sustrato, solución de parada, solución de lavado y microplaca de 96 pocillos. Para uso diagnóstico in vitro. || Marca: Monobind Inc. (USA) | Técnica: ELISA cuantitativo | Muestra: suero | Presentación: 96 pocillos | REF: 1225-300A | Almacenamiento: 2–8 °C.",
+    price: 1750,
+    image: "/images/laboratorio/REACTIVOS/MONOBIND_FT4.jpg",
+    images: ["/images/laboratorio/REACTIVOS/MONOBIND_FT4.jpg", "/images/laboratorio/REACTIVOS/MONOBIND_CARA.jpg"]
+  },
+
+  {
+    id: "elisa-psa-total-monobind-96",
+    name: "ELISA ANTÍGENO PROSTÁTICO TOTAL (PSA TOTAL) × 96 DET – Monobind AccuBind",
+    type: "Reactivos",
+    description: "Kit ELISA AccuBind de Monobind para la determinación cuantitativa del antígeno prostático específico total (PSA total) en suero humano mediante inmunoensayo enzimático en microplaca. Marcador utilizado como apoyo en el tamizaje y seguimiento del cáncer de próstata y otras patologías prostáticas. Incluye calibradores (A–F), reactivo enzimático, sustrato, solución de parada, solución de lavado y microplaca de 96 pocillos. Para uso diagnóstico in vitro. || Marca: Monobind Inc. (USA) | Técnica: ELISA cuantitativo | Muestra: suero | Presentación: 96 pocillos | REF: 2125-300A | Almacenamiento: 2–8 °C.",
+    price: 1400,
+    image: "/images/laboratorio/REACTIVOS/MONOBIND_PSA.jpg",
+    images: ["/images/laboratorio/REACTIVOS/MONOBIND_PSA.jpg", "/images/laboratorio/REACTIVOS/MONOBIND_CARA.jpg"]
+  },
+
+  {
+    id: "elisa-afp-monobind-96",
+    name: "ELISA ALFA FETOPROTEÍNA (AFP) CUANTITATIVO × 96 DET – Monobind AccuBind",
+    type: "Reactivos",
+    description: "Kit ELISA AccuBind de Monobind para la determinación cuantitativa de alfa-fetoproteína (AFP) en suero humano mediante inmunoensayo enzimático en microplaca. Marcador tumoral empleado como apoyo en el diagnóstico y seguimiento de carcinoma hepatocelular y tumores de células germinales. Incluye calibradores (A–F), reactivo enzimático, sustrato, solución de parada, solución de lavado y microplaca de 96 pocillos. Para uso diagnóstico in vitro. || Marca: Monobind Inc. (USA) | Técnica: ELISA cuantitativo | Muestra: suero | Presentación: 96 pocillos | REF: 1925-300A | Almacenamiento: 2–8 °C.",
+    price: 1600,
+    image: "/images/laboratorio/REACTIVOS/MONOBIND_AFP.jpg",
+    images: ["/images/laboratorio/REACTIVOS/MONOBIND_AFP.jpg", "/images/laboratorio/REACTIVOS/MONOBIND_CARA.jpg"]
+  },
+
+  {
+    id: "elisa-cea-monobind-96",
+    name: "ELISA ANTÍGENO CARCINOEMBRIONARIO (CEA) CUANTITATIVO × 96 DET – Monobind AccuBind",
+    type: "Reactivos",
+    description: "Kit ELISA AccuBind de Monobind para la determinación cuantitativa del antígeno carcinoembrionario (CEA) en suero humano mediante inmunoensayo enzimático en microplaca. Marcador tumoral utilizado principalmente en el seguimiento de cáncer colorrectal y otros adenocarcinomas. Incluye calibradores (A–F), reactivo enzimático, sustrato, solución de parada, solución de lavado y microplaca de 96 pocillos. Para uso diagnóstico in vitro. || Marca: Monobind Inc. (USA) | Técnica: ELISA cuantitativo | Muestra: suero | Presentación: 96 pocillos | REF: 1825-300A | Almacenamiento: 2–8 °C.",
+    price: 1750,
+    image: "/images/laboratorio/REACTIVOS/MONOBIND_CEA.jpg",
+    images: ["/images/laboratorio/REACTIVOS/MONOBIND_CEA.jpg", "/images/laboratorio/REACTIVOS/MONOBIND_CARA.jpg"]
+  },
+
+  {
+    id: "elisa-beta-hcg-monobind-96",
+    name: "ELISA FRACCIÓN BETA DE GONADOTROPINA CORIÓNICA HUMANA (β-hCG) × 96 DET – Monobind AccuBind",
+    type: "Reactivos",
+    description: "Kit ELISA AccuBind de Monobind para la determinación cuantitativa de gonadotropina coriónica humana (hCG / β-hCG) en suero humano mediante inmunoensayo enzimático en microplaca. Utilizado para la detección temprana y seguimiento del embarazo, y como apoyo en el control de enfermedad trofoblástica. Incluye calibradores (A–F), reactivo enzimático, sustrato, solución de parada, solución de lavado y microplaca de 96 pocillos. Para uso diagnóstico in vitro. || Marca: Monobind Inc. (USA) | Técnica: ELISA cuantitativo | Muestra: suero | Presentación: 96 pocillos | REF: 825-300A | Almacenamiento: 2–8 °C.",
+    price: 1550,
+    image: "/images/laboratorio/REACTIVOS/MONOBIND_HCG.jpg",
+    images: ["/images/laboratorio/REACTIVOS/MONOBIND_HCG.jpg", "/images/laboratorio/REACTIVOS/MONOBIND_CARA.jpg"]
+  },
+
+  {
+    id: "prueba-rapida-covid-antigeno-20",
+    name: "Prueba rápida COVID-19 Antígeno × 20 test – CTK Biotech",
+    type: "Reactivos",
+    description: "Prueba rápida OnSite COVID-19 Ag de CTK Biotech: inmunoensayo de flujo lateral para la detección cualitativa del antígeno de SARS-CoV-2 en hisopado nasofaríngeo o nasal, en pacientes con sospecha de COVID-19 dentro de los primeros 7 días de síntomas. Fácil de usar, económica y sin equipos, ideal para el punto de atención como alternativa rápida a la RT-PCR. Para uso por personal de salud capacitado. Uso diagnóstico in vitro. || Marca: CTK Biotech (OnSite) | Técnica: Inmunocromatografía de flujo lateral | Muestra: hisopado nasofaríngeo o nasal | Presentación: 20 pruebas.",
+    price: 190,
     image: "/images/laboratorio/REACTIVOS/COVID_ANTIGENO.png"
   },
 

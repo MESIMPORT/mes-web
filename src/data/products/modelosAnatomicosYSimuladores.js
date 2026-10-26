@@ -2712,4 +2712,13 @@ export const modelosAnatomicosYSimuladoresProducts = [
     price: 183.6
   },
 
+  {
+    id: "simulador-recien-nacido-cordon-umbilical",
+    name: "Simulador de recién nacido para cuidado del cordón umbilical",
+    description:
+      "Maniquí de recién nacido a término, con cabeza y extremidades articuladas, para la práctica de cuidado del cordón umbilical. El cordón tiene vena y arterias visibles y textura realista, y permite practicar ligadura, corte y desinfección. Incluye cordones de repuesto para práctica repetida. También sirve para entrenar baño, cambio de pañal, vestido y técnica de lactancia. Ideal para escuelas de enfermería, obstetricia y centros de simulación clínica.",
+    image: "/images/maquetas/simulador-cordon-umbilical.png",
+    price: 600
+  },
+
 ];
