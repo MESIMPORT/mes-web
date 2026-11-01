@@ -3933,4 +3933,142 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     price: 459
   },
 
+  // ===== CEPAS MICROBIOLÓGICAS (Vic Science) =====
+  {
+    id: "cepa-escherichia-coli",
+    name: "CEPA ESCHERICHIA COLI (ATCC)",
+    type: "Cepas microbiológicas",
+    description: "Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso.",
+    image: "/images/laboratorio/CEPAS/ECOLI_25922.png",
+
+    attributeOrder: ["cepa"],
+
+    attributes: [
+      {
+        id: "cepa",
+        label: "Cepa",
+        type: "single",
+        values: [
+          { id: "atcc-25922", label: "ATCC 25922" },
+          { id: "atcc-8739", label: "ATCC 8739" },
+          { id: "atcc-700926-k12", label: "K-12 ATCC 700926" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "cepa-escherichia-coli-atcc-25922",
+        attrs: { cepa: "atcc-25922" },
+        name: "ATCC 25922",
+        description: "Cepa control recomendada por CLSI/EUCAST para el control de calidad de antibiogramas (difusión y dilución) y de medios de cultivo para enterobacterias. Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso. || **Cepa:** Escherichia coli ATCC 25922 | **Presentación:** 1 vial liofilizado.",
+        price: 3080,
+        image: "/images/laboratorio/CEPAS/ECOLI_25922.png"
+      },
+      {
+        sku: "cepa-escherichia-coli-atcc-8739",
+        attrs: { cepa: "atcc-8739" },
+        name: "ATCC 8739",
+        description: "Cepa de referencia empleada en ensayos de límites microbianos, eficacia de conservantes y promoción de crecimiento de medios según farmacopea. Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso. || **Cepa:** Escherichia coli ATCC 8739 | **Presentación:** 1 vial liofilizado.",
+        price: 5950,
+        image: "/images/laboratorio/CEPAS/ECOLI_8739.png"
+      },
+      {
+        sku: "cepa-escherichia-coli-atcc-700926-k12",
+        attrs: { cepa: "atcc-700926-k12" },
+        name: "K-12 ATCC 700926",
+        description: "Cepa no patógena K-12, ampliamente utilizada en genética, biología molecular y prácticas de docencia. Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso. || **Cepa:** Escherichia coli K-12 ATCC 700926 | **Presentación:** 1 vial liofilizado.",
+        price: 2940,
+        image: "/images/laboratorio/CEPAS/ECOLI_K12_700926.png"
+      }
+    ]
+  },
+  {
+    id: "cepa-staphylococcus-aureus",
+    name: "CEPA STAPHYLOCOCCUS AUREUS (ATCC)",
+    type: "Cepas microbiológicas",
+    description: "Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso.",
+    image: "/images/laboratorio/CEPAS/SAUREUS_29213.png",
+
+    attributeOrder: ["cepa"],
+
+    attributes: [
+      {
+        id: "cepa",
+        label: "Cepa",
+        type: "single",
+        values: [
+          { id: "atcc-29213", label: "ATCC 29213" }
+        ]
+      }
+    ],
+
+    variants: [
+      {
+        sku: "cepa-staphylococcus-aureus-atcc-29213",
+        attrs: { cepa: "atcc-29213" },
+        name: "ATCC 29213",
+        description: "Cepa control recomendada por CLSI para el control de calidad de pruebas de sensibilidad por dilución (CMI) en Gram positivos y de medios selectivos. Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso. || **Cepa:** Staphylococcus aureus ATCC 29213 | **Presentación:** 1 vial liofilizado.",
+        price: 3080,
+        image: "/images/laboratorio/CEPAS/SAUREUS_29213.png"
+      }
+    ]
+  },
+  {
+    id: "cepa-klebsiella-pneumoniae-atcc-13883",
+    name: "CEPA KLEBSIELLA PNEUMONIAE ATCC 13883",
+    type: "Cepas microbiológicas",
+    description: "Cepa tipo de la especie, utilizada como control en pruebas bioquímicas de identificación de enterobacterias y en la validación de medios de cultivo. Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso. || **Presentación:** 1 vial liofilizado.",
+    price: 1750,
+    image: "/images/laboratorio/CEPAS/KPNEUMONIAE_13883.png"
+  },
+  {
+    id: "cepa-pseudomonas-aeruginosa-atcc-27853",
+    name: "CEPA PSEUDOMONAS AERUGINOSA ATCC 27853",
+    type: "Cepas microbiológicas",
+    description: "Cepa control recomendada por CLSI/EUCAST para el control de calidad de antibiogramas en bacilos Gram negativos no fermentadores y de medios selectivos. Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso. || **Presentación:** 1 vial liofilizado.",
+    price: 1750,
+    image: "/images/laboratorio/CEPAS/PAERUGINOSA_27853.png"
+  },
+  {
+    id: "cepa-candida-albicans-atcc-10231",
+    name: "CEPA CANDIDA ALBICANS ATCC 10231",
+    type: "Cepas microbiológicas",
+    description: "Levadura de referencia para control de calidad de medios micológicos (Sabouraud, cromogénicos), pruebas de eficacia antifúngica y de conservantes. Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso. || **Presentación:** 1 vial liofilizado.",
+    price: 1750,
+    image: "/images/laboratorio/CEPAS/CALBICANS_10231.png"
+  },
+  {
+    id: "cepa-enterococcus-faecalis-atcc-29212",
+    name: "CEPA ENTEROCOCCUS FAECALIS ATCC 29212",
+    type: "Cepas microbiológicas",
+    description: "Cepa control recomendada por CLSI para antibiogramas en Gram positivos y para el control de calidad de medios como agar bilis esculina y Mueller-Hinton. Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso. || **Presentación:** 1 vial liofilizado.",
+    price: 1400,
+    image: "/images/laboratorio/CEPAS/EFAECALIS_29212.png"
+  },
+  {
+    id: "cepa-streptococcus-mutans-atcc-700610",
+    name: "CEPA STREPTOCOCCUS MUTANS ATCC 700610",
+    type: "Cepas microbiológicas",
+    description: "Cepa de referencia en microbiología oral para estudios de caries dental, formación de biopelícula y evaluación de agentes antimicrobianos de uso odontológico. Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso. || **Presentación:** 1 vial liofilizado.",
+    price: 2660,
+    image: "/images/laboratorio/CEPAS/SMUTANS_700610.png"
+  },
+  {
+    id: "cepa-porphyromonas-gingivalis-atcc-33277",
+    name: "CEPA PORPHYROMONAS GINGIVALIS ATCC 33277",
+    type: "Cepas microbiológicas",
+    description: "Cepa anaerobia de referencia para investigación en periodontología y microbiología oral; requiere condiciones de anaerobiosis para su cultivo. Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso. || **Presentación:** 1 vial liofilizado.",
+    price: 2240,
+    image: "/images/laboratorio/CEPAS/PGINGIVALIS_33277.png"
+  },
+  {
+    id: "cepa-micrococcus-luteus-atcc-10240",
+    name: "CEPA MICROCOCCUS LUTEUS ATCC 10240",
+    type: "Cepas microbiológicas",
+    description: "Cepa de referencia utilizada en bioensayos microbiológicos (valoración de antibióticos y detección de residuos) y como control en pruebas de identificación de cocos Gram positivos. Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso. || **Presentación:** 1 vial liofilizado.",
+    price: 3360,
+    image: "/images/laboratorio/CEPAS/MLUTEUS_10240.png"
+  }
+
 ];

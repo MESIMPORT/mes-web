@@ -653,8 +653,8 @@ export const emergenciaYSoporteVitalProducts = [
     id: "inmovilizador-lateral",
     name: "INMOVILIZADOR LATERAL DE CABEZA",
     type: "Inmovilizacion",
-    description: "Inmovilizador lateral de cabeza para la estabilización cervical de pacientes en tabla rígida durante el traslado.",
-    image: "/images/logo.png",
+    description: "Inmovilizador lateral de cabeza (head immobilizer) para la estabilización cervical de pacientes en tabla espinal rígida durante la atención prehospitalaria y el traslado. Consta de una base que se fija a la tabla y dos bloques laterales de espuma de alta densidad con orificios auditivos, que permiten vigilar oídos y canal auditivo y facilitan la evaluación del paciente. Incluye dos correas de sujeción para frente y mentón con cierre de velcro y correas para el anclaje a la tabla. Recubrimiento de vinilo impermeable, fácil de limpiar y desinfectar, en color naranja de alta visibilidad. Compatible con collarín cervical. || Material: espuma de alta densidad con recubrimiento de vinilo | Componentes: base, 2 bloques laterales, 2 correas de cabeza, correas de anclaje | Color: naranja | Uso: tabla espinal / inmovilización cervical",
+    image: "/images/emergencia/INMOVILIZADOR/INMOVILIZADOR_LATERAL.jpg",
     price: 260.1
   },
 

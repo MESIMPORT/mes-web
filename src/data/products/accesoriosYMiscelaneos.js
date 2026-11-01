@@ -727,4 +727,48 @@ export const accesoriosYMiscelaneosProducts = [
     price: 6.12
   },
 
+  {
+    id: "botin-dielectrico-maxwell-m8",
+    name: "BOTÍN DE SEGURIDAD DIELÉCTRICO 18 kV – MAXWELL M-8",
+    type: "EPP",
+    description: "Botín de seguridad dieléctrico Maxwell modelo MACX M-8, de corte outdoor, que combina protección y comodidad en un calzado liviano y libre de componentes metálicos. Protege frente a riesgos eléctricos de hasta 18 kV, impactos en los dedos gracias a su puntera composite y deslizamientos en superficies con aceites o humedad. Capellada de cuero crazy de 1.8 a 2.0 mm, forro de algodón laminado de 4 mm, cuello acolchado de textil castor y plantilla interior ortopédica preformada. Planta de caucho aislante de alto rendimiento con entresuela de EVA liviana, construcción vulcanizada al corte. Indicado para trabajos eléctricos y de mantenimiento, industria, minería, construcción y actividades forestales. || Marca: Maxwell | Modelo: MACX M-8 | Protección eléctrica: dieléctrico 18 kV | Puntera: composite (no metálica) | Planta: caucho con entresuela EVA | Capellada: cuero crazy 1.8–2.0 mm | Color: castaño | Tallas: 35 al 44 | Norma: NTP ISO 20344:2017 | Garantía: 6 meses por defectos de fabricación",
+    price: 175,
+    image: "/images/accesorios/EPP/BOTIN_DIELECTRICO_MAXWELL_M8.jpg",
+
+    attributeOrder: ["talla"],
+
+    attributes: [
+      {
+        id: "talla",
+        label: "Talla",
+        type: "single",
+        values: [
+          { id: "t-35", label: "35" },
+          { id: "t-36", label: "36" },
+          { id: "t-37", label: "37" },
+          { id: "t-38", label: "38" },
+          { id: "t-39", label: "39" },
+          { id: "t-40", label: "40" },
+          { id: "t-41", label: "41" },
+          { id: "t-42", label: "42" },
+          { id: "t-43", label: "43" },
+          { id: "t-44", label: "44" }
+        ]
+      }
+    ],
+
+    variants: [
+      { sku: "botin-dielectrico-maxwell-m8-t35", attrs: { talla: "t-35" }, name: "BOTÍN DE SEGURIDAD DIELÉCTRICO MAXWELL M-8 – TALLA 35", description: "Botín de seguridad dieléctrico 18 kV Maxwell MACX M-8, talla 35. Puntera composite, planta de caucho aislante con entresuela EVA y capellada de cuero crazy. Color castaño.", price: 175, image: "/images/accesorios/EPP/BOTIN_DIELECTRICO_MAXWELL_M8.jpg" },
+      { sku: "botin-dielectrico-maxwell-m8-t36", attrs: { talla: "t-36" }, name: "BOTÍN DE SEGURIDAD DIELÉCTRICO MAXWELL M-8 – TALLA 36", description: "Botín de seguridad dieléctrico 18 kV Maxwell MACX M-8, talla 36. Puntera composite, planta de caucho aislante con entresuela EVA y capellada de cuero crazy. Color castaño.", price: 175, image: "/images/accesorios/EPP/BOTIN_DIELECTRICO_MAXWELL_M8.jpg" },
+      { sku: "botin-dielectrico-maxwell-m8-t37", attrs: { talla: "t-37" }, name: "BOTÍN DE SEGURIDAD DIELÉCTRICO MAXWELL M-8 – TALLA 37", description: "Botín de seguridad dieléctrico 18 kV Maxwell MACX M-8, talla 37. Puntera composite, planta de caucho aislante con entresuela EVA y capellada de cuero crazy. Color castaño.", price: 175, image: "/images/accesorios/EPP/BOTIN_DIELECTRICO_MAXWELL_M8.jpg" },
+      { sku: "botin-dielectrico-maxwell-m8-t38", attrs: { talla: "t-38" }, name: "BOTÍN DE SEGURIDAD DIELÉCTRICO MAXWELL M-8 – TALLA 38", description: "Botín de seguridad dieléctrico 18 kV Maxwell MACX M-8, talla 38. Puntera composite, planta de caucho aislante con entresuela EVA y capellada de cuero crazy. Color castaño.", price: 175, image: "/images/accesorios/EPP/BOTIN_DIELECTRICO_MAXWELL_M8.jpg" },
+      { sku: "botin-dielectrico-maxwell-m8-t39", attrs: { talla: "t-39" }, name: "BOTÍN DE SEGURIDAD DIELÉCTRICO MAXWELL M-8 – TALLA 39", description: "Botín de seguridad dieléctrico 18 kV Maxwell MACX M-8, talla 39. Puntera composite, planta de caucho aislante con entresuela EVA y capellada de cuero crazy. Color castaño.", price: 175, image: "/images/accesorios/EPP/BOTIN_DIELECTRICO_MAXWELL_M8.jpg" },
+      { sku: "botin-dielectrico-maxwell-m8-t40", attrs: { talla: "t-40" }, name: "BOTÍN DE SEGURIDAD DIELÉCTRICO MAXWELL M-8 – TALLA 40", description: "Botín de seguridad dieléctrico 18 kV Maxwell MACX M-8, talla 40. Puntera composite, planta de caucho aislante con entresuela EVA y capellada de cuero crazy. Color castaño.", price: 175, image: "/images/accesorios/EPP/BOTIN_DIELECTRICO_MAXWELL_M8.jpg" },
+      { sku: "botin-dielectrico-maxwell-m8-t41", attrs: { talla: "t-41" }, name: "BOTÍN DE SEGURIDAD DIELÉCTRICO MAXWELL M-8 – TALLA 41", description: "Botín de seguridad dieléctrico 18 kV Maxwell MACX M-8, talla 41. Puntera composite, planta de caucho aislante con entresuela EVA y capellada de cuero crazy. Color castaño.", price: 175, image: "/images/accesorios/EPP/BOTIN_DIELECTRICO_MAXWELL_M8.jpg" },
+      { sku: "botin-dielectrico-maxwell-m8-t42", attrs: { talla: "t-42" }, name: "BOTÍN DE SEGURIDAD DIELÉCTRICO MAXWELL M-8 – TALLA 42", description: "Botín de seguridad dieléctrico 18 kV Maxwell MACX M-8, talla 42. Puntera composite, planta de caucho aislante con entresuela EVA y capellada de cuero crazy. Color castaño.", price: 175, image: "/images/accesorios/EPP/BOTIN_DIELECTRICO_MAXWELL_M8.jpg" },
+      { sku: "botin-dielectrico-maxwell-m8-t43", attrs: { talla: "t-43" }, name: "BOTÍN DE SEGURIDAD DIELÉCTRICO MAXWELL M-8 – TALLA 43", description: "Botín de seguridad dieléctrico 18 kV Maxwell MACX M-8, talla 43. Puntera composite, planta de caucho aislante con entresuela EVA y capellada de cuero crazy. Color castaño.", price: 175, image: "/images/accesorios/EPP/BOTIN_DIELECTRICO_MAXWELL_M8.jpg" },
+      { sku: "botin-dielectrico-maxwell-m8-t44", attrs: { talla: "t-44" }, name: "BOTÍN DE SEGURIDAD DIELÉCTRICO MAXWELL M-8 – TALLA 44", description: "Botín de seguridad dieléctrico 18 kV Maxwell MACX M-8, talla 44. Puntera composite, planta de caucho aislante con entresuela EVA y capellada de cuero crazy. Color castaño.", price: 175, image: "/images/accesorios/EPP/BOTIN_DIELECTRICO_MAXWELL_M8.jpg" }
+    ]
+  },
+
 ];

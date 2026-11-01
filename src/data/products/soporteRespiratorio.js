@@ -1559,9 +1559,9 @@ export const soporteRespiratorioProducts = [
     id: "niple-tuerca-nebulizar",
     name: "NIPLE Y TUERCA DE METAL PARA NEBULIZAR",
     type: "Accesorios-respiratorio",
-    description: "Niple y tuerca metálicos para la conexión del nebulizador a la fuente de oxígeno.",
-    image: "/images/logo.png",
-    price: 18.36
+    description: "Niple y tuerca de metal para conectar el nebulizador o la manguera de oxígeno a la salida DISS de flujómetros, reguladores y tomas de pared. Tuerca hexagonal con rosca DISS y espiga cónica (barb) que asegura una conexión firme y sin fugas. Construcción metálica más durable y resistente que la versión de plástico, indicada para uso hospitalario intensivo. || Material: metal | Conexión: rosca DISS a espiga | Uso: nebulización y oxigenoterapia",
+    image: "/images/respiratorio/ACCESORIOS/NIPLE_METAL.png",
+    price: 20
   },
 
 ];
