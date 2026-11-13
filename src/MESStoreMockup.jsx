@@ -11,6 +11,7 @@ import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import CategoryPage from "./pages/CategoryPage";
 import HomePage from "./pages/HomePage";
+import LaminasLanding from "./pages/LaminasLanding";
 import MiniCartFloating from "./components/ui/MiniCartFloating";
 import MESHeader from "./components/layout/MESHeader";
 import { useNavigate } from "react-router-dom";
@@ -151,6 +152,18 @@ function MESStoreMockup() {
                 <AnimatePresence mode="wait" initial={false}>
                   <PageTransition key="home">
                     <HomePage cartCount={cartCount} />
+                  </PageTransition>
+                </AnimatePresence>
+              }
+            />
+
+            {/* LÁMINAS (página de entrada) */}
+            <Route
+              path="/laminas"
+              element={
+                <AnimatePresence mode="wait" initial={false}>
+                  <PageTransition key="laminas">
+                    <LaminasLanding />
                   </PageTransition>
                 </AnimatePresence>
               }

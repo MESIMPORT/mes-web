@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect, useRef, useCallback } from "react";
+import { cashPriceFor } from "../data/products/precioContado";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
   CATEGORY_LABELS,
@@ -805,6 +806,16 @@ export default function CatalogPage({ cartCount = 0 }) {
                         <p className="mt-1 text-sm font-semibold text-slate-800 dark:text-slate-200">
                           {formattedPrice}
                         </p>
+
+                        {(() => {
+                          const lp = item._isVariant ? null : (item.price ? parsePrice(item.price) : null);
+                          const cash = item._isVariant ? null : cashPriceFor(item, lp);
+                          return cash != null ? (
+                            <p className="text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+                              Contado: {new Intl.NumberFormat("es-PE", { style: "currency", currency: "PEN" }).format(cash)}
+                            </p>
+                          ) : null;
+                        })()}
 
                         <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
                           {item.categoryLabel}

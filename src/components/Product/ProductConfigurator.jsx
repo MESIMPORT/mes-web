@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import EmergencyTrainingSections from "./EmergencyTrainingSections";
+import { cashPriceFor } from "../../data/products/precioContado";
 
 
 /* ======================================================
@@ -796,6 +797,28 @@ export default function ProductConfigurator({ product, onAddToCart }) {
             <div className="text-2xl font-bold">
               {displayPrice}
             </div>
+
+            {(() => {
+              const listPrice =
+                typeof basePrice === "number" && !String(displayPrice).startsWith("Desde")
+                  ? basePrice + extraPrice
+                  : null;
+              const cash =
+                cashPriceFor(selectedSkuVariant, listPrice) ??
+                cashPriceFor(safeProduct, listPrice);
+              if (cash == null) return null;
+              return (
+                <div className="-mt-2 space-y-1">
+                  <div className="inline-flex items-center gap-2 rounded-lg bg-emerald-50 dark:bg-emerald-950 px-3 py-1.5 text-emerald-800 dark:text-emerald-200">
+                    <span className="text-sm font-medium">Pago al contado:</span>
+                    <span className="text-lg font-bold">{formatPrice(cash)}</span>
+                  </div>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    El precio de lista aplica a compras con crédito comercial (sujeto a evaluación). Compras por volumen: cotización a medida.
+                  </p>
+                </div>
+              );
+            })()}
 
 
             {hasAttributes &&

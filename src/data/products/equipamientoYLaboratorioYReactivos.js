@@ -4069,6 +4069,215 @@ export const equipamientoYLaboratorioYReactivosProducts = [
     description: "Cepa de referencia utilizada en bioensayos microbiológicos (valoración de antibióticos y detección de residuos) y como control en pruebas de identificación de cocos Gram positivos. Cepa de referencia liofilizada, trazable a la colección ATCC, para control de calidad y prácticas en laboratorios de microbiología clínica, industrial, de alimentos e investigación. Se reconstituye en caldo nutritivo y se subcultiva en el medio apropiado; cada vial permite generar cultivos de trabajo para múltiples ensayos. Conservar a 2–8 °C hasta su uso. || **Presentación:** 1 vial liofilizado.",
     price: 3360,
     image: "/images/laboratorio/CEPAS/MLUTEUS_10240.png"
-  }
+  },
 
+  {
+    id: "tiras-oxidasa-bioanalyse-50",
+    name: "TIRAS REACTIVAS PARA OXIDASA × 50 – Bioanalyse",
+    type: "Reactivos",
+    description: "Tiras reactivas Bioanalyse para la prueba de oxidasa, utilizada en microbiología para detectar la enzima citocromo c oxidasa en colonias bacterianas. Al frotar la colonia sobre la tira, un resultado positivo se evidencia por la aparición de un color azul-púrpura en pocos segundos. Prueba rápida de apoyo para la identificación de bacilos gramnegativos (p. ej., diferenciación de Pseudomonas, Neisseria y Vibrio frente a enterobacterias). Uso diagnóstico in vitro. || Marca: Bioanalyse | Presentación: Caja × 50 tiras | Uso: Diagnóstico in vitro (IVD) | Certificación: CE",
+    price: 740,
+    cashPrice: 600,
+    image: "/images/laboratorio/REACTIVOS/OXIDASA_BIOANALYSE.jpg"
+  },
+
+  {
+    id: "discos-sensibilidad-panel-grampositivos",
+    name: "DISCOS DE SENSIBILIDAD – PANEL GRAMPOSITIVOS (8 FRASCOS × 50 DISCOS)",
+    type: "Reactivos",
+    description: "Panel de discos de sensibilidad antimicrobiana para el antibiograma por difusión en agar (método de Kirby-Bauer) de bacterias grampositivas, como Staphylococcus y Enterococcus. Incluye 8 frascos de 50 discos cada uno: penicilina 10 U (P), eritromicina 15 µg (E), clindamicina 2 µg (DA), cefoxitina 30 µg (FOX), gentamicina 10 µg (GM), ciprofloxacino 5 µg (CIP), tetraciclina 30 µg (TE) y trimetoprim-sulfametoxazol 25 µg (SXT). Ideal para prácticas de microbiología y laboratorio clínico. || Contenido: 8 frascos × 50 discos (400 discos) | Antibióticos: P, E, DA, FOX, GM, CIP, TE, SXT | Conservación: refrigerado (2–8 °C) | Presentación del frasco o cartucho según lote",
+    price: 400,
+    cashPrice: 320,
+    image: "/images/laboratorio/REACTIVOS/DISCOS_GRAMPOSITIVOS_PANEL.jpg",
+    images: ["/images/laboratorio/REACTIVOS/DISCOS_GRAMPOSITIVOS_PANEL.jpg", "/images/laboratorio/REACTIVOS/DISCO_P.jpg", "/images/laboratorio/REACTIVOS/DISCO_E.jpg", "/images/laboratorio/REACTIVOS/DISCO_DA.jpg", "/images/laboratorio/REACTIVOS/DISCO_FOX.jpg", "/images/laboratorio/REACTIVOS/DISCO_GM.jpg", "/images/laboratorio/REACTIVOS/DISCO_CIP.jpg", "/images/laboratorio/REACTIVOS/DISCO_TE.jpg", "/images/laboratorio/REACTIVOS/DISCO_SXT.jpg"]
+  },
+
+  {
+    id: "pipeta-pasteur-esteril-3ml-x100",
+    name: "PIPETAS PASTEUR DESCARTABLES ESTÉRILES 3 ML GRADUADAS × 100 UND – ThermoLab",
+    type: "Utensilios",
+    description: "Pipetas Pasteur (pipetas de transferencia) descartables de polietileno, graduadas, con capacidad de 3 ml. Estériles por óxido de etileno y empacadas individualmente, listas para usar. Ideales para transferir pequeños volúmenes de líquidos, muestras biológicas, reactivos y medios de cultivo en laboratorio clínico, microbiología y docencia. De un solo uso. || Marca: ThermoLab | Capacidad: 3 ml, graduada | Esterilización: óxido de etileno (EO) | Empaque: individual | Presentación: paquete × 100 unidades",
+    price: 80,
+    cashPrice: 60,
+    image: "/images/laboratorio/UTENSILIOS/PIPETA_PASTEUR_3ML.jpg"
+  },
+
+  {
+    id: "tubo-centrifuga-conico-15ml",
+    name: "TUBOS DE CENTRÍFUGA DE FONDO CÓNICO 15 ML ESTÉRILES – Citotest",
+    type: "Utensilios",
+    description: "Tubos de centrífuga de polipropileno (PP) de 15 ml con fondo cónico, graduación impresa en blanco de 2 a 15 ml (intervalos de 0.5 ml) y tapa rosca azul a prueba de fugas. Estériles por óxido de etileno, listos para usar. Medidas: 17 × 120 mm. Ideales para centrifugación, separación y almacenamiento de muestras en laboratorio clínico, microbiología, biología molecular y docencia. || Marca: Citotest | Material: polipropileno (PP) | Volumen: 15 ml | Medidas: 17 × 120 mm | Graduación: 2–15 ml cada 0.5 ml | Tapa: rosca azul hermética | Esterilización: óxido de etileno (EO) | Presentación: unidad o caja × 50",
+    image: "/images/laboratorio/UTENSILIOS/TUBOS_CENTRIFUGA_15ML_CAJA.jpg",
+    images: ["/images/laboratorio/UTENSILIOS/TUBOS_CENTRIFUGA_15ML_CAJA.jpg", "/images/laboratorio/UTENSILIOS/TUBO_CENTRIFUGA_15ML.jpg"],
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "unidad", label: "Unidad" },
+          { id: "caja-50", label: "Caja × 50 und" }
+        ]
+      }
+    ],
+    variants: [
+      {
+        sku: "tubo-centrifuga-15ml-und",
+        attrs: { presentacion: "unidad" },
+        name: "TUBO DE CENTRÍFUGA CÓNICO 15 ML – UNIDAD",
+        description: "Tubos de centrífuga de polipropileno (PP) de 15 ml con fondo cónico, graduación impresa en blanco de 2 a 15 ml (intervalos de 0.5 ml) y tapa rosca azul a prueba de fugas. Estériles por óxido de etileno, listos para usar. Medidas: 17 × 120 mm. Ideales para centrifugación, separación y almacenamiento de muestras en laboratorio clínico, microbiología, biología molecular y docencia. || Presentación: unidad",
+        price: 1.10,
+        cashPrice: 0.88,
+        image: "/images/laboratorio/UTENSILIOS/TUBO_CENTRIFUGA_15ML.jpg"
+      },
+      {
+        sku: "tubo-centrifuga-15ml-caja50",
+        attrs: { presentacion: "caja-50" },
+        name: "TUBOS DE CENTRÍFUGA CÓNICOS 15 ML – CAJA × 50",
+        description: "Tubos de centrífuga de polipropileno (PP) de 15 ml con fondo cónico, graduación impresa en blanco de 2 a 15 ml (intervalos de 0.5 ml) y tapa rosca azul a prueba de fugas. Estériles por óxido de etileno, listos para usar. Medidas: 17 × 120 mm. Ideales para centrifugación, separación y almacenamiento de muestras en laboratorio clínico, microbiología, biología molecular y docencia. || Presentación: caja × 50 unidades",
+        price: 55,
+        cashPrice: 44,
+        image: "/images/laboratorio/UTENSILIOS/TUBOS_CENTRIFUGA_15ML_CAJA.jpg"
+      }
+    ]
+  },
+
+  {
+    id: "placa-petri-esteril-90x15",
+    name: "PLACAS PETRI DESCARTABLES ESTÉRILES 90 × 15 MM – Citotest",
+    type: "Utensilios",
+    description: "Placas Petri descartables de poliestireno transparente, estériles, de 90 × 15 mm, con superficie no tratada. Diseñadas para cultivo microbiano y otros usos biológicos y médicos: siembra de medios de cultivo, aislamiento de colonias, antibiogramas y prácticas de microbiología. De un solo uso. || Marca: Citotest | Material: poliestireno transparente | Medidas: 90 × 15 mm | Superficie: no tratada | Estéril | Presentación: unidad o paquete × 10",
+    image: "/images/laboratorio/UTENSILIOS/PLACAS_PETRI_90X15.jpg",
+    attributes: [
+      {
+        id: "presentacion",
+        label: "Presentación",
+        type: "single",
+        values: [
+          { id: "unidad", label: "Unidad" },
+          { id: "paquete-10", label: "Paquete × 10 und" }
+        ]
+      }
+    ],
+    variants: [
+      {
+        sku: "placa-petri-90x15-und",
+        attrs: { presentacion: "unidad" },
+        name: "PLACA PETRI ESTÉRIL 90 × 15 MM – UNIDAD",
+        description: "Placas Petri descartables de poliestireno transparente, estériles, de 90 × 15 mm, con superficie no tratada. Diseñadas para cultivo microbiano y otros usos biológicos y médicos: siembra de medios de cultivo, aislamiento de colonias, antibiogramas y prácticas de microbiología. De un solo uso. || Presentación: unidad",
+        price: 1.10,
+        cashPrice: 0.88,
+        image: "/images/laboratorio/UTENSILIOS/PLACAS_PETRI_90X15.jpg"
+      },
+      {
+        sku: "placa-petri-90x15-paq10",
+        attrs: { presentacion: "paquete-10" },
+        name: "PLACAS PETRI ESTÉRILES 90 × 15 MM – PAQUETE × 10",
+        description: "Placas Petri descartables de poliestireno transparente, estériles, de 90 × 15 mm, con superficie no tratada. Diseñadas para cultivo microbiano y otros usos biológicos y médicos: siembra de medios de cultivo, aislamiento de colonias, antibiogramas y prácticas de microbiología. De un solo uso. || Presentación: paquete × 10 unidades",
+        price: 11,
+        cashPrice: 8.80,
+        image: "/images/laboratorio/UTENSILIOS/PLACAS_PETRI_90X15.jpg"
+      }
+    ]
+  },
+
+  {
+    id: "tubo-ensayo-vidrio-12x75-tapa-rosca",
+    name: "TUBO DE ENSAYO DE VIDRIO 12 × 75 MM CON TAPA ROSCA – UNIDAD",
+    type: "Utensilios",
+    description: "Tubo de ensayo de vidrio transparente de 12 × 75 mm, con fondo redondo y tapa rosca negra. Reutilizable y resistente, ideal para pruebas bioquímicas, siembra de medios de cultivo, conservación de muestras y prácticas de laboratorio clínico, microbiología y docencia. || Material: vidrio | Medidas: 12 × 75 mm | Fondo: redondo | Tapa: rosca, color negro | Presentación: unidad",
+    price: 2.50,
+    cashPrice: 2.00,
+    image: "/images/laboratorio/UTENSILIOS/TUBO_ENSAYO_12X75_TAPA_ROSCA.jpg"
+  },
+
+  {
+    id: "agua-peptonada-tamponada-difco-500g",
+    name: "AGUA PEPTONADA TAMPONADA (BUFFERED PEPTONE WATER) × 500 G – Difco BD",
+    type: "Reactivos",
+    description: "Medio de cultivo deshidratado Difco™ Buffered Peptone Water (BD) para el pre-enriquecimiento y aislamiento de Salmonella en alimentos y otras muestras. Agua peptonada no alcalina, tamponada con fosfatos a pH 7.2 ± 0.2, que favorece la recuperación de microorganismos dañados antes del enriquecimiento selectivo. Preparación: disolver 20 g del polvo en 1 L de agua purificada, mezclar y esterilizar en autoclave a 121 °C por 15 minutos. Uso en laboratorio. || Marca: Difco – BD (Becton, Dickinson and Company) | Código (REF): 218105 | Presentación: frasco × 500 g | Fórmula aproximada por litro: peptona 10 g, cloruro de sodio 5 g, fosfato disódico 3.5 g, fosfato monopotásico 1.5 g | pH final: 7.2 ± 0.2 | Conservación: higroscópico, mantener bien cerrado",
+    price: 820,
+    cashPrice: 690,
+    image: "/images/laboratorio/REACTIVOS/AGUA_PEPTONADA_DIFCO_500G.jpg"
+  },
+
+  {
+    id: "cled-agar-azul-bromotimol-m792-500g",
+    name: "C.L.E.D. AGAR CON AZUL DE BROMOTIMOL (W/ BROMO THYMOL BLUE) M792 × 500 G – HiMedia",
+    type: "Reactivos",
+    description: "Medio de cultivo deshidratado C.L.E.D. Agar (Cistina Lactosa Electrolito Deficiente) con azul de bromotimol, código M792, para el aislamiento, recuento y diferenciación de microorganismos en urocultivos. Al ser deficiente en electrolitos, inhibe el crecimiento invasivo (swarming) de Proteus, y el indicador azul de bromotimol permite diferenciar las colonias fermentadoras de lactosa (amarillas) de las no fermentadoras (azules). Preparación: suspender 36.15 g en 1000 ml de agua purificada/destilada, calentar hasta ebullición para disolver por completo, esterilizar en autoclave a 121 °C (15 lbs) por 15 minutos, enfriar a 45–50 °C, mezclar y verter en placas Petri estériles. Uso en laboratorio clínico y microbiología. || Marca: HiMedia | Código (REF): M792-500G | Presentación: frasco × 500 g | Indicador: azul de bromotimol | Aplicación: urocultivo, recuento y diferenciación de bacterias urinarias | Conservación: lugar fresco y seco, frasco bien cerrado",
+    price: 600,
+    cashPrice: 490,
+    image: "/images/laboratorio/REACTIVOS/CLED_AGAR_M792_500G.jpg"
+  },
+
+  {
+    id: "agar-citrato-simmons-m099-500g",
+    name: "AGAR CITRATO DE SIMMONS (SIMMONS CITRATE AGAR) M099 × 500 G – HiMedia",
+    type: "Reactivos",
+    description: "Medio de cultivo deshidratado Agar Citrato de Simmons, código M099, recomendado para diferenciar enterobacterias (Enterobacteriaceae) de muestras clínicas según su capacidad de utilizar el citrato como única fuente de carbono. La prueba positiva se evidencia por crecimiento y viraje del medio de verde a azul (indicador azul de bromotimol). Preparación: suspender 24.28 g en 1000 ml de agua purificada/destilada (pH del agua entre 6.5 y 7.0), calentar hasta ebullición para disolver por completo, distribuir en tubos o frascos y esterilizar en autoclave a 121 °C (15 lbs) por 15 minutos. Uso en laboratorio clínico y microbiología. || Marca: HiMedia | Código (REF): M099-500G | Presentación: frasco × 500 g | Aplicación: prueba de utilización de citrato (IMViC) | Conservación: lugar fresco y seco, frasco bien cerrado",
+    price: 600,
+    cashPrice: 490,
+    image: "/images/laboratorio/REACTIVOS/SIMMONS_CITRATO_M099_500G.jpg"
+  },
+
+  {
+    id: "agar-tcbs-m870-500g",
+    name: "AGAR TCBS (TIOSULFATO, CITRATO, BILIS, SACAROSA) SELECTIVO M870 × 500 G – HiMedia",
+    type: "Reactivos",
+    description: "Medio de cultivo deshidratado Agar TCBS (tiosulfato, citrato, sales biliares y sacarosa), selectivo, código M870, recomendado para el aislamiento y cultivo selectivo de Vibrio cholerae y otros vibrios enteropatógenos a partir de heces, alimentos y agua. Las cepas fermentadoras de sacarosa (como V. cholerae) forman colonias amarillas y las no fermentadoras (como V. parahaemolyticus) colonias verdes. Preparación: suspender 89.08 g en 1000 ml de agua purificada/destilada y calentar hasta ebullición para disolver por completo. NO AUTOCLAVAR. Enfriar a 45–50 °C, mezclar y verter en placas Petri estériles. Uso en laboratorio clínico y microbiología. || Marca: HiMedia | Código (REF): M870-500G | Presentación: frasco × 500 g | Aplicación: aislamiento selectivo de Vibrio | Importante: no autoclavar | Conservación: lugar fresco y seco, frasco bien cerrado",
+    price: 770,
+    cashPrice: 620,
+    image: "/images/laboratorio/REACTIVOS/TCBS_AGAR_M870_500G.jpg"
+  },
+
+  {
+    id: "agar-base-sangre-m073-500g",
+    name: "AGAR BASE SANGRE (BLOOD AGAR BASE – INFUSION AGAR) M073 × 500 G – HiMedia",
+    type: "Reactivos",
+    description: "Medio de cultivo deshidratado Agar Base Sangre (Infusion Agar), código M073, recomendado como base para preparar agar sangre, para el aislamiento y cultivo de numerosos microorganismos exigentes (fastidiosos) como Neisseria y Streptococcus, a partir de muestras clínicas y no clínicas, y para observar reacciones de hemólisis. Preparación: suspender 40.0 g en 1000 ml de agua purificada/destilada, calentar hasta ebullición para disolver por completo, esterilizar en autoclave a 121 °C (15 lbs) por 15 minutos, enfriar a 45–50 °C y agregar asépticamente 5% v/v de sangre desfibrinada estéril. Mezclar y verter en placas Petri estériles. Uso en laboratorio clínico y microbiología. || Marca: HiMedia | Código (REF): M073-500G | Presentación: frasco × 500 g | Aplicación: base para agar sangre, cultivo de microorganismos exigentes y pruebas de hemólisis | Requiere: 5% de sangre desfibrinada estéril (no incluida) | Conservación: lugar fresco y seco, frasco bien cerrado",
+    price: 630,
+    cashPrice: 510,
+    image: "/images/laboratorio/REACTIVOS/AGAR_BASE_SANGRE_M073_500G.jpg"
+  },
+
+  {
+    id: "medio-mio-m378-500g",
+    name: "MEDIO MIO (MOTILIDAD, INDOL, ORNITINA) M378 × 500 G – HiMedia",
+    type: "Reactivos",
+    description: "Medio de cultivo deshidratado MIO (Motility Indole Ornithine Medium), código M378, recomendado para la identificación de enterobacterias (Enterobacteriaceae) en base a tres pruebas en un solo tubo: motilidad, descarboxilación de la ornitina y producción de indol. Preparación: suspender 31.02 g en 1000 ml de agua purificada/destilada, calentar hasta ebullición para disolver por completo, distribuir en tubos de ensayo en volúmenes de 5 ml, esterilizar en autoclave a 121 °C (15 lbs) por 15 minutos y enfriar los tubos en posición vertical. Uso en laboratorio clínico y microbiología. Precaución: provoca irritación ocular grave; usar guantes y protección ocular. || Marca: HiMedia | Código (REF): M378-500G | Presentación: frasco × 500 g | Pruebas: motilidad, ornitina descarboxilasa, indol | Conservación: lugar fresco y seco, frasco bien cerrado",
+    price: 750,
+    cashPrice: 610,
+    image: "/images/laboratorio/REACTIVOS/MEDIO_MIO_M378_500G.jpg"
+  },
+
+  {
+    id: "tiras-ph-universal-boeco-100",
+    name: "TIRAS INDICADORAS DE PH UNIVERSAL 0–14 × 100 – BOECO",
+    type: "Reactivos",
+    description: "Tiras reactivas indicadoras de pH universal, rango pH 0 a 14, para la medición rápida y sencilla del pH de soluciones, reactivos, medios de cultivo, agua y muestras en laboratorio y docencia. Se sumerge la tira en la muestra y se compara el color obtenido con la escala impresa en el empaque. Resultados rápidos y confiables. || Marca: BOECO (Alemania) | Rango: pH 0–14 | Presentación: caja × 100 tiras | Lectura: comparación con escala de colores",
+    price: 25,
+    cashPrice: 19,
+    image: "/images/laboratorio/REACTIVOS/TIRAS_PH_BOECO_100.jpg"
+  },
+
+  {
+    id: "agar-base-urea-christensen-m112-500g",
+    name: "AGAR BASE UREA DE CHRISTENSEN (UREA AGAR BASE) M112 × 500 G – HiMedia",
+    type: "Reactivos",
+    description: "Medio de cultivo deshidratado Agar Base Urea de Christensen (autoclavable), código M112, recomendado para detectar la producción de ureasa, en especial para diferenciar especies del género Proteus de otras bacterias. La prueba positiva se evidencia por el viraje del medio a rosado intenso por la alcalinización. Preparación: suspender 24.01 g en 950 ml de agua purificada/destilada, calentar hasta ebullición para disolver por completo y esterilizar en autoclave a 115 °C (10 lbs) por 20 minutos. NO SOBRECALENTAR NI RECALENTAR. Enfriar a 45–50 °C, agregar asépticamente 50 ml de solución estéril de urea al 40% (FD048), mezclar, distribuir en tubos estériles y dejar solidificar en posición inclinada (pico de flauta). Uso en laboratorio clínico y microbiología. || Marca: HiMedia | Código (REF): M112-500G | Presentación: frasco × 500 g | Aplicación: prueba de ureasa | Requiere: solución de urea al 40% estéril (no incluida) | Conservación: lugar fresco y seco, frasco bien cerrado",
+    price: 850,
+    cashPrice: 690,
+    image: "/images/laboratorio/REACTIVOS/AGAR_UREA_CHRISTENSEN_M112_500G.jpg"
+  },
+
+  {
+    id: "agar-lia-lisina-hierro-m377-500g",
+    name: "AGAR LIA – LISINA HIERRO (LYSINE IRON AGAR) M377 × 500 G – HiMedia",
+    type: "Reactivos",
+    description: "Medio de cultivo deshidratado Agar Lisina Hierro (LIA), código M377, recomendado para la diferenciación de enterobacterias, especialmente Salmonella y Shigella, según su capacidad de descarboxilar o desaminar la lisina y de producir sulfuro de hidrógeno (H₂S). Preparación: suspender 34.56 g en 1000 ml de agua purificada/destilada, calentar hasta ebullición para disolver por completo, distribuir en tubos y esterilizar en autoclave a 121 °C (15 lbs) por 15 minutos. Enfriar los tubos en posición inclinada para formar picos de flauta con fondo profundo. Uso en laboratorio clínico y microbiología. || Marca: HiMedia | Código (REF): M377-500G | Presentación: frasco × 500 g | Pruebas: descarboxilación y desaminación de lisina, producción de H₂S | Conservación: lugar fresco y seco, frasco bien cerrado",
+    price: 530,
+    cashPrice: 420,
+    image: "/images/laboratorio/REACTIVOS/AGAR_LIA_M377_500G.jpg"
+  },
 ];

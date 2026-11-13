@@ -125,7 +125,7 @@ export default function HomePage({ cartCount }) {
           {categories.map((slug) => (
             <Link
               key={slug}
-              to={`/catalogo?categoria=${slug}`}
+              to={slug === "laminas-histologicas" ? "/laminas" : `/catalogo?categoria=${slug}`}
               className="group flex flex-col items-center gap-2 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 text-center
                          shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-[#208790]/40 active:scale-95"
             >
