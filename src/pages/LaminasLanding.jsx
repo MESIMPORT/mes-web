@@ -44,6 +44,13 @@ const COLLECTIONS = [
     match: (t) => t === "Láminas de Micología",
   },
   {
+    key: "microbiologia",
+    title: "Microbiología",
+    text: "Frotis bacterianos y parasitarios: BAAR, Gram, Neisseria, gérmenes de ITU y secreción vaginal.",
+    image: "/images/laminas/microbiologia/LAMINA_BAAR.jpg",
+    match: (t) => t === "Láminas de Microbiología",
+  },
+  {
     key: "embriologia",
     title: "Embriología",
     text: "Sets y cortes seriados del desarrollo embrionario.",

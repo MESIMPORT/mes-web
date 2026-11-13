@@ -1454,7 +1454,7 @@ export const rehabilitacionYFisioterapiaProducts = [
     name: "PESAS TOBILLERAS",
     type: "Rehabilitacion",
     description: "Pesas tobilleras para ejercicios de fortalecimiento muscular, rehabilitación y fisioterapia. Se colocan en el tobillo o la muñeca para añadir resistencia a ejercicios de miembros inferiores y superiores, marcha y movilidad. Disponibles en 1, 3 y 5 kg para una progresión gradual de la carga.",
-    image: "/images/rehab/PESAS/PESAS_TOBILLERAS.png",
+    image: "/images/rehab/PESAS/PESAS_TOBILLERAS_1_3_5KG.jpg",
 
     attributeOrder: ["peso"],
 
@@ -1472,9 +1472,9 @@ export const rehabilitacionYFisioterapiaProducts = [
     ],
 
     variants: [
-      { sku: "PT-GEN-1KG", attrs: { peso: "1kg" }, name: "PESA TOBILLERA 1 KG", description: "Pesa tobillera de 1 kg para ejercicios de fortalecimiento, rehabilitación y fisioterapia. || Peso: 1 kg.", price: 22.95, image: "/images/rehab/PESAS/PESA_1KG.png" },
-      { sku: "PT-GEN-3KG", attrs: { peso: "3kg" }, name: "PESA TOBILLERA 3 KG", description: "Pesa tobillera de 3 kg para ejercicios de fortalecimiento, rehabilitación y fisioterapia. || Peso: 3 kg.", price: 38.25, image: "/images/rehab/PESAS/PESA_3KG.png" },
-      { sku: "PT-GEN-5KG", attrs: { peso: "5kg" }, name: "PESA TOBILLERA 5 KG", description: "Pesa tobillera de 5 kg para ejercicios de fortalecimiento, rehabilitación y fisioterapia. || Peso: 5 kg.", price: 61.2, image: "/images/rehab/PESAS/PESA_5KG.png" }
+      { sku: "PT-GEN-1KG", attrs: { peso: "1kg" }, name: "PESA TOBILLERA 1 KG", description: "Pesa tobillera de 1 kg para ejercicios de fortalecimiento, rehabilitación y fisioterapia. || Peso: 1 kg.", price: 22.95, image: "/images/rehab/PESAS/PESA_TOBILLERA_1KG.jpg" },
+      { sku: "PT-GEN-3KG", attrs: { peso: "3kg" }, name: "PESA TOBILLERA 3 KG", description: "Pesa tobillera de 3 kg para ejercicios de fortalecimiento, rehabilitación y fisioterapia. || Peso: 3 kg.", price: 38.25, image: "/images/rehab/PESAS/PESA_TOBILLERA_3KG.jpg" },
+      { sku: "PT-GEN-5KG", attrs: { peso: "5kg" }, name: "PESA TOBILLERA 5 KG", description: "Pesa tobillera de 5 kg para ejercicios de fortalecimiento, rehabilitación y fisioterapia. || Peso: 5 kg.", price: 61.2, image: "/images/rehab/PESAS/PESA_TOBILLERA_5KG.jpg" }
     ]
   },
 

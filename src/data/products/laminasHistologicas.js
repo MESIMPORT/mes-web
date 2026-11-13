@@ -195,8 +195,10 @@ export const laminasHistologicasProducts = [
     name: "LÁMINA HISTOLÓGICA – EPIDERMOPHYTON FLOCCOSUM",
     type: "Láminas de Micología",
     description: "Lámina histológica preparada con Epidermophyton floccosum, dermatofito antropofílico causante de tinea pedis, cruris y unguium. Permite la identificación microscópica de sus macroconidias claviformes lisas y de pared delgada, en ausencia de microconidias, rasgo diferencial de la especie. Recurso clave para prácticas de micología médica y diagnóstico de dermatofitosis en programas universitarios.",
-    price: 60,
-    image: "/images/laminas/micologia/IMG.png"
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/micologia/LAMINA_EPIDERMOPHYTON_FLOCCOSUM.jpg",
+    images: ["/images/laminas/micologia/LAMINA_EPIDERMOPHYTON_FLOCCOSUM.jpg", "/images/laminas/micologia/LAMINA_EPIDERMOPHYTON_FLOCCOSUM_1.jpg", "/images/laminas/micologia/LAMINA_EPIDERMOPHYTON_FLOCCOSUM_2.jpg"]
   },
 
   {
@@ -204,8 +206,10 @@ export const laminasHistologicasProducts = [
     name: "LÁMINA HISTOLÓGICA – TRICHOPHYTON MENTAGROPHYTES",
     type: "Láminas de Micología",
     description: "Lámina histológica preparada con Trichophyton mentagrophytes, dermatofito causante de tinea pedis, corporis y barbae, que permite la identificación microscópica de sus microconidias esféricas en racimos y macroconidias de pared delgada. Recurso esencial para prácticas de micología médica y diagnóstico diferencial de dermatofitosis en programas universitarios de medicina y microbiología.",
-    price: 60,
-    image: "/images/laminas/micologia/IMG.png"
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/micologia/LAMINA_TRICHOPHYTON_MENTAGROPHYTES.jpg",
+    images: ["/images/laminas/micologia/LAMINA_TRICHOPHYTON_MENTAGROPHYTES.jpg", "/images/laminas/micologia/LAMINA_TRICHOPHYTON_MENTAGROPHYTES_1.jpg", "/images/laminas/micologia/LAMINA_TRICHOPHYTON_MENTAGROPHYTES_2.jpg", "/images/laminas/micologia/LAMINA_TRICHOPHYTON_MENTAGROPHYTES_3.jpg", "/images/laminas/micologia/LAMINA_TRICHOPHYTON_MENTAGROPHYTES_4.jpg"]
   },
 
   {
@@ -213,8 +217,10 @@ export const laminasHistologicasProducts = [
     name: "LÁMINA HISTOLÓGICA – TRICHOPHYTON TONSURANS",
     type: "Láminas de Micología",
     description: "Lámina histológica preparada con Trichophyton tonsurans, principal agente de tinea capitis endotrix en humanos, que permite la identificación microscópica de sus microconidias en forma de clavija de gran tamaño, características morfológicas diferenciales de la especie. Recurso clave para prácticas de micología médica y diagnóstico de tiñas del cuero cabelludo en programas universitarios de medicina.",
-    price: 60,
-    image: "/images/laminas/micologia/IMG.png"
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/micologia/LAMINA_TRICHOPHYTON_TONSURANS.jpg",
+    images: ["/images/laminas/micologia/LAMINA_TRICHOPHYTON_TONSURANS.jpg", "/images/laminas/micologia/LAMINA_TRICHOPHYTON_TONSURANS_1.jpg", "/images/laminas/micologia/LAMINA_TRICHOPHYTON_TONSURANS_2.jpg"]
   },
 
   {
@@ -240,8 +246,10 @@ export const laminasHistologicasProducts = [
     name: "LÁMINA HISTOLÓGICA – HISTOPLASMA CAPSULATUM",
     type: "Láminas de Micología",
     description: "Lámina histológica preparada con Histoplasma capsulatum, hongo dimórfico causante de histoplasmosis, micosis endémica de distribución mundial. Permite la identificación microscópica de las microconidias tuberculadas y macroconidias características de la fase micelial, así como las levaduras intracelulares en macrófagos en la fase tisular. Recurso clave para prácticas de micología médica avanzada.",
-    price: 60,
-    image: "/images/laminas/micologia/IMG.png"
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/micologia/LAMINA_HISTOPLASMA_CAPSULATUM.jpg",
+    images: ["/images/laminas/micologia/LAMINA_HISTOPLASMA_CAPSULATUM.jpg", "/images/laminas/micologia/LAMINA_HISTOPLASMA_CAPSULATUM_1.jpg", "/images/laminas/micologia/LAMINA_HISTOPLASMA_CAPSULATUM_2.jpg"]
   },
 
   {
@@ -249,8 +257,10 @@ export const laminasHistologicasProducts = [
     name: "LÁMINA HISTOLÓGICA – SPOROTHRIX SCHENCKII",
     type: "Láminas de Micología",
     description: "Lámina histológica preparada con Sporothrix schenckii, hongo dimórfico causante de esporotricosis, micosis subcutánea de distribución mundial. Permite la identificación microscópica de los conidióforos simpodiales con conidias en disposición en 'flor de margarita', característica morfológica diferencial de la fase micelial. Recurso esencial para prácticas de micología médica en programas universitarios de medicina.",
-    price: 60,
-    image: "/images/laminas/micologia/IMG.png"
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/micologia/LAMINA_SPOROTHRIX_SCHENCKII.jpg",
+    images: ["/images/laminas/micologia/LAMINA_SPOROTHRIX_SCHENCKII.jpg", "/images/laminas/micologia/LAMINA_SPOROTHRIX_SCHENCKII_1.jpg", "/images/laminas/micologia/LAMINA_SPOROTHRIX_SCHENCKII_2.jpg", "/images/laminas/micologia/LAMINA_SPOROTHRIX_SCHENCKII_3.jpg"]
   },
 
   {
@@ -723,4 +733,94 @@ export const laminasHistologicasProducts = [
   { id: "lamina-pat-fibroma-odontogenico-maxilar", name: "LÁMINA HISTOPATOLÓGICA – FIBROMA ODONTOGÉNICO (MAXILAR)", type: "Histopatología – Neoplasias (tumores)", description: "Lámina histopatológica preparada de fibroma odontogénico (maxilar). Permite la observación microscópica de la arquitectura y las características citológicas de esta neoplasia. Tinción: H&E en la mayoría de casos (consultar por tinciones especiales). Recurso para prácticas de anatomía patológica en programas universitarios de medicina y ciencias de la salud.", price: 70, image: "/images/laminas/histopatologia/IMG.png" },
   { id: "lamina-pat-mixoma-odontogenico-maxilar", name: "LÁMINA HISTOPATOLÓGICA – MIXOMA ODONTOGÉNICO (MAXILAR)", type: "Histopatología – Neoplasias (tumores)", description: "Lámina histopatológica preparada de mixoma odontogénico (maxilar). Permite la observación microscópica de la arquitectura y las características citológicas de esta neoplasia. Tinción: H&E en la mayoría de casos (consultar por tinciones especiales). Recurso para prácticas de anatomía patológica en programas universitarios de medicina y ciencias de la salud.", price: 70, image: "/images/laminas/histopatologia/IMG.png" },
   { id: "lamina-pat-epulis-encia", name: "LÁMINA HISTOPATOLÓGICA – ÉPULIS (ENCÍA)", type: "Histopatología – Inflamación e infecciones", description: "Lámina histopatológica preparada de épulis (encía). Permite la observación microscópica de los cambios morfológicos característicos de este proceso inflamatorio o infeccioso. Tinción: H&E en la mayoría de casos (consultar por tinciones especiales). Recurso para prácticas de anatomía patológica en programas universitarios de medicina y ciencias de la salud.", price: 70, image: "/images/laminas/histopatologia/IMG.png" },
+
+  {
+    id: "lamina-bacilos-acido-alcohol-resistentes-baar",
+    name: "LÁMINA DE MICROBIOLOGÍA – BACILOS ÁCIDO-ALCOHOL RESISTENTES (BAAR)",
+    type: "Láminas de Microbiología",
+    description: "Lámina portaobjetos con frotis de bacilos ácido-alcohol resistentes (BAAR), teñido con la técnica de Ziehl-Neelsen. Permite observar al microscopio los bacilos de color rojo sobre fondo azul, característicos de Mycobacterium, y practicar la lectura e interpretación de la baciloscopía para el diagnóstico de tuberculosis. Preparado permanente, no viable y no infeccioso, de uso exclusivamente didáctico (no clínico ni para diagnóstico). Recurso para prácticas de microbiología en programas universitarios de medicina, tecnología médica, biología y ciencias de la salud. || Presentación: unidad | Tinción: Ziehl-Neelsen | Preparado permanente | Uso: didáctico",
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/microbiologia/LAMINA_BAAR.jpg"
+  },
+
+  {
+    id: "lamina-streptococcus-pneumoniae-gram",
+    name: "LÁMINA DE MICROBIOLOGÍA – STREPTOCOCCUS PNEUMONIAE (GRAM)",
+    type: "Láminas de Microbiología",
+    description: "Lámina portaobjetos con frotis de Streptococcus pneumoniae teñido con la técnica de Gram. Permite observar los diplococos grampositivos lanceolados (en forma de llama de vela), de color violeta, característicos del neumococo, principal agente de neumonía, otitis y meningitis bacteriana. Preparado permanente, no viable y no infeccioso, de uso exclusivamente didáctico (no clínico ni para diagnóstico). Recurso para prácticas de microbiología en programas universitarios de medicina, tecnología médica, biología y ciencias de la salud. || Presentación: unidad | Tinción: Gram | Preparado permanente | Uso: didáctico",
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/microbiologia/LAMINA_STREPTOCOCCUS_PNEUMONIAE_GRAM.jpg"
+  },
+
+  {
+    id: "lamina-microsporum-canis",
+    name: "LÁMINA DE MICOLOGÍA – MICROSPORUM CANIS",
+    type: "Láminas de Micología",
+    description: "Lámina portaobjetos con preparado microscópico de Microsporum canis, dermatofito zoofílico transmitido principalmente por gatos y perros, causante de tinea capitis y tinea corporis. Permite identificar sus macroconidias fusiformes de pared gruesa y rugosa, con múltiples tabiques y extremo puntiagudo, rasgo diferencial de la especie. Preparado permanente, no viable y no infeccioso, de uso exclusivamente didáctico (no clínico ni para diagnóstico). Recurso para prácticas de microbiología en programas universitarios de medicina, tecnología médica, biología y ciencias de la salud. || Presentación: unidad | Preparado permanente | Uso: didáctico",
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/micologia/LAMINA_MICROSPORUM_CANIS.jpg"
+  },
+
+  {
+    id: "laminas-secrecion-vaginal-coloreadas-set",
+    name: "LÁMINAS COLOREADAS DE SECRECIÓN VAGINAL – SET",
+    type: "Láminas de Microbiología",
+    description: "Láminas portaobjetos con frotis coloreados de secreción vaginal. Permiten observar células epiteliales, leucocitos y la flora presente en la muestra, y practicar la evaluación microscópica del flujo vaginal: flora normal de lactobacilos, células guía de la vaginosis bacteriana y elementos de levaduras. Preparado permanente, no viable y no infeccioso, de uso exclusivamente didáctico (no clínico ni para diagnóstico). Recurso para prácticas de microbiología en programas universitarios de medicina, tecnología médica, biología y ciencias de la salud. || Presentación: set | Muestra: secreción vaginal coloreada | Preparado permanente | Uso: didáctico",
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/microbiologia/LAMINA_SECRECION_VAGINAL.jpg"
+  },
+
+  {
+    id: "lamina-candida-albicans-gram",
+    name: "LÁMINA DE MICOLOGÍA – CANDIDA ALBICANS (GRAM)",
+    type: "Láminas de Micología",
+    description: "Lámina portaobjetos con frotis de Candida albicans teñido con la técnica de Gram. Permite observar las levaduras ovaladas grampositivas, con gemaciones y seudohifas, características de la principal especie causante de candidiasis oral, vaginal y cutánea. Preparado permanente, no viable y no infeccioso, de uso exclusivamente didáctico (no clínico ni para diagnóstico). Recurso para prácticas de microbiología en programas universitarios de medicina, tecnología médica, biología y ciencias de la salud. || Presentación: unidad | Tinción: Gram | Preparado permanente | Uso: didáctico",
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/micologia/LAMINA_CANDIDA_ALBICANS_GRAM.jpg"
+  },
+
+  {
+    id: "lamina-neisseria-gonorrhoeae",
+    name: "LÁMINA DE MICROBIOLOGÍA – NEISSERIA GONORRHOEAE",
+    type: "Láminas de Microbiología",
+    description: "Lámina portaobjetos con frotis de Neisseria gonorrhoeae. Permite observar los diplococos gramnegativos en forma de grano de café, característicos del gonococo, agente causal de la gonorrea, y practicar su identificación microscópica. Preparado permanente, no viable y no infeccioso, de uso exclusivamente didáctico (no clínico ni para diagnóstico). Recurso para prácticas de microbiología en programas universitarios de medicina, tecnología médica, biología y ciencias de la salud. || Presentación: unidad | Preparado permanente | Uso: didáctico",
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/microbiologia/LAMINA_NEISSERIA_GONORRHOEAE.jpg"
+  },
+
+  {
+    id: "lamina-neisseria-meningitidis",
+    name: "LÁMINA DE MICROBIOLOGÍA – NEISSERIA MENINGITIDIS",
+    type: "Láminas de Microbiología",
+    description: "Lámina portaobjetos con frotis de Neisseria meningitidis. Permite observar los diplococos gramnegativos en forma de grano de café, característicos del meningococo, agente de meningitis y sepsis meningocócica, y compararlos con otras especies de Neisseria. Preparado permanente, no viable y no infeccioso, de uso exclusivamente didáctico (no clínico ni para diagnóstico). Recurso para prácticas de microbiología en programas universitarios de medicina, tecnología médica, biología y ciencias de la salud. || Presentación: unidad | Preparado permanente | Uso: didáctico",
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/microbiologia/LAMINA_NEISSERIA_MENINGITIDIS.jpg"
+  },
+
+  {
+    id: "lamina-trichomonas-vaginalis",
+    name: "LÁMINA DE MICROBIOLOGÍA – TRICHOMONAS VAGINALIS",
+    type: "Láminas de Microbiología",
+    description: "Lámina portaobjetos con frotis de Trichomonas vaginalis, protozoario flagelado causante de la tricomoniasis urogenital. Permite observar los trofozoítos piriformes con su núcleo, flagelos anteriores y membrana ondulante, y practicar su identificación en muestras de secreción. Preparado permanente, no viable y no infeccioso, de uso exclusivamente didáctico (no clínico ni para diagnóstico). Recurso para prácticas de microbiología en programas universitarios de medicina, tecnología médica, biología y ciencias de la salud. || Presentación: unidad | Preparado permanente | Uso: didáctico",
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/microbiologia/LAMINA_TRICHOMONAS_VAGINALIS.jpg"
+  },
+
+  {
+    id: "laminas-germenes-itu-set-3",
+    name: "LÁMINAS DE GÉRMENES DE INFECCIÓN URINARIA (ITU) – SET × 3",
+    type: "Láminas de Microbiología",
+    description: "Juego de 3 láminas portaobjetos con frotis de los principales gérmenes causantes de infección del tracto urinario: Pseudomonas aeruginosa, Klebsiella pneumoniae y Escherichia coli. Permiten observar y comparar la morfología de estos bacilos gramnegativos y practicar su identificación microscópica. Preparado permanente, no viable y no infeccioso, de uso exclusivamente didáctico (no clínico ni para diagnóstico). Recurso para prácticas de microbiología en programas universitarios de medicina, tecnología médica, biología y ciencias de la salud. || Presentación: set × 3 láminas | Contenido: 3 láminas (Pseudomonas aeruginosa, Klebsiella pneumoniae, Escherichia coli) | Preparado permanente | Uso: didáctico",
+    price: 150,
+    cashPrice: 120,
+    image: "/images/laminas/microbiologia/LAMINA_ITU_SET_3.jpg"
+  },
 ];
