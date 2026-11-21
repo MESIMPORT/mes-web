@@ -29,7 +29,7 @@ export default function SearchResultsPage({ cartCount = 0, openMiniCart }) {
           items.push({
             id: product.id, // Keep parent ID for navigation
             variantSku: variant.sku,
-            name: variant.name,
+            name: variant.name ? `${product.name} · ${variant.name}` : product.name,
             description: variant.description,
             image: variant.image || variant.images?.[0] || product.image,
             price: variant.price,
@@ -42,6 +42,7 @@ export default function SearchResultsPage({ cartCount = 0, openMiniCart }) {
         items.push({
           id: product.id,
           name: product.name,
+          subtitle: product.subtitle,
           description: product.description,
           image: product.image,
           price: product.price,
@@ -56,7 +57,7 @@ export default function SearchResultsPage({ cartCount = 0, openMiniCart }) {
   const results = useMemo(() => {
     if (!q) return [];
     return searchableItems.filter((item) => {
-      const name = normalize(item?.name || "");
+      const name = normalize(`${item?.name || ""} ${item?.subtitle || ""}`);
       const desc = normalize(item?.description || "");
       const parentName = normalize(item?.parentName || "");
       return name.includes(q) || desc.includes(q) || parentName.includes(q);
@@ -109,7 +110,7 @@ export default function SearchResultsPage({ cartCount = 0, openMiniCart }) {
                   />
                 </div>
 
-                <p className="mt-3 text-sm font-semibold text-slate-900 line-clamp-2">
+                <p className="mt-3 text-[13px] leading-snug font-semibold text-slate-900 line-clamp-3">
                   {item.name}
                 </p>
 

@@ -68,7 +68,7 @@ export const ALL_PRODUCTS_BY_CATEGORY = {
   "equipamiento-y-laboratorio-y-reactivos": equipamientoYLaboratorioYReactivosProducts,
   "dermoestetica-y-cuidado-personal": dermoesteticaYCuidadoPersonalProducts,
   "odontologia": odontologiaProducts,
-  "laminas-histologicas": laminasHistologicasProducts.map((p) => ({ cashDiscount: 0.08, ...p })),
+  "laminas-histologicas": laminasHistologicasProducts,
 
 };
 

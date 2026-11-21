@@ -165,6 +165,22 @@ function CategoryBar({ activeCategory, location, navigate }) {
 
 const minPrice = 0;
 
+// Orden de los subfiltros de "Tipo de producto" (láminas)
+const TYPE_ORDER = [
+  "Kits",
+  "Embriología",
+  "Hematología",
+  "Histología",
+  "Micología",
+  "Microbiología",
+  "Histopatología · General",
+  "Histopatología · Inflamación",
+  "Histopatología · Lesión celular",
+  "Histopatología · Neoplasias",
+  "Histopatología · Circulatorios",
+  "Histopatología · Quistes y otras",
+];
+
 
 const parsePrice = (price) =>
   Number(String(price).replace(/[^\d.]/g, "")) || 0;
@@ -216,17 +232,19 @@ export default function CatalogPage({ cartCount = 0 }) {
   }, []);
 
   const dynamicMaxPrice = useMemo(() => {
-    const source =
-      activeCategory === "all"
-        ? allProducts
-        : allProducts.filter((p) => p.categorySlug === activeCategory);
+    // El máximo del slider depende del filtro actual: categoría + tipos seleccionados
+    const source = allProducts.filter(
+      (p) =>
+        (activeCategory === "all" || p.categorySlug === activeCategory) &&
+        (selectedTypes.length === 0 || selectedTypes.includes(p.type))
+    );
 
     const prices = source
       .map((p) => parsePrice(p.price ?? p.variants?.[0]?.price ?? 0))
       .filter((n) => n > 0);
 
     return prices.length ? Math.max(...prices) : 0;
-  }, [allProducts, activeCategory]);
+  }, [allProducts, activeCategory, selectedTypes]);
 
   const maxPrice = dynamicMaxPrice;
 
@@ -257,7 +275,7 @@ export default function CatalogPage({ cartCount = 0 }) {
       const urlMin = Number(minParam);
       const urlMax = Number(maxParam);
       // Solo restaurar si el max de URL es ≤ al max dinámico actual
-      if (!isNaN(urlMin) && !isNaN(urlMax) && urlMax <= dynamicMaxPrice) {
+      if (!isNaN(urlMin) && !isNaN(urlMax) && urlMin <= urlMax && urlMax <= dynamicMaxPrice) {
         setPriceRange([urlMin, urlMax]);
         return;
       }
@@ -353,13 +371,22 @@ export default function CatalogPage({ cartCount = 0 }) {
             activeCategory
         );
 
-    return Array.from(
+    const types = Array.from(
       new Set(
         source
           .map((p) => p.type)
           .filter(Boolean)
       )
     );
+    // Orden preferido (láminas); los tipos no listados conservan su orden original
+    const rank = (t) => {
+      const i = TYPE_ORDER.indexOf(t);
+      return i === -1 ? TYPE_ORDER.length : i;
+    };
+    return types
+      .map((t, i) => ({ t, i }))
+      .sort((a, b) => rank(a.t) - rank(b.t) || a.i - b.i)
+      .map((x) => x.t);
   }, [allProducts, activeCategory]);
 
 
@@ -691,7 +718,7 @@ export default function CatalogPage({ cartCount = 0 }) {
                             _parentId: p.id,
                             _parentSearch: location.search,
                             id: `${p.id}--${v.sku}`,
-                            name: v.name || p.name,
+                            name: v.name ? `${p.name} · ${v.name}` : p.name,
                             categoryLabel: p.categoryLabel,
                             price: v.price,
                             image:
@@ -799,7 +826,7 @@ export default function CatalogPage({ cartCount = 0 }) {
                           }}
                         />
 
-                        <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100 line-clamp-2">
+                        <h3 title={item.name} className="text-[13px] leading-snug font-semibold text-slate-900 dark:text-slate-100 line-clamp-3">
                           {item.name}
                         </h3>
 

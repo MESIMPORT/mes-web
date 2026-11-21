@@ -68,7 +68,7 @@ export default function MESHeader({ cartCount = 0 }) {
           items.push({
             id: product.id, // Keep parent ID for navigation
             variantSku: variant.sku,
-            name: variant.name,
+            name: variant.name ? `${product.name} · ${variant.name}` : product.name,
             description: variant.description,
             image: variant.image || variant.images?.[0] || product.image,
             price: variant.price,
@@ -81,6 +81,7 @@ export default function MESHeader({ cartCount = 0 }) {
         items.push({
           id: product.id,
           name: product.name,
+          subtitle: product.subtitle,
           description: product.description,
           image: product.image,
           price: product.price,
@@ -95,16 +96,17 @@ export default function MESHeader({ cartCount = 0 }) {
   const searchResults = React.useMemo(() => {
     if (!search.trim()) return [];
 
-    const q = search.toLowerCase();
+    const norm = (s = "") => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const q = norm(search.trim());
 
     // Filter and categorize results
     const nameMatches = [];
     const descMatches = [];
 
     searchableItems.forEach((item) => {
-      const nameMatch = item.name?.toLowerCase().includes(q);
-      const descMatch = item.description?.toLowerCase().includes(q);
-      const parentMatch = item.parentName?.toLowerCase().includes(q);
+      const nameMatch = norm(item.name).includes(q) || norm(item.subtitle).includes(q);
+      const descMatch = norm(item.description).includes(q);
+      const parentMatch = norm(item.parentName).includes(q);
 
       if (nameMatch) {
         nameMatches.push(item);

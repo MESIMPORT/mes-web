@@ -20,42 +20,42 @@ const COLLECTIONS = [
     title: "Histología",
     text: "Tejidos y órganos normales humanos por sistema, en H&E y tinciones especiales.",
     image: "/images/laminas/histologia/lamina-hipofisis-masson.jpg",
-    match: (t) => t === "Láminas Histológicas",
+    match: (t) => t === "Histología",
   },
   {
     key: "histopatologia",
     title: "Histopatología",
     text: "Patología humana: neoplasias, inflamación, lesión celular y trastornos circulatorios.",
-    image: "/images/laminas/histopatologia/IMG.png",
-    match: (t) => t.startsWith("Histopatología") || t === "Láminas de Histopatología",
+    image: "/images/laminas/histopatologia/lamina-apendicitis-aguda.jpg",
+    match: (t) => t.startsWith("Histopatología"),
   },
   {
     key: "hematologia",
     title: "Hematología",
     text: "Frotis de sangre periférica y médula ósea, leucemias y alteraciones morfológicas.",
     image: "/images/laminas/hematologia/frotis-sangre-alteraciones-morfologicas.jpg",
-    match: (t) => t === "Láminas Hematológicas",
+    match: (t) => t === "Hematología",
   },
   {
     key: "micologia",
     title: "Micología",
     text: "Hongos de interés clínico: dermatofitos, levaduras y hongos filamentosos.",
     image: "/images/laminas/micologia/lamina-aspergillus-fumigatus.jpg",
-    match: (t) => t === "Láminas de Micología",
+    match: (t) => t === "Micología",
   },
   {
     key: "microbiologia",
     title: "Microbiología",
     text: "Frotis bacterianos y parasitarios: BAAR, Gram, Neisseria, gérmenes de ITU y secreción vaginal.",
     image: "/images/laminas/microbiologia/LAMINA_BAAR.jpg",
-    match: (t) => t === "Láminas de Microbiología",
+    match: (t) => t === "Microbiología",
   },
   {
     key: "embriologia",
     title: "Embriología",
     text: "Sets y cortes seriados del desarrollo embrionario.",
     image: "/images/laminas/embriologia/laminas-de-embriologia-set-08.jpg",
-    match: (t) => t === "Láminas de Embriología",
+    match: (t) => t === "Embriología",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function LaminasLanding() {
   const navigate = useNavigate();
   const items = PRODUCTS_BY_CATEGORY[SLUG] || [];
   const types = [...new Set(items.map((p) => p.type).filter(Boolean))];
-  const kits = items.filter((p) => p.type === "Kits de láminas");
+  const kits = items.filter((p) => p.type === "Kits");
 
   const collections = COLLECTIONS.map((c) => {
     const cTypes = types.filter(c.match);

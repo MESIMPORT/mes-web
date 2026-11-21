@@ -17,10 +17,17 @@ export default function ProductPage({ cartCount, onAddToCart }) {
   const location = useLocation();
 
 
+  // Volver a la página exacta de donde vino el usuario (búsqueda, catálogo
+  // filtrado, landing, etc.). Si entró directo por enlace (sin historial
+  // dentro de la web), lo enviamos al catálogo.
   const handleClose = () => {
     const savedSearch = sessionStorage.getItem("catalogSearch") ?? "";
     sessionStorage.removeItem("catalogSearch");
-    navigate(`/catalogo${savedSearch}`);
+    if (location.key && location.key !== "default") {
+      navigate(-1);
+    } else {
+      navigate(`/catalogo${savedSearch}`);
+    }
   };
 
 
@@ -58,7 +65,7 @@ export default function ProductPage({ cartCount, onAddToCart }) {
           <button
             type="button"
             onClick={handleClose}
-            aria-label="Volver al catálogo"
+            aria-label="Volver"
             className="
               pointer-events-auto
               inline-flex items-center gap-1.5
@@ -105,7 +112,7 @@ export default function ProductPage({ cartCount, onAddToCart }) {
         <button
           type="button"
           onClick={handleClose}
-          aria-label="Volver al catálogo"
+          aria-label="Volver"
           className="
             inline-flex items-center gap-1.5
             rounded-full
@@ -123,7 +130,7 @@ export default function ProductPage({ cartCount, onAddToCart }) {
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 shrink-0">
             <path fillRule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z" clipRule="evenodd" />
           </svg>
-          Catálogo
+          Volver
         </button>
       </div>
     </>

@@ -697,7 +697,7 @@ export default function ProductConfigurator({ product, onAddToCart }) {
 
         <div className="grid grid-cols-1 md:grid-cols-[80px_1fr_1fr] gap-6">
           {/* Miniaturas DESKTOP — vertical */}
-          <div className="hidden md:flex flex-col gap-2">
+          <div className="hidden md:flex flex-col gap-2 max-h-[460px] overflow-y-auto pr-1 [scrollbar-width:thin]">
             {(activeImages.length > 0 ? activeImages : galleryImages).length > 1 &&
               (activeImages.length > 0 ? activeImages : galleryImages).map(
                 (img, i) => (
@@ -709,7 +709,7 @@ export default function ProductConfigurator({ product, onAddToCart }) {
                         setActiveImage(img);
                       }
                     }}
-                    className={`h-16 w-16 rounded border border-transparent
+                    className={`shrink-0 h-16 w-16 rounded border border-transparent
   hover:ring-2 hover:ring-[#208790]
   ${img === activeImage ? "ring-2 ring-[#208790]" : ""}
 `}
@@ -794,9 +794,43 @@ export default function ProductConfigurator({ product, onAddToCart }) {
 
 
 
-            <div className="text-2xl font-bold">
-              {displayPrice}
-            </div>
+                        {Array.isArray(safeProduct.downloads) && safeProduct.downloads.length > 0 && (
+              <div className="space-y-1">
+                {safeProduct.downloads.map((d) => (
+                  <a
+                    key={d.url}
+                    href={d.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-[#208790] hover:underline"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" /></svg>
+                    {d.label}
+                  </a>
+                ))}
+              </div>
+            )}
+
+            {(() => {
+              const lp =
+                typeof basePrice === "number" && !String(displayPrice).startsWith("Desde")
+                  ? basePrice + extraPrice
+                  : null;
+              const hasCash =
+                (cashPriceFor(selectedSkuVariant, lp) ?? cashPriceFor(safeProduct, lp)) != null;
+              return (
+                <div>
+                  {hasCash && (
+                    <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                      Precio con crédito
+                    </div>
+                  )}
+                  <div className="text-2xl font-bold">
+                    {displayPrice}
+                  </div>
+                </div>
+              );
+            })()}
 
             {(() => {
               const listPrice =
@@ -873,6 +907,28 @@ export default function ProductConfigurator({ product, onAddToCart }) {
                   <div key={attr.id}>
                     <div className="text-sm font-medium">{attr.label}</div>
 
+                    {attr.type === "single" && (attr.display === "select" || visibleValues.length > 6) ? (
+                      <select
+                        value={selAttrs[attr.id]?.[0] || ""}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          const curr = selAttrs[attr.id]?.[0];
+                          if (!val) {
+                            if (curr) toggleAttr(attr.id, curr);
+                          } else if (val !== curr) {
+                            toggleAttr(attr.id, val);
+                          }
+                        }}
+                        className="mt-1 w-full px-3 py-2 rounded-lg border text-sm bg-white dark:bg-slate-800 dark:text-slate-200 dark:border-slate-600 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#208790]"
+                      >
+                        <option value="">Selecciona una opción</option>
+                        {visibleValues.map((v) => (
+                          <option key={v.id} value={v.id}>
+                            {v.label}
+                          </option>
+                        ))}
+                      </select>
+                    ) : (
                     <div className="flex flex-wrap gap-2 mt-1">
                       {attr.values
                         // 👉 SOLO en cascada 2 ocultamos los inhabilitados
@@ -997,6 +1053,7 @@ export default function ProductConfigurator({ product, onAddToCart }) {
                           );
                         })}
                     </div>
+                    )}
                   </div>
                 );
               })}

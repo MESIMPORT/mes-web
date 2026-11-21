@@ -732,33 +732,33 @@ export const materialDescartableMedicoProducts = [
       {
         sku: "guantes-nitrilo-xs",
         attrs: { talla: "xs" },
-        name: "GUANTES DE NITRILO – TALLA XS (CAJA × 50 PARES)",
+        name: "Talla XS · caja × 50 pares",
         description: "Guantes descartables de nitrilo color azul cobalto, sin látex natural, ambidiestros, con puño con reborde y ajuste ergonómico. Ideales para procedimientos clínicos, laboratorio, odontología y manipulación de muestras. || Material: Nitrilo | Color: Azul cobalto | Talla: XS | Presentación: Caja × 50 pares (100 unidades) | Libre de látex natural",
-        price: 16,
+        price: 16, cashPrice: 15,
         image: "/images/descartable/GUANTES/NITRILO_XS.png"
       },
       {
         sku: "guantes-nitrilo-s",
         attrs: { talla: "s" },
-        name: "GUANTES DE NITRILO – TALLA S (CAJA × 50 PARES)",
+        name: "Talla S · caja × 50 pares",
         description: "Guantes descartables de nitrilo color azul cobalto, sin látex natural, ambidiestros, con puño con reborde y ajuste ergonómico. Ideales para procedimientos clínicos, laboratorio, odontología y manipulación de muestras. || Material: Nitrilo | Color: Azul cobalto | Talla: S | Presentación: Caja × 50 pares (100 unidades) | Libre de látex natural",
-        price: 16,
+        price: 16, cashPrice: 15,
         image: "/images/descartable/GUANTES/NITRILO_S.png"
       },
       {
         sku: "guantes-nitrilo-m",
         attrs: { talla: "m" },
-        name: "GUANTES DE NITRILO – TALLA M (CAJA × 50 PARES)",
+        name: "Talla M · caja × 50 pares",
         description: "Guantes descartables de nitrilo color azul cobalto, sin látex natural, ambidiestros, con puño con reborde y ajuste ergonómico. Ideales para procedimientos clínicos, laboratorio, odontología y manipulación de muestras. || Material: Nitrilo | Color: Azul cobalto | Talla: M | Presentación: Caja × 50 pares (100 unidades) | Libre de látex natural",
-        price: 16,
+        price: 16, cashPrice: 15,
         image: "/images/descartable/GUANTES/NITRILO_M.png"
       },
       {
         sku: "guantes-nitrilo-l",
         attrs: { talla: "l" },
-        name: "GUANTES DE NITRILO – TALLA L (CAJA × 50 PARES)",
+        name: "Talla L · caja × 50 pares",
         description: "Guantes descartables de nitrilo color azul cobalto, sin látex natural, ambidiestros, con puño con reborde y ajuste ergonómico. Ideales para procedimientos clínicos, laboratorio, odontología y manipulación de muestras. || Material: Nitrilo | Color: Azul cobalto | Talla: L | Presentación: Caja × 50 pares (100 unidades) | Libre de látex natural",
-        price: 16,
+        price: 16, cashPrice: 15,
         image: "/images/descartable/GUANTES/NITRILO_L.png"
       }
     ]
